@@ -3,7 +3,7 @@
 
 # include "inc.h"
 # include "libft.h"
-
+# include "structs.h"
 
 
 #endif
