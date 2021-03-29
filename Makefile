@@ -21,7 +21,7 @@ HEADER = includes/header.h
 INC = -I./libft -I./includes -I./gnl
 OBJ = $(SRC:.c=.o)
 
-PATHSRC = parser main_branching
+PATHSRC = parser
 SRCLIST = $(wildcard $(dir)/*.c)
 SRC =$(shell cat $(DEP_SRC))
 HEAD =$(shell cat $(DEP_INC))
@@ -37,30 +37,26 @@ INC_FOR_SAVE = $(wildcard includes/*.h)
 all: libs $(NAME) $(SRC)
 
 $(NAME): $(OBJ) $(LIB_MLX)
-	@cp minilibx_mms/libmlx.dylib ./
-	@$(CC) $(FLAG) -o $(NAME) $(LIBX) $(SRC_FOR_SAVE) $(INC) $(LIBS)
+	$(CC) $(FLAG) -o $(NAME) $(LIBX) $(SRC_FOR_SAVE) $(INC) $(LIBS)
 	@echo "$(BOLD)$(GB)Compilation done$(EB)$(SGR0)";
 
 %.o: %.c $(HEAD) $(LIB_MLX) $(LIBS)
-	@$(CC) -c $(FLAG) $< $(INC) -o $@
+	$(CC) -c $(FLAG) $< $(INC) -o $@
 
 libs:
-	@$(MAKE) bonus -C$(PATHLIB) --silent
+	$(MAKE) bonus -C$(PATHLIB) --silent
 
 clean:
-	@rm -f $(OBJ)
-	@$(MAKE) clean -C$(PATHLIB)
+	rm -f $(OBJ)
+	$(MAKE) clean -C$(PATHLIB)
 	@echo "$(BOLD)$(RB)Del done$(EB)$(SGR0)";
 
 fclean: clean
-	@rm -f $(NAME)
-	@$(MAKE) fclean -C$(PATHLIB)
-	@rm -f libmlx.dylib
+	rm -f $(NAME)
+	$(MAKE) fclean -C$(PATHLIB)
 
 norme:
-	@if ! norminette $(SRC) includes/solve_mlx.h includes/inc.h \
-     includes/intersect_and_light.h includes/minirt.h \
-     includes/solve_mlx.h includes/structs.h includes/vectors.h \
+	@if ! norminetteV3 $(SRC) headers/headers.h\
      libft/*.c libft/*.h \
      | grep -q "Error"; then \
   		echo "Check norminette - $(BOLD)$(GB)Успешно$(EB)$(SGR0)"; \
