@@ -1,9 +1,19 @@
 #include "header.h"
 
-int 				main(int argc, char *argv[], char *envp[])
+int					check_exit(int flag)
 {
-	int index = 0;
+	return (flag);
+}
 
-	while (envp[index])
-		printf("%s\n", envp[index++]);
+int 				main(int argc, char **argv,char *envp[])
+{
+	int 			flag;
+
+	flag = 0;
+	while (!(check_exit(flag)))
+	{
+		printf("COLOR_BLUEminishell:COLOR_RESET");
+		flag = pre_pars_branching(envp);
+	}
+	return (1);
 }

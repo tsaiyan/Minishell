@@ -1,6 +1,8 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+# include "dni_structs.h"
+
 typedef struct	s_main
 {
 	int			pipe_flag;
