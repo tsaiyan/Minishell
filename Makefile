@@ -16,10 +16,10 @@ PATHLIB = ./libft
 NAMELIB = libft.a
 LIBS = $(PATHLIB)/$(NAMELIB)
 
-FLAG = -Wall #-Wextra -Werror
+FLAG = -g -Wall #-Wextra -Werror
 HEADER = includes/header.h
-INC = -I./libft -I./includes -I./gnl
-OBJ = $(SRC:.c=.o)
+INC = -I./libft -I./includes
+OBJ = $(SRC_FOR_SAVE:.c=.o)
 
 PATHSRC = parser utils
 SRCLIST = $(wildcard $(dir)/*.c)
@@ -29,22 +29,22 @@ HEAD =$(shell cat $(DEP_INC))
 DIR_DEP =.deps
 DEP_INC =$(DIR_DEP)/include_list.txt
 DEP_SRC =$(DIR_DEP)/source_list.txt
-SRC_FOR_SAVE =$(foreach dir, $(PATHSRC), $(SRCLIST))
+SRC_FOR_SAVE = $(foreach dir, $(PATHSRC), $(SRCLIST))
 INC_FOR_SAVE = $(wildcard includes/*.h)
 
 .PHONY: all libs clean fclean re norme save
 
-all: libs $(NAME) $(SRC)
+all: libs $(NAME) $(SRC_FOR_SAVE)
 
-$(NAME): $(OBJ) $(LIB_MLX)
-	$(CC) $(FLAG) -o $(NAME) $(LIBX) $(SRC_FOR_SAVE) $(INC) $(LIBS)
+$(NAME): $(OBJ)
+	$(CC) $(FLAG) -o $(NAME) $(SRC_FOR_SAVE) $(INC) $(LIBS)
 	@echo "$(BOLD)$(GB)Compilation done$(EB)$(SGR0)";
 
-%.o: %.c $(HEAD) $(LIB_MLX) $(LIBS)
+%.o: %.c $(HEAD) $(LIBS)
 	$(CC) -c $(FLAG) $< $(INC) -o $@
 
 libs:
-	$(MAKE) bonus -C$(PATHLIB) --silent
+	$(MAKE) bonus -C$(PATHLIB)
 
 clean:
 	rm -f $(OBJ)

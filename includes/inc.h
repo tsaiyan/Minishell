@@ -4,5 +4,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <dirent.h>
+# include <errno.h>
+# include <unistd.h>
+# include <string.h>
 
 #endif

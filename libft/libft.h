@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../includes/header.h"
+
 
 typedef struct		s_list
 {

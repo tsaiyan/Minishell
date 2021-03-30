@@ -11,4 +11,10 @@
 
 # define DEL_DEF -6
 
+# define SYS_ERR_WRITE	1
+# define SYS_ERR_READ	2
+
+# define CALLOC_ERR		-100
+# define MALLOC_ERR		-101
+
 #endif
