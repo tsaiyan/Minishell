@@ -1,7 +1,7 @@
 #ifndef UTILS_H
 # define UTILS_H
 
-void 			ft_errors(int code);
-
+int ft_errors(int code);
+char *ft_realloc(char *arg, int count);
 
 #endif
