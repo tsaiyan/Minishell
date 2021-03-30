@@ -6,7 +6,7 @@
 /*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:11:22 by tphung            #+#    #+#             */
-/*   Updated: 2021/03/30 17:02:28 by tphung           ###   ########.fr       */
+/*   Updated: 2021/03/30 17:53:42 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int			check_exist(char **path, char *file)
 	struct dirent	*example;
 
 	i = 0;
-	l_f = (size_t)ft_strlen(file);
 	while(path[i])
 	{
 		papka = 0;
@@ -28,11 +27,11 @@ int			check_exist(char **path, char *file)
 		{
 			while ((example = readdir(papka)))
 			{
-				/*if (ft_strncmp(example->d_name, file, l_f) == 0)
+				l_f = (size_t)ft_strlen(example->d_name);
+				if (ft_strncmp(example->d_name, file, l_f) == 0)
 				{
-					
-				}*/
-				printf("%s\n", example->d_name);
+					printf("path = %s file = %s\n", path[i], example->d_name);
+				}
 			}
 			closedir(papka);
 		}
@@ -41,7 +40,7 @@ int			check_exist(char **path, char *file)
 	return (0);
 }
 
-int			launcher(t_main *arg)
+int			launcher(t_main *arg, char *file)
 {
 	int		i;
 	char	**path_str;
@@ -59,6 +58,7 @@ int			launcher(t_main *arg)
 	{
 		printf("%s\n", path_str[i++]);
 	}
+	printf("%d\n", check_exist(path_str, file));
 
 	return (0);
 }
