@@ -12,7 +12,7 @@ int 				main(int argc, char **argv,char *envp[])
 	flag = 0;
 	while (!(check_exit(flag)))
 	{
-		printf("COLOR_BLUEminishell:COLOR_RESET");
+		write(1, COLOR_BLUE"minishell$ "COLOR_RESET, 20);
 		flag = pre_pars_branching(envp);
 	}
 	return (1);

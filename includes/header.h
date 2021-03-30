@@ -4,6 +4,7 @@
 # include "inc.h"
 # include "libft.h"
 # include "structs.h"
+# include "defines.h"
 # include "pre_parsing.h"
 
 #endif
