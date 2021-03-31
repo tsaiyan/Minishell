@@ -1,1 +1,3 @@
 *.o
+**/*.o
+minishell.dSYM/
