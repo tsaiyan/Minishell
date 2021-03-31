@@ -1,3 +1,5 @@
 *.o
 **/*.o
 minishell.dSYM/
+libft/libft.a
+minishell
