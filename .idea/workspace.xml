@@ -71,6 +71,7 @@
       <change afterPath="$PROJECT_DIR$/utils/ft_errors.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/utils/realloc.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/inc.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/inc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/launcher/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
@@ -158,6 +159,11 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
@@ -188,6 +194,7 @@
       <workItem from="1617111269279" duration="3128000" />
       <workItem from="1617126718991" duration="209000" />
       <workItem from="1617191169024" duration="680000" />
+      <workItem from="1617192769950" duration="199000" />
     </task>
     <servers />
   </component>
