@@ -6,7 +6,7 @@
 /*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:26:52 by tphung            #+#    #+#             */
-/*   Updated: 2021/03/30 17:57:57 by tphung           ###   ########.fr       */
+/*   Updated: 2021/03/31 15:18:02 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int		main(int argc, char **argv, char **envp)
 	arg.argv = argv;
 	arg.envp = envp;
 
-	launcher(&arg, "grep");
+	launcher(&arg);
 	return (0);
 }
