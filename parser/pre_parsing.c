@@ -1,5 +1,14 @@
 #include "header.h"
 
+static int pre_pars(char *arg, t_pars *pa)
+{
+	while (*arg)
+	{
+
+	}
+	return (0);
+}
+
 static int check_arguments_realloc(char **arg, char *buf, t_pars *pa)
 {
 	int len;
@@ -40,9 +49,9 @@ int pre_pars_branching(char *envp[], t_pars *pa)
 		else if (pa->tmp_flag < 0)
 			return (1);
 	}
-	printf("%s", arg);
-	free(arg);
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
+	pre_pars(arg, pa);
+	free(arg);
 	return (0);
 }
