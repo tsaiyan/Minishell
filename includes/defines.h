@@ -8,6 +8,15 @@
 # define COLOR_MAGENTA "\x1b[35m"
 # define COLOR_CYAN "\x1b[36m"
 # define COLOR_RESET "\x1b[0m"
+# define S_QUOT 39
+# define W_QUOT 34
+
+# define EMPTY_SPACE -1
+# define EMPTY_S_QUOT -2
+# define EMPTY_W_QUOT -3
+# define EMPTY_BACK_SLASH -4
+
+// -1 tab, space
 
 # define DEL_DEF -6
 

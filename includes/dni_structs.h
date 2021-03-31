@@ -3,9 +3,13 @@
 
 typedef struct	s_pars
 {
+	int 		quot_flag;
+	int 		back_slash;
 	int 		count;
 	int 		tmp;
 	int 		tmp_flag;
 }	t_pars;
+
+// quot flag 1 - " | 2 - '|
 
 #endif

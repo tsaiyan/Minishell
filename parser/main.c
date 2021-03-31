@@ -10,8 +10,8 @@ int 				main(int argc, char **argv, char *envp[])
 	int 			flag;
 	t_pars			p;
 
-	ft_bzero(&p, sizeof(t_pars));
 	p.count = 10;
+	ft_bzero(&p, sizeof(t_pars));
 	flag = 0;
 	while (!(check_exit(flag)))
 	{

@@ -2,10 +2,20 @@
 
 static int pre_pars(char *arg, t_pars *pa)
 {
-	while (*arg)
-	{
+	int 		i;
 
+	i = 0;
+	while (arg[i] != 0)
+	{
+		if (arg[i] == ';')
+			return (0);
+		if (check_char(arg + i, pa))
+			return (1);
+		if (arg[i] >= 0)
+			ft_putchar_fd(arg[i], 1);
+		i++;
 	}
+	ft_putchar_fd('\n', 1);
 	return (0);
 }
 
@@ -30,7 +40,12 @@ static int check_arguments_realloc(char **arg, char *buf, t_pars *pa)
 //		ft_bzero(&buf, len_arg);
 	}
 	if (ft_strchr(*arg, '\n'))
+	{
+		len_arg = ft_strlen(*arg);
+		(*arg)[len_arg - 1] = 0;
+		//hzzhzhzhz
 		return (0);
+	}
 	return (1);
 }
 

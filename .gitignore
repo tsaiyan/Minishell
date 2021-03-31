@@ -1,5 +1,5 @@
 *.o
 **/*.o
-../minishell.dSYM/
+/minishell.dSYM/
 libft/libft.a
 minishell
