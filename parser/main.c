@@ -13,6 +13,7 @@ int 				main(int argc, char **argv, char *envp[])
 	p.count = 10;
 	ft_bzero(&p, sizeof(t_pars));
 	flag = 0;
+	p.envp = envp;
 	while (!(check_exit(flag)))
 	{
 		write(1, COLOR_BLUE"minishell$ "COLOR_RESET, 20);

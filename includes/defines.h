@@ -26,4 +26,7 @@
 # define CALLOC_ERR		-100
 # define MALLOC_ERR		-101
 
+# define MULTI_LINE_COMMAND -200
+# define CANT_ACCESS_ENVP -201
+
 #endif

@@ -3,3 +3,6 @@
 /minishell.dSYM/
 libft/libft.a
 minishell
+.idea
+minishell.dSYM
+/.idea/

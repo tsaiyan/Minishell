@@ -3,6 +3,9 @@
 
 typedef struct	s_pars
 {
+	char		*s;
+	char 		*command;
+	char 		**envp;
 	int 		quot_flag;
 	int 		back_slash;
 	int 		count;
