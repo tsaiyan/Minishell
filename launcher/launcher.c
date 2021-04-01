@@ -6,7 +6,7 @@
 /*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:11:22 by tphung            #+#    #+#             */
-/*   Updated: 2021/03/31 16:29:40 by tphung           ###   ########.fr       */
+/*   Updated: 2021/04/01 19:15:50 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int			check_exist(char **path, char *file)
 	return (-1);
 }
 
-char		*path_exec(char *path_str, char *name)
+char		*path_join(char *path_str, char *name)
 {
 	char	*tmp;
 	char	*path_name;
@@ -66,9 +66,11 @@ int			fork_execve(char **argv, char **envp, char *path_name)
 		return (-1);
 	else if (pid == 0)
 	{
+		errno = 0;
 		printf(" CHILD: Это процесс-потомок!\n");
+		printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1PATH= %s\n", path_name);
 		stat = execve(path_name, argv, envp);
-		printf(" CHILD: Выход!\n");
+		printf(" CHILD: Выход!\n ОШИБКА:\n %s\n", strerror(errno));
 		exit(stat);
 	}
 	else
@@ -80,7 +82,7 @@ int			fork_execve(char **argv, char **envp, char *path_name)
 	return (0);
 }
 
-int			launcher(t_main *arg)
+char	*filename_parser(char *filename, char **envp)
 {
 	int		i;
 	char	**path_str;
@@ -89,14 +91,27 @@ int			launcher(t_main *arg)
 
 	i = 0;
 	delim = ':';
-	while(ft_strncmp(arg->envp[i++], "PATH=", 5))
+	if (ft_strchr("./", filename[0]))
+		return (filename);
+	while(ft_strncmp(envp[i++], "PATH=", 5))
 		;
-	str = arg->envp[--i];
+	str = envp[--i];
 	path_str = ft_split(str + 5, &delim);
-	if ((i = check_exist(path_str, *(arg->argv + 1))) < 0)
-		return (-1);
-	if ((str = path_exec(path_str[i], *(arg->argv + 1))) == 0)
-		return (-1);
+	//printf("%s\n", strerror(errno));
+	i = check_exist(path_str, filename);
+	//if (i < 0)
+	//	printf("%s\n", strerror(errno));
+	str = path_join(path_str[i], filename);
+	//if (str == 0)
+	//	printf("%s\n", strerror(errno));
+	return (str);
+}
+
+int			launcher(t_main *arg)
+{
+	char	*str;
+
+	str = filename_parser(*(arg->argv + 1), arg->envp);
 	fork_execve(arg->argv + 1, arg->envp, str);
 	printf("PARENT: Выход!\n");
 	return (0);
