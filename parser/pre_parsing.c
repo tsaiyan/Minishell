@@ -1,26 +1,42 @@
 #include "header.h"
 
+static char *pre_pars_subs(char *arg, t_pars *pa)
+{
+	int			i;
+
+	i = -1;
+	while (arg[++i] != 0)
+	{
+		if ((check_chars_subst(&arg, pa, &i)))
+			return (NULL);
+	}
+}
+
 static int pre_pars(char *arg, t_pars *pa)
 {
 	int 		i;
 
 	i = 0;
 	pa->s = arg;
-	while (arg[i] != 0)
-	{
-		if (arg[i] == ';')
-			return (0);
-		if (check_char(arg + i, pa))
-			return (1);
-		i++;
-	}
+	arg = pre_pars_subs(arg, pa);
+	if (NULL == arg)
+		return (1);
+	pa->s = arg;
+
+//	while (arg[i] != 0)
+//	{
+//		if (arg[i] == ';')
+//			return (0);
+//		if (check_char(arg + i, pa))
+//			return (1);
+//		i++;
+//	}
 	i = -1;
 	while (arg[++i] != 0)
 	{
 		if (arg[i] >= 0)
 			ft_putchar_fd(arg[i], 1);
 	}
-
 	ft_putchar_fd('\n', 1);
 	return (0);
 }
@@ -62,13 +78,16 @@ int pre_pars_branching(char *envp[], t_pars *pa)
 	char			*arg;
 
 	arg = NULL;
-	while (0 < (ret = read(0, buf, 10)))
+	ret = read(0, buf, 10);
+	while (0 < ret)
 	{
 		buf[ret] = '\0';
-		if (0 == (pa->tmp_flag = check_arguments_realloc(&arg, buf, pa)))
+		pa->tmp_flag = check_arguments_realloc(&arg, buf, pa);
+		if (0 == pa->tmp_flag)
 			break ;
 		else if (pa->tmp_flag < 0)
 			return (1);
+		ret = read(0, buf, 10);
 	}
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);

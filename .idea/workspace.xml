@@ -21,22 +21,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/parser/check_spaces.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser/pre_pars_substitution.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/defines.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dni_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dni_structs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/check_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/ft_errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_errors.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/realloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/realloc.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +46,11 @@
     </projectState>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MakefileLocalSettings">
@@ -157,9 +156,9 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -196,6 +195,8 @@
       <workItem from="1617196177361" duration="2732000" />
       <workItem from="1617204013153" duration="1730000" />
       <workItem from="1617271034142" duration="7401000" />
+      <workItem from="1617295484323" duration="116000" />
+      <workItem from="1617360527535" duration="3195000" />
     </task>
     <servers />
   </component>
