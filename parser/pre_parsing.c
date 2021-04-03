@@ -2,6 +2,7 @@
 
 static char *pre_pars_subs(char *arg, t_pars *pa)
 {
+	char 		*ret;
 	int			i;
 
 	i = -1;
@@ -10,6 +11,12 @@ static char *pre_pars_subs(char *arg, t_pars *pa)
 		if ((check_chars_subst(&arg, pa, &i)))
 			return (NULL);
 	}
+	ret = copy_new_prepars_str(arg);
+	if (NULL == ret)
+		return (NULL);
+	free(arg);
+	printf("%s\n", ret);
+	return (ret);
 }
 
 static int pre_pars(char *arg, t_pars *pa)
@@ -31,13 +38,13 @@ static int pre_pars(char *arg, t_pars *pa)
 //			return (1);
 //		i++;
 //	}
-	i = -1;
-	while (arg[++i] != 0)
-	{
-		if (arg[i] >= 0)
-			ft_putchar_fd(arg[i], 1);
-	}
-	ft_putchar_fd('\n', 1);
+//	i = -1;
+//	while (arg[++i] != 0)
+//	{
+//		if (arg[i] >= 0)
+//			ft_putchar_fd(arg[i], 1);
+//	}
+//	ft_putchar_fd('\n', 1);
 	return (0);
 }
 
@@ -92,6 +99,6 @@ int pre_pars_branching(char *envp[], t_pars *pa)
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
 	pre_pars(arg, pa);
-	free(arg);
+//	free(arg);
 	return (0);
 }

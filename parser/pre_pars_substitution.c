@@ -2,12 +2,14 @@
 
 static void		check_quotes_subst(char *arg, t_pars *pa, int *i)
 {
-
-}
-
-static void		check_spaces(char *arg, t_pars *pa, int *i)
-{
-
+	if (arg[*i] == S_QUOT && pa->quot_flag == 0)
+		pa->quot_flag = 2;
+	if (arg[*i] == S_QUOT && pa->quot_flag == 2)
+		pa->quot_flag = 0;
+	if (arg[*i] == W_QUOT && pa->quot_flag == 0)
+		pa->quot_flag = 1;
+	if (arg[*i] == W_QUOT && pa->quot_flag == 1)
+		pa->quot_flag = 0;
 }
 
 static int		check_slashes(const char *arg, t_pars *pa, int *i)
@@ -23,16 +25,23 @@ static int		check_slashes(const char *arg, t_pars *pa, int *i)
 int check_chars_subst(char **arg, t_pars *pa, int *i)
 {
 	if (arg[0][*i] == ' ')
-		check_spaces(*arg, pa, i);
+		check_spaces_prep(*arg + *i, pa);
 	else if (arg[0][*i] == '\\' || arg[0][*i] == '/')
 	{
 		if (check_slashes(*arg, pa, i))
+		{
+			write_error(MULTI_LINE_COMMAND, pa->s);
 			return (1);
+		}
 	}
 	else if (arg[0][*i] == S_QUOT || arg[0][*i] == W_QUOT)
 		check_quotes_subst(*arg, pa, i);
 	else if (arg[0][*i] == '$')
 	{
-		if
 	}
+	else
+	{
+		pa->tmp_flag = 0;
+	}
+	return (0);
 }

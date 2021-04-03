@@ -48,8 +48,8 @@ int 			check_char(char *cur_arg, t_pars *pa)
 		check_spaces_prep(cur_arg, pa);
 	else if (*cur_arg == S_QUOT || *cur_arg == W_QUOT)
 		check_quotes(cur_arg, pa);
-	else if (*cur_arg == '$')
-		check_envp(&cur_arg, pa);
+//	else if (*cur_arg == '$')
+//		check_envp(&cur_arg, pa);
 	else
 	{
 		pa->tmp_flag = 0;
