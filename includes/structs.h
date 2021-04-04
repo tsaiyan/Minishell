@@ -7,8 +7,10 @@ typedef struct	s_main
 {
 	int			pipe_flag;
 	int 		red_flag;
-	int			fd_in;
-	int 		fd_out;
+	int			fd_read;
+	int 		fd_write;
+	int			save_fd_read;
+	int			save_fd_write;
 	int 		argc;
 	char 		**argv;
 	char		**envp;
