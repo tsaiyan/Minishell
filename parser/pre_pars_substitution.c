@@ -38,6 +38,8 @@ int check_chars_subst(char **arg, t_pars *pa, int *i)
 		check_quotes_subst(*arg, pa, i);
 	else if (arg[0][*i] == '$')
 	{
+		if (check_envp(arg, pa, i, STAGE_FIRST))
+			return (1);
 	}
 	else
 	{

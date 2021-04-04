@@ -8,6 +8,10 @@
 # define COLOR_MAGENTA "\x1b[35m"
 # define COLOR_CYAN "\x1b[36m"
 # define COLOR_RESET "\x1b[0m"
+
+# define STAGE_FIRST 100
+# define STAGE_SECOND 101
+
 # define S_QUOT 39
 # define W_QUOT 34
 

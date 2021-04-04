@@ -15,7 +15,6 @@ static char *pre_pars_subs(char *arg, t_pars *pa)
 	if (NULL == ret)
 		return (NULL);
 	free(arg);
-	printf("%s\n", ret);
 	return (ret);
 }
 
