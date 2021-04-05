@@ -8,6 +8,7 @@ typedef struct	s_main
 	int			pipe_in;
 	int			pipe_out;
 	int 		red_flag;
+	char		*red_name;
 	int			fd_read;
 	int 		fd_write;
 	int			save_fd_read;

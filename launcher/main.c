@@ -6,7 +6,7 @@
 /*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:26:52 by tphung            #+#    #+#             */
-/*   Updated: 2021/04/05 15:09:04 by tphung           ###   ########.fr       */
+/*   Updated: 2021/04/05 18:30:19 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int		main(int argc, char **argv, char **envp)
 	char	**des;
 
 
-	arg.pipe_out = 0;
 	arg.pipe_in = 0;
+	arg.pipe_out = 0;
+	arg.red_flag = 1;
+	arg.red_name = "test";
 	arg.argc = argc;
 	arg.argv = argv;
 	arg.envp = envp;
@@ -36,7 +38,7 @@ int		main(int argc, char **argv, char **envp)
 	launcher(&arg);
 
 	arg.pipe_in = 1;
-	arg.pipe_out = 0;
+	arg.pipe_out = 1;
 
 	des = malloc(sizeof(char*) * 3);
 	des[0] = "cat";
@@ -45,5 +47,29 @@ int		main(int argc, char **argv, char **envp)
 	des[3] = NULL;
 	arg.argv = des;
 	launcher(&arg);
-	return (0);*/
+
+	arg.pipe_in = 1;
+	arg.pipe_out = 1;
+
+	des = malloc(sizeof(char*) * 3);
+	des[0] = "grep";
+	des[1] = "grep";
+	des[2] = "l";
+	des[3] = NULL;
+	arg.argv = des;
+	launcher(&arg);
+
+	arg.pipe_in = 1;
+	arg.pipe_out = 0;
+
+	des = malloc(sizeof(char*) * 3);
+	des[0] = "grep";
+	des[1] = "grep";
+	des[2] = "in";
+	des[3] = NULL;
+	arg.argv = des;
+	launcher(&arg);
+
+*/
+	return (0);
 }
