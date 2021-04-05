@@ -21,6 +21,8 @@ typedef struct	s_frs
 	int			*i;
 	int 		*lim1;
 	int 		*lim2;
+	int 		tmp_i;
+	int 		tmp_j;
 }				t_fts;
 
 // quot flag 1 - " | 2 - '|

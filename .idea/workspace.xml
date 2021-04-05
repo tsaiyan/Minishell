@@ -21,14 +21,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/env_fuc3.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/a.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/pass_strlen.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/dni_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dni_structs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/copy_prepars_str.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/copy_prepars_str.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_fuc3.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_fuc3.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/env_func2.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func2.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +205,9 @@
       <workItem from="1617360527535" duration="7077000" />
       <workItem from="1617455316047" duration="2427000" />
       <workItem from="1617547085339" duration="7166000" />
-      <workItem from="1617614516192" duration="7968000" />
+      <workItem from="1617614516192" duration="8624000" />
+      <workItem from="1617631331014" duration="476000" />
+      <workItem from="1617631913075" duration="5368000" />
     </task>
     <servers />
   </component>
@@ -271,6 +273,11 @@
           <url>file://$PROJECT_DIR$/utils/env_func2.c</url>
           <line>16</line>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/utils/env_func.c</url>
+          <line>8</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

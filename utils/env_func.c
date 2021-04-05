@@ -6,7 +6,7 @@ static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	char 		*tmp;
 
 	env_arg = take_arg_from_env(arg, str, i, pa);
-	tmp = find_substr_instr_and_replace(str, *arg + *i, env_arg, i);
+	tmp = find_substr_in_str_and_replace(str, *arg + *i, env_arg, i);
 	if (NULL == tmp)
 		return (1);
 	free(*arg);
