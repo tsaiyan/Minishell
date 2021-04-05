@@ -5,7 +5,8 @@
 
 typedef struct	s_main
 {
-	int			pipe_flag;
+	int			pipe_in;
+	int			pipe_out;
 	int 		red_flag;
 	int			fd_read;
 	int 		fd_write;

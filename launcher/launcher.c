@@ -6,7 +6,7 @@
 /*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:11:22 by tphung            #+#    #+#             */
-/*   Updated: 2021/04/04 17:21:42 by tphung           ###   ########.fr       */
+/*   Updated: 2021/04/05 15:04:24 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,20 +134,29 @@ int	fd_replacement(int old_fd, int new_fd)
 
 int	do_pipe(t_main *arg)
 {
-	if (arg->pipe_flag == 1)
+	if (arg->pipe_out == 1)
 	{
+		if (arg->pipe_in == 1)
+		{
+			arg->save_fd_read = dup(0);
+			fd_replacement(arg->fd_read, 0);
+		}
 		open_pipe(arg);
-		arg->save_fd_write = dup(1);
+		if (arg->pipe_in == 0)
+			arg->save_fd_write = dup(1);
 		fd_replacement(arg->fd_write, 1);
 		close(arg->fd_write);
 	}
-	else if (arg->pipe_flag == 2)
+	if (arg->pipe_in == 1)
 	{
-		arg->save_fd_read = dup(0);
-		fd_replacement(arg->fd_read, 0);
-		fd_replacement(arg->save_fd_write, 1);
-		close(arg->fd_read);
-		close(arg->save_fd_write);
+		if (arg->pipe_out == 0)
+		{
+			arg->save_fd_read = dup(0);
+			fd_replacement(arg->fd_read, 0);
+			fd_replacement(arg->save_fd_write, 1);
+			close(arg->fd_read);
+			close(arg->save_fd_write);
+		}
 	}
 	return (0);
 }
@@ -155,17 +164,16 @@ int	do_pipe(t_main *arg)
 int			launcher(t_main *arg)
 {
 	char	*str;
-		do_pipe(arg);
+
+	do_pipe(arg);
 	str = filename_parser(*(arg->argv + 1), arg->envp);
 	fork_execve(arg->argv + 1, arg->envp, str);
-
-
 	//arg->pipe_flag = 2;
 	//do_pipe(arg);
 	//read(0, buf, 120);
 	//write(1, buf, ft_strlen(buf));
 	//fork_execve(des, arg->envp, "/bin/cat");
-	if (arg->pipe_flag == 2)
+	if (arg->pipe_in == 1)
 	{
 		fd_replacement(arg->save_fd_read, 0);
 		close(arg->save_fd_read);
