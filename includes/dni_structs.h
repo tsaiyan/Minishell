@@ -13,6 +13,16 @@ typedef struct	s_pars
 	int 		tmp_flag;
 }	t_pars;
 
+typedef struct	s_frs
+{
+	const char	*substr;
+	char		*str;
+	const char	*rep_str;
+	int			*i;
+	int 		*lim1;
+	int 		*lim2;
+}				t_fts;
+
 // quot flag 1 - " | 2 - '|
 
 #endif

@@ -1,5 +1,4 @@
 #include "header.h"
-
 int					check_exit(int flag)
 {
 	return (flag);
@@ -9,6 +8,11 @@ int 				main(int argc, char **argv, char *envp[])
 {
 	int 			flag;
 	t_pars			p;
+
+//	for (int i = 0; envp[i] != NULL; i++)
+//	{
+//		printf("%s\n", envp[i]);
+//	}
 
 	p.count = 10;
 	ft_bzero(&p, sizeof(t_pars));

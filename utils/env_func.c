@@ -1,9 +1,19 @@
 #include "header.h"
 
-//static int 		check_dollar_quest(char *curr_arg, t_pars *pa)
-//{
-//
-//}
+static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
+{
+	char		*env_arg;
+	char 		*tmp;
+
+	env_arg = take_arg_from_env(arg, str, i, pa);
+	tmp = find_substr_instr_and_replace(str, *arg + *i, env_arg, i);
+	if (NULL == tmp)
+		return (1);
+	free(*arg);
+	free(str);
+	*arg = tmp;
+	return (0);
+}
 
 
 static char *take_arg(char *curr_arg, int *i)
@@ -12,19 +22,21 @@ static char *take_arg(char *curr_arg, int *i)
 	int 	tmp;
 	char 	*ret;
 
-	j = 0;
+	j = 1;
 	tmp = -1;
 	while (ft_isalnum(curr_arg[j]))
 	{
-		if (j == 0 && ft_isalnum(curr_arg[j]))
+		if (j == 1 && ft_isdigit(curr_arg[j]))
+		{
 			j++;
-		else if (ft_isalpha(curr_arg[j]))
+			break ;
+		}
+		else if (ft_isdigit(curr_arg[j]) || ft_isalpha(curr_arg[j]))
 			j++;
 		else
 			break ;
 	}
-	ret = ft_calloc(sizeof(char), j);
-	// + 1
+	ret = ft_calloc(sizeof(char), j + 1);
 	if (ret == NULL)
 		return (NULL);
 	while (++tmp != j)
@@ -40,9 +52,19 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 	if (pa->quot_flag == 0)
 	{
 		num = *i;
-		str = take_arg(*arg + 1, &num);
+		if (arg[0][*i + 1] == '\t' || arg[0][*i + 1] == ' ')
+		{
+			*i += 1;
+			return (0);
+		}
+		str = take_arg(*arg, &num);
 		if (NULL == str)
 			return (ft_errors(CALLOC_ERR));
+		if (ft_isdigit(str[1]))
+			del_env_arg(arg, str, i, pa);
+		else
+			check_dollar_quest(arg, pa, str, i);
+		free(str);
 	}
 	return (0);
 }
