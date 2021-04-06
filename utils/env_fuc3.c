@@ -42,9 +42,8 @@ static char *replace_in_str(char *ret, t_fts *p, int i, int len)
 		return (NULL);
 	while (++j != i)
 		ret[j] = p->str[j];
-	while (j + *(p->lim1) != len)
+	while (j + *(p->lim1) != len + 1)
 	{
-
 		if (cmp_find(p->str + j, p->substr))
 		{
 			p->tmp_i = j;

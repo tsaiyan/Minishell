@@ -6,11 +6,12 @@ static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	char 		*tmp;
 
 	env_arg = take_arg_from_env(arg, str, i, pa);
-	tmp = find_substr_in_str_and_replace(str, *arg + *i, env_arg, i);
+	tmp = find_substr_in_str_and_replace(str, *arg, env_arg, i);
 	if (NULL == tmp)
 		return (1);
 	free(*arg);
 	free(str);
+	free(env_arg);
 	*arg = tmp;
 	return (0);
 }
@@ -57,14 +58,13 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 			*i += 1;
 			return (0);
 		}
-		str = take_arg(*arg, &num);
+		str = take_arg(*arg + *i, &num);
 		if (NULL == str)
 			return (ft_errors(CALLOC_ERR));
 		if (ft_isdigit(str[1]))
-			del_env_arg(arg, str, i, pa);
+			find_substr_in_str_and_replace(str, *arg, "", i);
 		else
 			check_dollar_quest(arg, pa, str, i);
-		free(str);
 	}
 	return (0);
 }
