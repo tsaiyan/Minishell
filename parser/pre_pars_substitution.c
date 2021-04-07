@@ -1,6 +1,6 @@
 #include "header.h"
 
-static void		check_quotes_subst(char *arg, t_pars *pa, int *i)
+void		check_quotes_subst(char *arg, t_pars *pa, int *i)
 {
 	if (arg[*i] == S_QUOT && pa->quot_flag == 0)
 		pa->quot_flag = 2;

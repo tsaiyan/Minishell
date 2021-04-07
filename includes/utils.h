@@ -21,6 +21,6 @@ char *find_substr_in_str_and_replace(const char *substr, char *str,
 int check_envp(char **curr_arg, t_pars *pa, int *i, int stage);
 
 int		pass_strlen(char *str);
-// pass EMPTY DEFINES and check len not considering them
+// pass EMPTY DEFINES and check_semicolon len not considering them
 
 #endif

@@ -21,7 +21,7 @@ static char *pre_pars_subs(char *arg, t_pars *pa)
 static int pre_pars(char *arg, t_pars *pa)
 {
 	int 		i;
-	char 		tmp;
+//	char 		tmp;
 
 	i = 0;
 	pa->s = arg;
@@ -80,9 +80,21 @@ static int check_arguments_realloc(char **arg, char *buf, t_pars *pa)
 	return (1);
 }
 
-int check_semicolon(char *line, t_pars *pa)
+int take_argument_for_pre_pars(char *line, t_pars *pa)
 {
+	char 		*arg;
+	int 		ret;
+	t_pars		s;
 
+
+	ft_bzero(&s, sizeof(t_pars));
+	ret = check_semicolon_and_syntax(line, &s);
+	if (ret < 0)
+	{
+		write_error(ret, line);
+		return (1);
+	}
+	return (0);
 }
 
 int pre_pars_branching(char *envp[], t_pars *pa)
@@ -105,7 +117,8 @@ int pre_pars_branching(char *envp[], t_pars *pa)
 	}
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
-	pre_pars(arg, pa);
-//	free(arg);
+	if (take_argument_for_pre_pars(arg, pa))
+		return (0);
+	printf("%s\n", arg);
 	return (0);
 }
