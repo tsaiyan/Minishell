@@ -5,15 +5,15 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="minishell" targetName="wc" />
-      <config projectName="minishell" targetName="minishell" />
+      <config projectName="minishell" targetName="norm" />
       <config projectName="minishell" targetName="save" />
-      <config projectName="minishell" targetName="fclean" />
-      <config projectName="minishell" targetName="norme" />
       <config projectName="minishell" targetName="re" />
       <config projectName="minishell" targetName="all" />
+      <config projectName="minishell" targetName="fclean" />
       <config projectName="minishell" targetName="libs" />
-      <config projectName="minishell" targetName="norm" />
+      <config projectName="minishell" targetName="minishell" />
+      <config projectName="minishell" targetName="norme" />
+      <config projectName="minishell" targetName="wc" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -21,23 +21,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/valid.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libft/ft_isspace.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser/valid_part.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/syntax_error" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/defines.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/libft.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_pars_substitution.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_pars_substitution.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/valid_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/valid_part.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/ft_errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_errors.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +103,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Makefile" />
@@ -122,54 +117,59 @@
     </key>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="libs" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="libs" CONFIG_NAME="libs" version="1">
+    <configuration name="libs" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="libs" CONFIG_NAME="libs" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
+    <configuration name="minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="norm" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="norm" CONFIG_NAME="norm" version="1">
+    <configuration name="norm" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="norm" CONFIG_NAME="norm" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="norme" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="norme" CONFIG_NAME="norme" version="1">
+    <configuration name="norme" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="norme" CONFIG_NAME="norme" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="save" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="save" CONFIG_NAME="save" version="1">
+    <configuration name="save" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="save" CONFIG_NAME="save" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="wc" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="wc" CONFIG_NAME="wc" version="1">
+    <configuration name="wc" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="wc" CONFIG_NAME="wc" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -216,6 +216,7 @@
       <workItem from="1617710324755" duration="4443000" />
       <workItem from="1617735824304" duration="224000" />
       <workItem from="1617790663281" duration="8907000" />
+      <workItem from="1617886147773" duration="10019000" />
     </task>
     <servers />
   </component>
@@ -264,66 +265,12 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617790680421">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1617790680421" />
-    <state x="1018" y="474" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617795533590">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state x="1018" y="474" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1617795533590" />
-    <state width="2518" height="424" key="GridCell.Tab.0.bottom" timestamp="1617800581632">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="424" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1617800581632" />
-    <state width="2518" height="424" key="GridCell.Tab.0.center" timestamp="1617800581631">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="424" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1617800581631" />
-    <state width="2518" height="424" key="GridCell.Tab.0.left" timestamp="1617800581631">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="424" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1617800581631" />
-    <state width="2518" height="424" key="GridCell.Tab.0.right" timestamp="1617800581632">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="424" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1617800581632" />
-    <state width="2518" height="520" key="GridCell.Tab.1.bottom" timestamp="1617795005152">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="520" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1617795005152" />
-    <state width="2518" height="520" key="GridCell.Tab.1.center" timestamp="1617795005151">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="520" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1617795005151" />
-    <state width="2518" height="520" key="GridCell.Tab.1.left" timestamp="1617795005151">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="520" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1617795005151" />
-    <state width="2518" height="520" key="GridCell.Tab.1.right" timestamp="1617795005151">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="520" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1617795005151" />
-    <state x="981" y="352" width="598" height="735" key="find.popup" timestamp="1617793689312">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state x="981" y="352" width="598" height="735" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1617793689312" />
-    <state x="854" y="631" width="852" height="192" key="makefile.clean.confirm.dialog" timestamp="1617790664317">
-      <screen x="0" y="23" width="2560" height="1323" />
-    </state>
-    <state x="854" y="631" width="852" height="192" key="makefile.clean.confirm.dialog/0.23.2560.1323@0.23.2560.1323" timestamp="1617790664317" />
-    <state x="1064" y="518" key="refactoring.ChangeSignatureDialog" timestamp="1617802878561">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state x="1064" y="518" key="refactoring.ChangeSignatureDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1617802878561" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/utils/ft_errors.c</url>
-          <line>34</line>
+          <line>39</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -337,24 +284,19 @@
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_fuc3.c</url>
-          <line>83</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_fuc3.c</url>
-          <line>44</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_fuc3.c</url>
-          <line>14</line>
-          <option name="timeStamp" value="42" />
+          <url>file://$PROJECT_DIR$/parser/valid_part.c</url>
+          <line>28</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser/take_arg_before_semicolon.c</url>
-          <line>59</line>
-          <option name="timeStamp" value="43" />
+          <line>20</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/parser/pre_parsing.c</url>
+          <line>98</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -367,6 +309,8 @@
         <watch expression="p-&gt;tmp_j" />
         <watch expression="j + *(p-&gt;lim1)" language="ObjectiveC" />
         <watch expression="len" language="ObjectiveC" />
+        <watch expression="line[*i]" language="ObjectiveC" />
+        <watch expression="line[tmp]" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

@@ -7,23 +7,25 @@ static int check_pipe(char *line, t_pars *pa, int *i)
 
 	tmp = *i - 1;
 	flag = 0;
-	while (tmp != 0)
+	while (tmp != 0 && line[tmp] != '|')
 	{
-		if (ft_isprint(line[tmp]))
-			if (!ft_isspace(line[tmp]))
+		if (ft_isprint(line[tmp]) && !ft_isspace(line[tmp]))
 				flag = 1;
+		if (line[tmp] == ';' && line[tmp - 1] == '\\')
+			break ;
 		tmp--;
 	}
-	if (flag)
+	if (!flag)
 		return (ERROR_UNEXPECTED_PIPE);
 	tmp = *i;
 	while (line[++tmp] != 0)
 	{
-		if (ft_isprint(line[tmp]))
-			if (!ft_isspace(line[tmp]))
+		if (ft_isprint(line[tmp]) && !ft_isspace(line[tmp]))
 				flag = 2;
+		if (line[tmp] == ';' && line[tmp - 1] == '\\')
+			break ;
 	}
-	if (flag == 2)
+	if (flag != 2)
 		return (MULTI_LINE_COMMAND);
 	return (0);
 }
@@ -69,7 +71,7 @@ int check_semicolon_and_syntax(char *line, t_pars *pa)
 				return (ERROR_UNEXPECTED_SEMICOLON);
 		if (line[i] == '|' && line[i - 1] != '\\' && pa->quot_flag == 0)
 		{
-			ret = check_semicolon(line, pa, &i);
+			ret = check_pipe(line, pa, &i);
 			if (0 > ret)
 				return (ret);
 		}

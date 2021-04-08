@@ -27,6 +27,11 @@ static int write_error2(int code, char *arg)
 		write(2, "syntax error near unexpected token `|'\n", 39);
 		return (code);
 	}
+	if (code == SYNTAX_ERROR_PREPARS)
+	{
+		write(2, "syntax error\n", 13);
+		return (code);
+	}
 	return (1);
 }
 

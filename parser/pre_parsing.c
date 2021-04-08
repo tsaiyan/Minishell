@@ -26,11 +26,13 @@ static int pre_pars(char *arg, t_pars *pa)
 	i = 0;
 	pa->s = arg;
 	arg = pre_pars_subs(arg, pa);
-
 	if (NULL == arg)
 		return (1);
+	arg =
 	printf("%s\n", arg);
 	pa->s = arg;
+	free(arg);
+	return (0);
 //	while (arg[i] != 0)
 //	{
 //		if (arg[i] == ';')
@@ -46,8 +48,6 @@ static int pre_pars(char *arg, t_pars *pa)
 //			ft_putchar_fd(arg[i], 1);
 //	}
 //	ft_putchar_fd('\n', 1);
-	free(arg);
-	return (0);
 }
 
 static int check_arguments_realloc(char **arg, char *buf, t_pars *pa)
@@ -93,6 +93,14 @@ int take_argument_for_pre_pars(char *line, t_pars *pa)
 	{
 		write_error(ret, line);
 		return (1);
+	}
+	while (*line != 0)
+	{
+		arg = pars_argument_before_semicolon(&line, pa);
+		if (arg == NULL)
+			return (1);
+		pre_pars(arg, pa);
+		free(arg);
 	}
 	return (0);
 }

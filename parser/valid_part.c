@@ -2,24 +2,48 @@
 
 static int	reverse_redirect(char *line, int *i)
 {
-	int count;
+	int		flag;
 
-	count = 0;
-	while (!ft_isalnum(line[*i]))
+	flag = 0;
+	if (line[*i + 1] == '<')
+		return (MULTI_LINE_COMMAND);
+	if (ft_isdigit(line[*i - 1]))
+		return (SYNTAX_ERROR);
+	*i += 1;
+	while (line[*i] != ';' && line[*i] != 0 && line[*i] != '|' && \
+	line[*i] !=	'>')
 	{
-		if ()
+		if (ft_isprint(line[*i]) && !ft_isspace(line[*i]))
+			flag = 1;
 		*i += 1;
 	}
-
-
+	return ((flag == 0) * SYNTAX_ERROR_PREPARS);
 }
 
-static int forward_redirect(char *line, int *i)
+static int forward_redirect(char *line, int *i, int *ori)
 {
-	int 	count;
+	int 	flag;
 
-	count = 0;
-
+	flag = 0;
+	*i += 1;
+	if (line[*i] == '>')
+	{
+		if (line[*i + 1] == '>')
+			return (MULTI_LINE_COMMAND);
+		*i += 1;
+		*ori += 1;
+	}
+	if (*i != 1 && *i != 0)
+		if (ft_isdigit(line[*i - 2]))
+			return (SYNTAX_ERROR);
+	while (line[*i] != ';' && line[*i] != 0 && line[*i] != '|' && \
+	line[*i] !=	'>')
+	{
+		if (ft_isprint(line[*i]) && !ft_isspace(line[*i]))
+			flag = 1;
+		*i += 1;
+	}
+	return ((flag == 0) * SYNTAX_ERROR_PREPARS);
 }
 
 int 		valid_redirects(char *line, int *i)
@@ -36,7 +60,7 @@ int 		valid_redirects(char *line, int *i)
 	}
 	if (line[tmp] == '>')
 	{
-		ret = forward_redirect(line, &tmp);
+		ret = forward_redirect(line, &tmp, i);
 		if (ret < 0)
 			return (ret);
 	}

@@ -17,6 +17,7 @@ char *find_substr_in_str_and_replace(const char *substr, char *str,
 // 		**  rep_str - the string to be replaced with = 123
 // 			=> 123TR
 // move i to begin changes
+// need all time do pointer in int (&i) can be (int)0
 
 int check_envp(char **curr_arg, t_pars *pa, int *i, int stage);
 

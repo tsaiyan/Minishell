@@ -62,3 +62,4 @@ int 			check_char(char *cur_arg, t_pars *pa)
 //	}
 	return (0);
 }
+
