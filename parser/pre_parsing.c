@@ -28,7 +28,9 @@ static int pre_pars(char *arg, t_pars *pa)
 	arg = pre_pars_subs(arg, pa);
 	if (NULL == arg)
 		return (1);
-	arg =
+	arg = second_pre_pars(arg, pa);
+	if (NULL == arg)
+		return (1);
 	printf("%s\n", arg);
 	pa->s = arg;
 	free(arg);

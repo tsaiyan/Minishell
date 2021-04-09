@@ -37,23 +37,17 @@ int 			check_quotes(char *cur_arg, t_pars *pa)
 	return (0);
 }
 
-int 			check_char(char *cur_arg, t_pars *pa)
+int check_char(char *cur_arg, t_pars *pa, int *i)
 {
 	if (*cur_arg == '\\')
 	{
 		if (0 > check_back_slash(cur_arg, pa))
 			return (1);
 	}
-	else if (*cur_arg == ' ')
-		check_spaces_prep(cur_arg, pa);
 	else if (*cur_arg == S_QUOT || *cur_arg == W_QUOT)
 		check_quotes(cur_arg, pa);
-//	else if (*cur_arg == '$')
-//		check_envp(&cur_arg, pa);
-	else
-	{
-		pa->tmp_flag = 0;
-	}
+	else if (*cur_arg == '$')
+		check_envp(&cur_arg, pa, i, STAGE_SECOND);
 
 //	else if (*cur_arg == S_QUOT && pa->quot_flag == 0)
 //	{

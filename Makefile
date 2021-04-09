@@ -63,15 +63,14 @@ norme:
   	else \
 		echo "Check norminette - $(BOLD)$(RB)Ошибка$(EB)$(SGR0)"; \
   	fi
+wc:
+	wc -l $(SRC_FOR_SAVE)
 
 norm:
 	@norminette $(SRC)
 	@norminette includes/solve_mlx.h includes/inc.h \
 	includes/intersect_and_light.h includes/minirt.h \
 	includes/solve_mlx.h includes/structs.h includes/vectors.h
-
-wc:
-	wc -l $(SRC) $(HEAD)
 
 # Check fonts and bolds
 
