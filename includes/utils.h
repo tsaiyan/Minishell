@@ -2,6 +2,7 @@
 # define UTILS_H
 
 int ft_errors(int code);
+// print minishell: strerror(errno);
 int write_error(int code, char *arg);
 
 char *ft_realloc(char *arg, int count);
@@ -23,5 +24,8 @@ int check_envp(char **curr_arg, t_pars *pa, int *i, int stage);
 
 int		pass_strlen(char *str);
 // pass EMPTY DEFINES and check_semicolon len not considering them
+
+char **copy_env_massive(char **env);
+// copy envairement massive
 
 #endif

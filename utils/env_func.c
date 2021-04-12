@@ -73,7 +73,27 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 
 static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 {
+	char	*str;
+	int 	num;
 
+	if (pa->quot_flag == W_QUOT)
+	{
+		num = *i;
+		if (arg[0][*i + 1] == '\t' || arg[0][*i + 1] == ' ')
+		{
+			*i += 1;
+			return (0);
+		}
+		str = take_arg(*arg + *i, &num);
+		if (NULL == str)
+			return (ft_errors(CALLOC_ERR));
+		if (ft_isdigit(str[1]))
+			find_substr_in_str_and_replace(str, *arg, "", i);
+		else
+			check_dollar_quest(arg, pa, str, i);
+	}
+	else
+		*i += 1;
 	return (0);
 }
 

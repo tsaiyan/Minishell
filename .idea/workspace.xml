@@ -21,16 +21,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/parser/second_pre_pars.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/strange_cases" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/pars.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser/parser.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/copy_env_massive.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strtrim.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strtrim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_substr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_substr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/check_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_char.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/copy_prepars_str.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/copy_prepars_str.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/syntax_error" beforeDir="false" afterPath="$PROJECT_DIR$/syntax_error_cases" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/second_pre_pars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/second_pre_pars.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/ft_errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_errors.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +117,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/parser" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/.deps" />
     </key>
@@ -158,6 +166,11 @@
     <configuration name="wc" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="wc" CONFIG_NAME="wc" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
@@ -211,6 +224,11 @@
       <workItem from="1617790663281" duration="8907000" />
       <workItem from="1617886147773" duration="10808000" />
       <workItem from="1617956578595" duration="5913000" />
+      <workItem from="1617981647746" duration="742000" />
+      <workItem from="1618058012308" duration="2344000" />
+      <workItem from="1618065583209" duration="375000" />
+      <workItem from="1618149807536" duration="875000" />
+      <workItem from="1618221052830" duration="8490000" />
     </task>
     <servers />
   </component>
@@ -268,11 +286,6 @@
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/check_spaces.c</url>
-          <line>2</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/utils/env_func.c</url>
           <line>58</line>
           <option name="timeStamp" value="36" />
@@ -288,30 +301,21 @@
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/pre_parsing.c</url>
-          <line>100</line>
-          <option name="timeStamp" value="49" />
+          <url>file://$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c</url>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/parser/second_pre_pars.c</url>
+          <line>60</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser/pre_parsing.c</url>
-          <line>27</line>
-          <option name="timeStamp" value="50" />
+          <line>29</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CLionNativeAppRunConfigurationType">
-        <watch expression="p-&gt;lim2-&gt;*lim2" />
-        <watch expression="p-&gt;lim1-&gt;*lim1" />
-        <watch expression="p-&gt;i-&gt;*i" />
-        <watch expression="p-&gt;tmp_i" />
-        <watch expression="p-&gt;tmp_j" />
-        <watch expression="j + *(p-&gt;lim1)" language="ObjectiveC" />
-        <watch expression="len" language="ObjectiveC" />
-        <watch expression="line[*i]" language="ObjectiveC" />
-        <watch expression="line[tmp]" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

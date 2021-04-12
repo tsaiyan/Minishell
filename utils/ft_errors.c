@@ -50,10 +50,10 @@ int write_error(int code, char *arg)
 	return (code);
 }
 
-int write_error_val(int code, char *arg)
-{
-
-}
+//int write_error_val(int code, char *arg)
+//{
+//
+//}
 
 int ft_errors(int code)
 {

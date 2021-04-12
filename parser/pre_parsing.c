@@ -22,18 +22,18 @@ static int pre_pars(char *arg, t_pars *pa)
 {
 	int 		i;
 //	char 		tmp;
+	char 		**ret;
 
 	i = 0;
 	pa->s = arg;
 	arg = pre_pars_subs(arg, pa);
 	if (NULL == arg)
 		return (1);
-	arg = second_pre_pars(arg, pa);
-	if (NULL == arg)
+	ret = second_pre_pars(arg, pa);
+	if (NULL == ret)
 		return (1);
-	printf("%s\n", arg);
-	pa->s = arg;
 	free(arg);
+	parser(ret, pa->envp);
 	return (0);
 //	while (arg[i] != 0)
 //	{
@@ -102,12 +102,12 @@ int take_argument_for_pre_pars(char *line, t_pars *pa)
 		if (arg == NULL)
 			return (1);
 		pre_pars(arg, pa);
-		free(arg);
+//		free(arg);
 	}
 	return (0);
 }
 
-int pre_pars_branching(char *envp[], t_pars *pa)
+int pre_pars_branching(t_pars *pa)
 {
 	int				ret;
 	char 			buf[11];
@@ -129,6 +129,5 @@ int pre_pars_branching(char *envp[], t_pars *pa)
 		ft_errors(SYS_ERR_READ);
 	if (take_argument_for_pre_pars(arg, pa))
 		return (0);
-	printf("%s\n", arg);
 	return (0);
 }
