@@ -32,7 +32,6 @@ static int pre_pars(char *arg, t_pars *pa)
 	ret = second_pre_pars(arg, pa);
 	if (NULL == ret)
 		return (1);
-	free(arg);
 	parser(ret, pa->envp);
 	return (0);
 //	while (arg[i] != 0)

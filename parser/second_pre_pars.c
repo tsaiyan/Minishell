@@ -56,7 +56,7 @@ char **second_pre_pars(char *arg, t_pars *pa)
 	pa->s = arg;
 	while (arg[++i] != 0)
 	{
-		if ((check_char(arg + i, pa, &i)))
+		if ((check_char(&arg, pa, &i)))
 			return (NULL);
 	}
 	tmp = copy_new_prepars_str_without(arg);
