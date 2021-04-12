@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launcher.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tphung <tphung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:11:22 by tphung            #+#    #+#             */
-/*   Updated: 2021/04/05 18:30:05 by tphung           ###   ########.fr       */
+/*   Updated: 2021/04/12 15:36:31 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int			fork_execve(char **argv, char **envp, char *path_name)
 	{
 		errno = 0;
 		stat = execve(path_name, argv, envp);
+		ft_errors(0);
 		exit(stat);
 	}
 	else
@@ -112,6 +113,7 @@ int	open_pipe(t_main *arg)
 	i = pipe(file_des);
 	if (i != 0)
 	{
+		ft_errors(0);
 		exit(1);
 	}
 	arg->fd_read = file_des[0];
@@ -127,6 +129,7 @@ int	fd_replacement(int old_fd, int new_fd)
 	i = dup2(old_fd, new_fd);
 	if (i < 0)
 	{
+		ft_errors(0);
 		exit(1);
 	}
 	return (0);
@@ -161,28 +164,58 @@ int	do_pipe(t_main *arg)
 	return (0);
 }
 
-int	do_redir(t_main *arg)
+int	do_redir_out(t_main *arg)
 {
 	int	fd;
 
-	if (arg->red_flag == 0)
+	if (arg->red_out == 0)
 		return (0);
-	else if (arg->red_flag == 1)
+	else if (arg->red_out == 1)
 	{
 		fd = open(arg->red_name, O_CREAT | O_WRONLY | O_APPEND | O_TRUNC,
 											S_IRWXU | S_IRWXG | S_IRWXO);
 	}
-	else if (arg->red_flag == 2)
+	else if (arg->red_out == 2)
 	{
 		fd = open(arg->red_name, O_CREAT | O_WRONLY | O_APPEND,
 											S_IRWXU | S_IRWXG | S_IRWXO);
 	}
-	if (arg->pipe_in == 0)
+	if (fd < 0)
 	{
-		arg->save_fd_write = dup(1);
-		fd_replacement(fd, 1);
-		close(fd);
+		ft_errors(0);
+		exit(1);
 	}
+	if (arg->pipe_in == 0)
+		arg->save_fd_write = dup(1);
+	fd_replacement(fd, 1);
+	close(fd);
+	return (0);
+}
+
+int	do_redir_in(t_main *arg)
+{
+	int fd;
+
+	if (arg->red_in == 0)
+		return (0);
+	else if (arg->red_in == 1)
+	{
+		fd = open(arg->red_name, O_RDONLY,
+											S_IRWXU | S_IRWXG | S_IRWXO);
+	}
+	if (fd < 0)
+	{
+		ft_errors(0);
+		exit(1);
+	}
+	if (arg->pipe_in != 0)
+	{
+		arg->pipe_in = 0;
+	}
+	else
+		arg->save_fd_read = dup(0);
+	fd_replacement(fd, 0);
+	close(fd);
 	return (0);
 }
 
@@ -190,16 +223,23 @@ int			launcher(t_main *arg)
 {
 	char	*str;
 
+	errno = 0;
 	do_pipe(arg);
-	do_redir(arg);
+	errno = 0;
+	do_redir_out(arg);
+	errno = 0;
+	do_redir_in(arg);
+	errno = 0;
 	str = filename_parser(*(arg->argv + 1), arg->envp);
+	errno = 0;
 	fork_execve(arg->argv + 1, arg->envp, str);
-	if (arg->pipe_in == 1)
+	errno = 0;
+	if (arg->pipe_in || arg->red_in)
 	{
 		fd_replacement(arg->save_fd_read, 0);
 		close(arg->save_fd_read);
 	}
-	if (arg->red_flag)
+	if (arg->red_out)
 	{
 		fd_replacement(arg->save_fd_write, 1);
 		close(arg->save_fd_write);

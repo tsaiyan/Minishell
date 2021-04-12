@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tphung <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tphung <tphung@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 15:26:52 by tphung            #+#    #+#             */
-/*   Updated: 2021/04/05 18:30:19 by tphung           ###   ########.fr       */
+/*   Updated: 2021/04/12 15:52:45 by tphung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int		main(int argc, char **argv, char **envp)
 
 	arg.pipe_in = 0;
 	arg.pipe_out = 0;
-	arg.red_flag = 1;
+	arg.red_out = 0;
+	arg.red_in = 0;
 	arg.red_name = "test";
 	arg.argc = argc;
 	arg.argv = argv;
@@ -28,15 +29,15 @@ int		main(int argc, char **argv, char **envp)
 	launcher(&arg);
 /*
 	arg.pipe_in = 1;
-	arg.pipe_out = 1;
+	arg.pipe_out = 0;
+	arg.red_out = 0;
 
 	des = malloc(sizeof(char*) * 3);
 	des[0] = "cat";
-	des[1] = "cat";
+	des[1] = "-e";
 	des[2] = NULL;
 	arg.argv = des;
 	launcher(&arg);
-
 	arg.pipe_in = 1;
 	arg.pipe_out = 1;
 

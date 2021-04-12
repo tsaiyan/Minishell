@@ -1,8 +1,8 @@
-#include "header.h"
+#include "../includes/header.h"
 
 int ft_errors(int code)
 {
 	write(2, "minishell:", 10);
-	strerror(errno);
+	printf("%s\n", strerror(errno));
 	return (code);
 }

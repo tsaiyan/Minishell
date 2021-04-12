@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tphung <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: tphung <tphung@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 18:37:57 by tphung            #+#    #+#              #
-#    Updated: 2021/03/30 15:44:04 by tphung           ###   ########.fr        #
+#    Updated: 2021/04/12 15:12:17 by tphung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ FLAGS = -c
 AR = ar
 ARFLAGS = rcs
 
-SRCS = main.c launcher.c
+SRCS = main.c launcher.c ../utils/ft_errors.c
 OBJ = $(SRCS:.c=.o)
 NAME = go
 LIBFT = libft.a
 LIBFT_DIR = ../libft/
-INCLUDES = ./
+INCLUDES = ../includes/
 
 .PHONY: all clean fclean re
 
