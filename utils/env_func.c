@@ -2,16 +2,22 @@
 
 static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 {
-	char		*env_arg;
-	char 		*tmp;
+	char *env_arg;
+	char *tmp;
+	char *check;
 
 	env_arg = take_arg_from_env(arg, str, i, pa);
-	tmp = find_substr_in_str_and_replace(str, *arg, env_arg, i);
+	if (NULL == env_arg)
+		check = "";
+	else
+		check = env_arg;
+	tmp = find_substr_in_str_and_replace(str, *arg, check, i);
 	if (NULL == tmp)
 		return (1);
 	free(*arg);
 	free(str);
-	free(env_arg);
+	if (env_arg)
+		free(env_arg);
 	*arg = tmp;
 	return (0);
 }
@@ -76,7 +82,7 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 	char	*str;
 	int 	num;
 
-	if (pa->quot_flag == W_QUOT)
+	if (pa->quot_flag == 1)
 	{
 		num = *i;
 		if (arg[0][*i + 1] == '\t' || arg[0][*i + 1] == ' ')

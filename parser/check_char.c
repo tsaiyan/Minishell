@@ -47,7 +47,7 @@ int check_char(char *cur_arg, t_pars *pa, int *i)
 	else if (*cur_arg == S_QUOT || *cur_arg == W_QUOT)
 		check_quotes(cur_arg, pa);
 	else if (*cur_arg == '$')
-		check_envp(&cur_arg, pa, i, STAGE_SECOND);
+		check_envp(&pa->s, pa, i, STAGE_SECOND);
 	else if (*cur_arg == ' ' && pa->quot_flag != 0)
 		*cur_arg = EMPTY_SPACE;
 	return (0);

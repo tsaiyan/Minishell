@@ -69,6 +69,7 @@ static char *find_substr(t_fts *p, int i)
 	ret = ft_calloc(sizeof(char), len - *(p->lim1) + *(p->lim2) + 1);
 	return (replace_in_str(ret, p, i, len));
 }
+// + 1
 
 char *find_substr_in_str_and_replace(const char *substr, char *str,
 									const char *rep_str, int *i)

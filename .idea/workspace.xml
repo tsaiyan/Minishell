@@ -21,23 +21,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/includes/pars.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser/parser.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/copy_env_massive.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_substr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_substr.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/check_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/copy_prepars_str.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/copy_prepars_str.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pre_pars_substitution.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_pars_substitution.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/second_pre_pars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/second_pre_pars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_fuc3.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_fuc3.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/ft_errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_errors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_func2.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func2.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,11 +160,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -229,6 +216,7 @@
       <workItem from="1618065583209" duration="375000" />
       <workItem from="1618149807536" duration="875000" />
       <workItem from="1618221052830" duration="8490000" />
+      <workItem from="1618235287491" duration="7517000" />
     </task>
     <servers />
   </component>
@@ -286,11 +274,6 @@
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_func.c</url>
-          <line>58</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser/valid_part.c</url>
           <line>28</line>
           <option name="timeStamp" value="47" />
@@ -305,17 +288,36 @@
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/second_pre_pars.c</url>
-          <line>60</line>
-          <option name="timeStamp" value="54" />
+          <url>file://$PROJECT_DIR$/utils/env_func.c</url>
+          <line>74</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/pre_parsing.c</url>
-          <line>29</line>
-          <option name="timeStamp" value="55" />
+          <url>file://$PROJECT_DIR$/utils/env_func.c</url>
+          <line>8</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/utils/env_fuc3.c</url>
+          <line>14</line>
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CLionNativeAppRunConfigurationType">
+        <watch expression="arg[*i]" language="ObjectiveC" />
+        <watch expression="env[j][i]" language="ObjectiveC" />
+        <watch expression="str[i + 1]" language="ObjectiveC" />
+        <watch expression="env[j]" language="ObjectiveC" />
+        <watch expression="env[j][i]" language="ObjectiveC" />
+        <watch expression="str[i + 1]" language="ObjectiveC" />
+        <watch expression="p-&gt;lim2-&gt;*lim2" />
+        <watch expression="p-&gt;lim1-&gt;*lim1" />
+        <watch expression="len" />
+        <watch expression="arg" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -53,6 +53,7 @@ char **second_pre_pars(char *arg, t_pars *pa)
 	arg = ft_strtrim(tmp, " ");
 	free(tmp);
 	pa->quot_flag = 0;
+	pa->s = arg;
 	while (arg[++i] != 0)
 	{
 		if ((check_char(arg + i, pa, &i)))

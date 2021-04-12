@@ -37,7 +37,7 @@ static char	*take_arg(char **env, char *str)
 		flag = 0;
 		while (env[j][++i] != '=')
 		{
-			if (str[i + 1] != 0)
+			if (str[i] != 0)
 			{
 				if (env[j][i] != str[i + 1])
 				{
@@ -46,7 +46,7 @@ static char	*take_arg(char **env, char *str)
 				}
 			}
 		}
-		if (flag != 1)
+		if (flag != 1 && str[i + 1] == 0)
 			return (alloc_env_arg(env[j]));
 	}
 	return (NULL);
