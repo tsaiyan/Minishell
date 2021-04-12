@@ -4,11 +4,14 @@ int check_back_slash(char *cur_arg, t_pars *pa, int i)
 {
 	if (cur_arg[1 + i] == 0)
 		return (write_error(MULTI_LINE_COMMAND, pa->s));
-	if (pa->back_slash == 0)
-	{
-		cur_arg[i] = EMPTY_BACK_SLASH;
-		pa->back_slash = 1;
-	}
+//	if (pa->back_slash == 0)
+//	{
+//		cur_arg[i] = EMPTY_BACK_SLASH;
+//		pa->back_slash = 1;
+//	}
+	cur_arg[i] = EMPTY_BACK_SLASH;
+	if (cur_arg[i + 1] == ' ')
+		cur_arg[i + 1] = EMPTY_SPACE;
 	return (0);
 }
 
@@ -43,6 +46,7 @@ int check_char(char **cur_arg, t_pars *pa, int *i)
 	{
 		if (0 > check_back_slash(*cur_arg, pa, *i))
 			return (1);
+		*i += 1;
 	}
 	else if (cur_arg[0][*i] == S_QUOT || cur_arg[0][*i] == W_QUOT)
 		check_quotes(*cur_arg, pa, *i);

@@ -21,15 +21,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/check_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_pars_substitution.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_pars_substitution.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/second_pre_pars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/second_pre_pars.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/env_fuc3.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_fuc3.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/env_func2.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +213,7 @@
       <workItem from="1618065583209" duration="375000" />
       <workItem from="1618149807536" duration="875000" />
       <workItem from="1618221052830" duration="8490000" />
-      <workItem from="1618235287491" duration="7517000" />
+      <workItem from="1618235287491" duration="11900000" />
     </task>
     <servers />
   </component>
@@ -294,13 +291,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/utils/env_func.c</url>
-          <line>8</line>
-          <option name="timeStamp" value="93" />
+          <line>115</line>
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_fuc3.c</url>
-          <line>14</line>
-          <option name="timeStamp" value="95" />
+          <url>file://$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c</url>
+          <line>42</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/parser/take_arg_before_semicolon.c</url>
+          <line>69</line>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -316,6 +318,7 @@
         <watch expression="p-&gt;lim1-&gt;*lim1" />
         <watch expression="len" />
         <watch expression="arg" language="ObjectiveC" />
+        <watch expression="arg[i]" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

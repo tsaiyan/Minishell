@@ -62,6 +62,8 @@ int check_semicolon_and_syntax(char *line, t_pars *pa)
 	i = 0;
 	if (line[i] == ';' || line[i] == '|' || line[i] == '<' || line[i] == '>' )
 			return (check_redirects_pipes_semicolons(line[i], line));
+	if (line[i] == S_QUOT || line[i] == W_QUOT)
+		check_quotes_subst(line, pa, &i);
 	while (line[++i] != 0)
 	{
 		if (line[i] == S_QUOT || line[i] == W_QUOT)

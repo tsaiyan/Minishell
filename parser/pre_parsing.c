@@ -90,6 +90,11 @@ int take_argument_for_pre_pars(char *line, t_pars *pa)
 
 	ft_bzero(&s, sizeof(t_pars));
 	ret = check_semicolon_and_syntax(line, &s);
+	if (s.quot_flag != 0)
+	{
+		write_error(MULTI_LINE_COMMAND, line);
+		return (1);
+	}
 	if (ret < 0)
 	{
 		write_error(ret, line);
