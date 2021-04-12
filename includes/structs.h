@@ -5,6 +5,7 @@
 
 typedef struct	s_main
 {
+	int			count;
 	int			pipe_in;
 	int			pipe_out;
 	int			red_in;
