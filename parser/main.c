@@ -19,11 +19,27 @@ int 				main(int argc, char **argv, char *envp[])
 	flag = 0;
 	p.envp = copy_env_massive(envp);
 	history_init(&hist, &term, &p);
-	while (!(check_exit(flag)))
+	char buf[3000];
+	ft_bzero(&buf, sizeof(buf));
+	char *tmp;
+	ft_bzero(&tmp, sizeof(tmp));
+	int ret = read(0 ,&buf, 2999);
+	while (strcmp(buf,"\n"))
 	{
-		write(1, COLOR_BLUE"minishell$ "COLOR_RESET, 20);
-		flag = pre_pars_branching(&p);
+		if (!strcmp(buf, "\4"))
+		{
+			printf("1");
+		}
+
+//		char *o = ft_strdup(buf);
+//		tmp = ft_strjoin(tmp, o);
+		ret = read(0 ,&buf, 2999);
 	}
+//	while (!(check_exit(flag)))
+//	{
+//		write(1, COLOR_BLUE"minishell$ "COLOR_RESET, 20);
+//		flag = pre_pars_branching(&p);
+//	}
 	return (1);
 }
 //	for (int i = 0; envp[i] != NULL; i++)

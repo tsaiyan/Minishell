@@ -16,9 +16,9 @@ void 		history_init(t_hist *hist, struct termios *term, t_pars *pa)
 	take_terminal_type(&hist->terminal);
 	term->c_lflag &= ~(ECHO);
 	term->c_lflag &= ~(ICANON);
+//	term->c_lflag |= ~(ECHO);
+//	term->c_lflag |= ~(ICANON);
 	tcsetattr(0, TCSANOW, term);
-	term->c_cc[VMIN] = 1;
-	term->c_cc[VTIME] = 0;
 	hist->term = term;
 	if (-1 == tgetent(0, hist->terminal))
 	{
