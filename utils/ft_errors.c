@@ -32,6 +32,11 @@ static int write_error2(int code, char *arg)
 		write(2, "syntax error\n", 13);
 		return (code);
 	}
+	if (code == TERM_ERRORS)
+	{
+		write(2, "TERMCAP ERROR\n", 14);
+		return (code);
+	}
 	return (1);
 }
 

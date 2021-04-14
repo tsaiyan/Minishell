@@ -14,6 +14,6 @@ char *pars_argument_before_semicolon(char **line, t_pars *pa);
 char ** second_pre_pars(char *arg, t_pars *pa);
 
 int 		del_env_arg(char **arg, char *str, int *i, t_pars *pa);
-char		*take_arg_from_env(char **arg, char *str, int *i, t_pars *pa);
+char *take_arg_from_env(char *str, t_pars *pa);
 
 #endif

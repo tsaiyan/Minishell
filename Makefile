@@ -16,7 +16,7 @@ PATHLIB = ./libft
 NAMELIB = libft.a
 LIBS = $(PATHLIB)/$(NAMELIB)
 
-FLAG = -g -Wall #-Wextra -Werror
+FLAG = -g -Wall -ltermcap #-Wextra -Werror
 HEADER = includes/header.h
 INC = -I./libft -I./includes
 OBJ = $(SRC_FOR_SAVE:.c=.o)

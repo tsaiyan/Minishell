@@ -6,7 +6,7 @@ static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	char *tmp;
 	char *check;
 
-	env_arg = take_arg_from_env(arg, str, i, pa);
+	env_arg = take_arg_from_env(str, pa);
 	if (NULL == env_arg)
 		check = "";
 	else

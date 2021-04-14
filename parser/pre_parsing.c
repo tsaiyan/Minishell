@@ -114,11 +114,12 @@ int take_argument_for_pre_pars(char *line, t_pars *pa)
 int pre_pars_branching(t_pars *pa)
 {
 	int				ret;
-	char 			buf[11];
+	char 			buf[30];
 	char			*arg;
 
 	arg = NULL;
-	ret = read(0, buf, 10);
+	ft_bzero(&buf, sizeof(buf));
+	ret = read(0, buf, 4096);
 	while (0 < ret)
 	{
 		buf[ret] = '\0';
@@ -127,7 +128,7 @@ int pre_pars_branching(t_pars *pa)
 			break ;
 		else if (pa->tmp_flag < 0)
 			return (1);
-		ret = read(0, buf, 10);
+		ret = read(0, buf, 4096);
 	}
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);

@@ -7,7 +7,7 @@ static int check_pipe(char *line, t_pars *pa, int *i)
 
 	tmp = *i - 1;
 	flag = 0;
-	while (tmp != 0 && line[tmp] != '|')
+	while (tmp != -1 && line[tmp] != '|')
 	{
 		if (ft_isprint(line[tmp]) && !ft_isspace(line[tmp]))
 				flag = 1;
@@ -47,11 +47,14 @@ static int check_semicolon(char *line, t_pars *pa, int *i)
 
 static int check_redirects_pipes_semicolons(char t, char *line)
 {
+	int 		i;
+
+	i = 0;
 	if (t == ';')
 		return (ERROR_UNEXPECTED_SEMICOLON);
 	if (t == '|')
 		return (ERROR_UNEXPECTED_PIPE);
-	return (valid_redirects(line, 0));
+	return (valid_redirects(line, &i));
 }
 
 int check_semicolon_and_syntax(char *line, t_pars *pa)

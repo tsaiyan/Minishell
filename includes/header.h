@@ -10,5 +10,6 @@
 # include "valid.h"
 # include "utils.h"
 # include "pars.h"
+# include "history.h"
 
 #endif

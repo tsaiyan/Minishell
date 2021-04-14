@@ -13,6 +13,8 @@ typedef struct	s_pars
 	int 		tmp_flag;
 }	t_pars;
 
+// quot flag 1 - " | 2 - '|
+
 typedef struct	s_frs
 {
 	const char	*substr;
@@ -25,6 +27,18 @@ typedef struct	s_frs
 	int 		tmp_j;
 }				t_fts;
 
-// quot flag 1 - " | 2 - '|
+typedef struct	s_hist
+{
+	int 		SHLVL;
+	char 		*terminal;
+	struct termios *term;
+}				t_hist;
+
+typedef struct	s_keys
+{
+
+}				t_keys;
+
+// terminal type allocated mem
 
 #endif

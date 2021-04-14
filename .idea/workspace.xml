@@ -21,12 +21,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/adsfgrht" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_term/main.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/history.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/defines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/dni_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dni_structs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/check_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_func2.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/ft_errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_errors.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +169,11 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -213,7 +230,9 @@
       <workItem from="1618065583209" duration="375000" />
       <workItem from="1618149807536" duration="875000" />
       <workItem from="1618221052830" duration="8490000" />
-      <workItem from="1618235287491" duration="11900000" />
+      <workItem from="1618235287491" duration="12011000" />
+      <workItem from="1618317862803" duration="4075000" />
+      <workItem from="1618403149539" duration="5686000" />
     </task>
     <servers />
   </component>
@@ -267,18 +286,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/utils/ft_errors.c</url>
-          <line>39</line>
+          <line>44</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser/valid_part.c</url>
           <line>28</line>
           <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/take_arg_before_semicolon.c</url>
-          <line>20</line>
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c</url>
@@ -295,30 +309,20 @@
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c</url>
-          <line>42</line>
-          <option name="timeStamp" value="99" />
+          <url>file://$PROJECT_DIR$/parser/take_arg_before_semicolon.c</url>
+          <line>72</line>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/take_arg_before_semicolon.c</url>
-          <line>69</line>
-          <option name="timeStamp" value="100" />
+          <url>file://$PROJECT_DIR$/utils/history.c</url>
+          <line>21</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CLionNativeAppRunConfigurationType">
-        <watch expression="arg[*i]" language="ObjectiveC" />
-        <watch expression="env[j][i]" language="ObjectiveC" />
-        <watch expression="str[i + 1]" language="ObjectiveC" />
-        <watch expression="env[j]" language="ObjectiveC" />
-        <watch expression="env[j][i]" language="ObjectiveC" />
-        <watch expression="str[i + 1]" language="ObjectiveC" />
-        <watch expression="p-&gt;lim2-&gt;*lim2" />
-        <watch expression="p-&gt;lim1-&gt;*lim1" />
-        <watch expression="len" />
-        <watch expression="arg" language="ObjectiveC" />
-        <watch expression="arg[i]" language="ObjectiveC" />
+        <watch expression="*terminal" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

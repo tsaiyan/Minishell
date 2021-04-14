@@ -52,7 +52,7 @@ static char	*take_arg(char **env, char *str)
 	return (NULL);
 }
 
-char		*take_arg_from_env(char **arg, char *str, int *i, t_pars *pa)
+char *take_arg_from_env(char *str, t_pars *pa)
 {
 	char 	*exp_arg;
 
