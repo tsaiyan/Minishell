@@ -14,8 +14,8 @@ static void			take_terminal_type(char **terminal)
 void 		history_init(t_hist *hist, struct termios *term, t_pars *pa)
 {
 	take_terminal_type(&hist->terminal);
-	term->c_lflag &= ~(ECHO);
 	term->c_lflag &= ~(ICANON);
+	term->c_lflag &= ~(ECHO);
 //	term->c_lflag |= ~(ECHO);
 //	term->c_lflag |= ~(ICANON);
 	tcsetattr(0, TCSANOW, term);

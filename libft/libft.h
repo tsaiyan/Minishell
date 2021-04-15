@@ -6,7 +6,7 @@
 /*   By: egums <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 11:51:25 by egums             #+#    #+#             */
-/*   Updated: 2020/11/05 17:52:50 by egums            ###   ########.fr       */
+/*   Updated: 2021/04/15 21:28:16 by egums            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putnbr_fd(int n, int fd);
 char				**ft_split(char const *s, char *c);
+int					ft_strcmp(const char *string1, const char *string2);
+
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);

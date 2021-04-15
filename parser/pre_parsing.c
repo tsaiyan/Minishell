@@ -111,63 +111,39 @@ int take_argument_for_pre_pars(char *line, t_pars *pa)
 	return (0);
 }
 
-int pre_pars_branching(t_pars *pa)
+int pre_pars_branching(t_pars *pa, t_hist *hist)
 {
 	int				ret;
 	char 			buf[2049];
 	char			*arg;
+	int 			check;
 
 	arg = NULL;
 	ft_bzero(&buf, sizeof(buf));
 	ret = read(0, buf, 2048);
-	char		*check = tgetstr("kr", 0);
-//	char		*backspace = tgetstr("backspace", 0);
-	while (strcmp(buf, "\n"))
+	while (ft_strcmp(buf, "\n"))
 	{
-		if (!strcmp(buf, check))
-		{
-			printf("200");
-		}
-		else if (!strcmp(buf, key_up))
-		{
-			printf("up");
-		}
-		else if (!strcmp(buf, key_down))
-		{
-			printf("down");
-		}
-		else if (!strcmp(buf, key_left))
-		{
-			printf("left");
-		}
-		else if (!strcmp(buf, check))
-		{
-			printf("right");
-		}
-		else if (!strcmp(buf, "^[[B"))
-		{
-			printf("1");
-		}
-		else if (!strcmp(buf, "^[[A"))
-		{
-			printf("2");
-		}
-		else if (!strcmp(buf, "\eA"))
-		{
-			printf("3");
-		}
-		else if (!strcmp(buf, "\eA"))
-		{
-			printf("3");
-		}
-		else if (!strcmp(buf, key_backspace))
-		{
-			write(1, key_backspace, strlen(key_backspace));
-		}
-		else
-		{
-			write(1, &buf, ret);
-		}
+		check = check_esc_char(buf, hist, ret);
+
+//		if (!strcmp(buf, "\e[D"))
+//		{
+//			write(1, "rly", 3);
+//
+//		}
+//
+//		else if (!strcmp(buf, "\4"))
+//		{
+//			write(1, "maza", 4);
+//		}
+//		else if (!strcmp(buf, key_backspace))
+//		{
+//			write(1, key_backspace, strlen(key_backspace));
+//		}
+//		else
+//		{
+//			write(1, &buf, ret);
+//		}
+
 		pa->tmp_flag = check_arguments_realloc(&arg, buf, pa);
 		if (0 == pa->tmp_flag)
 			break ;

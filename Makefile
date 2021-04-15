@@ -21,7 +21,7 @@ HEADER = includes/header.h
 INC = -I./libft -I./includes
 OBJ = $(SRC_FOR_SAVE:.c=.o)
 
-PATHSRC = parser utils
+PATHSRC = parser utils termcap_hist
 SRCLIST = $(wildcard $(dir)/*.c)
 SRC =$(shell cat $(DEP_SRC))
 HEAD =$(shell cat $(DEP_INC))
