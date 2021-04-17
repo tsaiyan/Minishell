@@ -30,7 +30,7 @@ char *ft_realloc(char *arg, int count)
 	len = ft_strlen(arg);
 	if (!(new = ft_calloc(sizeof(char), count)))
 		return (NULL);
-	ft_strlcpy(new, arg, len + 1);
+	ft_strlcpy(new, arg, count);
 	free(arg);
 	return (new);
 }

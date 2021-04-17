@@ -1,23 +1,5 @@
 #include "header.h"
 
-static char *pre_pars_subs(char *arg, t_pars *pa)
-{
-	char 		*ret;
-	int			i;
-
-	i = -1;
-	while (arg[++i] != 0)
-	{
-		if ((check_chars_subst(&arg, pa, &i)))
-			return (NULL);
-	}
-	ret = copy_new_prepars_str(arg);
-	if (NULL == ret)
-		return (NULL);
-	free(arg);
-	return (ret);
-}
-
 static int pre_pars(char *arg, t_pars *pa)
 {
 	int 		i;
@@ -51,25 +33,47 @@ static int pre_pars(char *arg, t_pars *pa)
 //	ft_putchar_fd('\n', 1);
 }
 
-static int check_arguments_realloc(char **arg, char *buf, t_pars *pa)
+static int check_arguments_if(char **arg, char *buf, t_hist *hist, int len)
 {
-	int len;
 	int len_arg;
 
-	len = ft_strlen(buf);
 	if (NULL == *arg)
 	{
 		if (!(*arg = malloc(sizeof(char) * (len + 1))))
-			return (ft_errors(MALLOC_ERR));
+			return (1);
 		ft_strlcpy(*arg, buf, len + 1);
 	}
 	else
 	{
 		len_arg = ft_strlen(*arg);
 		if (!(*arg = ft_realloc(*arg, len_arg + len + 1)))
-			return (ft_errors(CALLOC_ERR));
+			return (1);
 		ft_strlcat(*arg, buf, len_arg + len + 1);
 //		ft_bzero(&buf, len_arg);
+	}
+	return (0);
+}
+
+static int check_arguments_realloc(char **arg, char *buf, t_pars *pa,\
+	t_hist *hist)
+{
+	int len;
+	int len_arg;
+
+	len = ft_strlen(buf);
+	if (0 != check_arguments_if(arg, buf, hist, len))
+		return (ft_errors(MALLOC_ERR));
+	write(1, buf, len);
+	if (NULL != hist->right)
+	{
+		len_arg = ft_strlen(hist->right);
+		if (len_arg)
+		{
+			write(1, "\e[s", 3);
+			write(1, DELETE_CURS_BORD, 4);
+			write(1, hist->right, len_arg);
+			write(1, "\e[u", 3);
+		}
 	}
 	if (ft_strchr(*arg, '\n'))
 	{
@@ -81,7 +85,7 @@ static int check_arguments_realloc(char **arg, char *buf, t_pars *pa)
 	return (1);
 }
 
-int take_argument_for_pre_pars(char *line, t_pars *pa)
+int take_argument_for_pre_pars(char *line, t_pars *pa, t_hist *hist)
 {
 	char 		*arg;
 	int 		ret;
@@ -100,6 +104,7 @@ int take_argument_for_pre_pars(char *line, t_pars *pa)
 		write_error(ret, line);
 		return (1);
 	}
+	add_history_from_line(line, hist);
 	while (*line != 0)
 	{
 		arg = pars_argument_before_semicolon(&line, pa);
@@ -115,45 +120,29 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 {
 	int				ret;
 	char 			buf[2049];
-	char			*arg;
 	int 			check;
 
-	arg = NULL;
 	ft_bzero(&buf, sizeof(buf));
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{
-		check = check_esc_char(buf, hist, ret);
-
-//		if (!strcmp(buf, "\e[D"))
-//		{
-//			write(1, "rly", 3);
-//
-//		}
-//
-//		else if (!strcmp(buf, "\4"))
-//		{
-//			write(1, "maza", 4);
-//		}
-//		else if (!strcmp(buf, key_backspace))
-//		{
-//			write(1, key_backspace, strlen(key_backspace));
-//		}
-//		else
-//		{
-//			write(1, &buf, ret);
-//		}
-
-		pa->tmp_flag = check_arguments_realloc(&arg, buf, pa);
-		if (0 == pa->tmp_flag)
-			break ;
-		else if (pa->tmp_flag < 0)
-			return (1);
+		check = check_esc_char(buf, hist, ret, hist->left);
+		if (!check)
+		{
+			pa->tmp_flag = check_arguments_realloc(&hist->left, buf, pa, hist);
+			if (0 == pa->tmp_flag)
+				break ;
+			else if (pa->tmp_flag < 0)
+				return (1);
+		}
+		ft_bzero(&buf, sizeof(buf));
 		ret = read(0, buf, 4096);
 	}
+	term_off(hist);
+	hist->left = ft_strjoin(hist->left, hist->right);
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
-	if (take_argument_for_pre_pars(arg, pa))
+	if (take_argument_for_pre_pars(hist->left, pa, hist))
 		return (0);
 	return (0);
 }

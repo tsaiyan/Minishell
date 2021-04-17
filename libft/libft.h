@@ -24,6 +24,13 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_lst_d
+{
+	void			*content;
+	struct s_lst_d	*next;
+	struct s_lst_d	*prev;
+}					t_lst_d;
+
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_isprint(int c);

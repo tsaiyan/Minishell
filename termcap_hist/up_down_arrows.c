@@ -2,10 +2,10 @@
 
 int 		up_arrow()
 {
-	return (0);
+	return (1);
 }
 
 int 		down_arrow()
 {
-	return (0);
+	return (1);
 }

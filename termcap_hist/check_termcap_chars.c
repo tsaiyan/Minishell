@@ -5,15 +5,20 @@ static int check_other_esc_char(char *buf, t_hist *hist, int len)
 	return (0);
 }
 
-int check_esc_char(char *buf, t_hist *hist, int len)
+int check_esc_char(char *buf, t_hist *hist, int len, char *arg)
 {
+//	printf("%d - %d - %d", buf[0], buf[1], buf[2]);
+//	ft_putchar_fd(1, buf[0]);
+//	ft_putchar_fd(1, buf[1]);
+//	ft_putchar_fd(1, buf[2]);
 	if (!ft_strcmp(buf, "\e[D"))
-		left_arrow(buf, len);
-	else if (!strcmp(buf, "\e[C"))
-		right_arrow(buf, len);
-	else if (!strcmp(buf, "\e[A"))
-		up_arrow();
-	else if (!strcmp(buf, "\e[B"))
-		down_arrow();
-	return (check_other_esc_char(buf, hist, len));
+		return (left_arrow(buf, len, hist));
+	else if (!ft_strcmp(buf, "\e[C"))
+		return (right_arrow(buf, len, hist));
+	else if (!ft_strcmp(buf, "\e[A"))
+		return (up_arrow());
+	else if (!ft_strcmp(buf, "\e[B"))
+		return (down_arrow());
+	else
+		return (check_other_esc_char(buf, hist, len));
 }

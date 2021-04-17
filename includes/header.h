@@ -11,5 +11,6 @@
 # include "utils.h"
 # include "pars.h"
 # include "history.h"
+# include "global_values.h"
 
 #endif

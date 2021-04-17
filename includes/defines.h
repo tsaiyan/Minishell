@@ -9,6 +9,8 @@
 # define COLOR_CYAN "\x1b[36m"
 # define COLOR_RESET "\x1b[0m"
 
+# define DELETE_CURS_BORD "\x1b[0J"
+
 # define STAGE_FIRST 100
 # define STAGE_SECOND 101
 
