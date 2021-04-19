@@ -60,13 +60,14 @@ char **second_pre_pars(char *arg, t_pars *pa)
 			return (NULL);
 	}
 	tmp = copy_new_prepars_str_without(arg);
+	free(arg);
 	if (NULL == tmp)
 		return (NULL);
 	ret = ft_split(tmp, " ");
 	if (NULL == ret)
 		return (NULL);
+	free(tmp);
 	change_empty_spaces(ret);
-	free(arg);
 	return (ret);
 }
 

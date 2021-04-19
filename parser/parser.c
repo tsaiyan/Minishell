@@ -7,5 +7,6 @@ int 		parser(char **argv, char **envp)
 	printf("\n");
 	for (int i = 0; argv[i] != NULL; i++)
 	{printf("%s\n", argv[i]);}
+	ft_free_massive(argv);
 	return (0);
 }

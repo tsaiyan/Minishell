@@ -18,6 +18,8 @@ int 		down_arrow();
 int 		up_arrow();
 
 int				backspace_key(char *buf, int len, t_hist *hist);
+int 			del_key(char *buf, int len, t_hist *hist);
+
 char			**ft_realloc_2massive(char **mass, char *arg, int len);
 
 #endif

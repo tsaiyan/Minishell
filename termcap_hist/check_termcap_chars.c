@@ -2,10 +2,14 @@
 
 static int check_other_esc_char(char *buf, t_hist *hist, int len)
 {
+//	write(1, buf, len);
+//	printf("%d", *buf);
 	if (!ft_strcmp(buf, "\t"))
 		return (1);
-	else if (!ft_strcmp(buf, "\b"))
-		return (1);
+	else if (!ft_strcmp(buf, "\177"))
+		return (backspace_key(buf, len, hist));
+	else if (!ft_strcmp(buf, "\e[3~"))
+		return (del_key(buf, len, hist));
 	return (0);
 }
 

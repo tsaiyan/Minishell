@@ -113,6 +113,7 @@ int take_argument_for_pre_pars(char *line, t_pars *pa, t_hist *hist)
 		pre_pars(arg, pa);
 //		free(arg);
 	}
+	free(line);
 	return (0);
 }
 
@@ -121,6 +122,7 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 	int				ret;
 	char 			buf[2049];
 	int 			check;
+	char 			*del;
 
 	ft_bzero(&buf, sizeof(buf));
 	ret = read(0, buf, 2048);
@@ -138,8 +140,11 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 		ft_bzero(&buf, sizeof(buf));
 		ret = read(0, buf, 4096);
 	}
-	term_off(hist);
-	hist->left = ft_strjoin(hist->left, hist->right);
+//	term_off(hist);
+	del = hist->left;
+	hist->left = ft_strjoin(del, hist->right);
+	free(del);
+//	free(hist->right);
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
 	if (take_argument_for_pre_pars(hist->left, pa, hist))
