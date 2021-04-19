@@ -29,4 +29,7 @@ int		pass_strlen(char *str);
 char **copy_env_massive(char **env);
 // copy envairement massive
 
+char **copy_env_massive(char **env);
+//del it after debug
+
 #endif

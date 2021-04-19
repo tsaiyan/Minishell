@@ -82,4 +82,11 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 void				ft_free(char **ret);
+
+size_t		ft_massive_len(char **mass);
+int					get_next_line(int fd, char **line);
+void 			ft_free_massive(char **mass);
+
+//char 		**ft_realloc_2massive(char **mass, char *arg, int len);
+
 #endif

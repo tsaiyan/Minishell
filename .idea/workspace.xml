@@ -20,14 +20,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/termcap_hist/backspace_delete.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" afterDir="false" />
-    </list>
+    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +49,10 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/parser/main.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="toolchainName" value="System" />
@@ -102,16 +99,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Makefile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libft/gnl" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MakefileSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libft/gnl" />
+      <recent name="$PROJECT_DIR$/gnl" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/libft" />
+      <recent name="$PROJECT_DIR$/gnl" />
+      <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$/termcap_hist" />
-      <recent name="$PROJECT_DIR$/parser" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/.deps" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
@@ -166,6 +169,11 @@
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -230,6 +238,7 @@
       <workItem from="1618664906165" duration="14009000" />
       <workItem from="1618744870798" duration="1598000" />
       <workItem from="1618817892181" duration="1939000" />
+      <workItem from="1618823171703" duration="10524000" />
     </task>
     <servers />
   </component>
@@ -284,39 +293,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/ft_errors.c</url>
-          <line>44</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/valid_part.c</url>
-          <line>28</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c</url>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_func.c</url>
-          <line>74</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/utils/env_func.c</url>
-          <line>115</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser/main.c</url>
-          <line>16</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CLionNativeAppRunConfigurationType">
+        <watch expression="ret[0]" language="ObjectiveC" />
+        <watch expression="ret[1]" language="ObjectiveC" />
+        <watch expression="hist-&gt;h_len" />
+        <watch expression="h[0]" language="ObjectiveC" />
+        <watch expression="h[2]" language="ObjectiveC" />
+        <watch expression="h[1]" language="ObjectiveC" />
+        <watch expression="h[1]" />
+        <watch expression="ret[2]" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

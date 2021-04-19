@@ -21,7 +21,13 @@ SRC =	ft_memcmp.c ft_memchr.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 																		\
 		ft_substr.c	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c		\
 		ft_itoa.c ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_putnbr_fd.c \
-		ft_split.c ft_strcmp.c
+		ft_split.c ft_strcmp.c											\
+																		\
+		get_next_line_utils.c ft_massive_len.c get_next_line.c			\
+		ft_free_massive.c
+#		ft_realloc_2massive.c
+
+
 
 BSRC =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c			\
 	  	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c		\
@@ -34,7 +40,7 @@ all: $(NAME) $(SRC)
 
 $(NAME): $(OBJ) $(BOBJ) libft.h
 ifdef $(BONUS_RULE)
-	@ar rcs $(NAME) $(OBJ) $(BOBJ)
+	@ar rcs $(NAME) $(OBJ) $(BOBJ) $?
 else
 	@ar rcs $(NAME) $(OBJ)
 endif

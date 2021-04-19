@@ -25,20 +25,21 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 
 	str_lvl = ft_itoa(hist->SHLVL);
 	del = str_lvl;
-	str_lvl = ft_strjoin("hist_", del);
+	str_lvl = ft_strjoin("/hist_", del);
 	free(del);
-	tmp = ft_strjoin(hist->exec_path, ".history");
-	dir = opendir(tmp);
-	if (dir == NULL)
-	{
-		if (errno == ENOENT)
-			do_history_dir("mkdir", tmp);
-		else
-		{
-			ft_errors(errno);
-			exit(errno);
-		}
-	}
+//	tmp = ft_strjoin(hist->exec_path, "/.history");
+//	dir = opendir(tmp);
+//	if (dir == NULL)
+//	{
+//		if (errno == ENOENT)
+//			do_history_dir("mkdir", tmp);
+//		else
+//		{
+//			ft_errors(errno);
+//			exit(errno);
+//		}
+//		//add .history to path and execve on mkdir .history
+//	}
 	ret = ft_strjoin(hist->exec_path, str_lvl);
 	free(str_lvl);
 	return (ret);
@@ -71,7 +72,9 @@ static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
 	int 		tmp;
 
 	file = take_history_filename(pa, hist);
-	hist->fd_for_add = open(file, O_CREAT | O_RDWR);
+	hist->fd_for_add = open("hist_1", O_CREAT | O_RDWR, 0644);
+	free(file);
+	// file too open char *file
 	if (0 > hist->fd_for_add)
 	{
 		tmp = ft_errors(errno);
@@ -85,5 +88,8 @@ int uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 	hist->exec_path = do_absolute_exec_path(apple);
 	up_lvl(pa, hist);
 	open_and_take_hist(pa, hist);
+	if (-1 == read_filehistory(hist))
+	{
+	}
 	return (0);
 }

@@ -9,6 +9,7 @@ int 			add_history_from_line(char *line, t_hist *hist);
 int uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple);
 char 			*do_absolute_exec_path(char **apple);
 
+int 		read_filehistory(t_hist *hist);
 
 int left_arrow(char *buf, int len, t_hist *hist);
 int right_arrow(char *buf, int len, t_hist *hist);
@@ -16,6 +17,7 @@ int right_arrow(char *buf, int len, t_hist *hist);
 int 		down_arrow();
 int 		up_arrow();
 
-int 			backspace_key(char *buf, int len, t_hist *hist);
+int				backspace_key(char *buf, int len, t_hist *hist);
+char			**ft_realloc_2massive(char **mass, char *arg, int len);
 
 #endif

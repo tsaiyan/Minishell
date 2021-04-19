@@ -19,7 +19,11 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char		*dst;
 
 	if (NULL == s1)
+	{
+		if (NULL == s2)
+			return (NULL);
 		return (ft_strdup(s2));
+	}
 	if (NULL == s2)
 		return (ft_strdup(s1));
 	sum_len = ft_strlen(s1) + ft_strlen(s2);

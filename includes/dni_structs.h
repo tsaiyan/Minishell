@@ -27,6 +27,8 @@ typedef struct		s_frs
 	int 			tmp_j;
 }					t_fts;
 
+
+
 typedef struct		s_hist
 {
 	int 			SHLVL;
@@ -36,7 +38,12 @@ typedef struct		s_hist
 	struct termios 	*term;
 	char 			*left;
 	char 			*right;
+
+	char 			**h;
+	int 			h_len;
 }					t_hist;
+
+
 
 typedef struct		s_keys
 {

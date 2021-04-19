@@ -19,9 +19,9 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 	t_hist			hist;
 	struct termios	term;
 
+//	ft_bzero(&p, sizeof(hist));
 	p.count = 10;
 	ft_bzero(&p, sizeof(t_pars));
-	ft_bzero(&p, sizeof(hist));
 	flag = 0;
 	p.envp = copy_env_massive(envp);
 	hist.right = NULL;
