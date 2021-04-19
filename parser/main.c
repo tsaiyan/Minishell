@@ -17,7 +17,7 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 	int 			flag;
 	t_pars			p;
 	t_hist			hist;
-	struct termios term;
+	struct termios	term;
 
 	p.count = 10;
 	ft_bzero(&p, sizeof(t_pars));

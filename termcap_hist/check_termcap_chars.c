@@ -2,6 +2,10 @@
 
 static int check_other_esc_char(char *buf, t_hist *hist, int len)
 {
+	if (!ft_strcmp(buf, "\t"))
+		return (1);
+	else if (!ft_strcmp(buf, "\b"))
+
 	return (0);
 }
 
