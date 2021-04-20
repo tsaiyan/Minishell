@@ -17,6 +17,6 @@ char *pre_pars_subs(char *arg, t_pars *pa);
 int 		del_env_arg(char **arg, char *str, int *i, t_pars *pa);
 char *take_arg_from_env(char *str, t_pars *pa);
 
-int check_esc_char(char *buf, t_hist *hist, int len, char *arg);
+int check_esc_char(char *buf, t_hist *hist, int len, char **env);
 
 #endif

@@ -22,7 +22,7 @@ int 			backspace_key(char *buf, int len, t_hist *hist)
 	return (1);
 }
 
-int 			del_key(char *buf, int len, t_hist *hist)
+int del_key(t_hist *hist)
 {
 	int 		len_right;
 	char 		*tmp;
@@ -32,11 +32,11 @@ int 			del_key(char *buf, int len, t_hist *hist)
 		len_right = (int)ft_strlen(hist->right);
 	if (len_right && hist->right)
 	{
+		write(1, "\e[s", 3);
 		write(1, DELETE_CURS_BORD, 4);
 		tmp = hist->right;
 		hist->right = ft_calloc(len_right, 1);
 		ft_strlcpy(hist->right, tmp + 1, len_right);
-		write(1, "\e[s", 3);
 		write(1, hist->right, len_right - 1);
 		write(1, "\e[u", 3);
 		free(tmp);

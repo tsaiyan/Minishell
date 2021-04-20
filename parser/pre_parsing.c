@@ -128,7 +128,7 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{
-		check = check_esc_char(buf, hist, ret, hist->left);
+		check = check_esc_char(buf, hist, ret, pa->envp);
 		if (!check)
 		{
 			pa->tmp_flag = check_arguments_realloc(&hist->left, buf, pa, hist);

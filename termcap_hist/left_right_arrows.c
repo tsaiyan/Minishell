@@ -1,6 +1,6 @@
 #include "header.h"
 
-static int 		check_len_left_right(char *line)
+int 		check_len_left_right(char *line)
 {
 	if (line)
 		return ((int)ft_strlen(line));
@@ -19,7 +19,16 @@ int left_arrow(char *buf, int len, t_hist *hist)
 	{
 		write(1, buf, len);
 		del = hist->right;
-		hist->right = ft_strjoin(del, hist->left + len_left - 1);
+		hist->right = ft_calloc(len_right + 2, 1);
+		if (!hist->right)
+		{
+			len_left = ft_errors(errno);
+			exit(len_left);
+		}
+		hist->right[0] = hist->left[len_left - 1];
+		if (len_right)
+			ft_strlcat(hist->right + 1, del, len_right + 1);
+		// hist->right = ft_strjoin(del, hist->left + len_left - 1);
 		free(del);
 		hist->left = ft_realloc(hist->left, len_left);
 		if (!hist->right || !hist->left)
