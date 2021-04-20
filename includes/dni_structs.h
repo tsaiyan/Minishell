@@ -40,7 +40,9 @@ typedef struct		s_hist
 	char 			*right;
 
 	char 			**h;
+	char 			*tmp_line;
 	int 			h_len;
+	int 			curr_line;
 }					t_hist;
 
 

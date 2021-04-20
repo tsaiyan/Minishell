@@ -25,7 +25,8 @@ int 		read_filehistory(t_hist *hist)
 		if (!h)
 			return (-1);
 	}
-
+	hist->curr_line = hist->h_len;
+	hist->tmp_line = NULL;
 	free(line);
 	hist->h = h;
 	return (1);

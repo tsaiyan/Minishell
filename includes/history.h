@@ -14,8 +14,8 @@ int 		read_filehistory(t_hist *hist);
 int left_arrow(char *buf, int len, t_hist *hist);
 int right_arrow(char *buf, int len, t_hist *hist);
 
-int 		down_arrow();
-int 		up_arrow();
+int down_arrow(t_hist *hist);
+int up_arrow(t_hist *hist);
 
 int				backspace_key(char *buf, int len, t_hist *hist);
 int del_key(t_hist *hist);
@@ -26,5 +26,7 @@ int eof_char(t_hist *hist, char **env);
 
 int 		end_key(t_hist *hist);
 int 		home_key(t_hist *hist);
+
+void 		move_to_cours_toleft(int len);
 
 #endif

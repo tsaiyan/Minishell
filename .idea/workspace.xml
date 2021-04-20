@@ -21,11 +21,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/termcap_hist/home_end_keys.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/termcap_hist/down_arrow.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/termcap_hist/up_arrow.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/dni_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dni_structs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/left_right_arrows.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/left_right_arrows.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/read_filehistory.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/read_filehistory.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/up_down_arrows.c" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,11 +130,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <envs>
         <env name="TERM" value="xterm-256color" />
@@ -180,6 +181,11 @@
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -246,7 +252,8 @@
       <workItem from="1618817892181" duration="1939000" />
       <workItem from="1618823171703" duration="10706000" />
       <workItem from="1618842377045" duration="8175000" />
-      <workItem from="1618913478895" duration="4745000" />
+      <workItem from="1618913478895" duration="4988000" />
+      <workItem from="1618924263583" duration="7363000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
@@ -255,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618921492082</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add home and end keys">
+      <created>1618923124178</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618923124178</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -308,7 +322,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check" />
-    <option name="LAST_COMMIT_MESSAGE" value="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check" />
+    <MESSAGE value="add home and end keys" />
+    <option name="LAST_COMMIT_MESSAGE" value="add home and end keys" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

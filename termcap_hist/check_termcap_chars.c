@@ -6,13 +6,13 @@ static int check_other_esc_char2(char *buf, t_hist *hist, int len, char **env)
 		return (home_key(hist));
 	else if (!ft_strcmp(buf, "\e[F"))
 		return (end_key(hist));
+	else if ((!ft_strcmp(buf, "\e")))
+		return (1);
 	return (0);
 }
 
 static int check_other_esc_char(char *buf, t_hist *hist, int len, char **env)
 {
-//	write(1, buf, len);
-//	printf("%d", *buf);
 	if (!ft_strcmp(buf, "\t"))
 		return (1);
 	else if (!ft_strcmp(buf, "\177"))
@@ -26,18 +26,14 @@ static int check_other_esc_char(char *buf, t_hist *hist, int len, char **env)
 
 int check_esc_char(char *buf, t_hist *hist, int len, char **env)
 {
-//	printf("%d - %d - %d", buf[0], buf[1], buf[2]);
-//	ft_putchar_fd(1, buf[0]);
-//	ft_putchar_fd(1, buf[1]);
-//	ft_putchar_fd(1, buf[2]);
 	if (!ft_strcmp(buf, "\e[D"))
 		return (left_arrow(buf, len, hist));
 	else if (!ft_strcmp(buf, "\e[C"))
 		return (right_arrow(buf, len, hist));
 	else if (!ft_strcmp(buf, "\e[A"))
-		return (up_arrow());
+		return (up_arrow(hist));
 	else if (!ft_strcmp(buf, "\e[B"))
-		return (down_arrow());
+		return (down_arrow(hist));
 	else
 		return (check_other_esc_char(buf, hist, len, env));
 }
