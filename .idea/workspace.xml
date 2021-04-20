@@ -21,17 +21,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/termcap_hist/eof_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/minishell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/minishell.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/termcap_hist/home_end_keys.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/backspace_delete.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/backspace_delete.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/left_right_arrows.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/left_right_arrows.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,8 +246,16 @@
       <workItem from="1618817892181" duration="1939000" />
       <workItem from="1618823171703" duration="10706000" />
       <workItem from="1618842377045" duration="8175000" />
-      <workItem from="1618913478895" duration="3258000" />
+      <workItem from="1618913478895" duration="4745000" />
     </task>
+    <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
+      <created>1618921492081</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618921492082</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -305,6 +307,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check" />
+    <option name="LAST_COMMIT_MESSAGE" value="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

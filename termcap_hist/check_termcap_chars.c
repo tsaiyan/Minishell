@@ -1,5 +1,14 @@
 #include "header.h"
 
+static int check_other_esc_char2(char *buf, t_hist *hist, int len, char **env)
+{
+	if (!ft_strcmp(buf, "\e[H"))
+		return (home_key(hist));
+	else if (!ft_strcmp(buf, "\e[F"))
+		return (end_key(hist));
+	return (0);
+}
+
 static int check_other_esc_char(char *buf, t_hist *hist, int len, char **env)
 {
 //	write(1, buf, len);
@@ -12,7 +21,7 @@ static int check_other_esc_char(char *buf, t_hist *hist, int len, char **env)
 		return (del_key(hist));
 	else if (!ft_strcmp(buf, "\4"))
 		return (eof_char(hist, env));
-	return (0);
+	return (check_other_esc_char2(buf, hist, len, env));
 }
 
 int check_esc_char(char *buf, t_hist *hist, int len, char **env)
