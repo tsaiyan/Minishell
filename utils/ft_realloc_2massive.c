@@ -26,7 +26,7 @@ static char **copy_mass(char **dst, char **src, size_t len, int *i)
 	return (dst);
 }
 
-char 		**ft_realloc_2massive(char **mass, char *arg, int len)
+char 		**ft_realloc_2massive(char ***mass, char *arg, int len)
 {
 	int 	i;
 	char 	**ret;
@@ -34,17 +34,17 @@ char 		**ft_realloc_2massive(char **mass, char *arg, int len)
 
 	i = -1;
 	if (len == -1)
-		len = (int)ft_massive_len(mass);
-	ret = malloc(sizeof(char *) * len + 2);
+		len = (int)ft_massive_len(*mass);
+	ret = (char **)malloc(sizeof(char *) * (len + 2));
 	if (ret == NULL)
 		return (NULL);
 	line_len = ft_strlen(arg);
-	ret = copy_mass(ret, mass, line_len, &i);
+	ret = copy_mass(ret, *mass, line_len, &i);
 	if (NULL == ret)
 		return (NULL);
 	ft_strlcpy(ret[i], arg, line_len + 1);
 	ret[i + 1] = NULL;
-	if (mass)
-		ft_free_massive(mass);
+//	if (*mass)
+//		ft_free_massive(*mass);
 	return (ret);
 }

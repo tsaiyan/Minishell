@@ -23,8 +23,8 @@ SRC =	ft_memcmp.c ft_memchr.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 		ft_itoa.c ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_putnbr_fd.c \
 		ft_split.c ft_strcmp.c											\
 																		\
-		get_next_line_utils.c ft_massive_len.c get_next_line.c			\
-		ft_free_massive.c
+		get_next_line_utils.c ft_massive_len.c get_next_line.c
+		#ft_free_massive.c
 #		ft_realloc_2massive.c
 
 

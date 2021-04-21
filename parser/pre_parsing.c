@@ -140,11 +140,7 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 		ft_bzero(&buf, sizeof(buf));
 		ret = read(0, buf, 4096);
 	}
-//	term_off(hist);
-	del = hist->left;
-	hist->left = ft_strjoin(del, hist->right);
-	free(del);
-//	free(hist->right);
+	add_history_line(hist);
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
 	if (take_argument_for_pre_pars(hist->left, pa, hist))

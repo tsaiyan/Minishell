@@ -5,7 +5,7 @@ void 			ft_free_massive(char **mass)
 	int			i;
 
 	i = -1;
-	if (mass)
+	if (NULL != mass)
 	{
 		while (mass[++i] != NULL)
 		{

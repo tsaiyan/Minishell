@@ -32,4 +32,9 @@ char **copy_env_massive(char **env);
 char **copy_env_massive(char **env);
 //del it after debug
 
+void 			ft_free_massive(char **mass);
+//relloc this func from utils to libft
+
+int 			ft_putchar(int c);
+
 #endif

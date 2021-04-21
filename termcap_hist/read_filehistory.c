@@ -4,6 +4,7 @@ int 		read_filehistory(t_hist *hist)
 {
 	char	*line;
 	char 	**h;
+	char	**del;
 	int 	flag;
 
 	h = NULL;
@@ -11,7 +12,9 @@ int 		read_filehistory(t_hist *hist)
 	flag = get_next_line(hist->fd_for_add, &line);
 	while (flag != 0)
 	{
-		h = ft_realloc_2massive(h, line, hist->h_len++);
+		del = h;
+		h = ft_realloc_2massive(&del, line, hist->h_len++);
+		ft_free_massive(del);
 		if (!h)
 			return (-1);
 		free(line);
@@ -21,7 +24,9 @@ int 		read_filehistory(t_hist *hist)
 		return (-1);
 	if (*line != 0)
 	{
-		h = ft_realloc_2massive(h, line, hist->h_len++);
+		del = h;
+		h = ft_realloc_2massive(&del, line, hist->h_len++);
+		ft_free_massive(del);
 		if (!h)
 			return (-1);
 	}

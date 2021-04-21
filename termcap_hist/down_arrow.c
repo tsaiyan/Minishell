@@ -33,11 +33,12 @@ static int work_with_tmpline(t_hist *hist, int old_curr, int len_write)
 		// free(del_l);
 		tmp = hist->h[old_curr];
 		hist->h[old_curr] = ft_strjoin(del_l, hist->right);
-		// if (NULL != tmp)
-		// 	free(tmp);
+		if (NULL != tmp)
+			free(tmp);
 		if (hist->tmp_line)
 		{
 			hist->left = ft_strdup(hist->tmp_line);
+			free(hist->tmp_line);
 			hist->tmp_line = NULL;
 		}
 		else

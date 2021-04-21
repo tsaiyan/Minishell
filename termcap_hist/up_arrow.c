@@ -9,6 +9,8 @@ void 		move_to_cours_toleft(int len)
 	}
 }
 
+
+
 static void check_currline_number(t_hist *hist, int len_left)
 {
 	int 		len;
@@ -20,9 +22,9 @@ static void check_currline_number(t_hist *hist, int len_left)
 		ft_errors(errno);
 		exit(errno);
 	}
-	hist->left = hist->h[hist->curr_line];
+	ft_strlcpy(hist->left, hist->h[hist->curr_line], len + 1);
 	move_to_cours_toleft(len_left);
-	write(1, DELETE_CURS_BORD, 4);
+	write(1, "\x1b[0J", 4);
 	write(1, hist->left, ft_strlen(hist->left));
 }
 
@@ -39,6 +41,7 @@ static int up_arrow2(t_hist *hist, int len)
 int up_arrow(t_hist *hist)
 {
 	int 		len;
+	char		*del;
 
 	if (hist->curr_line == 0)
 		return ((int)write (1, "\7", 1));
@@ -47,7 +50,12 @@ int up_arrow(t_hist *hist)
 	else
 		len = 0;
 	if (hist->h_len != hist->curr_line)
+	{
+		del = hist->h[hist->curr_line];
 		hist->h[hist->curr_line] = ft_strjoin(hist->left, hist->right);
+		if (del)
+			free(del);
+	}
 	if (hist->h_len == hist->curr_line)
 	{
 		if (hist->tmp_line)

@@ -85,7 +85,7 @@ void				ft_free(char **ret);
 
 size_t		ft_massive_len(char **mass);
 int					get_next_line(int fd, char **line);
-void 			ft_free_massive(char **mass);
+//void 			ft_free_massive(char **mass);
 
 //char 		**ft_realloc_2massive(char **mass, char *arg, int len);
 
