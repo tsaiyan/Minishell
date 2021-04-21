@@ -26,6 +26,7 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 	p.envp = copy_env_massive(envp);
 	hist.right = NULL;
 	hist.left = NULL;
+	hist.terminal = NULL;
 	uplvl_take_hist_from_file(&p, &hist, apple);
 	while (!(check_exit(flag)))
 	{

@@ -21,20 +21,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/termcap_hist/add_history_line.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/ft_putchar.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/def_freestr_null.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/just_freestr_null.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/termcap_hist/check_empthy_history.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hist_1" beforeDir="false" afterPath="$PROJECT_DIR$/hist_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_free_massive.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_free_massive.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/down_arrow.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/down_arrow.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/read_filehistory.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/read_filehistory.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/add_history_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/add_history_line.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/history.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/history.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/history2.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/history2.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/up_arrow.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/up_arrow.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/ft_realloc_2massive.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_realloc_2massive.c" afterDir="false" />
     </list>
@@ -119,7 +120,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libft/gnl" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.C/C++" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -261,7 +262,9 @@
       <workItem from="1618924263583" duration="7363000" />
       <workItem from="1619000414919" duration="456000" />
       <workItem from="1619001634404" duration="3466000" />
-      <workItem from="1619008963033" duration="2475000" />
+      <workItem from="1619008963033" duration="3334000" />
+      <workItem from="1619016157052" duration="328000" />
+      <workItem from="1619018125250" duration="2550000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
@@ -277,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618923124178</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add all history&#10;leaks checked&#10;NOT NORME">
+      <created>1619014548452</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619014548452</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -331,7 +341,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check" />
     <MESSAGE value="add home and end keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="add home and end keys" />
+    <MESSAGE value="add all history&#10;leaks checked&#10;NOT NORME" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all history&#10;leaks checked&#10;NOT NORME" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -350,11 +361,6 @@
           <url>file://$PROJECT_DIR$/parser/pre_parsing.c</url>
           <line>83</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/termcap_hist/add_history_line.c</url>
-          <line>9</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

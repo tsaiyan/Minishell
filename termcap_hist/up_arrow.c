@@ -15,7 +15,9 @@ static void check_currline_number(t_hist *hist, int len_left)
 {
 	int 		len;
 
-	len = ft_strlen(hist->h[hist->curr_line]);
+	len = 0;
+	if (hist->h[hist->curr_line])
+		len = ft_strlen(hist->h[hist->curr_line]);
 	hist->left = ft_calloc(len, 1);
 	if (!hist->left)
 	{

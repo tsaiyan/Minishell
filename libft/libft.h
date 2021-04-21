@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include "../includes/header.h"
 
-
 typedef struct		s_list
 {
 	void			*content;
@@ -85,6 +84,8 @@ void				ft_free(char **ret);
 
 size_t		ft_massive_len(char **mass);
 int					get_next_line(int fd, char **line);
+void 			just_freestr_null(char **str);
+void 			def_freestr_null(char **str);
 //void 			ft_free_massive(char **mass);
 
 //char 		**ft_realloc_2massive(char **mass, char *arg, int len);

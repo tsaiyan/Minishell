@@ -85,7 +85,7 @@ static int check_arguments_realloc(char **arg, char *buf, t_pars *pa,\
 	return (1);
 }
 
-int take_argument_for_pre_pars(char *line, t_pars *pa, t_hist *hist)
+int take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist)
 {
 	char 		*arg;
 	int 		ret;
@@ -93,27 +93,25 @@ int take_argument_for_pre_pars(char *line, t_pars *pa, t_hist *hist)
 
 
 	ft_bzero(&s, sizeof(t_pars));
-	ret = check_semicolon_and_syntax(line, &s);
+	ret = check_semicolon_and_syntax(*line, &s);
 	if (s.quot_flag != 0)
 	{
-		write_error(MULTI_LINE_COMMAND, line);
+		write_error(MULTI_LINE_COMMAND, *line);
 		return (1);
 	}
 	if (ret < 0)
 	{
-		write_error(ret, line);
+		write_error(ret, *line);
 		return (1);
 	}
-	add_history_from_line(line, hist);
-	while (*line != 0)
+	while (**line != 0)
 	{
-		arg = pars_argument_before_semicolon(&line, pa);
+		arg = pars_argument_before_semicolon(line, pa);
 		if (arg == NULL)
 			return (1);
 		pre_pars(arg, pa);
-//		free(arg);
 	}
-	free(line);
+	just_freestr_null(line);
 	return (0);
 }
 
@@ -140,10 +138,10 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 		ft_bzero(&buf, sizeof(buf));
 		ret = read(0, buf, 4096);
 	}
-	add_history_line(hist);
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
-	if (take_argument_for_pre_pars(hist->left, pa, hist))
-		return (0);
+	if (add_history_line(hist, buf))
+		if (take_argument_for_pre_pars(&hist->left, pa, hist))
+			return (0);
 	return (0);
 }

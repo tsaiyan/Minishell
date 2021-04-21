@@ -44,7 +44,5 @@ char 		**ft_realloc_2massive(char ***mass, char *arg, int len)
 		return (NULL);
 	ft_strlcpy(ret[i], arg, line_len + 1);
 	ret[i + 1] = NULL;
-//	if (*mass)
-//		ft_free_massive(*mass);
 	return (ret);
 }
