@@ -35,7 +35,7 @@ static int check_semicolon(char *line, t_pars *pa, int *i)
 	int 	tmp;
 
 	tmp = *i - 1;
-	while (tmp != 0 && line[tmp] != ';')
+	while (tmp != -1 && line[tmp] != ';')
 	{
 		if (ft_isprint(line[tmp]))
 			if (!ft_isspace(line[tmp]))

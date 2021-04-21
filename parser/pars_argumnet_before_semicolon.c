@@ -48,6 +48,6 @@ char *pars_argument_before_semicolon(char **line, t_pars *pa)
 	tmp = find_substr_in_str_and_replace(";", arg, "", &i);
 	if (tmp == NULL)
 		return (arg);
-	free(arg);
+	just_freestr_null(&arg);
 	return (tmp);
 }

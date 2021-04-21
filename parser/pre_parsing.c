@@ -79,7 +79,6 @@ static int check_arguments_realloc(char **arg, char *buf, t_pars *pa,\
 	{
 		len_arg = ft_strlen(*arg);
 		arg[0][len_arg - 1] = 0;
-		//hzzhzhzhz
 		return (0);
 	}
 	return (1);

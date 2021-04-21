@@ -62,12 +62,19 @@ static char *find_substr(t_fts *p, int i)
 {
 	int 	len;
 	char	*ret;
+	char	*check;
 
 	len = ft_strlen(p->str);
 	*(p->lim1) = ft_strlen(p->substr);
 	*(p->lim2) = ft_strlen(p->rep_str);
 	ret = ft_calloc(sizeof(char), len - *(p->lim1) + *(p->lim2) + 1);
-	return (replace_in_str(ret, p, i, len));
+	check = replace_in_str(ret, p, i, len);
+	if (NULL == check)
+	{
+		free(ret);
+		return (NULL);
+	}
+	return (check);
 }
 // + 1
 

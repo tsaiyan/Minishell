@@ -20,24 +20,14 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/libft/def_freestr_null.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libft/just_freestr_null.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/termcap_hist/check_empthy_history.c" afterDir="false" />
+    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="bug fix #1 (semicolon)&#10;bug fix #2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hist_1" beforeDir="false" afterPath="$PROJECT_DIR$/hist_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.dSYM/Contents/Resources/DWARF/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/add_history_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/add_history_line.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/history.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/history.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/history2.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/history2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/up_arrow.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/up_arrow.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/ft_realloc_2massive.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_realloc_2massive.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/env_fuc3.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_fuc3.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +254,7 @@
       <workItem from="1619001634404" duration="3466000" />
       <workItem from="1619008963033" duration="3334000" />
       <workItem from="1619016157052" duration="328000" />
-      <workItem from="1619018125250" duration="2550000" />
+      <workItem from="1619018125250" duration="4801000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
@@ -304,12 +294,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/yar" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -359,7 +354,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser/pre_parsing.c</url>
-          <line>83</line>
+          <line>82</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
