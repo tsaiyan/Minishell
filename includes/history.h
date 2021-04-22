@@ -23,7 +23,8 @@ int del_key(t_hist *hist);
 
 char			**ft_realloc_2massive(char ***mass, char *arg, int len);
 int 		check_len_left_right(char *line);
-int eof_char(t_hist *hist, char **env);
+int			eof_char(t_hist *hist, char **env);
+int 		ctrlc_char(t_hist *hist);
 
 int 		end_key(t_hist *hist);
 int 		home_key(t_hist *hist);

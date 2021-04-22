@@ -15,6 +15,7 @@ void 		history_init(t_hist *hist, struct termios *term, t_pars *pa)
 	take_terminal_type(&hist->terminal);
 	term->c_lflag &= ~(ICANON);
 	term->c_lflag &= ~(ECHO);
+	term->c_lflag &= ~(ISIG);
 	tcsetattr(0, TCSANOW, term);
 	hist->term = term;
 	if (!hist->terminal)
@@ -34,6 +35,7 @@ void 		term_off(t_hist *hist)
 
 	hist->term->c_lflag |= (ECHO);
 	hist->term->c_lflag |= (ICANON);
+	hist->term->c_lflag |= (ISIG);
 	tcsetattr(0, TCSANOW, hist->term);
 	if (!hist->terminal)
 		ret = tgetent(0, "xterm-256color");
