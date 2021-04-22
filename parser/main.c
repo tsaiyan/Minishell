@@ -19,7 +19,6 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 	t_hist			hist;
 	struct termios	term;
 
-//	ft_bzero(&p, sizeof(hist));
 	p.count = 10;
 	ft_bzero(&p, sizeof(t_pars));
 	flag = 0;
@@ -31,7 +30,7 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 	while (!(check_exit(flag)))
 	{
 		history_init(&hist, &term, &p);
-		write(1, COLOR_BLUE"minishell$ "COLOR_RESET, 20);
+		write(1, COL_BLUE"minishell$ "COL_RESET, 20);
 		flag = pre_pars_branching(&p, &hist);
 		ft_fr(&hist.right);
 		ft_fr(&hist.left);

@@ -27,6 +27,10 @@ void 		history_init(t_hist *hist, struct termios *term, t_pars *pa)
 		ft_errors(TERM_ERRORS);
 		exit(TERM_ERRORS);
 	}
+	hist->term_cols = tgetnum("co");
+	hist->term_lines = tgetnum("li");
+	printf("%d\n", hist->term_cols);
+	printf("%d\n", hist->term_lines);
 }
 
 void 		term_off(t_hist *hist)

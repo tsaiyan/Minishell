@@ -43,6 +43,8 @@ typedef struct		s_hist
 	char 			*tmp_line;
 	int 			h_len;
 	int 			curr_line;
+	int 			term_cols;
+	int 			term_lines;
 }					t_hist;
 
 

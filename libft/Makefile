@@ -41,7 +41,7 @@ all: $(NAME) $(SRC)
 
 $(NAME): $(OBJ) $(BOBJ) libft.h
 ifdef $(BONUS_RULE)
-	@ar rcs $(NAME) $(OBJ) $(BOBJ) $?
+	@ar rcs $(NAME) $(OBJ) $(BOBJ)
 else
 	@ar rcs $(NAME) $(OBJ)
 endif
