@@ -6,3 +6,5 @@ minishell
 .idea
 minishell.dSYM
 /.idea/
+.DS*
+**/.DS*
