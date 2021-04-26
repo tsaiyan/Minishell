@@ -21,7 +21,7 @@ HEADER = includes/header.h
 INC = -I./libft -I./includes
 OBJ = $(SRC_FOR_SAVE:.c=.o)
 
-PATHSRC = parser utils termcap_hist gnl
+PATHSRC = parser utils termcap_hist gnl logic
 SRCLIST = $(wildcard $(dir)/*.c)
 SRC =$(shell cat $(DEP_SRC))
 HEAD =$(shell cat $(DEP_INC))
@@ -36,7 +36,7 @@ INC_FOR_SAVE = $(wildcard includes/*.h)
 
 all: libs $(NAME) $(SRC_FOR_SAVE)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) clean
 	$(CC) $(FLAG) -o $(NAME) $(SRC_FOR_SAVE) $(INC) $(LIBS)
 	@echo "$(BOLD)$(GB)Compilation done$(EB)$(SGR0)";
 
