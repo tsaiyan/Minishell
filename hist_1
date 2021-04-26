@@ -57,3 +57,36 @@ echo 123 123 132
 echo -n 123 123 13
 echo -n123123 efef ef
 echo -n
+dasjfghj
+echo -nnn -nnnnnnnnnn
+echo -nnn -nnnnnnnnnn12312
+echo -n -n 123
+echo -n -n 123
+echo -n -n 1
+echo -n -n1 3
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=62929 
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=62929 
+echo -n -n 1
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=62949 
+echo -n -n 1
+echo
+echo
+echo -n 
+echo -n -n 1
+echo -n -n 1
+echo -n -n 1
+echo -n -n 1
+echo -n -n 1
+echo -n -n 1
+echo -n -n 1
+echo -n -n1 1
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=63300 
+echo -n -n 1
+echo -n -n 1
+echo -n -n1 1
+echo 1
+echo 1
+echo -n -n 1
+exit
+echo -n -n 1
+echo -n -n123 1

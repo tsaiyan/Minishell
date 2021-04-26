@@ -21,23 +21,29 @@ static int check_n(char **argv, int fd)
 {
 	int i;
 	char *str;
+	int j;
 
+	j = 1;
 	str = argv[1];
 	i = 2;
-	if (!ft_strncmp(str, "-n", 2))
+	while(argv[j])
 	{
-		while (str[i] != 0)
+		if (!ft_strncmp(str, "-n", 2))
 		{
-			if (str[i] !=0 && str[i] != 'n')
+			while (str[i] != 0)
 			{
-				puts_echo(argv, 1, fd);
-				return (2);
+				if (str[i] !=0 && str[i] != 'n')
+				{
+					puts_echo(argv, 1, fd);
+					return (-1);
+				}
+				i++;
 			}
-			i++;
 		}
-		return (1);
+		i = 2;
+		j++;
 	}
-	return (0);
+	return (--j);
 }
 
 void ft_echo(char **argv)
@@ -55,15 +61,15 @@ void ft_echo(char **argv)
 	}
 	ft_putstr_fd("\n", 1);
 	flag = check_n(argv, fd);
-	if (flag == 2)
+	if (flag == -1)
 		return;
 	i = flag;
-	while(argv[1 + flag])
+	while(argv[flag])
 	{
-		ft_putstr_fd(argv[1 + flag++], fd);
-		if (argv[1 + flag])
+		ft_putstr_fd(argv[flag++], fd);
+		if (argv[flag])
 			ft_putstr_fd(" ", fd);
 	}
-	if (i != 1)
+	if (i)
 		ft_putstr_fd("\n", fd);
 }
