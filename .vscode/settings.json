@@ -2,7 +2,16 @@
     "files.associations": {
         "ostream": "c",
         "header.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "sstream": "c"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.insertSpaces": false,
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/tsaiyan/mini2",
+            "binaryPath": "/Users/tsaiyan/mini2/minishell",
+            "binaryArgs": []
+        }
+    ]
 }

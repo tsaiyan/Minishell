@@ -8,3 +8,5 @@ minishell.dSYM
 /.idea/
 .DS*
 **/.DS*
+*.log
+*.json
