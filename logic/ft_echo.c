@@ -46,7 +46,7 @@ static int check_n(char **argv, int fd)
 	return (--j);
 }
 
-void ft_echo(char **argv)
+void ft_echo2(char **argv)
 {
 	int flag;
 	int fd;

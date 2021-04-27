@@ -90,3 +90,104 @@ echo -n -n 1
 exit
 echo -n -n 1
 echo -n -n123 1
+echo -n -n 123
+echo -n -n1 123
+echo -n1 text
+echo
+echo
+echo -n 123
+echo -n 123
+echo -n 123
+echo
+echo 123
+echo
+echo -n 123
+echo -n 123
+echo 123
+echo 123
+echo
+echo -n 123
+echo
+echo 123
+echo -n 123
+echo 123
+echo 123
+echo
+echo 123
+echo -n 123
+echo
+echo 123
+echo 123
+echo 123
+echo 123
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50562 
+echo 123
+echo 123
+echo 123
+echo 123
+echo
+echo -n 123
+echo
+echo 123
+echo -n 123
+echo -n -n 123
+echo -n -n 123
+echo -n -n 123
+echo -n -n 123
+echo -n -n 123
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50633 
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50633 
+echo -n -n 123
+echo -n -n 123
+echo -n -n 123
+echo -n 123
+echo -n -n213 123
+echo
+echo 123
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50708 
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50708 
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn1 1
+echo -nnnnnnnnnnnnnnnnn1 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn1 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn 1
+echo -nnnnnnnnnnnnnnnnn1 1
+echo -nnnnnnnnnnnnnnnnn1 1
+echo -nnnnnnnnnnnnnnnnn1 1
+echo
+echo -n
+	{
+		write(1,"\n", 1);
+		return;
+	
+echo -n
+echo -n
+ echo -n 123
+ echo -n -n 123
+echo -n -n -n1 123
+echo -n -n1 -n 123
+ echo 123
+ echo 123
+echo 123
+echo 123
+echo 123
+echo 213
+echo 123
+echo -n -n -n1 123
+echo -n -n1 -n 123
+echo -n
+echo
