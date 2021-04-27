@@ -1,75 +1,58 @@
 #include "header.h"
+#include "built_in_header.h"
 
-static void puts_echo(char **argv, int endn, int fd)
+int	ft_check_n(t_bin *bin)
 {
 	int i;
-
-	i = 1;
-
-	while(argv[i])
-	{
-		ft_putstr_fd(argv[i], fd);
-		argv[i++];
-		if (argv[i])
-			ft_putchar_fd(32, fd);
-	}
-	if (endn)
-		ft_putchar_fd('\n', fd);
-}
-
-static int check_n(char **argv, int fd)
-{
-	int i;
-	char *str;
 	int j;
-
-	j = 1;
-	str = argv[1];
-	i = 2;
-	while(argv[j])
+	i = 1;
+	j = 2;
+	while (bin->argv[i])
 	{
-		if (!ft_strncmp(str, "-n", 2))
+		if (!ft_strncmp(bin->argv[i], "-n", 2))
 		{
-			while (str[i] != 0)
+			while (bin->argv[i][j])
 			{
-				if (str[i] !=0 && str[i] != 'n')
-				{
-					puts_echo(argv, 1, fd);
-					return (-1);
-				}
-				i++;
+				if (bin->argv[i][j] != 'n' && bin->argv[i][j] != '\0' && bin->argv[i][j] != ' ')
+					return(i);
+				j++;
 			}
+			bin->n_flag = 1;
 		}
-		i = 2;
-		j++;
+		i++;
+		j = 2;
 	}
-	return (--j);
+	return(i - 1);
 }
 
-void ft_echo2(char **argv)
+void ft_echo(char **argv)
 {
-	int flag;
+	t_bin *bin;
+	int move;
 	int fd;
-	int i;
 
-	i = 0;
 	fd = 1;
+	move = 1;
+	write(1,"\n", 1);
 	if (argv[1] == 0)
 	{
-		write(1, "\n\n", 2);
+		write(1,"\n", 1);
 		return;
 	}
-	ft_putstr_fd("\n", 1);
-	flag = check_n(argv, fd);
-	if (flag == -1)
+	bin = malloc(sizeof(t_bin));
+	bin->argv = argv;
+	bin->n_flag = 0;
+//	if (!bin)
+//		ft_exit;
+	move = ft_check_n(bin);
+	if (!argv[2] && bin->n_flag)
 		return;
-	i = flag;
-	while(argv[flag])
+	while(argv[move])
 	{
-		ft_putstr_fd(argv[flag++], fd);
-		if (argv[flag])
-			ft_putstr_fd(" ", fd);
+		ft_putstr_fd(argv[move++], fd);
+		if (argv[move])
+		ft_putchar_fd(' ', fd);
 	}
-	if (i)
-		ft_putstr_fd("\n", fd);
+	if (!bin->n_flag)
+		ft_putchar_fd('\n', fd);
 }
