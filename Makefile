@@ -39,7 +39,7 @@ all: libs $(NAME) $(SRC_FOR_SAVE)
 $(NAME): $(OBJ) clean
 	$(CC) $(FLAG) -o $(NAME) $(SRC_FOR_SAVE) $(INC) $(LIBS)
 	@echo "$(BOLD)$(GB)Compilation done$(EB)$(SGR0)";
-
+	./minishell
 %.o: %.c $(HEAD) $(LIBS)
 	$(CC) -c $(FLAG) $< $(INC) -o $@
 

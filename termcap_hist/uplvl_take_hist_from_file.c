@@ -88,6 +88,12 @@ int uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 	hist->exec_path = do_absolute_exec_path(apple);
 	up_lvl(pa, hist);
 	open_and_take_hist(pa, hist);
+	pa->b = ft_calloc(sizeof(t_bin), 1);
+	if (!pa->b)
+	{
+		ft_errors(errno);
+		exit(errno);
+	}
 	if (-1 == read_filehistory(hist))
 	{
 	}

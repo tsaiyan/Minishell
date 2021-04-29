@@ -1,6 +1,7 @@
 #ifndef HEADER_H
 # define HEADER_H
 
+# include "build_in.h"
 # include "inc.h"
 # include "libft.h"
 # include "structs.h"
@@ -12,6 +13,5 @@
 # include "pars.h"
 # include "history.h"
 # include "global_values.h"
-# include "build_in.h"
 
 #endif

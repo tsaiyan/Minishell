@@ -29,7 +29,7 @@ int eof_char(t_hist *hist, char **env)
 	if (!len_left && !len_right)
 	{
 		alloc_exit(&out);
-		parser(out, env);
+		parser(out, env, NULL);
 	}
 	else if (len_right)
 		del_key(hist);

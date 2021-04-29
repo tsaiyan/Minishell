@@ -11,6 +11,7 @@ typedef struct		s_pars
 	int 			count;
 	int 			tmp;
 	int 			tmp_flag;
+	t_bin			*b;
 }					t_pars;
 
 // quot flag 1 - " | 2 - '|

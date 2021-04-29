@@ -1,11 +1,17 @@
 #ifndef BUILT_IN_H
 # define BUILT_IN_H
 
+void ft_puts(char *str);
+void ft_putstr(char *str);
+void ft_nputs(char *str);
+
 typedef struct	s_bin
 {
 	char		**argv;
 	char		**envp;
+	char		**ar_export;
 	int			n_flag;
+	int			argc;
 }				t_bin;
 
 #endif
