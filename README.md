@@ -1,4 +1,4 @@
 # minishell
-Autors: @egums, @tphung
+Autors: @egums, @tsaiyan
 
 Simple shell app
