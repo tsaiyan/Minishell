@@ -23,12 +23,27 @@ void copy_envp_to_list(t_bin *bin)
 // puts from list
 void list_puts(t_list *lst)
 {
-	while(lst->next)
+	while(lst)
 	{
 		ft_puts(lst->content);
 		lst = lst->next;
 	}
-	ft_puts(lst->content);
+}
+
+// проверка на существование строки перед добавлением
+void ft_add_newline(t_bin *bin, char *str)
+{
+	t_list *lst;
+
+	lst = bin->export;
+	while (lst)
+	{
+		if (!ft_strcmp(lst->content, str))
+			return;
+		lst = lst->next;
+	}
+	// запись
+	ft_lstadd_back(&bin->export, ft_lstnew(str));
 }
 
 // export with lists
@@ -45,7 +60,7 @@ void ft_export(t_bin *bin)
 			copy_envp_to_list(bin);
 		while(bin->argv[i])
 		{
-			ft_lstadd_back(&bin->export, ft_lstnew(bin->argv[i]));
+			 ft_add_newline(bin, bin->argv[i]);
 			i++;
 		}
 		list_puts(bin->export);
