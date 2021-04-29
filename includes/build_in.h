@@ -12,6 +12,7 @@ typedef struct	s_bin
 	char		**ar_export;
 	int			n_flag;
 	int			argc;
+	t_list		*export;
 }				t_bin;
 
 #endif

@@ -5,7 +5,9 @@
         "libft.h": "c",
         "sstream": "c",
         "build_in.h": "c",
-        "dni_structs.h": "c"
+        "dni_structs.h": "c",
+        "inc.h": "c",
+        "structs.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "editor.insertSpaces": false,

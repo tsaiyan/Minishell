@@ -73,7 +73,7 @@ void ft_print_export(t_bin *bin)
 
 // основная функция export
 
-void ft_export(t_bin *bin)
+void ft_export_old(t_bin *bin)
 {
 	int i;
 

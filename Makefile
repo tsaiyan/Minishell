@@ -44,7 +44,7 @@ $(NAME): $(OBJ) clean
 	$(CC) -c $(FLAG) $< $(INC) -o $@
 
 libs:
-	$(MAKE) bonus -C$(PATHLIB)
+	$(MAKE) -C$(PATHLIB)
 
 clean:
 	rm -f $(OBJ)

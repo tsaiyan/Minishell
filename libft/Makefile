@@ -40,15 +40,7 @@ BOBJ = $(BSRC:.c=.o)
 all: $(NAME) $(SRC)
 
 $(NAME): $(OBJ) $(BOBJ) libft.h
-ifdef $(BONUS_RULE)
-	@ar rcs $(NAME) $(OBJ) $(BOBJ)
-else
-	@ar rcs $(NAME) $(OBJ)
-endif
-
-bonus: RULE all
-
-RULE: BONUS_RULE ?= TRUE
+	ar rcs $(NAME) $(OBJ) $(BOBJ)
 
 %.o: %.c libft.h
 	@$(CC) -c $(FLAG) $< $(INC)

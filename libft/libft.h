@@ -15,13 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "../includes/header.h"
 
 typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+# include "../includes/header.h"
 
 typedef struct		s_lst_d
 {
@@ -68,7 +69,6 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putnbr_fd(int n, int fd);
 char				**ft_split(char const *s, char *c);
 int					ft_strcmp(const char *string1, const char *string2);
-
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
