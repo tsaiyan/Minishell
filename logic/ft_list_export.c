@@ -1,7 +1,7 @@
 #include "header.h"
 
-// копирование массива в листы
-void copy_to_list(t_bin *bin)
+// copy massive to lists
+void copy_envp_to_list(t_bin *bin)
 {
 	t_list *start;
 	t_list *lst;
@@ -20,6 +20,7 @@ void copy_to_list(t_bin *bin)
 	bin->export = start;
 }
 
+// puts from list
 void list_puts(t_list *lst)
 {
 	while(lst->next)
@@ -29,9 +30,24 @@ void list_puts(t_list *lst)
 	}
 	ft_puts(lst->content);
 }
+
 // export with lists
 void ft_export(t_bin *bin)
 {
-	copy_to_list(bin);
-	list_puts(bin->export);
+	int i;
+
+	i = 1;
+	if (bin->argv[1] == 0)
+		ft_print_export(bin);
+	else
+	{
+		if (!(bin->export))
+			copy_envp_to_list(bin);
+		while(bin->argv[i])
+		{
+			ft_lstadd_back(&bin->export, ft_lstnew(bin->argv[i]));
+			i++;
+		}
+		list_puts(bin->export);
+	}
 }
