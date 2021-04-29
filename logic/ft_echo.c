@@ -1,7 +1,6 @@
 #include "header.h"
-#include "built_in_header.h"
 
-int	ft_check_n(t_bin *bin)
+static int	ft_check_n(t_bin *bin)
 {
 	int i;
 	int j;
@@ -25,34 +24,28 @@ int	ft_check_n(t_bin *bin)
 	return(i - 1);
 }
 
-void ft_echo(char **argv)
+void ft_echo(t_bin *bin)
 {
-	t_bin *bin;
 	int move;
-	int fd;
+	char **argv;
 
-	fd = 1;
+	argv = bin->argv;
 	move = 1;
-	write(1,"\n", 1);
+	ft_putchar('\n');
 	if (argv[1] == 0)
 	{
-		write(1,"\n", 1);
+		ft_putchar('\n');
 		return;
 	}
-	bin = malloc(sizeof(t_bin));
-	bin->argv = argv;
-	bin->n_flag = 0;
-//	if (!bin)
-//		ft_exit;
 	move = ft_check_n(bin);
 	if (!argv[2] && bin->n_flag)
 		return;
 	while(argv[move])
 	{
-		ft_putstr_fd(argv[move++], fd);
+		ft_putstr(argv[move++]);
 		if (argv[move])
-		ft_putchar_fd(' ', fd);
+			ft_putchar(' ');
 	}
 	if (!bin->n_flag)
-		ft_putchar_fd('\n', fd);
+		ft_putchar('\n');
 }

@@ -12,5 +12,6 @@
 # include "pars.h"
 # include "history.h"
 # include "global_values.h"
+# include "build_in.h"
 
 #endif
