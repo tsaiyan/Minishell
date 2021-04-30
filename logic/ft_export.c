@@ -71,15 +71,48 @@ void ft_print_export(t_bin *bin)
 	}
 }
 
+// функция сортировки
+
+void sort_export(t_bin *bin)
+{
+	char *str1;
+	char *str2;
+	char *temp;
+
+	int i = 0;
+	int flag = 1;
+	while (flag)
+	{
+		flag = 0;
+		while(bin->ar_export[i] && bin->ar_export[i + 1])
+		{
+			str1 = bin->ar_export[i];
+			str2 = bin->ar_export[i + 1];
+			if (ft_strcmp(str1, str2) > 0)
+			{
+				bin->ar_export[i] = str2;
+				bin ->ar_export[i + 1] = str1;
+				flag = 1;
+			}
+			i++;
+		}
+		i = 0;
+	}
+
+}
+
 // основная функция export
 
-void ft_export_old(t_bin *bin)
+void ft_export(t_bin *bin)
 {
 	int i;
 
 	i = 1;
 	if (bin->argv[1] == 0)
+	{
+		sort_export(bin);
 		ft_print_export(bin);
+	}
 	else
 	{
 		while(bin->argv[i])
@@ -88,6 +121,8 @@ void ft_export_old(t_bin *bin)
 			i++;
 		}
 		i = 0;
+		sort_export(bin);
+		ft_puts("");
 		while(bin->ar_export[i])
 		{
 			ft_putstr("declare -x ");

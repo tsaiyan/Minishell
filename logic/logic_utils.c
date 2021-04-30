@@ -8,7 +8,8 @@ void ft_nputs(char *str)
 }
 void ft_puts(char *str)
 {
-	write(1, str, ft_strlen(str));
+	if (str)
+		write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
 }
 
