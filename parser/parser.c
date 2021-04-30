@@ -21,6 +21,8 @@ int 		parser(char **argv, char **envp, t_bin *bin)
 		ft_env(bin);
 	else if (!ft_strcmp(argv[0], "export"))
 		ft_export(bin);
+	else if (!ft_strcmp(argv[0], "exit"))
+		exit(0);
 	else
 	{
 		ft_putstr("\nbash: ");

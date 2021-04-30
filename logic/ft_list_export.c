@@ -47,7 +47,7 @@ void ft_add_newline(t_bin *bin, char *str)
 }
 
 // export with lists
-void ft_export(t_bin *bin)
+void ft_export2(t_bin *bin)
 {
 	int i;
 
@@ -63,6 +63,7 @@ void ft_export(t_bin *bin)
 			 ft_add_newline(bin, bin->argv[i]);
 			i++;
 		}
+		ft_sort_list(bin);
 		list_puts(bin->export);
 	}
 }

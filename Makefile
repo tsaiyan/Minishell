@@ -33,6 +33,7 @@ SRC_FOR_SAVE = $(foreach dir, $(PATHSRC), $(SRCLIST))
 INC_FOR_SAVE = $(wildcard includes/*.h)
 
 .PHONY: all libs clean fclean re norme save
+.PRECIOUS: minishell
 
 all: libs $(NAME) $(SRC_FOR_SAVE)
 

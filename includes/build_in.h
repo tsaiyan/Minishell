@@ -5,6 +5,13 @@ void ft_puts(char *str);
 void ft_putstr(char *str);
 void ft_nputs(char *str);
 
+// typydef struct	s_mylst
+// {
+// 	char			*str;
+// 	struct s_mylst*next;
+// 	struct s_mylst *prev;
+// }				t_mylst;
+
 typedef struct	s_bin
 {
 	char		**argv;
