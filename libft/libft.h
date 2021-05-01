@@ -24,7 +24,9 @@ typedef struct		s_list
 
 typedef struct		s_mylst
 {
-	char			*content;
+	char			*value;
+	char			*key;
+	int				equal;
 	struct s_mylst	*next;
 	struct s_mylst	*prev;
 }					t_mylst;
