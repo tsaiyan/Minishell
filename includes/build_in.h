@@ -20,6 +20,7 @@ typedef struct	s_bin
 	int			n_flag;
 	int			argc;
 	t_mylst		*export;
+	t_mylst		*envp_lst;
 }				t_bin;
 
 #endif

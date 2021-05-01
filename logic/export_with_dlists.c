@@ -5,14 +5,16 @@
 void	free_my_lst(t_mylst *lst)
 {
 	if (lst)
-	{	
-	free(lst->key);
-	free(lst->value);
+	{
+	if(lst->key)
+		free(lst->key);
+	if (lst->value)
+		free(lst->value);
 	free(lst);
 	}
 
 }
-// check already exists key / value
+// check already exists key and change value
 
 int	already_exist_key(t_mylst *current, t_mylst *add)
 {
@@ -20,8 +22,16 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 	{
 		if (ft_strcmp(current->key, add->key) == 0 && !add->equal)
 		{
-			free(add);
+			free_my_lst(add);
 			return(1);
+		}
+		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
+		{
+			// if (current->value && current->value[0])
+			// 	free(current->value);
+			current->value = add->value;
+			current->equal = 1;
+			return (1);
 		}
 		//{ add free and check this func uppper
 		current = current->next;
@@ -66,8 +76,6 @@ static t_mylst *my_lst_new(char *str)
 	}
 	else
 		new_lst->key = str;
-	new_lst->next = NULL;
-	new_lst->prev = NULL;
 	return(new_lst);
 }
 
@@ -97,17 +105,19 @@ static void my_lst_add_back(t_mylst *start, t_mylst *add)
 
 // print lists
 
-static void print_list(t_mylst *start)
+void print_list(t_mylst *start, int flag)
 {
 	ft_puts(NULL);
 	while(start)
 	{
-		ft_putstr("declare -x ");
+		if (flag == 1)
+			ft_putstr("declare -x ");
 		ft_putstr(start->key);
-		if (start->value)
+		if (start->equal)
 		{
-			ft_putstr("=");
+			ft_putstr("=\"");
 			ft_putstr(start->value);
+			ft_putstr("\"");
 		}
 		ft_puts(NULL);
 		start = start->next;
@@ -116,22 +126,21 @@ static void print_list(t_mylst *start)
 
 // copy envp to double lists
 
-static void	arr_to_dlist(t_bin *bin)
+t_mylst *arr_to_dlist(char **str)
 {
 	t_mylst *start;
 	t_mylst *new_lst;
 	int i;
 
 	i = 1;
-	start = my_lst_new(bin->envp[0]);
-	while (bin->envp[i])
+	start = my_lst_new(str[0]);
+	while (str[i])
 	{
-		new_lst = my_lst_new(bin->envp[i]);
+		new_lst = my_lst_new(str[i]);
 		my_lst_add_back(start, new_lst);
 		i++;
 	}
-	bin->export = start;
-	
+	return(start);
 }
 
 // find head of list
@@ -184,28 +193,37 @@ static void sort_list(t_bin *bin)
 		}
 	}
 }
+
 // main function
 
 void ft_export(t_bin *bin)
 {
 	int i;
+	t_mylst *last_envp;
+	t_mylst *last_export;
 
 	i = 1;
 	if (!bin->export)
-		arr_to_dlist(bin);
+		bin->export = arr_to_dlist(bin->envp);
+	if (!bin->envp_lst)
+		bin->envp_lst = arr_to_dlist(bin->envp);
 	if (!bin->argv[1])
 	{
 		sort_list(bin);
-		print_list(bin->export);
+		print_list(bin->export, 1);
 	}
 	else
 	{
 		while (bin->argv[i])
 		{	
 			my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
+			// last_envp = my_lst_last(bin->envp_lst);
+			// last_export = my_lst_last(bin->export);
+			// if (last_export -> equal)
+			// 	last_envp->next = my_lst_last(bin->export);
 			i++;
 		}
 		sort_list(bin);
-		print_list(bin->export);
+		print_list(bin->export, 1);
 	}
  }
