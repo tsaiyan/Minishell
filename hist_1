@@ -820,3 +820,22 @@ export a=c
 env
 export a=test
 env
+exit
+xport
+export test
+export test2=
+export test3=text
+env
+exit
+t a
+export b=
+export c=data
+env
+export b=newdata
+env
+export c=
+env
+export c
+env
+export b
+env

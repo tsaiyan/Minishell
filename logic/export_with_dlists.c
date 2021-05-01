@@ -27,15 +27,11 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 		}
 		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
 		{
-			// if (current->value && current->value[0])
-			// 	free(current->value);
 			current->value = add->value;
 			current->equal = 1;
 			return (1);
 		}
-		//{ add free and check this func uppper
 		current = current->next;
-		//}
 	}
 	return (0);
 }
@@ -232,15 +228,9 @@ void ft_export(t_bin *bin)
 		while (bin->argv[i])
 		{
 			my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
+			lst = my_lst_new(bin->argv[i]);
+			if(lst->equal)
 			my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
-			// if (lst_to_add_to_envp && lst_to_add_to_envp->equal)
-			// {
-			// 	already_exist_key(bin->envp_lst, lst_to_add_to_envp);
-			// }
-			// last_envp = my_lst_last(bin->envp_lst);
-			// last_export = my_lst_last(bin->export);
-			// if (last_export -> equal)
-			// 	last_envp->next = my_lst_last(bin->export);
 			i++;
 		}
 		sort_list(bin);
