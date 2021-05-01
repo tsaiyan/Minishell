@@ -647,3 +647,159 @@ export a
 export a=b
 export a=c
 export b
+env
+env
+env
+env
+export
+export a=b
+env
+export b
+env
+exit
+env
+export ff=a
+env
+export a
+export a
+export a
+export b=a
+env
+export a
+env
+env
+env
+env
+env
+env
+make
+exit
+exit
+env
+exit
+env
+export
+export b=f
+env
+env
+env
+env
+утм
+env
+env
+exit
+it
+env
+env
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50824 
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+env
+export d=b
+env
+export a
+env
+export aff
+env
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=50961 
+env
+env
+env
+export ab
+env
+export ab=f
+env
+export a=v
+env
+export b
+env
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=51010 
+export fff
+export d
+export d
+env
+export a
+export a
+export b
+env
+export a = b
+env
+export a=
+env
+env
+env
+env
+export fff=
+env
+export ff
+env
+export b=c
+env
+export dddd=q
+env
+exit
+t ff
+export d=q
+env
+export d=f
+env
+export a
+env
+env
+export a=1
+env
+export b
+env
+exit
+t d
+env
+export b=f
+env
+export b=f
+env
+export d=f
+export b=a
+export b=
+export d=
+export
+export
+env
+env
+export d=f
+env
+export a
+env
+exit
+env
+export a
+env
+export b=d
+env
+export b=a
+export a
+env
+export a=b
+export a=b
+env
+export b
+env
+env
+export a=c
+env
+export a=new
+env

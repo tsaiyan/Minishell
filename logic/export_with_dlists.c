@@ -90,7 +90,7 @@ static t_mylst *my_lst_last(t_mylst *current)
 
 // add list to back
 
-static void my_lst_add_back(t_mylst *start, t_mylst *add)
+t_mylst *my_lst_add_back(t_mylst *start, t_mylst *add)
 {
 	t_mylst *last;
 
@@ -100,7 +100,9 @@ static void my_lst_add_back(t_mylst *start, t_mylst *add)
 		last->next = add;
 		add->prev = last;
 		add->next = NULL;
+		return(add);
 	}
+	return (NULL);
 }
 
 // print lists
@@ -194,13 +196,26 @@ static void sort_list(t_bin *bin)
 	}
 }
 
+// add list to envp
+
+void	add_to_envp(t_bin *bin, t_mylst *lst)
+{
+	t_mylst *last_list;
+
+	last_list = my_lst_last(bin->envp_lst);
+	last_list->next = lst;
+	lst->prev = last_list;
+	lst->next = NULL;
+}
+
 // main function
 
 void ft_export(t_bin *bin)
 {
 	int i;
-	t_mylst *last_envp;
-	t_mylst *last_export;
+	// t_mylst *lst_to_add_to_envp;
+	// t_mylst *last_export;
+	t_mylst *lst;
 
 	i = 1;
 	if (!bin->export)
@@ -215,8 +230,14 @@ void ft_export(t_bin *bin)
 	else
 	{
 		while (bin->argv[i])
-		{	
-			my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
+		{
+			lst = my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
+			if (lst && lst->equal)
+				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
+			// if (lst_to_add_to_envp && lst_to_add_to_envp->equal)
+			// {
+			// 	already_exist_key(bin->envp_lst, lst_to_add_to_envp);
+			// }
 			// last_envp = my_lst_last(bin->envp_lst);
 			// last_export = my_lst_last(bin->export);
 			// if (last_export -> equal)
@@ -227,3 +248,16 @@ void ft_export(t_bin *bin)
 		print_list(bin->export, 1);
 	}
  }
+
+// main env function
+
+int	ft_env(t_bin *bin)
+{
+   int i;
+
+   i = 0;
+   if (!bin->envp_lst)
+  	 bin->envp_lst = arr_to_dlist(bin->envp);
+   print_list(bin->envp_lst, 2);
+   return 0;	
+}
