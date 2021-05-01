@@ -231,9 +231,8 @@ void ft_export(t_bin *bin)
 	{
 		while (bin->argv[i])
 		{
-			lst = my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
-			if (lst && lst->equal)
-				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
+			my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
+			my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
 			// if (lst_to_add_to_envp && lst_to_add_to_envp->equal)
 			// {
 			// 	already_exist_key(bin->envp_lst, lst_to_add_to_envp);

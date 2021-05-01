@@ -803,3 +803,20 @@ export a=c
 env
 export a=new
 env
+export a=test
+env
+export a = b
+export a=b
+export a=b
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.2/adapter/codelldb terminal-agent --port=51363 
+export a=b
+env
+export a=test
+env
+export a=dfdsfdsfdsfs
+export a=c
+export a=b
+export a=c
+env
+export a=test
+env
