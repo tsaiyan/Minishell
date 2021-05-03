@@ -20,6 +20,7 @@ static void free_parcer(t_bin *bin)
 		free(bin->argv[i++]);
 	}
 	free(bin->argv);
+	bin->argv=NULL;
 }
 
 // MAIN FUNCTION

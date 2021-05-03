@@ -5,7 +5,9 @@ int 			backspace_key(char *buf, int len, t_hist *hist)
 	size_t		len_left;
 	int 		len_arg;
 
-	len_left = ft_strlen(hist->left);
+	len_left = 0;
+	if (NULL != hist->left)
+		len_left = (int)ft_strlen(hist->left);
 	if (len_left)
 	{
 		write(1, "\e[D", 3);

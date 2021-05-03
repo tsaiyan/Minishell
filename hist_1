@@ -901,3 +901,228 @@ exit
 exit
 exit
 exit
+env
+pwd
+test
+export
+export
+export
+env
+pwd
+test
+pest
+export a
+export a
+export a=b
+env
+env
+export a = b
+export a =b
+export a
+export b=a
+env
+export c
+export a
+export a
+export b
+export x
+env
+export a=c
+env
+export test=test
+env
+export test=
+export a=b
+export a=
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=55711 
+exit
+a
+export a=b
+export
+export b
+export
+export
+export c
+export
+export c
+export c=
+export a
+export a=b
+export
+env
+exit
+export a
+export a=b
+export
+export
+env
+export
+export
+export a=b
+env
+env
+export
+export a
+export b
+export a=b
+export c
+export c=c
+export b=f
+export
+export c=
+export a
+export
+export a=b
+export
+export b
+export
+export c
+export d
+export f=
+export
+env
+env
+export
+export a
+export b=c
+export
+env
+export c
+export
+env
+exit
+export a
+export b=c
+export ZSH=
+export
+env
+export
+exit
+export a
+export b=b
+exit
+exit
+export a
+export b=b
+exit
+export a
+export b
+export a
+export b
+export a
+export b
+export c
+export d
+env
+export a=a
+export d=d
+export
+export
+env
+export a=
+export fdgdfg=fdgdfgdfg
+export
+env
+exit
+env
+env
+env
+env
+echo
+echo 2
+echo 3 3
+echo 1 2 3
+echo 1 2 3
+echo 1 2 3
+echo 1 2 3
+echo 1 2 3
+export a
+export b
+export c
+export a=b
+export
+env
+echo 1 2 3
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=49669 
+echo 1 2 3
+echo 1 2 3
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1 2
+echo 1 2
+echo 1 2
+echo 1 2 3
+echo 1 2 3
+echo 1 2 3
+echo 1 2 3
+
+as
+echo 1 2 3
+echo
+echo 12 3 
+echo 12 3 
+echo
+echo -n 1
+echo -n 2 3 4
+echo -n 6 7 8
+echo 1 2 3
+echo -n 1 2 3
+exit
+echo -n 1 2 3
+echo -n 1 2 3
+echo 1 2 3
+echo -n 1 2 3
+echo -n 1 2 3
+echo -n 1 2 3
+echo -n 1 2 3 5
+echo
+echo 1
+echo 1 2 3
+echo 1
+echo 1
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=50109 
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1
+echo 1 2
+echo 1 2 3
+echo 1 2 3 4
+echo
+echo a
+echo -n a
+echo -n a b
+echo -nnnn a b
+echo -nnnn -n a b
+echo -nnnn -n1 a b
