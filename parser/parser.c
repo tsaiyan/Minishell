@@ -1,12 +1,28 @@
 #include "header.h"
 
 // func for null struct
-static int ft_putin(t_bin *bin)
+// static int ft_putin(t_bin *bin)
+// {
+// 	bin->n_flag = 0;
+// 	bin->argc = 0;
+// 	//bin->ar_export = NULL;
+// }
+
+// очистка ARGV перед выходом из функции
+
+static void free_parcer(t_bin *bin)
 {
-	bin->n_flag = 0;
-	bin->argc = 0;
-	//bin->ar_export = NULL;
+	int i;
+
+	i = 0;
+	while (bin->argv[i])
+	{
+		free(bin->argv[i++]);
+	}
+	free(bin->argv);
 }
+
+// MAIN FUNCTION
 
 int 		parser(char **argv, char **envp, t_bin *bin)
 {
@@ -29,4 +45,6 @@ int 		parser(char **argv, char **envp, t_bin *bin)
 		ft_putstr(argv[0]);
 		ft_puts(": command not found");
 	}
+	free_parcer(bin);
+	return (0);
 }

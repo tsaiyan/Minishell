@@ -39,7 +39,7 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 
 // dup without '='
 
-char	*ft_strdup_chr(char *str, char end)
+static char	*ft_strdup_chr(char *str, char end)
 {
 	size_t	len;
 	char	*res;
@@ -86,7 +86,7 @@ static t_mylst *my_lst_last(t_mylst *current)
 
 // add list to back
 
-t_mylst *my_lst_add_back(t_mylst *start, t_mylst *add)
+static t_mylst *my_lst_add_back(t_mylst *start, t_mylst *add)
 {
 	t_mylst *last;
 
@@ -126,9 +126,9 @@ void print_list(t_mylst *start, int flag)
 
 t_mylst *arr_to_dlist(char **str)
 {
-	t_mylst *start;
-	t_mylst *new_lst;
-	int i;
+	t_mylst	*start;
+	t_mylst	*new_lst;
+	int		i;
 
 	i = 1;
 	start = my_lst_new(str[0]);
@@ -194,17 +194,17 @@ static void sort_list(t_bin *bin)
 
 // add list to envp
 
-void	add_to_envp(t_bin *bin, t_mylst *lst)
-{
-	t_mylst *last_list;
+// static void	add_to_envp(t_bin *bin, t_mylst *lst)
+// {
+// 	t_mylst *last_list;
 
-	last_list = my_lst_last(bin->envp_lst);
-	last_list->next = lst;
-	lst->prev = last_list;
-	lst->next = NULL;
-}
+// 	last_list = my_lst_last(bin->envp_lst);
+// 	last_list->next = lst;
+// 	lst->prev = last_list;
+// 	lst->next = NULL;
+// }
 
-// main function
+// MAIN FUNCTION	
 
 void ft_export(t_bin *bin)
 {
@@ -238,15 +238,3 @@ void ft_export(t_bin *bin)
 	}
  }
 
-// main env function
-
-int	ft_env(t_bin *bin)
-{
-   int i;
-
-   i = 0;
-   if (!bin->envp_lst)
-  	 bin->envp_lst = arr_to_dlist(bin->envp);
-   print_list(bin->envp_lst, 2);
-   return 0;	
-}
