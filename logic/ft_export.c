@@ -1,20 +1,5 @@
 #include "header.h"
 
-// free all list
-
-void	free_my_lst(t_mylst *lst)
-{
-	if (lst)
-	{
-	if(lst->key)
-		free(lst->key);
-	if (lst->value)
-		free(lst->value);
-	free(lst);
-	lst = NULL;
-	}
-}
-
 // check already exists key and change value
 
 int	already_exist_key(t_mylst *current, t_mylst *add)
@@ -23,6 +8,12 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 
 	while (current)
 	{
+		if (add->dollar && ft_strcmp(current->key, add->value) == 0)
+			{
+				free(add->value);
+				add->value = current->value;
+
+			}
 		if (ft_strcmp(current->key, add->key) == 0 && !add->equal)
 		{
 			free_my_lst(add);
@@ -47,36 +38,7 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 	return (0);
 }
 
-// dup without '='
-
-static char	*ft_strdup_chr(char *str, char end)
-{
-	size_t	len;
-	char	*res;
-
-	len = 0;
-	while(str[len] != end)
-		len++;
-	res = (char *)malloc(sizeof(char) * ++len);
-	if (res == NULL)
-		exit(errno);
-	return ((char *)ft_memcpy(res, str, len - 1));
-}
-
-// static char check_add(char *str)
-// {
-// 	if (str[0] == '+' && str[1] == '=')
-// 		return(1);
-// 	else
-// 		{
-// 			ft_putstr("bash: export: `");
-// 			ft_putstr(str);
-// 			ft_putstr("': not a valid identifier");
-// 		}
-// 	return (0);
-// }
-
-// make new list
+// make new list: check += and $
 
 static t_mylst	*my_lst_new(char *str)
 {
@@ -96,21 +58,18 @@ static t_mylst	*my_lst_new(char *str)
 		}
 		else
 			new_lst->key = ft_strdup_chr(str, '=');
-		new_lst->value = ft_strdup(split_str + 1);
+		if (*(split_str + 1) == '$')
+		{
+			new_lst->value = ft_strdup(split_str + 2);
+			new_lst->dollar = 1;
+		}
+		else
+			new_lst->value = ft_strdup(split_str + 1);
 		new_lst->equal = 1;
 	}
 	else
 		new_lst->key = ft_strdup(str);
 	return(new_lst);
-}
-
-// find last list
-
-static t_mylst	*my_lst_last(t_mylst *current)
-{
-	while (current->next)
-		current = current->next;
-	return (current);
 }
 
 // add list to back
@@ -170,56 +129,9 @@ t_mylst	*arr_to_dlist(char **str)
 	return(start);
 }
 
-// find head of list
 
-t_mylst *find_head(t_mylst *lst)
-{
-	while (lst->prev)
-		lst=lst->prev;
-	return(lst);
-}
 
-// swap value and key func
-
-static void	swap_list(t_mylst *start, t_mylst *next)
-{
-	char *buf_value;
-	char *buf_key;
-
-	buf_value = start->value;
-	buf_key = start->key;
-	start->value = next->value;
-	start->key = next->key;
-	next->key = buf_key;
-	next->value = buf_value;
-}
-
-// sorting A to z by swap key and value in lists
-
-static void sort_list(t_bin *bin)
-{
-	int		flag;
-	t_mylst	*start;
-	t_mylst	*next;
-
-	flag = 1;
-	while (flag)
-	{
-		flag = 0;
-		start = bin->export;
-		next = start->next;
-		while (next)
-		{
-			if (ft_strcmp(start->key, next->key) > 0)
-			{
-				swap_list(start, next);
-				flag = 1;
-			}
-			start = start->next;
-			next = next->next;
-		}
-	}
-}
+// check += + and other
 
 int check_plus(char *str)
 {
@@ -248,7 +160,6 @@ void	ft_export(t_bin *bin)
 	t_mylst	*lst;
 
 	i = 1;
-	//check_plus(bin);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
@@ -271,7 +182,7 @@ void	ft_export(t_bin *bin)
 			i++;
 			write(1, "\n", 1);
 		}
-	//	sort_list(bin);
-	//	print_list(bin->export, 1);
+		sort_list(bin);
+		print_list(bin->export, 1);
 	}
  }

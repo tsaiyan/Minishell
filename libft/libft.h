@@ -29,6 +29,7 @@ typedef struct		s_mylst
 	int				equal;
 	int				add;
 	int				plus;
+	int				dollar;
 	struct s_mylst	*next;
 	struct s_mylst	*prev;
 }					t_mylst;
