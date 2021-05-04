@@ -24,7 +24,7 @@ void		ft_export(t_bin *bin);
 t_mylst		*find_head(t_mylst *lst);
 t_mylst		*arr_to_dlist(char **str);
 void		free_my_lst(t_mylst *lst);
-
+void		command_error(char *command, char *str);
 // typydef struct	s_mylst
 // {
 // 	char			*str;

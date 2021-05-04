@@ -19,6 +19,8 @@ void	free_my_lst(t_mylst *lst)
 
 int	already_exist_key(t_mylst *current, t_mylst *add)
 {
+	char *cur;
+
 	while (current)
 	{
 		if (ft_strcmp(current->key, add->key) == 0 && !add->equal)
@@ -28,9 +30,13 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 		}
 		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
 		{
-			if (current->value)
-				free(current->value);
-			current->value = add->value;
+			cur = current->value;
+			if (add->plus)
+				current->value = ft_strjoin(current->value, add->value);
+			if (cur)
+				free(cur);
+			if (!add->plus)
+				current->value = add->value;
 			free(add->key);
 			free(add);
 			current->equal = 1;
@@ -57,6 +63,19 @@ static char	*ft_strdup_chr(char *str, char end)
 	return ((char *)ft_memcpy(res, str, len - 1));
 }
 
+// static char check_add(char *str)
+// {
+// 	if (str[0] == '+' && str[1] == '=')
+// 		return(1);
+// 	else
+// 		{
+// 			ft_putstr("bash: export: `");
+// 			ft_putstr(str);
+// 			ft_putstr("': not a valid identifier");
+// 		}
+// 	return (0);
+// }
+
 // make new list
 
 static t_mylst	*my_lst_new(char *str)
@@ -70,8 +89,14 @@ static t_mylst	*my_lst_new(char *str)
 	split_str = ft_strchr(str, '=');
 	if (split_str != NULL)
 	{
+		if (*(split_str - 1) == '+')
+		{
+			new_lst->key = ft_strdup_chr(str, '+');
+			new_lst->plus = 1;
+		}
+		else
+			new_lst->key = ft_strdup_chr(str, '=');
 		new_lst->value = ft_strdup(split_str + 1);
-		new_lst->key = ft_strdup_chr(str, '=');
 		new_lst->equal = 1;
 	}
 	else
@@ -196,6 +221,25 @@ static void sort_list(t_bin *bin)
 	}
 }
 
+int check_plus(char *str)
+{
+	char *plus;
+	int i;
+
+	i = 0;
+	plus=ft_strchr(str, '+');
+	if (plus && ((*(plus + 1)) != '=') && ((*(plus - 1)) != '='))
+	{
+		ft_putstr("\nbash: export: `");
+		ft_putstr(str);
+		ft_puts("': not a valid identifier");
+		return(-1);
+	}
+	if (plus)
+		return (1);
+	return (0);
+}
+
 // MAIN FUNCTION	
 
 void	ft_export(t_bin *bin)
@@ -204,6 +248,7 @@ void	ft_export(t_bin *bin)
 	t_mylst	*lst;
 
 	i = 1;
+	//check_plus(bin);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
@@ -217,13 +262,16 @@ void	ft_export(t_bin *bin)
 	{
 		while (bin->argv[i])
 		{
+			if (check_plus(bin->argv[i]) == -1)
+				return;
 			lst = my_lst_new(bin->argv[i]);
 			my_lst_add_back(bin->export, lst);
 			if(lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
 			i++;
+			write(1, "\n", 1);
 		}
-		sort_list(bin);
-		print_list(bin->export, 1);
+	//	sort_list(bin);
+	//	print_list(bin->export, 1);
 	}
  }

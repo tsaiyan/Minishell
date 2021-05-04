@@ -27,6 +27,8 @@ typedef struct		s_mylst
 	char			*value;
 	char			*key;
 	int				equal;
+	int				add;
+	int				plus;
 	struct s_mylst	*next;
 	struct s_mylst	*prev;
 }					t_mylst;

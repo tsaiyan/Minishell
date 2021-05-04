@@ -23,6 +23,12 @@ static void free_parcer(t_bin *bin)
 	bin->argv=NULL;
 }
 
+void command_error(char *command, char *str)
+{
+			ft_putstr("\nbash: ");
+			ft_putstr(command);
+			ft_puts(str);
+}
 // MAIN FUNCTION
 
 int 		parser(char **argv, char **envp, t_bin *bin)
@@ -41,11 +47,7 @@ int 		parser(char **argv, char **envp, t_bin *bin)
 	else if (!ft_strcmp(argv[0], "exit"))
 		exit(0);
 	else
-	{
-		ft_putstr("\nbash: ");
-		ft_putstr(argv[0]);
-		ft_puts(": command not found");
-	}
+		command_error(argv[0], ": command not found");
 	free_parcer(bin);
 	return (0);
 }
