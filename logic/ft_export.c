@@ -31,6 +31,8 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 			if (current->value)
 				free(current->value);
 			current->value = add->value;
+			free(add->key);
+			free(add);
 			current->equal = 1;
 			return (1);
 		}
@@ -57,7 +59,7 @@ static char	*ft_strdup_chr(char *str, char end)
 
 // make new list
 
-static t_mylst *my_lst_new(char *str)
+static t_mylst	*my_lst_new(char *str)
 {
 	t_mylst	*new_lst;
 	char	*split_str;
@@ -79,7 +81,7 @@ static t_mylst *my_lst_new(char *str)
 
 // find last list
 
-static t_mylst *my_lst_last(t_mylst *current)
+static t_mylst	*my_lst_last(t_mylst *current)
 {
 	while (current->next)
 		current = current->next;
@@ -88,7 +90,7 @@ static t_mylst *my_lst_last(t_mylst *current)
 
 // add list to back
 
-static t_mylst *my_lst_add_back(t_mylst *start, t_mylst *add)
+static t_mylst	*my_lst_add_back(t_mylst *start, t_mylst *add)
 {
 	t_mylst *last;
 
@@ -105,7 +107,7 @@ static t_mylst *my_lst_add_back(t_mylst *start, t_mylst *add)
 
 // print lists
 
-void print_list(t_mylst *start, int flag)
+void	print_list(t_mylst *start, int flag)
 {
 	ft_puts(NULL);
 	while(start)
@@ -126,7 +128,7 @@ void print_list(t_mylst *start, int flag)
 
 // copy envp to double lists
 
-t_mylst *arr_to_dlist(char **str)
+t_mylst	*arr_to_dlist(char **str)
 {
 	t_mylst	*start;
 	t_mylst	*new_lst;
@@ -154,7 +156,7 @@ t_mylst *find_head(t_mylst *lst)
 
 // swap value and key func
 
-static void swap_list(t_mylst *start, t_mylst *next)
+static void	swap_list(t_mylst *start, t_mylst *next)
 {
 	char *buf_value;
 	char *buf_key;
@@ -196,7 +198,7 @@ static void sort_list(t_bin *bin)
 
 // MAIN FUNCTION	
 
-void ft_export(t_bin *bin)
+void	ft_export(t_bin *bin)
 {
 	int		i;
 	t_mylst	*lst;
@@ -215,8 +217,8 @@ void ft_export(t_bin *bin)
 	{
 		while (bin->argv[i])
 		{
-			my_lst_add_back(bin->export, my_lst_new(bin->argv[i]));
 			lst = my_lst_new(bin->argv[i]);
+			my_lst_add_back(bin->export, lst);
 			if(lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
 			i++;
@@ -225,4 +227,3 @@ void ft_export(t_bin *bin)
 		print_list(bin->export, 1);
 	}
  }
-

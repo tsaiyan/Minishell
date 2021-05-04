@@ -1,7 +1,5 @@
 #include "header.h"
 
-// не работает с несколькими аргументами 
-
 static int	 ft_check_n(t_bin *bin)
 {
 	int i;

@@ -1126,3 +1126,30 @@ echo -n a b
 echo -nnnn a b
 echo -nnnn -n a b
 echo -nnnn -n1 a b
+export 2
+export
+export
+exit
+export
+export
+export a
+export a
+export a
+export a
+export b
+exit
+export b
+export a
+export a=b
+export b=c
+export c
+export
+env
+export a=b c=d
+clear
+export z= d=
+env
+pwd
+echo 123
+echo aaa
+echo
