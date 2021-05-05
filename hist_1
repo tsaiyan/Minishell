@@ -1378,3 +1378,112 @@ export c=$a
 export a=b
 export b=a
 export c=$a
+export a=b
+export c=$a
+export c=$a
+export a=b
+export a=b
+export b=$a
+export a=d
+export c=$a
+export c=b
+export a=b
+exit
+t a=c
+exit
+t a=b
+export a=b
+export a=b
+export a=b
+export a=b
+export e=a
+export c=$e
+export a=b
+export a=b
+export c=$a
+export c=$a
+export c=$a
+export c=$a
+export c=$a
+export c=$a
+export a=b
+export c=$a
+export a=b
+export c=$a
+export a=b
+export c=$a
+export a=b
+export a=b
+export a=b
+export a=b
+export a=b
+export a=b
+c=$a
+export c=$a
+exit
+exit
+export a=b
+export c=$a
+export z
+export d
+export z=Dd
+exit
+exit
+export a=b
+export c
+export c=$a
+export a
+exit
+export a
+export a
+export a
+export b=c
+export a=$a
+export a=$b
+export
+export
+export a=b c=d
+export a+=c
+export a+=c
+export a+=c
+export
+export a+=c
+export a=b
+export a+=2
+export a=b
+export a+=2
+export a=b
+export a=b
+export a=b
+export a+=2
+export a=b
+export a+=2
+export a+=2
+export a+=2
+export a+=2
+export a+=2
+export a+=2
+export a+=2
+exir
+exit
+exit
+export
+export a=b
+export
+echo 123
+exit
+export 
+export a=b
+echo
+echo
+exit
+echo
+echo 123
+echo fff
+echo
+echo
+exit
+export
+echo
+echo 123
+echo $PATH

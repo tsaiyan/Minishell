@@ -31,9 +31,9 @@ void command_error(char *command, char *str)
 }
 // MAIN FUNCTION
 
-int 		parser(char **argv, char **envp, t_bin *bin)
+int 		parser(char **argv, char ***envp, t_bin *bin)
 {
-	bin->envp = envp;
+	bin->envp = *envp;
 	bin->argv = argv;
 	bin->argc = ft_strlen(argv);
 	if (!ft_strcmp(argv[0], "echo"))
@@ -48,6 +48,7 @@ int 		parser(char **argv, char **envp, t_bin *bin)
 		exit(0);
 	else
 		command_error(argv[0], ": command not found");
+	*envp = bin->envp;
 	free_parcer(bin);
 	return (0);
 }

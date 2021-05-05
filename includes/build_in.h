@@ -23,13 +23,13 @@ int			ft_env(t_bin *bin);
 void		ft_export(t_bin *bin);
 t_mylst		*find_head(t_mylst *lst);
 t_mylst		*arr_to_dlist(char **str);
-void		free_my_lst(t_mylst *lst);
 void		command_error(char *command, char *str);
-void		free_my_lst(t_mylst *lst);
+int			free_my_lst(t_mylst *lst);
 char		*ft_strdup_chr(char *str, char end);
 t_mylst		*my_lst_last(t_mylst *current);
 t_mylst		*find_head(t_mylst *lst);
 void		sort_list(t_bin *bin);
+int			my_lst_size(t_mylst *lst);
 // typydef struct	s_mylst
 // {
 // 	char			*str;

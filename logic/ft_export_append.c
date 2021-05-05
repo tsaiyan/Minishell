@@ -1,18 +1,34 @@
 #include "header.h"
 
-// free all list
+// lst size
 
-void	free_my_lst(t_mylst *lst)
+int	my_lst_size(t_mylst *lst)
+{
+	int i;
+
+	i = 0;
+	while(lst)
+	{
+		lst= lst->next;
+		i++;
+	}
+	return (i);
+}
+
+// free all list | ret=1 for norminette in already_exist_key
+
+int	free_my_lst(t_mylst *lst)
 {
 	if (lst)
 	{
-	if(lst->key)
-		free(lst->key);
-	if (lst->value)
-		free(lst->value);
-	free(lst);
-	lst = NULL;
+		if(lst->key)
+			free(lst->key);
+		if (lst->value)
+			free(lst->value);
+		free(lst);
+		lst = NULL;
 	}
+	return(1);
 }
 
 // dup without '='
