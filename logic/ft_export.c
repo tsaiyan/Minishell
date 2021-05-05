@@ -152,12 +152,100 @@ int check_plus(char *str)
 	return (0);
 }
 
+// // put from export $value
+
+// char *put_value_from_export(t_bin *bin, char *str)
+// {
+// 	char *ret;
+// 	t_mylst *lst;
+// 	char *dom;
+
+// 	lst = bin->export;
+// 	while(lst)
+// 	{
+// 		dom = ret;
+// 		if (ft_strcmp(lst->key, str) == 0)
+// 			ret = ft_strjoin(ret, lst->value);
+// 		lst=lst->next;
+// 		if (dom)
+// 			free(dom);
+// 	}
+// 	return(ret);
+// }
+
+// // check $ in argv
+// char *check_dollar(t_bin *bin, char *str)
+// {
+// 	int i = 0;
+// 	int j = 0;
+// 	char buf[1000];
+// 	char *ret;
+
+// 	while(str[i])
+// 	{
+// 		if (str[i] == '$')
+// 			while (str[i] != 0 || str[i] != '$' || str[i] != ' ')
+// 			{
+// 				buf[j] = str[i];
+// 				j++;
+// 				buf[j] = '\0';
+// 				ret = put_value_from_export(bin, buf);
+// 				i++;
+// 			}
+// 			j = 0;
+// 			//проверка на пробел нужна чтобы делать export b="$PATH $PATH"
+// 			// if (str[i] == ' ')
+// 			// 	buf[j++] = 32;
+// 		i++;
+// 	}
+// }
+
+int	my_lst_size(t_mylst *lst)
+{
+	int i;
+
+	i = 0;
+	while(lst)
+	{
+		lst= lst->next;
+		i++;
+	}
+	return (i);
+}
+
+// list to envp
+void	list_to_envp(t_bin *bin)
+{
+	char **envp;
+	t_mylst *lst;
+	int i;
+	char *dom;
+
+	i = 0;
+	envp = ft_calloc(sizeof(char*), (my_lst_size(bin->envp_lst) + 1));
+	if (!envp)
+		exit(errno);
+	lst = bin->envp_lst;
+	while(lst)
+	{
+		//free(bin->envp[i]);
+		bin->envp[i] = ft_strjoin(lst->key, "=");
+		dom = envp[i];
+		bin->envp[i] = ft_strjoin(envp[i], lst->value);
+		free(dom);
+		lst = lst->next;
+		i++;
+	}
+}
+
+
 // MAIN FUNCTION	
 
 void	ft_export(t_bin *bin)
 {
 	int		i;
 	t_mylst	*lst;
+	char	*dollar;
 
 	i = 1;
 	if (!bin->export)
@@ -173,6 +261,12 @@ void	ft_export(t_bin *bin)
 	{
 		while (bin->argv[i])
 		{
+			// dollar = check_dollar(bin, bin->argv[i]);
+			// if (dollar)
+			// 	{
+			// 		free(bin-argv[i]);
+			// 		bin->argv[i] = dollar;
+			// 	}
 			if (check_plus(bin->argv[i]) == -1)
 				return;
 			lst = my_lst_new(bin->argv[i]);
@@ -183,6 +277,7 @@ void	ft_export(t_bin *bin)
 			write(1, "\n", 1);
 		}
 		sort_list(bin);
+		list_to_envp(bin);
 		print_list(bin->export, 1);
 	}
  }

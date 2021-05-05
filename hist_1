@@ -1299,3 +1299,82 @@ export a=b
 export c=$a
 export c=$a
 export a=$PATH
+—É—export a=$PATH
+—export a=$PATH
+export a=$PATH
+export b=
+export
+export b=$a
+export b=$a
+export b="$PATH + $PATH"
+export b="$PATH $PATH"
+export b="$PATH$PATH"
+export b="$PATH$PATH"
+export b="$PATH$PATH"
+export b="$PATH \n$PATH"
+export b="$PATH $PATH"
+export z="$PATH $PATH"
+export z="$PATH"
+export z2="$PATH"
+export z2="$PATH"
+export z2="$PATH $PATH"
+export z2="$PATH $PATH"
+export z2=$PATH
+export test=$z2
+export test=$z2
+export test=$z2
+export b="$PATH$PATH"
+export
+export
+export a=$PATH
+export c= "$_$_"
+export
+export c= "$_"
+export c= "$LESS"
+export c= "$LESS"
+export c= "$LESS"
+export c= "$LESS"
+export c="$LESS"
+export c="$LESS"[0$LESS"
+export c="$LESS"[0$$LESS"
+export
+export
+export c="$ZSH$ZSH"
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"
+export b=$c
+export
+export a
+export a=b
+export c=$a
+export a=b
+export a=b
+export c=$a
+export c=$a
+export c=$a
+export c=$a
+export
+envp
+env
+export
+export a=b
+export a=b
+export a=b
+export a=b
+export b=c
+export
+export a=$b
+export a=b
+export b=$a
+export b=a
+export
+export b=a
+export a=b
+export b=a
+export a=b
+export b=a
+export c=
+export c=$a
+export a=b
+export b=a
+export c=$a
