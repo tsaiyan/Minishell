@@ -1,5 +1,17 @@
 #include "header.h"
 
+// validator
+
+int validate_export(char *str)
+{
+	char b;
+
+	b = str[0];
+	if ((b < 65 || b > 122) && b != '_')
+		return(0);
+	return(1);
+}
+
 // check already exists key and change value
 
 int	already_exist_key(t_mylst *current, t_mylst *add)
@@ -194,6 +206,11 @@ void	ft_export(t_bin *bin)
 		{
 			if (check_plus(bin->argv[i]) == -1)
 				return;
+			if (!validate_export(bin->argv[i]))
+				{
+				
+				command_error(bin->argv[i], 2);
+				}
 			lst = my_lst_new(bin->argv[i]);
 			my_lst_add_back(bin->export, lst);
 			if(lst->equal)

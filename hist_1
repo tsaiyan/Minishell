@@ -1487,3 +1487,58 @@ export
 echo
 echo 123
 echo $PATH
+exit
+export 1=f
+env
+export 1=b
+export 1=b
+ewfwefwef
+export 1=b
+ewfewfwe
+exit
+export 1=2
+export dfsdfsdf
+sdfdsfdsf
+exit a b
+exit a a
+exit a
+exit a
+exit a
+exit a
+exit a
+exit s
+exit s
+exit s
+exit s
+exit s
+exit 5
+exit 25555
+exit
+exit b
+exit ert ert
+exit 34543 55
+exit
+exit
+exit 34 44
+exit 43534 444
+exit
+exit 2324 d
+exit 324234 fdf
+exit 234 234
+exit fsdf 32
+exit fsdf 32
+exit ergreg
+exit 999999999999999999999a
+exit 999999999999999999999a
+exit sfdfds
+exit sdfsdfdsf
+exit 9999999999999999999999999999f
+exit 1
+exit 34
+exit 34
+exit 34
+exit 34
+exit 34
+exit 123
+exit 324
+exit 22
