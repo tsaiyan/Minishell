@@ -54,6 +54,10 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	bin->envp = *envp;
 	bin->argv = argv;
 	bin->argc = ft_strlen(argv);
+	if (!bin->export)
+		bin->export = arr_to_dlist(bin->envp);
+	if (!bin->envp_lst)
+		bin->envp_lst = arr_to_dlist(bin->envp);
 	if (!ft_strcmp(argv[0], "echo"))
 		ft_echo(bin);
 	else if (!ft_strcmp(argv[0], "pwd"))
@@ -64,6 +68,10 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		ft_export(bin);
 	else if (!ft_strcmp(argv[0], "exit"))
 		ft_exit(bin);
+	else if (!ft_strcmp(argv[0], "cd"))
+		ft_cd(bin);
+	else if (!ft_strcmp(argv[0], "unset"))
+		ft_unset(bin);
 	else
 		command_error(argv[0], 1);
 	*envp = bin->envp;

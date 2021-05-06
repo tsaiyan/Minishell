@@ -1542,3 +1542,65 @@ exit 34
 exit 123
 exit 324
 exit 22
+export
+export a=b
+export
+export c=$a
+export
+exit
+cd
+exit
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=53975 
+cd
+cd
+exit
+env
+env
+env
+exit
+env
+exit
+env
+unset MAKELEVEL
+env
+export
+unset __CF_USER_TEXT_ENCODING
+export
+export
+unset ZSH
+export
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=56150 
+export
+unset ZSH
+export
+unset ZSH
+export
+unset ZSH
+export
+env
+unset MAKELEVEL
+env
+учexit
+exit
+env
+unset MAKELVEVEL
+env
+env
+env
+env
+env
+unset VSCODE_VERBOSE_LOGGING
+env
+unset MAKELEVEL
+env
+export
+unset _
+export
+exit
+env
+unset PAGER
+env
+unset USER
+env
+unset SHELL
+unset PAGER

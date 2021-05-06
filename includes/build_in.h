@@ -30,6 +30,8 @@ t_mylst		*find_head(t_mylst *lst);
 void		sort_list(t_bin *bin);
 int			my_lst_size(t_mylst *lst);
 void		command_error(char *command, int flag);
+void		ft_cd(t_bin *bin);
+void		ft_exit(t_bin *bin);
 // typydef struct	s_mylst
 // {
 // 	char			*str;

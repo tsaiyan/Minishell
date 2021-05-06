@@ -191,10 +191,7 @@ void	ft_export(t_bin *bin)
 	t_mylst	*lst;
 
 	i = 1;
-	if (!bin->export)
-		bin->export = arr_to_dlist(bin->envp);
-	if (!bin->envp_lst)
-		bin->envp_lst = arr_to_dlist(bin->envp);
+
 	if (!bin->argv[1])
 	{
 		sort_list(bin);

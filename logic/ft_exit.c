@@ -1,6 +1,6 @@
 #include "header.h"
 
-int ft_it_digit_array(char *argv)
+int		ft_it_digit_array(char *argv)
 {
 	int i;
 
@@ -14,7 +14,7 @@ int ft_it_digit_array(char *argv)
 	return(1);
 }
 
-void ft_exit(t_bin *bin)
+void	ft_exit(t_bin *bin)
 {
 	char	**argv;
 	int		i;
