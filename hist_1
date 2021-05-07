@@ -1621,3 +1621,19 @@ env
 exit
 env
 unset MAKELEVEL
+cd
+cd
+cd 1
+cd 1
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=52550 
+cd 1
+cd 1
+cd 1
+cd 1
+cd
+cd
+cd
+exit
+cd
+exit
+cd

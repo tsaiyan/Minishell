@@ -15,9 +15,17 @@ void	ft_cd(t_bin *bin)
 {
 	char *home_path;
 
-	home_path = ft_get_value(bin->export, "sdfdsf");
+	if (!bin->argv[1])
+	{
+		home_path = ft_get_value(bin->export, "HOME");
+		ft_puts(NULL);
+		ft_puts(home_path);
+		return;
+	}
+	
 	if (!home_path)
 	{
-		
+		ft_puts("\nno home path");
+		return;
 	}
 }
