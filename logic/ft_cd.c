@@ -64,7 +64,7 @@ void	ft_cd(t_bin *bin)
 	if (cd_with_minus(bin) == 1)
 	{
 		if (chdir(ft_get_value(bin->export, "OLDPWD")) == -1)
-			ft_putstr("bash: cd: OLDPWD not set");
+			ft_putstr("\nbash: cd: OLDPWD not set");
 		else
 			change_oldpwd(bin, temp_old_dir);
 		ft_puts(NULL);
@@ -72,6 +72,9 @@ void	ft_cd(t_bin *bin)
 	}
 	if (cd_with_minus(bin) == -1)
 	{
+		ft_putstr("\nbash: cd:");
+		write(1, bin->argv[1], 2);
+		ft_puts(": invalid option");
 		ft_puts("cd: usage: cd [-L|-P] [dir]");
 		return;
 	}

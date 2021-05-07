@@ -1839,3 +1839,28 @@ exit
 cd --
 cd ---
 exit
+cd ...
+cd ---
+cd --
+cd ---
+exir
+exit
+cd ---
+cd -f
+cd -fff
+cd ..
+cd
+cd mini2
+pwd
+cd minishell
+pwd
+cd --
+cd -
+pwd
+cd -
+pwd
+unset HOME
+cd
+unset OLDPWD
+cd --
+exit
