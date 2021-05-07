@@ -34,6 +34,7 @@ void		ft_cd(t_bin *bin);
 void		ft_exit(t_bin *bin);
 void		ft_unset(t_bin *bin);
 void		list_to_envp(t_bin *bin);
+t_mylst		*find_lst(t_mylst *lst, char *key);
 // typydef struct	s_mylst
 // {
 // 	char			*str;

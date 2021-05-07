@@ -11,21 +11,77 @@ char	*ft_get_value(t_mylst *lst, char *key)
 	return (NULL);
 }
 
+void change_oldpwd(t_bin *bin, char *str)
+{
+	t_mylst *oldpwd;
+
+	oldpwd = find_lst(bin->export, "OLDPWD");
+	if(oldpwd->value)
+		free(oldpwd->value);
+	oldpwd->value = ft_strdup(str);
+	oldpwd = find_lst(bin->envp_lst, "OLDPWD");
+	if(oldpwd->value)
+		free(oldpwd->value);
+	oldpwd->value = ft_strdup(str);
+}
+
+int		cd_with_minus(t_bin *bin)
+{
+	int		len;
+	char	*str;
+
+	len = ft_strlen(bin->argv[1]);
+	str = bin->argv[1];
+	if (str[0] == '-')
+	{
+		if (len > 2 || (len == 2 && str[1] != '-'))
+			return(-1);
+		return(1);
+	}
+	return (0);
+}
+
 void	ft_cd(t_bin *bin)
 {
 	char *home_path;
+	char *temp_old_dir;
+	char dir[1000];
 
+	temp_old_dir = getcwd(dir, 1000);
 	if (!bin->argv[1])
 	{
 		home_path = ft_get_value(bin->export, "HOME");
-		ft_puts(NULL);
-		ft_puts(home_path);
-		return;
+		if (home_path)
+		{
+			chdir(home_path);
+			change_oldpwd(bin, temp_old_dir);
+		}
+		else
+			ft_putstr("\nbash: cd: HOME not set");
+		write(1, "\n", 1);
+		return;	
 	}
-	
-	if (!home_path)
+	if (cd_with_minus(bin) == 1)
 	{
-		ft_puts("\nno home path");
+		if (chdir(ft_get_value(bin->export, "OLDPWD")) == -1)
+			ft_putstr("bash: cd: OLDPWD not set");
+		else
+			change_oldpwd(bin, temp_old_dir);
+		ft_puts(NULL);
 		return;
 	}
+	if (cd_with_minus(bin) == -1)
+	{
+		ft_puts("cd: usage: cd [-L|-P] [dir]");
+		return;
+	}
+	if (chdir(bin->argv[1]) == -1)
+	{
+		ft_putstr("\nbash: cd:");
+		ft_putstr(bin->argv[1]);
+		ft_putstr(": No such file or directory");
+	}
+	else
+		change_oldpwd(bin, temp_old_dir);
+	write(1, "\n", 1);
 }
