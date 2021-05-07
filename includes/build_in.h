@@ -32,6 +32,8 @@ int			my_lst_size(t_mylst *lst);
 void		command_error(char *command, int flag);
 void		ft_cd(t_bin *bin);
 void		ft_exit(t_bin *bin);
+void		ft_unset(t_bin *bin);
+void		list_to_envp(t_bin *bin);
 // typydef struct	s_mylst
 // {
 // 	char			*str;

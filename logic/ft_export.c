@@ -179,6 +179,8 @@ void	list_to_envp(t_bin *bin)
 		lst = lst->next;
 		i++;
 	}
+	while(bin->envp[i])
+		free(bin->envp[i++]);
 	free(bin->envp);
 	bin->envp = new_envp;
 }

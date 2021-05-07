@@ -1604,3 +1604,20 @@ unset USER
 env
 unset SHELL
 unset PAGER
+env
+unset MAkELEVE
+unset MAKELEVEL
+ENV
+env
+env
+env
+unset USER
+unset USER
+unset USER
+unset USER
+env
+unset SHELL
+env
+exit
+env
+unset MAKELEVEL
