@@ -36,6 +36,8 @@ int		cd_with_minus(t_bin *bin)
 	{
 		if (len > 2 || (len == 2 && str[1] != '-'))
 			return(-1);
+		if (len == 2 && str[1] == '-')
+			return(2);
 		return(1);
 	}
 	return (0);
@@ -65,6 +67,15 @@ void	ft_cd(t_bin *bin)
 	{
 		if (chdir(ft_get_value(bin->export, "OLDPWD")) == -1)
 			ft_putstr("\nbash: cd: OLDPWD not set");
+		else
+			change_oldpwd(bin, temp_old_dir);
+		ft_puts(NULL);
+		return;
+	}
+	if (cd_with_minus(bin) == 2)
+	{
+		if (chdir(ft_get_value(bin->export, "HOME")) == -1)
+			ft_putstr("\nbash: cd: HOME not set");
 		else
 			change_oldpwd(bin, temp_old_dir);
 		ft_puts(NULL);
