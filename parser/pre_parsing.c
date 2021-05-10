@@ -14,7 +14,7 @@ static int pre_pars(char *arg, t_pars *pa)
 	ret = second_pre_pars(arg, pa);
 	if (NULL == ret)
 		return (1);
-	parser(ret, pa->envp, pa->b);
+	parser(ret, &pa->envp, pa->b);
 	return (0);
 //	while (arg[i] != 0)
 //	{

@@ -1,5 +1,17 @@
 #include "header.h"
 
+// validator
+
+int validate_export(char *str)
+{
+	char b;
+
+	b = str[0];
+	if ((b < 65 || b > 122) && b != '_')
+		return(0);
+	return(1);
+}
+
 // check already exists key and change value
 
 int	already_exist_key(t_mylst *current, t_mylst *add)
@@ -12,13 +24,9 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 			{
 				free(add->value);
 				add->value = current->value;
-
 			}
 		if (ft_strcmp(current->key, add->key) == 0 && !add->equal)
-		{
-			free_my_lst(add);
-			return(1);
-		}
+			return(free_my_lst(add));
 		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
 		{
 			cur = current->value;
@@ -55,16 +63,13 @@ static t_mylst	*my_lst_new(char *str)
 		{
 			new_lst->key = ft_strdup_chr(str, '+');
 			new_lst->plus = 1;
-		}
-		else
-			new_lst->key = ft_strdup_chr(str, '=');
-		if (*(split_str + 1) == '$')
-		{
-			new_lst->value = ft_strdup(split_str + 2);
-			new_lst->dollar = 1;
-		}
-		else
 			new_lst->value = ft_strdup(split_str + 1);
+		}
+		else
+		{			
+			new_lst->key = ft_strdup_chr(str, '=');
+			new_lst->value = ft_strdup(split_str + 1);
+		}
 		new_lst->equal = 1;
 	}
 	else
@@ -129,8 +134,6 @@ t_mylst	*arr_to_dlist(char **str)
 	return(start);
 }
 
-
-
 // check += + and other
 
 int check_plus(char *str)
@@ -152,6 +155,36 @@ int check_plus(char *str)
 	return (0);
 }
 
+// list to envp
+
+void	list_to_envp(t_bin *bin)
+{
+	char **new_envp;
+	t_mylst *lst;
+	int i;
+	char *dom;
+
+	i = 0;
+	new_envp = ft_calloc(sizeof(char*), (my_lst_size(bin->envp_lst) + 1));
+	if (!new_envp)
+		exit(errno);
+	lst = bin->envp_lst;
+	while(lst)
+	{
+		new_envp[i] = ft_strjoin(lst->key, "=");
+		dom = new_envp[i];
+		new_envp[i] = ft_strjoin(new_envp[i], lst->value);
+		free(dom);
+		free(bin->envp[i]);
+		lst = lst->next;
+		i++;
+	}
+	while(bin->envp[i])
+		free(bin->envp[i++]);
+	free(bin->envp);
+	bin->envp = new_envp;
+}
+
 // MAIN FUNCTION	
 
 void	ft_export(t_bin *bin)
@@ -160,10 +193,7 @@ void	ft_export(t_bin *bin)
 	t_mylst	*lst;
 
 	i = 1;
-	if (!bin->export)
-		bin->export = arr_to_dlist(bin->envp);
-	if (!bin->envp_lst)
-		bin->envp_lst = arr_to_dlist(bin->envp);
+
 	if (!bin->argv[1])
 	{
 		sort_list(bin);
@@ -175,14 +205,20 @@ void	ft_export(t_bin *bin)
 		{
 			if (check_plus(bin->argv[i]) == -1)
 				return;
+			if (!validate_export(bin->argv[i]))
+				{
+				
+				command_error(bin->argv[i], 2);
+				}
 			lst = my_lst_new(bin->argv[i]);
 			my_lst_add_back(bin->export, lst);
 			if(lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
 			i++;
-			write(1, "\n", 1);
+		write(1, "\n", 1);
 		}
 		sort_list(bin);
-		print_list(bin->export, 1);
+		list_to_envp(bin);
+		//print_list(bin->export, 1);
 	}
  }

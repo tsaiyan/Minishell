@@ -23,19 +23,41 @@ static void free_parcer(t_bin *bin)
 	bin->argv=NULL;
 }
 
-void command_error(char *command, char *str)
+void command_error(char *command, int flag)
 {
-			ft_putstr("\nbash: ");
-			ft_putstr(command);
-			ft_puts(str);
+	if (flag == 1)
+	{
+		ft_putstr("\nbash: ");
+		ft_putstr(command);
+		ft_puts(": command not found");
+	}
+	if (flag == 2)
+	{
+		ft_putstr("\nbash: export: '");
+		ft_putstr(command);
+		ft_putstr("': not a valid identifier");
+	}
+	if (flag == 3)
+	{
+		ft_puts("\nexit");
+		ft_putstr("bash: exit ");
+		ft_putstr(command);
+		ft_puts(": numeric argument required");
+	}
+	if (flag == 4)
+		ft_puts("\nexit\nbash: exit: too many arguments");
 }
 // MAIN FUNCTION
 
-int 		parser(char **argv, char **envp, t_bin *bin)
+int 		parser(char **argv, char ***envp, t_bin *bin)
 {
-	bin->envp = envp;
+	bin->envp = *envp;
 	bin->argv = argv;
 	bin->argc = ft_strlen(argv);
+	if (!bin->export)
+		bin->export = arr_to_dlist(bin->envp);
+	if (!bin->envp_lst)
+		bin->envp_lst = arr_to_dlist(bin->envp);
 	if (!ft_strcmp(argv[0], "echo"))
 		ft_echo(bin);
 	else if (!ft_strcmp(argv[0], "pwd"))
@@ -45,9 +67,14 @@ int 		parser(char **argv, char **envp, t_bin *bin)
 	else if (!ft_strcmp(argv[0], "export"))
 		ft_export(bin);
 	else if (!ft_strcmp(argv[0], "exit"))
-		exit(0);
+		ft_exit(bin);
+	else if (!ft_strcmp(argv[0], "cd"))
+		ft_cd(bin);
+	else if (!ft_strcmp(argv[0], "unset"))
+		ft_unset(bin);
 	else
-		command_error(argv[0], ": command not found");
+		command_error(argv[0], 1);
+	*envp = bin->envp;
 	free_parcer(bin);
 	return (0);
 }
