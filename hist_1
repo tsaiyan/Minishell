@@ -1299,3 +1299,4 @@ export a=b
 export c=$a
 export c=$a
 export a=$PATH
+export c="$ZSH $ZSH"
