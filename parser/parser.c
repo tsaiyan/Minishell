@@ -27,7 +27,7 @@ void command_error(char *command, int flag)
 {
 	if (flag == 1)
 	{
-		ft_putstr("\nbash: ");
+		ft_putstr("bash: ");
 		ft_putstr(command);
 		ft_puts(": command not found");
 	}
@@ -58,22 +58,23 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
-	if (!ft_strcmp(argv[0], "echo"))
+	if (!ft_strcmp(argv[0], "echo") || !ft_strcmp(argv[0], "ECHO"))
 		ft_echo(bin);
-	else if (!ft_strcmp(argv[0], "pwd"))
+	else if (!ft_strcmp(argv[0], "pwd") || !ft_strcmp(argv[0], "PWD"))
 		ft_pwd(bin);
-	else if (!ft_strcmp(argv[0], "env"))
+	else if (!ft_strcmp(argv[0], "env") || !ft_strcmp(argv[0], "ENV"))
 		ft_env(bin);
 	else if (!ft_strcmp(argv[0], "export"))
 		ft_export(bin);
 	else if (!ft_strcmp(argv[0], "exit"))
 		ft_exit(bin);
-	else if (!ft_strcmp(argv[0], "cd"))
+	else if (!ft_strcmp(argv[0], "cd") || !ft_strcmp(argv[0], "CD"))
 		ft_cd(bin);
 	else if (!ft_strcmp(argv[0], "unset"))
 		ft_unset(bin);
 	else
-		command_error(argv[0], 1);
+		ft_execve(bin);
+		//command_error(argv[0], 1);
 	*envp = bin->envp;
 	free_parcer(bin);
 	return (0);

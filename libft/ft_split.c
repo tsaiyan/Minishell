@@ -1,105 +1,79 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: egums <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 15:23:14 by egums             #+#    #+#             */
-/*   Updated: 2020/11/06 19:00:34 by egums            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static int		check_arg(char arg, char *term)
+char			**free_split(char **mall)
 {
-	while (*term)
+	int i;
+
+	i = 0;
+	while (mall[i])
 	{
-		if (arg == *term)
-			return (1);
-		term++;
+		free(mall[i]);
+		i++;
 	}
+	free(mall);
 	return (0);
 }
 
-static char		*word_alloc(const char *str, char *c)
+static size_t	atoi_strlen(const char *str, char c)
 {
-	char		*ret_word;
-	int			index;
+	size_t len;
 
-	index = 0;
-	while (!(check_arg(str[index], c)) && str[index])
-		index++;
-	if (!(ret_word = (char *)malloc(index + 1)))
-		return (NULL);
-	index = -1;
-	while (!(check_arg(str[++index], c)) && str[index])
-		ret_word[index] = str[index];
-	ret_word[index] = '\0';
-	return (ret_word);
+	len = 0;
+	if (!str)
+		return (0);
+	while (*str == c)
+		str++;
+	while (*str != c && *str++)
+		len++;
+	return (len);
 }
 
-static int		count_word(const char *str, char *c)
+static size_t	wc(char const *str, char c)
 {
-	int			count;
+	size_t count;
 
 	count = 0;
+	if (!str)
+		return (0);
 	while (*str)
 	{
-		if (*str && !(0 == !(check_arg(*str, c))))
+		if (*str == c)
+			str++;
+		if (*str != c)
 		{
 			count++;
-			while (*str && !(0 == !(check_arg(*str, c))))
+			while (*str != c && *str)
 				str++;
 		}
-		while (*str && check_arg(*str, c))
-			str++;
 	}
 	return (count);
 }
 
-void			ft_free(char **ret)
+char			**ft_split(char const *src, char c)
 {
-	char		**begin;
+	char	**mall;
+	size_t	i;
 
-	begin = ret;
-	while (*ret != NULL)
-	{
-		free(*ret);
-		*ret = NULL;
-		ret++;
-	}
-	ret = begin;
-	free(ret);
-	begin = NULL;
-	ret = NULL;
-}
-
-char			**ft_split(char const *s, char *c)
-{
-	char		**ret;
-	int			index;
-
-	index = 0;
-	if (!s || !(ret = (char **)malloc((count_word(s, c) + 1) * sizeof(char *))))
+	i = 0;
+	if (!src)
 		return (NULL);
-	while (*s)
+	 mall = (char**)ft_calloc(sizeof(char*), (wc(src, c) + 1));
+		if (!src)
+		exit(errno);	
+	while (*src)
 	{
-		while (*s && check_arg(*s, c))
-			s++;
-		if (*s && !(check_arg(*s, c)))
+		if (*src != c)
 		{
-			if (!(ret[index] = word_alloc(s, c)))
+			mall[i] = ft_substr((char*)src, 0, atoi_strlen(src, c));
+			if (!mall[i])
 			{
-				ft_free(ret);
-				return (NULL);
+				free_split(mall);
+				exit(errno);
 			}
-			index++;
-			while (*s && !(check_arg(*s, c)))
-				s++;
+			i++;
+			src += atoi_strlen(src, c) - 1;
 		}
+		src++;
 	}
-	ret[index] = NULL;
-	return (ret);
+	return (mall);
 }

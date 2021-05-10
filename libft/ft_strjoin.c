@@ -28,8 +28,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (ft_strdup(s1));
 	sum_len = ft_strlen(s1) + ft_strlen(s2);
 	ret = malloc(sizeof(char) * (sum_len + 1));
-	if (NULL == ret)
-		return (NULL);
+	if (!ret)
+		exit(errno);
 	dst = ret;
 	while (*s1)
 		*dst++ = *s1++;

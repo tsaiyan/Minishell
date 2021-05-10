@@ -79,9 +79,8 @@ char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putnbr_fd(int n, int fd);
-char				**ft_split(char const *s, char *c);
+char				**ft_split(char const *src, char c);
 int					ft_strcmp(const char *string1, const char *string2);
-
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -91,13 +90,13 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+void				(*del)(void *));
 void				ft_free(char **ret);
-
-size_t		ft_massive_len(char **mass);
+size_t				ft_massive_len(char **mass);
 int					get_next_line(int fd, char **line);
-void 			just_freestr_null(char **str);
-void 			def_freestr_null(char **str);
+void 				just_freestr_null(char **str);
+void 				def_freestr_null(char **str);
+char				**free_split(char **mall);
 //void 			ft_free_massive(char **mass);
 
 //char 		**ft_realloc_2massive(char **mass, char *arg, int len);
