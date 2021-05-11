@@ -20,9 +20,7 @@ void	ft_execve(t_bin *bin)
 
 	ft_puts(NULL);
 	if (bin->argv[0][0] == '/')
-	{
 		execve_str = bin->argv[0];
-	}
 	else
 	{
 		str2 = ft_get_value(bin->export, "PATH");
@@ -62,9 +60,9 @@ void	ft_execve(t_bin *bin)
 	}
 	else
 	{
+		wait(NULL);
 		if (dir_to_open)
 			free(dir_to_open);
-		wait(NULL);
 		if (split_str)
 		free_split(split_str);
 	}
