@@ -32,16 +32,8 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 		history_init(&hist, &term, &p);
 		write(1, COL_BLUE"minishell$ "COL_RESET, 20);
 		flag = pre_pars_branching(&p, &hist);
-		// for(int i = 0; p.envp[i] != NULL; i++)
-		// 	printf("%s\n", p.envp[i]);
 		ft_fr(&hist.right);
 		ft_fr(&hist.left);
 	}
 	return (1);
 }
-
-//	for (int i = 0; envp[i] != NULL; i++)
-//	{
-//	printf("%s\n", envp[i]);
-//	}
-

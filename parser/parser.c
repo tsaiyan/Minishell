@@ -54,6 +54,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	if (!ft_strcmp(argv[0], "exit"))
 		ft_exit(bin);
 	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
+		// ft_exit(bin); change too ft_exit(argv)
 	bin->envp = *envp;
 	bin->argv = argv;
 	bin->argc = ft_strlen(argv);

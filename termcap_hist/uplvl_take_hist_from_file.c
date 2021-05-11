@@ -1,6 +1,6 @@
 #include "header.h"
 
-static void 	do_history_dir(char *str1, char *str2)
+static void 	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 {
 	char 		**com;
 
@@ -10,9 +10,10 @@ static void 	do_history_dir(char *str1, char *str2)
 		ft_errors(MALLOC_ERR);
 		exit(MALLOC_ERR);
 	}
-	com[0] = str1;
-	com[1] = str2;
+	com[0] = ft_strdup(str1);
+	com[1] = ft_strdup(str2);
 	com[2] = NULL;
+	parser(com, envp, bin);
 }
 
 static char 	*take_history_filename(t_pars *pa, t_hist *hist)
@@ -27,20 +28,19 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 	del = str_lvl;
 	str_lvl = ft_strjoin("/hist_", del);
 	free(del);
-//	tmp = ft_strjoin(hist->exec_path, "/.history");
-//	dir = opendir(tmp);
-//	if (dir == NULL)
-//	{
-//		if (errno == ENOENT)
-//			do_history_dir("mkdir", tmp);
-//		else
-//		{
-//			ft_errors(errno);
-//			exit(errno);
-//		}
-//		//add .history to path and execve on mkdir .history
-//	}
-	ret = ft_strjoin(hist->exec_path, str_lvl);
+	dir = opendir(".history");
+	// if (dir == NULL)
+	// {
+	// 	if (errno == ENOENT)
+	// 		do_history_dir("mkdir", ".history", &pa->envp, pa->b);
+	// 	else
+	// 	{
+	// 		ft_errors(errno);
+	// 		exit(errno);
+	// 	}
+	// 	//add .history to path and execve on mkdir .history
+	// }
+	ret = ft_strjoin(".history", str_lvl);
 	free(str_lvl);
 	return (ret);
 }
@@ -69,12 +69,15 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
 {
 	char 		*file;
+	char		*hist_folder_name;
 	int 		tmp;
 
+	tmp = 0;
+	
 	file = take_history_filename(pa, hist);
+	// hist->fd_for_add = open(file, O_CREAT | O_RDWR, 0644);
 	hist->fd_for_add = open("hist_1", O_CREAT | O_RDWR, 0644);
 	free(file);
-	// file too open char *file
 	if (0 > hist->fd_for_add)
 	{
 		tmp = ft_errors(errno);
