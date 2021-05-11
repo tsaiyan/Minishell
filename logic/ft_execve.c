@@ -16,7 +16,7 @@ void	ft_execve(t_bin *bin)
 	i = 0;
 	flag = 1;
 	command = NULL;
-	ret = 1;/
+	ret = 1;
 
 	ft_puts(NULL);
 	if (bin->argv[0][ft_strlen(bin->argv[0]) - 1] == '/')
@@ -30,7 +30,7 @@ void	ft_execve(t_bin *bin)
 			command_error(bin->argv[0], 5);
 		return;
 	}
-	if (bin->argv[0][0] == '/')
+	if (bin->argv[0][0] == '/' || bin->argv[0][0] == '.')
 		execve_str = bin->argv[0];
 	else
 	{
@@ -72,8 +72,11 @@ void	ft_execve(t_bin *bin)
 	if (pid == 0)
 	{
 		ret = execve(execve_str, bin->argv, bin->envp);
-		if (ret == -1)
+		if (bin->argv[0][0] == '.')
+			exit(command_error(bin->argv[0], 5));
+		else
 			exit(command_error(bin->argv[0], 1));
+
 	}
 	else
 	{

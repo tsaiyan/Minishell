@@ -16,4 +16,4 @@ minishell.dSYM
 .vscode/*
 .jsbeautifyrc
 a.out
-hist_1
+*hist_1*
