@@ -11,3 +11,5 @@ minishell.dSYM
 *.log
 *.json
 *minishell.dSYM*
+.vscode
+.vscode/*
