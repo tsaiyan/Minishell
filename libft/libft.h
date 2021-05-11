@@ -16,13 +16,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
-typedef struct		s_mylst
+typedef struct s_mylst
 {
 	char			*value;
 	char			*key;
@@ -32,16 +32,16 @@ typedef struct		s_mylst
 	int				dollar;
 	struct s_mylst	*next;
 	struct s_mylst	*prev;
-}					t_mylst;
+}	t_mylst;
 
 # include "../includes/header.h"
 
-typedef struct		s_lst_d
+typedef struct s_lst_d
 {
 	void			*content;
 	struct s_lst_d	*next;
 	struct s_lst_d	*prev;
-}					t_lst_d;
+}	t_lst_d;
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
@@ -94,7 +94,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 void				ft_free(char **ret);
 
-size_t		ft_massive_len(char **mass);
+size_t	ft_massive_len(char **mass);
 int					get_next_line(int fd, char **line);
 void 			just_freestr_null(char **str);
 void 			def_freestr_null(char **str);

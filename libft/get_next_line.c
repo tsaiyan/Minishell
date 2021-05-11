@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "get_next_line.h"
 
-int				ft_strlen_n(const char *s, char flag)
+int	ft_strlen_n(const char *s, char flag)
 {
 	int			len;
 
@@ -41,7 +41,7 @@ int				ft_strlen_n(const char *s, char flag)
 	return (len);
 }
 
-int				free_and_null(char **tmp, int flag)
+int	free_and_null(char **tmp, int flag)
 {
 	if ((*tmp) != NULL)
 	{
@@ -53,7 +53,7 @@ int				free_and_null(char **tmp, int flag)
 	return (0);
 }
 
-int				ft_save_remains(char **tmp)
+int	ft_save_remains(char **tmp)
 {
 	char		*rtn;
 	int			i;
@@ -69,7 +69,8 @@ int				ft_save_remains(char **tmp)
 		free_and_null(tmp, 0);
 		return (0);
 	}
-	if (!(rtn = malloc(sizeof(char) * ((ft_strlen_n(*tmp, 0) - i) + 1))))
+	rtn = malloc(sizeof(char) * ((ft_strlen_n(*tmp, 0) - i) + 1));
+	if (!rtn)
 		return (1);
 	i++;
 	while ((*tmp)[i])
@@ -80,13 +81,14 @@ int				ft_save_remains(char **tmp)
 	return (0);
 }
 
-int				ft_take_line(char **tmp, char **line)
+int	ft_take_line(char **tmp, char **line)
 {
 	char		*ret;
 	int			len;
 
 	len = ft_strlen_n(*tmp, 1);
-	if (!(ret = malloc(len + 1)))
+	ret = malloc(len + 1);
+	if (!ret)
 		return (1);
 	ret[len] = '\0';
 	while (--len != -1)
@@ -95,7 +97,7 @@ int				ft_take_line(char **tmp, char **line)
 	return (ft_save_remains(tmp));
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buf;
 	char		*tmp;
@@ -108,7 +110,8 @@ int				get_next_line(int fd, char **line)
 		return (-1);
 	while (!ft_strchr_gnl(save, '\n') && len != 0)
 	{
-		if ((len = read(fd, buf, BUFFER_SIZE)) < 0)
+		len = read(fd, buf, BUFFER_SIZE);
+		if (len < 0)
 			return (free_and_null(&buf, -1));
 		buf[len] = '\0';
 		tmp = save;

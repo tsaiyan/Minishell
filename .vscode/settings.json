@@ -7,7 +7,8 @@
         "build_in.h": "c",
         "dni_structs.h": "c",
         "inc.h": "c",
-        "structs.h": "c"
+        "structs.h": "c",
+        "chrono": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "editor.insertSpaces": false,

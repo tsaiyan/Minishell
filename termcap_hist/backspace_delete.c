@@ -30,7 +30,6 @@ int del_key(t_hist *hist)
 	char 		*tmp;
 
 	len_right = 0;
-	cursor_down
 	if (NULL != hist->right)
 		len_right = (int)ft_strlen(hist->right);
 	if (len_right && hist->right)

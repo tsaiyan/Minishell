@@ -26,7 +26,8 @@ static char	*ft_positive_num(int n, int len)
 {
 	char			*str;
 
-	if (!(str = mem(len)))
+	str = mem(len);
+	if (!str)
 		return (NULL);
 	else
 	{
@@ -47,7 +48,8 @@ static char	*ft_negative_num(int n, int len)
 {
 	char			*str;
 
-	if (!(str = mem(len + 1)))
+	str = mem(len + 1);
+	if (!str)
 		return (NULL);
 	else
 	{
@@ -66,7 +68,7 @@ static char	*ft_negative_num(int n, int len)
 	return (NULL);
 }
 
-int			get_capacity(int n)
+int	get_capacity(int n)
 {
 	int				ret;
 	int				rank;
@@ -83,7 +85,7 @@ int			get_capacity(int n)
 	return (ret);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*str;
 	int				len;
@@ -93,14 +95,16 @@ char		*ft_itoa(int n)
 	len = get_capacity(n);
 	if (n >= 0)
 	{
-		if (!(str = ft_positive_num(n, len)))
+		str = ft_positive_num(n, len);
+		if (!str)
 			return (NULL);
 		else
 			return (str);
 	}
 	else
 	{
-		if (!(str = ft_negative_num(-n, len)))
+		str = ft_negative_num(-n, len);
+		if (!str)
 			return (NULL);
 		else
 			return (str);

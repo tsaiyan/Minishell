@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int		check_arg(char arg, char *term)
+static int	check_arg(char arg, char *term)
 {
 	while (*term)
 	{
@@ -23,7 +23,7 @@ static int		check_arg(char arg, char *term)
 	return (0);
 }
 
-static char		*word_alloc(const char *str, char *c)
+static char	*word_alloc(const char *str, char *c)
 {
 	char		*ret_word;
 	int			index;
@@ -31,7 +31,8 @@ static char		*word_alloc(const char *str, char *c)
 	index = 0;
 	while (!(check_arg(str[index], c)) && str[index])
 		index++;
-	if (!(ret_word = (char *)malloc(index + 1)))
+	ret_word = (char *)malloc(index + 1);
+	if (!ret_word)
 		return (NULL);
 	index = -1;
 	while (!(check_arg(str[++index], c)) && str[index])
@@ -40,7 +41,7 @@ static char		*word_alloc(const char *str, char *c)
 	return (ret_word);
 }
 
-static int		count_word(const char *str, char *c)
+static int	count_word(const char *str, char *c)
 {
 	int			count;
 
@@ -59,7 +60,7 @@ static int		count_word(const char *str, char *c)
 	return (count);
 }
 
-void			ft_free(char **ret)
+char	*ft_free(char **ret)
 {
 	char		**begin;
 
@@ -76,13 +77,14 @@ void			ft_free(char **ret)
 	ret = NULL;
 }
 
-char			**ft_split(char const *s, char *c)
+char	**ft_split(char const *s, char *c)
 {
 	char		**ret;
 	int			index;
 
 	index = 0;
-	if (!s || !(ret = (char **)malloc((count_word(s, c) + 1) * sizeof(char *))))
+	ret = (char **)malloc((count_word(s, c) + 1) * sizeof(char *));
+	if (!s || !ret)
 		return (NULL);
 	while (*s)
 	{
@@ -90,11 +92,9 @@ char			**ft_split(char const *s, char *c)
 			s++;
 		if (*s && !(check_arg(*s, c)))
 		{
-			if (!(ret[index] = word_alloc(s, c)))
-			{
-				ft_free(ret);
-				return (NULL);
-			}
+			ret[index] = word_alloc(s, c);
+			if (!ret[index])
+				return (ft_free(ret));
 			index++;
 			while (*s && !(check_arg(*s, c)))
 				s++;
