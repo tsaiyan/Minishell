@@ -13,14 +13,14 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 
-void				*ft_memcpy_gnl(void *dst, const void *src, size_t n)
+void	*ft_memcpy_gnl(void *dst, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
 	size_t			j;
 
-	s = (unsigned char*)src;
-	d = (unsigned char*)dst;
+	s = (unsigned char *)src;
+	d = (unsigned char *)dst;
 	j = 0;
 	if (n != 0 && dst != src)
 	{
@@ -33,7 +33,7 @@ void				*ft_memcpy_gnl(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-char				*ft_strdup_gnl(const char *s1)
+char	*ft_strdup_gnl(const char *s1)
 {
 	size_t			len;
 	char			*res;
@@ -45,7 +45,7 @@ char				*ft_strdup_gnl(const char *s1)
 	return ((char *)ft_memcpy_gnl(res, s1, len));
 }
 
-int					ft_strlcat_gnl(char *dst, const char *src, int dstsize)
+int	ft_strlcat_gnl(char *dst, const char *src, int dstsize)
 {
 	const char		*tmpdst;
 	const char		*tmpsrc;
@@ -69,7 +69,7 @@ int					ft_strlcat_gnl(char *dst, const char *src, int dstsize)
 	return (dlen + (src - tmpsrc));
 }
 
-char				*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int				sum_len;
 	char			*ret;
@@ -78,7 +78,8 @@ char				*ft_strjoin_gnl(char *s1, char *s2)
 	if (NULL == s1)
 		return (ft_strdup_gnl(s2));
 	sum_len = ft_strlen_n(s1, 0) + ft_strlen_n(s2, 0);
-	if (!(ret = malloc(sizeof(char) * (sum_len + 1))))
+	ret = malloc(sizeof(char) * (sum_len + 1));
+	if (!ret)
 		return (NULL);
 	dst = ret;
 	while (*s1)
@@ -88,7 +89,7 @@ char				*ft_strjoin_gnl(char *s1, char *s2)
 	return (ret);
 }
 
-int					ft_strchr_gnl(const char *s, int c)
+int	ft_strchr_gnl(const char *s, int c)
 {
 	int				index;
 

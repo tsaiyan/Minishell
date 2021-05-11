@@ -52,6 +52,9 @@ int	command_error(char *command, int flag)
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
+	if (!ft_strcmp(argv[0], "exit"))
+		ft_exit(bin);
+	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
 	bin->envp = *envp;
 	bin->argv = argv;
 	bin->argc = ft_strlen(argv);

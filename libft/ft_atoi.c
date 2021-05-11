@@ -26,17 +26,17 @@ static int	ret(unsigned long answer, int minus)
 	return ((int)answer * minus);
 }
 
-int			ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
+	unsigned long	answer;
 	int				index;
 	int				minus;
-	unsigned long	answer;
 
 	index = 0;
 	minus = 1;
 	answer = 0;
-	while (nptr[index] == '\r' || nptr[index] == '\v' || nptr[index] == ' ' ||
-			nptr[index] == '\n' || nptr[index] == '\f' || nptr[index] == '\t')
+	while (nptr[index] == '\r' || nptr[index] == '\v' || nptr[index] == ' ' \
+	|| nptr[index] == '\n' || nptr[index] == '\f' || nptr[index] == '\t')
 		index++;
 	if (nptr[index] == '-')
 		minus = -1;

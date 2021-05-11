@@ -33,11 +33,14 @@ static char	*solve(char const *s, unsigned start, size_t len)
 
 	j = -1;
 	while (s[++j])
+	{
 		if (start == (unsigned int)j)
 		{
 			sub_len = ft_strlen(s + j);
-			len = ((int)len <= sub_len) ? len : (size_t)sub_len;
-			if (!(result = alloc_empty(len + 1)))
+			if (!((int)len <= sub_len))
+				len = (size_t)sub_len;
+			result = alloc_empty(len + 1);
+			if (!result)
 				return (NULL);
 			ret = result;
 			while (len--)
@@ -45,10 +48,11 @@ static char	*solve(char const *s, unsigned start, size_t len)
 			*result = '\0';
 			return (ret);
 		}
+	}
 	return (NULL);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	tmp_len;
 
