@@ -4,3 +4,8 @@ ls
 /bin/lf
 /bin/ls
 ls
+ls /
+ls \
+ls / 
+ls /
+ls /
