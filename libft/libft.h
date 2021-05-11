@@ -92,12 +92,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 void				(*del)(void *));
 void				ft_free(char **ret);
-<<<<<<< HEAD
-
-size_t	ft_massive_len(char **mass);
-=======
 size_t				ft_massive_len(char **mass);
->>>>>>> adf582260ea97ac05e61fd7b04df709e70684ef3
 int					get_next_line(int fd, char **line);
 void 				just_freestr_null(char **str);
 void 				def_freestr_null(char **str);
