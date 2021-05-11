@@ -23,7 +23,7 @@ static void free_parcer(t_bin *bin)
 	bin->argv=NULL;
 }
 
-void command_error(char *command, int flag)
+int	command_error(char *command, int flag)
 {
 	if (flag == 1)
 	{
@@ -46,6 +46,7 @@ void command_error(char *command, int flag)
 	}
 	if (flag == 4)
 		ft_puts("\nexit\nbash: exit: too many arguments");
+	return(127);
 }
 // MAIN FUNCTION
 
