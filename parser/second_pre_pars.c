@@ -63,7 +63,7 @@ char **second_pre_pars(char *arg, t_pars *pa)
 	free(arg);
 	if (NULL == tmp)
 		return (NULL);
-	ret = ft_split(tmp, " ");
+	ret = ft_split(tmp, ' ');
 	//export c="$ZSH $ZSH"
 	if (NULL == ret)
 		return (NULL);

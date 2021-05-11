@@ -9,3 +9,16 @@ ls \
 ls / 
 ls /
 ls /
+make all
+make all
+make all
+ÑŒÑmake all
+make all
+make all
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"
+export c="$ZSH $ZSH"

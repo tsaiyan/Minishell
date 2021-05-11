@@ -6,6 +6,7 @@ minishell
 .idea
 minishell.dSYM
 /.idea/
+.idea/*
 .DS*
 **/.DS*
 *.log
@@ -13,3 +14,5 @@ minishell.dSYM
 *minishell.dSYM*
 .vscode
 .vscode/*
+.jsbeautifyrc
+a.out

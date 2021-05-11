@@ -59,7 +59,7 @@ char			**ft_split(char const *src, char c)
 		return (NULL);
 	 mall = (char**)ft_calloc(sizeof(char*), (wc(src, c) + 1));
 		if (!src)
-		exit(errno);	
+		exit(errno);
 	while (*src)
 	{
 		if (*src != c)
