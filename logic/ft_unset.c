@@ -29,7 +29,6 @@ void ft_find_and_delete(t_mylst *envexp, t_bin *bin, char *argv)
 }
 void	ft_unset(t_bin *bin)
 {
-	t_mylst *lst_to_unset;
 	int i;
 
 	i = 1;
