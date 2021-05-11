@@ -46,6 +46,19 @@ int	command_error(char *command, int flag)
 	}
 	if (flag == 4)
 		ft_puts("\nexit\nbash: exit: too many arguments");
+	if (flag == 5)
+		{
+			ft_putstr("bash: ");
+			ft_putstr(command);
+			ft_puts(": No such file or directory");
+		}
+	if (flag == 6)
+		{
+			ft_putstr("bash: ");
+			ft_putstr(command);
+			ft_puts(": is a directory");
+			return(126);
+		}
 	return(127);
 }
 // MAIN FUNCTION
@@ -53,7 +66,7 @@ int	command_error(char *command, int flag)
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
 	if (!ft_strcmp(argv[0], "exit"))
-		ft_exit(bin);
+		ft_exit(argv);
 	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
 		// ft_exit(bin); change too ft_exit(argv)
 	bin->envp = *envp;

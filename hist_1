@@ -1,24 +1,73 @@
+exit
+exit
+ls
+pwd
+exit
+pwd;pwd
+pwd
+ls;ls
+exit
+ls /
+exit
+echo test tout ; exit
+echo test tout ; exit
+echo -n test tout ; exit
+echo -n -n -n test tout ; exit
+cd .. ; pwd ; exit
+cd /Users ; pwd ; exit
+cd ; pwd ; exit
+mkdir test_dir ; cd test_dir ; rm -rf ../test_dir ; cd . ; pwd ; cd . ; pwd ; cd .. ; pwd ; exit
+echo test \ test ; exit
+echo \"test ; exit
+minishell: : multi-line command
+mkdir test_dir
+ls
+ls
+cd mkdir
+cd test_dir
+pwd
+rm -rf ../test_dir
+cd .
+exit 77
+$$
+##
+$3#
+ls
+echo $?
+exit
+ PATH
+env
+ls
+ls
+unset PATH
 ls
 /bin/ls
-/bin/ls ..
-/bin/lf
-/bin/ls
+/bin/
+/bin/
+/bin/
+/bin/
+exir
+/bin/
+/bin/
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=53648 
+/bin/
+/fddgdfg/
+/bin/
+/bin/
+/bin/
+bin
+/grgdg/
+/bin/
+/bin/
+/dfdsf/
+exit
+/bin/
+/hgfhgfh/
+fgdfgfdg/
+bin/
+/dfgfdg/
 ls
-ls /
-ls \
-ls / 
-ls /
-ls /
-make all
-make all
-make all
-ÑŒÑmake all
-make all
-make all
-export c="$ZSH $ZSH"
-export c="$ZSH $ZSH"
-export c="$ZSH $ZSH"
-export c="$ZSH $ZSH"
-export c="$ZSH $ZSH"
-export c="$ZSH $ZSH"
-export c="$ZSH $ZSH"
+utils
+utils/
+exirt
+exit

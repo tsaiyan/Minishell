@@ -30,7 +30,7 @@ t_mylst		*find_head(t_mylst *lst);
 void		sort_list(t_bin *bin);
 int			my_lst_size(t_mylst *lst);
 void		ft_cd(t_bin *bin);
-void		ft_exit(t_bin *bin);
+void		ft_exit(char **argv);
 void		ft_unset(t_bin *bin);
 char		*ft_get_value(t_mylst *lst, char *key);
 void		list_to_envp(t_bin *bin);

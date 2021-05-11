@@ -16,14 +16,30 @@ void	ft_execve(t_bin *bin)
 	i = 0;
 	flag = 1;
 	command = NULL;
-	ret = 1;
+	ret = 1;/
 
 	ft_puts(NULL);
+	if (bin->argv[0][ft_strlen(bin->argv[0]) - 1] == '/')
+	{
+		folder = opendir(bin->argv[0]);
+		if (folder)
+			command = readdir(folder);
+		if (command)
+			command_error(bin->argv[0], 6);
+		else
+			command_error(bin->argv[0], 5);
+		return;
+	}
 	if (bin->argv[0][0] == '/')
 		execve_str = bin->argv[0];
 	else
 	{
 		str2 = ft_get_value(bin->export, "PATH");
+		if (!str2)
+		{
+			command_error(bin->argv[0], 5);
+			return;
+		}
 		split_str = ft_split(str2, ':');
 		while (split_str[i] && flag)
 		{
@@ -51,6 +67,7 @@ void	ft_execve(t_bin *bin)
 		}
 		execve_str = ft_strjoin(dir_to_open, bin->argv[0]);
 	}
+	folder = opendir(bin->argv[0]);
 	pid = fork();
 	if (pid == 0)
 	{

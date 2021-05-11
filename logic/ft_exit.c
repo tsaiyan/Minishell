@@ -14,14 +14,12 @@ int		ft_it_digit_array(char *argv)
 	return(1);
 }
 
-void	ft_exit(t_bin *bin)
+void	ft_exit(char **argv)
 {
-	char	**argv;
 	int		i;
 	int		j;
 
 	i = 1;
-	argv = bin->argv;
 	if (!argv[1])
 		exit(0);
 	if (ft_it_digit_array(argv[1]) && argv[2])
