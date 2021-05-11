@@ -29,13 +29,13 @@ t_mylst		*my_lst_last(t_mylst *current);
 t_mylst		*find_head(t_mylst *lst);
 void		sort_list(t_bin *bin);
 int			my_lst_size(t_mylst *lst);
-void		command_error(char *command, int flag);
 void		ft_cd(t_bin *bin);
 void		ft_exit(t_bin *bin);
 void		ft_unset(t_bin *bin);
 char		*ft_get_value(t_mylst *lst, char *key);
 void		list_to_envp(t_bin *bin);
 t_mylst		*find_lst(t_mylst *lst, char *key);
+int			command_error(char *command, int flag);
 // typydef struct	s_mylst
 // {
 // 	char			*str;
