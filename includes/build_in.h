@@ -13,6 +13,7 @@ typedef struct	s_bin
 	char		**p_commands;
 	char		***p_argvs;
 	int			p_count;
+	pid_t			pid;
 }				t_bin;
 
 void		ft_puts(char *str);

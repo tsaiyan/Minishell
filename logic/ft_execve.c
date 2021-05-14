@@ -2,7 +2,7 @@
 
 void	ft_execve(t_bin *bin, char *command, char **argv)
 {
-	pid_t			pid;
+	
 	int				ret;
 	DIR				*folder = NULL;
 	struct dirent	*dir = NULL;
@@ -73,9 +73,10 @@ void	ft_execve(t_bin *bin, char *command, char **argv)
 	//folder = opendir(argv[0]);
 	// for pipes
 
-	// запуск execve
-	pid = fork();
-	if (pid == 0)
+	// делает пид если нет пайпов
+	if (bin->p_count == 0)
+		bin->pid = fork();
+	if (bin->pid == 0)
 	{
 		ret = execve(execve_str, argv, bin->envp);
 		if (argv[0][0] == '.')
