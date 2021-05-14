@@ -1,78 +1,72 @@
+echo 321 22 222
+echo 321 22 222
+echo 3223 33
+echo 3223 33
+echo 3223 33 33
+echo 3223 33 33 33
+echo 2323 33 33
+echo 2323 33 33
+ls | cat -e
+exit
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=61138 
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=61468 
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=61729 
 exit
 exit
+ls
+ls
+ls
+
+ls
+
+ls
+ls
+ls
+ls
 ls
 pwd
+cat
+ls | ls
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=61958 
 exit
-pwd;pwd
-pwd
-ls;ls
+cat -e
+ls | cat -e
+ls | cat -e
+ /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=62424 
 exit
-ls /
+cat -e
+дcat -e
+cat -e
+cat -e | ls
+cat -e | ls
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+echo ff
+echo ff
+fdsf ji
+ls
+ls
+ls
+ls
+ls
 exit
-echo test tout ; exit
-echo test tout ; exit
-echo -n test tout ; exit
-echo -n -n -n test tout ; exit
-cd .. ; pwd ; exit
-cd /Users ; pwd ; exit
-cd ; pwd ; exit
-mkdir test_dir ; cd test_dir ; rm -rf ../test_dir ; cd . ; pwd ; cd . ; pwd ; cd .. ; pwd ; exit
-echo test \ test ; exit
-echo \"test ; exit
-minishell: : multi-line command
-mkdir test_dir
+ls | cat -e
 ls
-ls
-cd mkdir
-cd test_dir
-pwd
-rm -rf ../test_dir
-cd .
-exit 77
-$$
-##
-$3#
-ls
-echo $?
 exit
- PATH
-env
 ls
-ls
-unset PATH
-ls
+ldf
 /bin/ls
-/bin/
-/bin/
-/bin/
-/bin/
-exir
-/bin/
-/bin/
- /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=53648 
-/bin/
-/fddgdfg/
-/bin/
- /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=55581 
-exit
-xit
 ls dfdf
-./ls
+exit
 ls
-./minishell
-exit
-ishell
-./minishell
-exit
-./sdfdf
-./sdfdsfdsf
-exit
-./sdfdsf
- /Users/tsaiyan/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=55617 
-./sdfdsf
-./sdfdsf
-./sdfdsf
-.dfdf
-ls
-/bin/
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
 exit

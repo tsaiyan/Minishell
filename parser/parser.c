@@ -61,6 +61,7 @@ int	command_error(char *command, int flag)
 		}
 	return(127);
 }
+
 // MAIN FUNCTION
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
@@ -76,6 +77,8 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
+	if (check_pipes(bin))
+		ft_pipes(bin);
 	if (!ft_strcmp(argv[0], "echo") || !ft_strcmp(argv[0], "ECHO"))
 		ft_echo(bin);
 	else if (!ft_strcmp(argv[0], "pwd") || !ft_strcmp(argv[0], "PWD"))
@@ -90,8 +93,8 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		ft_cd(bin);
 	else if (!ft_strcmp(argv[0], "unset"))
 		ft_unset(bin);
-	else
-		ft_execve(bin);
+	else if (!bin->p_count)
+		ft_execve(bin, bin->argv[0], bin->argv);
 		//command_error(argv[0], 1);
 	*envp = bin->envp;
 	free_parcer(bin);

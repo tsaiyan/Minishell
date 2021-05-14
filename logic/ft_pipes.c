@@ -1,0 +1,80 @@
+#include "header.h"
+
+// check pipes
+
+int	check_pipes(t_bin *bin)
+{
+	int i = 0;
+	int ret = 0;
+	while (bin->argv[i])
+	{
+		if (!ft_strcmp(bin->argv[i], "|"))
+			ret++;
+		i++;
+	}
+	bin->p_count = ret;
+	return(ret);
+}
+
+int	write_pipes(t_bin *bin)
+{
+    // маллок комманд
+	bin->p_commands = ft_calloc(sizeof(char **), (bin->p_count + 1 + 1));
+	if (!bin->p_commands)
+		exit(errno);
+    // маллок аргументов (сначала комманд ***)
+	bin->p_argvs = ft_calloc(sizeof(char *), (bin->p_count + 1 + 1));
+	if (!bin->p_argvs)
+		exit(errno);
+	int i = 0;
+	int c = 0;
+	int k = 0;
+    int n = 0;
+	while (bin->argv[i])
+	{
+        // пропуск пайпов
+		if (!ft_strcmp(bin->argv[i], "|"))
+		{
+			i++;
+			continue;
+		}
+        // запись комманды
+		bin->p_commands[c] = bin->argv[i];
+
+        // запись аргументов
+        // считаем к-во для маллока
+        n = i;
+        while (bin->argv[n] && ft_strcmp(bin->argv[n], "|"))
+            n++;
+        // маллок аргументов (**) (1 for null and 1 for command)
+		bin->p_argvs[c] = ft_calloc(sizeof(char *), n + 1 + 1);
+        if (!bin->p_argvs[c])
+		    exit(errno);
+        // в argv сначала команда
+        bin->p_argvs[c][k] = bin->argv[i];
+        k++;
+        i++;
+        // затем остальное
+		while (bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
+		{
+			bin->p_argvs[c][k] = bin->argv[i];
+			k++;
+			i++;
+		}
+		k = 0;
+		c++;
+	}
+    return (0);
+}
+
+int	ft_pipes(t_bin *bin)
+{
+	int i = 0;
+	write_pipes(bin);
+	puts(NULL);
+	while(bin->p_commands[i])
+	{
+		ft_execve(bin, bin->p_commands[i], bin->p_argvs[i]);
+		i++;
+	}
+}

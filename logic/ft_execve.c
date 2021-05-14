@@ -1,46 +1,49 @@
 #include "header.h"
 
-void	ft_execve(t_bin *bin)
+void	ft_execve(t_bin *bin, char *command, char **argv)
 {
 	pid_t			pid;
 	int				ret;
-	DIR				*folder;
-	struct dirent	*command;
+	DIR				*folder = NULL;
+	struct dirent	*dir = NULL;
 	char			**split_str = NULL;
-	char			*str2;
+	char			*path = NULL;
 	char			*dir_to_open = NULL;
 	int				flag;
 	int 			i;
-	char			*execve_str;
+	char			*execve_str = NULL;
 
 	i = 0;
 	flag = 1;
-	command = NULL;
 	ret = 1;
 
-	ft_puts(NULL);
-	if (bin->argv[0][ft_strlen(bin->argv[0]) - 1] == '/')
+	write(1, "\n", 1);
+
+	// проверка на папку
+	if (command[ft_strlen(command) - 1] == '/')
 	{
-		folder = opendir(bin->argv[0]);
+		folder = opendir(command);
 		if (folder)
-			command = readdir(folder);
+			dir = readdir(folder);
 		if (command)
-			command_error(bin->argv[0], 6);
+			command_error(command, 6);
 		else
-			command_error(bin->argv[0], 5);
+			command_error(command, 5);
 		return;
 	}
-	if (bin->argv[0][0] == '/' || bin->argv[0][0] == '.')
-		execve_str = bin->argv[0];
+	// проверка на абсолютный путь
+	if (argv[0][0] == '/' || argv[0][0] == '.')
+		execve_str = command;
 	else
 	{
-		str2 = ft_get_value(bin->export, "PATH");
-		if (!str2)
+		// достаем папки с коммандами из path
+		path = ft_get_value(bin->export, "PATH");
+		if (!path)
 		{
-			command_error(bin->argv[0], 5);
+			command_error(command, 5);
 			return;
 		}
-		split_str = ft_split(str2, ':');
+		split_str = ft_split(path, ':');
 		while (split_str[i] && flag)
 		{
 			if (dir_to_open)
@@ -49,10 +52,10 @@ void	ft_execve(t_bin *bin)
 			folder = opendir(dir_to_open);
 			while (folder && ret && flag)
 			{
-				command = readdir(folder);
-				if (!command)
+				dir = readdir(folder);
+				if (!dir)
 					ret = 0;
-				if (command && !strcmp(command->d_name, bin->argv[0]))
+				if (dir && !strcmp(dir->d_name, command))
 					flag = 0;
 			}
 			ret = 1;
@@ -60,23 +63,25 @@ void	ft_execve(t_bin *bin)
 				closedir(folder);
 			i++;
 		}
-		if (!command)
+		if (!dir)
 		{
-			command_error(bin->argv[0], 1);
+			command_error(command, 1);
 			return;
 		}
-		execve_str = ft_strjoin(dir_to_open, bin->argv[0]);
+		execve_str = ft_strjoin(dir_to_open, command);
 	}
-	folder = opendir(bin->argv[0]);
+	//folder = opendir(argv[0]);
+	// for pipes
+
+	// запуск execve
 	pid = fork();
 	if (pid == 0)
 	{
-		ret = execve(execve_str, bin->argv, bin->envp);
-		if (bin->argv[0][0] == '.')
-			exit(command_error(bin->argv[0], 5));
+		ret = execve(execve_str, argv, bin->envp);
+		if (argv[0][0] == '.')
+			exit(command_error(command, 5));
 		else
-			exit(command_error(bin->argv[0], 1));
-
+			exit(command_error(command, 1));
 	}
 	else
 	{

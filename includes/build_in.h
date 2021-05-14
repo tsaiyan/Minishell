@@ -10,6 +10,9 @@ typedef struct	s_bin
 	int			argc;
 	t_mylst		*export;
 	t_mylst		*envp_lst;
+	char		**p_commands;
+	char		***p_argvs;
+	int			p_count;
 }				t_bin;
 
 void		ft_puts(char *str);
@@ -36,6 +39,8 @@ char		*ft_get_value(t_mylst *lst, char *key);
 void		list_to_envp(t_bin *bin);
 t_mylst		*find_lst(t_mylst *lst, char *key);
 int			command_error(char *command, int flag);
+int			ft_pipes(t_bin *bin);
+void	ft_execve(t_bin *bin, char *command, char **argv);
 // typydef struct	s_mylst
 // {
 // 	char			*str;
