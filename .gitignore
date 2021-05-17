@@ -18,3 +18,5 @@ minishell.dSYM
 a.out
 *hist_1*
 hist_1
+.deps
+.idea
