@@ -41,7 +41,10 @@ void		list_to_envp(t_bin *bin);
 t_mylst		*find_lst(t_mylst *lst, char *key);
 int			command_error(char *command, int flag);
 int			ft_pipes(t_bin *bin);
-void	ft_execve(t_bin *bin, char *command, char **argv);
+int			check_pipes(t_bin *bin);
+void		ft_execve(t_bin *bin, char *command, char **argv);
+char *get_excve_str(t_bin *bin, char *command, char **argv);
+void	ft_execve(t_bin *bin, char *execve_str, char **argv);
 // typydef struct	s_mylst
 // {
 // 	char			*str;

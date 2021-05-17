@@ -1,25 +1,17 @@
 #include "header.h"
 
-void	ft_execve(t_bin *bin, char *command, char **argv)
+char *get_excve_str(t_bin *bin, char *command, char **argv)
 {
-	
+	char			*execve_str;
 	int				ret;
-	DIR				*folder = NULL;
-	struct dirent	*dir = NULL;
-	char			**split_str = NULL;
-	char			*path = NULL;
 	char			*dir_to_open = NULL;
-	int				flag;
-	int 			i;
-	char			*execve_str = NULL;
+	char			**split_str = NULL;
+	struct dirent	*dir = NULL;
+	int				flag = 1;
+	int 			i = 0;
+	DIR				*folder = NULL;
+	char			*path = NULL;
 
-	i = 0;
-	flag = 1;
-	ret = 1;
-
-	write(1, "\n", 1);
-
-	// проверка на папку
 	if (command[ft_strlen(command) - 1] == '/')
 	{
 		folder = opendir(command);
@@ -29,7 +21,7 @@ void	ft_execve(t_bin *bin, char *command, char **argv)
 			command_error(command, 6);
 		else
 			command_error(command, 5);
-		return;
+		return(NULL);
 	}
 	// проверка на абсолютный путь
 	if (argv[0][0] == '/' || argv[0][0] == '.')
@@ -41,7 +33,7 @@ void	ft_execve(t_bin *bin, char *command, char **argv)
 		if (!path)
 		{
 			command_error(command, 5);
-			return;
+			return(NULL);
 		}
 		split_str = ft_split(path, ':');
 		while (split_str[i] && flag)
@@ -66,30 +58,42 @@ void	ft_execve(t_bin *bin, char *command, char **argv)
 		if (!dir)
 		{
 			command_error(command, 1);
-			return;
+			return(NULL);
 		}
 		execve_str = ft_strjoin(dir_to_open, command);
 	}
+	if (dir_to_open)
+			free(dir_to_open);
+	if (split_str)
+		free_split(split_str);
+	return(execve_str);
+}
+
+void	ft_execve(t_bin *bin, char *execve_str, char **argv)
+{
+	int		ret = 0;
+	pid_t	pid;
 	//folder = opendir(argv[0]);
 	// for pipes
 
 	// делает пид если нет пайпов
 	if (bin->p_count == 0)
+	{
+		execve_str = get_excve_str(bin, argv[0], argv);
 		bin->pid = fork();
+	}
+	// запуск execve
+	// if (bin->pid == 0)
+	// {
 	if (bin->pid == 0)
 	{
 		ret = execve(execve_str, argv, bin->envp);
 		if (argv[0][0] == '.')
-			exit(command_error(command, 5));
+			exit(command_error(argv[0], 5));
 		else
-			exit(command_error(command, 1));
+			exit(command_error(argv[0], 1));
 	}
 	else
-	{
 		wait(NULL);
-		if (dir_to_open)
-			free(dir_to_open);
-		if (split_str)
-		free_split(split_str);
-	}
+	write(2, "\nft_execve main process\n", 24);
 }

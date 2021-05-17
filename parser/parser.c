@@ -79,7 +79,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		bin->envp_lst = arr_to_dlist(bin->envp);
 	if (check_pipes(bin))
 		ft_pipes(bin);
-	if (!ft_strcmp(argv[0], "echo") || !ft_strcmp(argv[0], "ECHO"))
+	else if (!ft_strcmp(argv[0], "echo") || !ft_strcmp(argv[0], "ECHO"))
 		ft_echo(bin);
 	else if (!ft_strcmp(argv[0], "pwd") || !ft_strcmp(argv[0], "PWD"))
 		ft_pwd(bin);

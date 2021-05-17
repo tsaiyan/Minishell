@@ -319,3 +319,393 @@ ls | cat -e
 ls | cat -e
 ls | ls | ls | cat -e
 exit
+ls
+pwd
+ls | ls
+ls | cat -e
+exit
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ps
+ls | cat -e
+ps
+ls
+ps
+ps
+ls
+ls | ls
+ps
+ls | cat -e
+ls
+ls
+exit
+ls
+ls
+pwd
+pwd
+pwd
+cat
+ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=54621 
+ls
+exit
+ls
+ls
+ls
+ls
+ls
+ls
+ps
+ls
+ps
+ls
+ps
+ls
+ps
+exit
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ps
+ls
+ls
+ls
+ls
+ps
+ps
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+Ðexit
+make
+exit
+ls
+ps
+ls | ls
+ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=56689 
+ls | ls
+lss
+ls
+d
+ls
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+./minishell
+ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+exit
+ls
+ls | ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=57290 
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=57382 
+ls | ls
+ls
+ps
+ls | ls
+ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=58528 
+exit
+ls
+ls
+ls | ls
+ls
+ls | ls
+ls | ls
+ls
+ls
+ls | ls
+exit
+ls
+ls | ls
+exit
+ls | ls
+exit
+ls
+ls | ls
+exit
+ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+exit
+ls
+ls | ls
+ls
+ls | ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=62577 
+s }|l
+ls
+ls | ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=62692 
+ls | ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=63115 
+s|./ii
+ls | ls
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=63125 
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+exit
+ls | ls
+exit
+ls | ls
+exit
+./minishell
+l
+ps
+exit
+exit
+ls | ls
+exit
+ls | ls
+ls
+ls
+exit
+Ð´ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls | ls
+exit
+ls
+exit
+ls
+exit
+ls | ls
+ls
+exit
+ls
+exit
+ls
+ls
+ls
+ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+ls | ls
+exit
+ls | ls
+exit
+ls
+ls | ls
+exit
+ls | ls
+exit
+ls | ls
+exit
+ls | ls
+exit
+ls | ls
+ls | ls
+exit
+ls | ls
+ls | ls | ls
+ls | ls | ls | ls | ls | ls
+ls | ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | ls | cat -e
+exit
+ls
+ls | ls | ls | ls | ls
+ls | ls | ls | ls | ls | cat -e
+exit
+ls | cat -e
+ls | cat -e
+ls | ls
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ps
+exit
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ /Users/artyom/.vscode/extensions/vadimcn.vscode-lldb-1.6.3/adapter/codelldb terminal-agent --port=54990 
+exit
+ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | cat -e
+exit
+ls | cat -e
+exit
+ls | cat -e
+ls | cat -e
+ls 
+ls | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+exit
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+ls | cat -e
+echo "dnsjdndf" | cat | wc
+exit
+ls | cat -e
+ls | ls
+echo "dnsjdndf" | cat | wc
+exit
+echo "dnsjdndf" | cat | wc
+ls | ls
+ls | cat -e
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+echo "dnsjdndf" | cat | wc
+ls
+ls | cat
+ls | cat
+ls | cat -e
+ls | cat -e | wc
+echo "dsfdsddf" | cat -e | wc
+echo "dsfdsddf" | cat  | wc
+echo "dsfdsddf" | cat  | wc
+echo "dsfdsddf" | cat  | wc
+ls
+ls
+ls | cat -e
+echo "sdsd" | cat -e
+echo "sdsd" | cat -e
+echo "sdsd" | cat -e
+echo "sdsd" | cat -e
+echo "sdsd" | cat -e
+exit
+echo "sdsd" | cat -e
+exit
+echo "sdsd" | cat -e
+echo "sdsd" | cat -e
+echo "sdsd" | cat -e
+exit
+echo "sdsd" | cat -e | wc
+echo "sdfsd" | cat -e | wc
+echo "sdfsd" | cat -e | wc
+echo "sdfsd" | cat -e | wc
+echo "sdfffsd" | cat -e | wc
+ls | ls | ls | ls | ls | cat -e
+exit
