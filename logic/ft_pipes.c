@@ -78,12 +78,13 @@ int	ft_pipes(t_bin *bin)
 	int fd_pipes[bin->p_count + 1][2];
 	write(1, "\n", 1);
 	write_pipes(bin);
-	while (++i < bin->p_count + 1)
-			pipe(fd_pipes[i]);
 	i = 0;
 	while(bin->p_commands[i])
 	{
 		execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
+		pipe(fd_pipes[i]);
+		printf("%d ", fd_pipes[i][0]);
+		printf("%d\n", fd_pipes[i][1]);
 		bin->pid = fork();
 		if (bin->pid == 0)
 		{
@@ -98,6 +99,7 @@ int	ft_pipes(t_bin *bin)
 				close(fd_pipes[i - 1][0]);
 		i++;
 	}
+	close(fd_pipes[i - 1][0]);
 	while(wait(NULL) > 0);
 	return(0);
 }

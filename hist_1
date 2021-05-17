@@ -709,3 +709,50 @@ echo "sdfsd" | cat -e | wc
 echo "sdfffsd" | cat -e | wc
 ls | ls | ls | ls | ls | cat -e
 exit
+ls | ls | ls | ls | ls | ls | ls | cat -e
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test" | wc
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+exit
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+exit
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+учше
+ь�exit
+make
+ls | ls | ls | ls | ls | ls | ls | ls -la | cat -e | wc | echo "test"
+д�ls | cat -e
+д�ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+у�exit
+exit
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+ls | cat -e
+exit
