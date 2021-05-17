@@ -67,10 +67,19 @@ int	write_pipes(t_bin *bin)
     return (0);
 }
 
-		// [0] - 0 out
-		// [1] - 1 in
+void	free_pipes(t_bin *bin)
+{
+	int i = 0;
+	free(bin->p_commands);
+	while (bin->p_argvs[i])
+	{
+		free(bin->p_argvs[i]);
+		i++;
+	}
+	free(bin->p_argvs);
+}
 
-int	ft_pipes(t_bin *bin)
+int		ft_pipes(t_bin *bin)
 {
 	int i = -1;
 	bin->pid = -1;
@@ -83,8 +92,6 @@ int	ft_pipes(t_bin *bin)
 	{
 		execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		pipe(fd_pipes[i]);
-		printf("%d ", fd_pipes[i][0]);
-		printf("%d\n", fd_pipes[i][1]);
 		bin->pid = fork();
 		if (bin->pid == 0)
 		{
@@ -97,9 +104,11 @@ int	ft_pipes(t_bin *bin)
 			close(fd_pipes[i][1]);
 			if (i > 0)
 				close(fd_pipes[i - 1][0]);
+			free(execve_str);
 		i++;
 	}
 	close(fd_pipes[i - 1][0]);
 	while(wait(NULL) > 0);
+	free_pipes(bin);
 	return(0);
 }
