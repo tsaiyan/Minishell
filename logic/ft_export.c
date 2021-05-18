@@ -159,10 +159,10 @@ int check_plus(char *str)
 
 void	list_to_envp(t_bin *bin)
 {
-	char **new_envp;
-	t_mylst *lst;
-	int i;
-	char *dom;
+	char	**new_envp;
+	t_mylst	*lst;
+	int		i;
+	char	*dom;
 
 	i = 0;
 	new_envp = ft_calloc(sizeof(char*), (my_lst_size(bin->envp_lst) + 1));

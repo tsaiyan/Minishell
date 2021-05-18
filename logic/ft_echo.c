@@ -30,6 +30,7 @@ static int	 ft_check_n(t_bin *bin)
 		return(1);
 }
 
+
 void ft_echo(t_bin *bin)
 {
 	int		move;

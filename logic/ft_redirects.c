@@ -10,7 +10,7 @@ int		find_redirects(t_bin * bin)
 	return(0);
 }
 
-// 1 - <, 2 - >, 3 - >>
+// 1 - >>, 2 - <, 3 - >
 // обработать ошибки
 
 int		ft_redopen(t_bin *bin, char *way, int flag)
@@ -19,28 +19,29 @@ int		ft_redopen(t_bin *bin, char *way, int flag)
 
 	if (flag == 1)
 	{
-		if (bin->from)
-			close(bin->from);
-		ret = open(way, O_CREAT | O_WRONLY);
+		if (bin->to)
+			close(bin->to);
+		ret = open(way, O_CREAT | O_RDWR | O_APPEND, 0666);
 	}
 	if (flag == 2)
 	{
-		if (bin->to)
-			close(bin->to);
-		ret = open(way, O_CREAT | O_TRUNC);
+		if (bin->from)
+			close(bin->from);
+		ret = open(way, O_RDONLY);
 	}
 	if (flag == 3)
 	{
 		if (bin->to)
 			close(bin->to);
-		ret = open(way, O_CREAT | O_APPEND);
+		ret = open(way, O_CREAT | O_RDWR | O_APPEND, 0666);
 	}
 	if (ret == -1)
 	{
 		ft_puts("can't open the file");
+		bin->error = 1;
 		return(-1);
 	}
-	if (flag == 1)
+	if (flag == 2)
 		bin->from = ret;
 	else
 		bin->to = ret;
@@ -51,15 +52,16 @@ void	ft_redirects(t_bin *bin, char **argv)
 {
 	int i = 0;
 	int flag;
+
 	while (argv[i])
 	{
 		flag = 0;
 		if	(!ft_strcmp(argv[i], ">>"))
-			flag = ft_redopen(bin, argv[i], 3);
+			flag = ft_redopen(bin, argv[i + 1], 1);
 		if	(!ft_strcmp(argv[i], "<"))
-			flag = ft_redopen(bin, argv[i], 2);
+			flag = ft_redopen(bin, argv[i + 1], 2);
 		if	(!ft_strcmp(argv[i], ">"))
-			flag = ft_redopen(bin, argv[i], 1);
+			flag = ft_redopen(bin, argv[i + 1], 3);
 		if (flag)
 		{
 			argv = ft_del_index_in2massive(argv, i);
@@ -70,6 +72,4 @@ void	ft_redirects(t_bin *bin, char **argv)
 		i++;
 	}
 	bin->argv = argv;
-	write(1, "\n", 1);
-	puts_2d(argv);
 }
