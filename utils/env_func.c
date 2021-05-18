@@ -22,7 +22,6 @@ static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	return (0);
 }
 
-
 static char *take_arg(char *curr_arg, int *i)
 {
 	int 	j;
@@ -33,15 +32,15 @@ static char *take_arg(char *curr_arg, int *i)
 	tmp = -1;
 	while (ft_isalnum(curr_arg[j]))
 	{
+		if (curr_arg[j] == '$' && curr_arg[j + 1] == '$')
+			return (ft_strdup("$$"));
 		if (j == 1 && ft_isdigit(curr_arg[j]))
-		{
-			j++;
 			break ;
-		}
 		else if (ft_isdigit(curr_arg[j]) || ft_isalpha(curr_arg[j]))
-			j++;
+			;
 		else
 			break ;
+		j++;
 	}
 	if (curr_arg[1] == '?')
 		j = 2;
@@ -53,6 +52,8 @@ static char *take_arg(char *curr_arg, int *i)
 	return (ret);
 }
 
+
+
 static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 {
 	char	*str;
@@ -61,16 +62,13 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 	if (pa->quot_flag == 0)
 	{
 		num = *i;
-		if (arg[0][*i + 1] == '\t' || arg[0][*i + 1] == ' ')
-		{
-			*i += 1;
+		if (check_specific_dollar2(arg, pa, i, str))
 			return (0);
-		}
 		str = take_arg(*arg + *i, &num);
 		if (NULL == str)
 			return (ft_errors(CALLOC_ERR));
-		if (ft_isdigit(str[1]))
-			find_substr_in_str_and_replace(str, *arg, "", i);
+		if (check_specific_dollar(arg, pa, i, str))
+			return (0);
 		else
 			check_dollar_quest(arg, pa, str, i);
 	}
@@ -85,16 +83,13 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 	if (pa->quot_flag == 1)
 	{
 		num = *i;
-		if (arg[0][*i + 1] == '\t' || arg[0][*i + 1] == ' ')
-		{
-			*i += 1;
+		if (check_specific_dollar2(arg, pa, i, str))
 			return (0);
-		}
 		str = take_arg(*arg + *i, &num);
 		if (NULL == str)
 			return (ft_errors(CALLOC_ERR));
-		if (ft_isdigit(str[1]))
-			find_substr_in_str_and_replace(str, *arg, "", i);
+		if (check_specific_dollar(arg, pa, i, str))
+			return (0);
 		else
 			check_dollar_quest(arg, pa, str, i);
 	}
@@ -105,25 +100,23 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 
 int check_envp(char **curr_arg, t_pars *pa, int *i, int stage)
 {
+
 	if (stage == STAGE_FIRST)
 	{
 		if (0 > no_quot_subst_env(curr_arg, pa, i))
+		{
+			if (pa->tmp != 1)
+				*i -= 1;
+			else if (pa->tmp == 2)
+				*i += 1;
 			return (1);
+		}
 	}
 	if (stage == STAGE_SECOND)
 	{
 		if (0 > quot_subst_env(curr_arg, pa, i))
 			return (1);
+		*i -= 1;
 	}
 	return (0);
 }
-
-//	char		*arg;
-//
-//	if (pa->quot_flag == 2)
-//		return (0);
-//	if (!pa->envp)
-//		return (write_error(CANT_ACCESS_ENVP, pa->s));
-//	if (*curr_arg[1] == '?' || ft_isdigit(*curr_arg[1]))
-//		return (check_dollar_quest(*curr_arg, pa));
-//	arg = take_arg(*curr_arg);

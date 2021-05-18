@@ -61,7 +61,9 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 			hist->SHLVL = 0;
 		else
 			hist->SHLVL++;
+		pa->b->exit_off = 1;
 		parser(alloc_uplvl("SHLVL", hist->SHLVL), &pa->envp, pa->b);
+		pa->b->exit_off = 0;
 	}
 	return (0);
 }
