@@ -49,14 +49,18 @@ int		ft_redopen(t_bin *bin, char *way, int flag)
 void	ft_redirects(t_bin *bin, char **argv)
 {
 	int i = 0;
+	int flag;
 	while (argv[i])
 	{
-		if	(ft_strcmp(argv[i], "<<"))
-			ft_redopen(bin, argv[i], 3);
+		flag = 0;
+		if	(ft_strcmp(argv[i], ">>"))
+			flag = ft_redopen(bin, argv[i], 3);
 		if	(ft_strcmp(argv[i], "<"))
-			ft_redopen(bin, argv[i], 2);
+			flag = ft_redopen(bin, argv[i], 2);
 		if	(ft_strcmp(argv[i], ">"))
-			ft_redopen(bin, argv[i], 1);	
-
+			flag = ft_redopen(bin, argv[i], 1);
+		if (flag)
+			ft_del_index_in2massive(bin->argv, i);
+		i++;
 	}
 }

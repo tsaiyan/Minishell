@@ -90,7 +90,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	else if (!ft_strcmp(argv[0], "export"))
 		ft_export(bin);
 	else if (!ft_strcmp(argv[0], "exit"))
-		ft_exit(bin);
+		ft_exit(bin->argv);
 	else if (!ft_strcmp(argv[0], "cd") || !ft_strcmp(argv[0], "CD"))
 		ft_cd(bin);
 	else if (!ft_strcmp(argv[0], "unset"))

@@ -98,5 +98,4 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		wait(NULL);
 		free(execve_str);
 	}
-	write(2, "\nft_execve main process\n", 24);
 }
