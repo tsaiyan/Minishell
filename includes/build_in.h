@@ -13,7 +13,11 @@ typedef struct	s_bin
 	char		**p_commands;
 	char		***p_argvs;
 	int			p_count;
-	pid_t			pid;
+	pid_t		pid;
+	int			exit_status;
+	int 		from;
+	int			to;
+	int			append;
 }				t_bin;
 
 void		ft_puts(char *str);
@@ -43,14 +47,9 @@ int			command_error(char *command, int flag);
 int			ft_pipes(t_bin *bin);
 int			check_pipes(t_bin *bin);
 void		ft_execve(t_bin *bin, char *command, char **argv);
-char *get_excve_str(t_bin *bin, char *command, char **argv);
-void	ft_execve(t_bin *bin, char *execve_str, char **argv);
-// typydef struct	s_mylst
-// {
-// 	char			*str;
-// 	struct s_mylst*next;
-// 	struct s_mylst *prev;
-// }				t_mylst;
-
+char		*get_excve_str(t_bin *bin, char *command, char **argv);
+void		ft_execve(t_bin *bin, char *execve_str, char **argv);
+void		ft_redirects(t_bin *bin, char **argv);
+int			find_redirects(t_bin * bin);
 
 #endif

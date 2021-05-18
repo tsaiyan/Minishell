@@ -82,11 +82,12 @@ void	free_pipes(t_bin *bin)
 int		ft_pipes(t_bin *bin)
 {
 	int i = -1;
-	bin->pid = -1;
+	bin->pid= -1;
 	char *execve_str = NULL;
 	int fd_pipes[bin->p_count + 1][2];
 	write(1, "\n", 1);
 	write_pipes(bin);
+
 	i = 0;
 	while(bin->p_commands[i])
 	{

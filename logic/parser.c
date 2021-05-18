@@ -77,6 +77,8 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
+	if (find_redirects(bin))
+		ft_redirects(bin, bin->argv);
 	if (check_pipes(bin))
 		ft_pipes(bin);
 	else if (!ft_strcmp(argv[0], "echo") || !ft_strcmp(argv[0], "ECHO"))
