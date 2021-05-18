@@ -14,7 +14,10 @@ typedef struct	s_bin
 	char		***p_argvs;
 	int			p_count;
 	pid_t		pid;
+
 	int			exit_status;
+	short		exit_off;
+
 	int 		from;
 	int			to;
 	int			append;

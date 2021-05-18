@@ -82,9 +82,6 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		execve_str = get_excve_str(bin, argv[0], argv);
 		bin->pid = fork();
 	}
-	// запуск execve
-	// if (bin->pid == 0)
-	// {
 	if (bin->pid == 0)
 	{
 		ret = execve(execve_str, argv, bin->envp);
@@ -98,5 +95,4 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		wait(NULL);
 		free(execve_str);
 	}
-	write(2, "\nft_execve main process\n", 24);
 }

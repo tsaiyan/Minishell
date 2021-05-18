@@ -22,7 +22,7 @@ char    **ft_del_index_in2massive(char **old, int index)
 		else
 			new[++j] = old[i];
 	}
-	new[len] = NULL;
+	new[len - 1] = NULL;
 	free(old);
 	return (new);
 }

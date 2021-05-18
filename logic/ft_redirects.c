@@ -44,19 +44,32 @@ int		ft_redopen(t_bin *bin, char *way, int flag)
 		bin->from = ret;
 	else
 		bin->to = ret;
+	return (1);
 }
 
 void	ft_redirects(t_bin *bin, char **argv)
 {
 	int i = 0;
+	int flag;
 	while (argv[i])
 	{
-		if	(ft_strcmp(argv[i], "<<"))
-			ft_redopen(bin, argv[i], 3);
-		if	(ft_strcmp(argv[i], "<"))
-			ft_redopen(bin, argv[i], 2);
-		if	(ft_strcmp(argv[i], ">"))
-			ft_redopen(bin, argv[i], 1);	
-
+		flag = 0;
+		if	(!ft_strcmp(argv[i], ">>"))
+			flag = ft_redopen(bin, argv[i], 3);
+		if	(!ft_strcmp(argv[i], "<"))
+			flag = ft_redopen(bin, argv[i], 2);
+		if	(!ft_strcmp(argv[i], ">"))
+			flag = ft_redopen(bin, argv[i], 1);
+		if (flag)
+		{
+			argv = ft_del_index_in2massive(argv, i);
+			if (argv[i])
+				argv = ft_del_index_in2massive(argv, i);
+			i--;
+		}
+		i++;
 	}
+	bin->argv = argv;
+	write(1, "\n", 1);
+	puts_2d(argv);
 }
