@@ -1,6 +1,7 @@
 #ifndef BUILT_IN_H
 # define BUILT_IN_H
 
+#include "limits.h"
 typedef struct	s_bin
 {
 	char		**argv;
@@ -14,7 +15,7 @@ typedef struct	s_bin
 	char		***p_argvs;
 	int			p_count;
 	pid_t		pid;
-
+	short		error;
 	int			exit_status;
 	short		exit_off;
 

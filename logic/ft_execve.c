@@ -87,11 +87,10 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		ret = execve(execve_str, argv, bin->envp);
 		if (argv[0][0] == '.')
 			exit(command_error(argv[0], 5));
-		else
-			exit(command_error(argv[0], 1));
 	}
 	else
 	{
+		bin->to = 0;
 		wait(NULL);
 		free(execve_str);
 	}

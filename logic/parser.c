@@ -66,6 +66,9 @@ int	command_error(char *command, int flag)
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
+	 write(1, "\n", 1);
+	int newfd = 1;
+	int old_zero = 0;
 	if (!ft_strcmp(argv[0], "exit"))
 		ft_exit(argv);
 	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
@@ -79,29 +82,39 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
-
 	if (check_pipes(bin))
 		ft_pipes(bin);
-	else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
-		ft_echo(bin);
-	else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
-		ft_pwd(bin);
-	else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
-		ft_env(bin);
-	else if (!ft_strcmp(bin->argv[0], "export"))
-		ft_export(bin);
-	else if (!ft_strcmp(bin->argv[0], "exit"))
-		ft_exit(bin->argv);
-	else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
-		ft_cd(bin);
-	else if (!ft_strcmp(bin->argv[0], "unset"))
-		ft_unset(bin);
-	else if (!bin->p_count)
+	if (bin->to)
 	{
-		write(1, "\n", 1);
-		ft_execve(bin, bin->argv[0], bin->argv);
+		newfd = dup(1);
+		dup2(bin->to, 1);
 	}
-		//command_error(argv[0], 1);
+	if (bin->from)
+	{
+		old_zero = dup(0);
+		dup2(bin->from, 0);
+	}
+	if (!bin->error)
+	{	
+		if (!ft_strcmp(bin->argv[0], "export"))
+			ft_export(bin);
+		else if (!ft_strcmp(bin->argv[0], "exit"))
+			ft_exit(bin->argv);
+		else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
+			ft_cd(bin);
+		else if (!ft_strcmp(bin->argv[0], "unset"))
+			ft_unset(bin);
+		else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
+			ft_echo(bin);
+		else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
+			ft_pwd(bin);
+		else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
+			ft_env(bin);
+		else if (!bin->p_count)
+			ft_execve(bin, bin->argv[0], bin->argv);
+	}
+	dup2(newfd, 1);
+	dup2(old_zero, 0);	
 	*envp = bin->envp;
 	free_parcer(bin);
 	return (0);

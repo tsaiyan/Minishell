@@ -47,9 +47,9 @@ void	ft_cd(t_bin *bin)
 {
 	char *home_path;
 	char *temp_old_dir;
-	char dir[1000];
+	char dir[PATH_MAX];
 
-	temp_old_dir = getcwd(dir, 1000);
+	temp_old_dir = getcwd(dir, PATH_MAX);
 	if (!bin->argv[1])
 	{
 		home_path = ft_get_value(bin->export, "HOME");
