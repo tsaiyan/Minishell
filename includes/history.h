@@ -34,4 +34,6 @@ void 		move_to_cours_toleft(int len);
 int     ctrl_forward_slash(t_hist *hist);
 int check_empty_history(t_hist *hist, char *buf);
 
+void signal_quit(int sig);
+
 #endif

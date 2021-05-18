@@ -8,7 +8,6 @@ typedef struct		s_pars
 	char 			**envp;
 	int 				quot_flag;
 	int 			back_slash;
-	int 			count;
 	int 			tmp;
 	int 			tmp_flag;
 	t_bin			*b;

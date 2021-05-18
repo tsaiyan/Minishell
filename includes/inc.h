@@ -14,5 +14,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <dirent.h>
+# include <signal.h>
 
 #endif
