@@ -26,7 +26,7 @@ int check_chars_subst(char **arg, t_pars *pa, int *i)
 {
 	if (arg[0][*i] == ' ')
 		check_spaces_prep(*arg + *i, pa);
-	else if (arg[0][*i] == '\\') //|| arg[0][*i] == '/')
+	else if (arg[0][*i] == '\\')
 	{
 		if (check_slashes(*arg, pa, i))
 		{
@@ -44,8 +44,6 @@ int check_chars_subst(char **arg, t_pars *pa, int *i)
 		*i -= 1;
 	}
 	else
-	{
 		pa->tmp_flag = 0;
-	}
 	return (0);
 }

@@ -3,6 +3,8 @@
 for ((;;))
 do
 	clear
+	echo $STEP
+	echo $1
 	leaks minishell | grep -A10 for
-	sleep 1
+	sleep 4
 done

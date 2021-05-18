@@ -25,7 +25,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 	}
 	// проверка на абсолютный путь
 	if (argv[0][0] == '/' || argv[0][0] == '.')
-		execve_str = command;
+		execve_str = ft_strdup(command);
 	else
 	{
 		// достаем папки с коммандами из path

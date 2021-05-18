@@ -61,7 +61,7 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 			hist->SHLVL = 0;
 		else
 			hist->SHLVL++;
-//		(here need export func.) itoa and etc.
+		parser(alloc_uplvl("SHLVL", hist->SHLVL), &pa->envp, pa->b);
 	}
 	return (0);
 }
