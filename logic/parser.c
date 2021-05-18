@@ -14,10 +14,10 @@ static void free_parcer(t_bin *bin)
 {
 	int i;
 
-	i = 0;
-	while (bin->argv[i])
+	i = -1;
+	while (bin->argv[++i])
 	{
-		free(bin->argv[i++]);
+		free(bin->argv[i]);
 	}
 	free(bin->argv);
 	bin->argv=NULL;
@@ -72,31 +72,35 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		// ft_exit(bin); change too ft_exit(argv)
 	bin->envp = *envp;
 	bin->argv = argv;
-	bin->argc = ft_strlen(argv);
+	if (find_redirects(bin))
+		ft_redirects(bin, bin->argv);
+	bin->argc = ft_strlen(bin->argv);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
-	if (find_redirects(bin))
-		ft_redirects(bin, bin->argv);
+
 	if (check_pipes(bin))
 		ft_pipes(bin);
-	else if (!ft_strcmp(argv[0], "echo") || !ft_strcmp(argv[0], "ECHO"))
+	else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
 		ft_echo(bin);
-	else if (!ft_strcmp(argv[0], "pwd") || !ft_strcmp(argv[0], "PWD"))
+	else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
 		ft_pwd(bin);
-	else if (!ft_strcmp(argv[0], "env") || !ft_strcmp(argv[0], "ENV"))
+	else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
 		ft_env(bin);
-	else if (!ft_strcmp(argv[0], "export"))
+	else if (!ft_strcmp(bin->argv[0], "export"))
 		ft_export(bin);
-	else if (!ft_strcmp(argv[0], "exit"))
+	else if (!ft_strcmp(bin->argv[0], "exit"))
 		ft_exit(bin->argv);
-	else if (!ft_strcmp(argv[0], "cd") || !ft_strcmp(argv[0], "CD"))
+	else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
 		ft_cd(bin);
-	else if (!ft_strcmp(argv[0], "unset"))
+	else if (!ft_strcmp(bin->argv[0], "unset"))
 		ft_unset(bin);
 	else if (!bin->p_count)
+	{
+		write(1, "\n", 1);
 		ft_execve(bin, bin->argv[0], bin->argv);
+	}
 		//command_error(argv[0], 1);
 	*envp = bin->envp;
 	free_parcer(bin);

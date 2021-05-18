@@ -25,7 +25,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 	}
 	// проверка на абсолютный путь
 	if (argv[0][0] == '/' || argv[0][0] == '.')
-		execve_str = command;
+		execve_str = ft_strdup(command);
 	else
 	{
 		// достаем папки с коммандами из path
@@ -82,9 +82,6 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		execve_str = get_excve_str(bin, argv[0], argv);
 		bin->pid = fork();
 	}
-	// запуск execve
-	// if (bin->pid == 0)
-	// {
 	if (bin->pid == 0)
 	{
 		ret = execve(execve_str, argv, bin->envp);
