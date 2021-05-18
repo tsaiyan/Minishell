@@ -125,10 +125,10 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{
-		check = check_esc_char(buf, hist, ret, pa->envp);
+		check = check_esc_char(buf, hist, ret, pa);
 		if (check == 2)
 			return (0);
-		if (!check)
+		if (!check && check_array_is_ascii(buf))
 		{
 			pa->tmp_flag = check_arguments_realloc(&hist->left, buf, pa, hist);
 			if (0 == pa->tmp_flag)

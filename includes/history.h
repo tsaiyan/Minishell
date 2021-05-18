@@ -23,13 +23,15 @@ int del_key(t_hist *hist);
 
 char			**ft_realloc_2massive(char ***mass, char *arg, int len);
 int 		check_len_left_right(char *line);
-int			eof_char(t_hist *hist, char **env);
+int			eof_char(t_hist *hist, char **env, t_bin *b);
 int 		ctrlc_char(t_hist *hist);
 
 int 		end_key(t_hist *hist);
 int 		home_key(t_hist *hist);
+int     check_array_is_ascii(char *buf);
 
 void 		move_to_cours_toleft(int len);
+int     ctrl_forward_slash(t_hist *hist);
 int check_empty_history(t_hist *hist, char *buf);
 
 #endif

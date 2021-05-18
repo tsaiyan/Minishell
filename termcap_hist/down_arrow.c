@@ -30,7 +30,6 @@ static int work_with_tmpline(t_hist *hist, int old_curr, int len_write)
 	if (old_curr != hist->curr_line)
 	{
 		del_l = hist->left;
-		// free(del_l);
 		tmp = hist->h[old_curr];
 		hist->h[old_curr] = ft_strjoin(del_l, hist->right);
 		if (NULL != tmp)

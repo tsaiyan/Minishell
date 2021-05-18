@@ -17,7 +17,7 @@ static void alloc_exit(char ***out)
 	**(out + 1) = NULL;
 }
 
-int eof_char(t_hist *hist, char **env)
+int eof_char(t_hist *hist, char **env, t_bin *b)
 {
 	char 		**out;
 	int 		len_right;
@@ -29,7 +29,7 @@ int eof_char(t_hist *hist, char **env)
 	if (!len_left && !len_right)
 	{
 		alloc_exit(&out);
-		parser(out, env, NULL);
+		parser(out, env, b);
 	}
 	else if (len_right)
 		del_key(hist);
