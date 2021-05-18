@@ -31,7 +31,7 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 	uplvl_take_hist_from_file(&p, &hist, apple);
 	while (!(check_exit(flag)))
 	{
-		signal(SIGINT, signal_quit);
+		// signal(SIGINT, signal_quit);
 		history_init(&hist, &term, &p);
 		write(1, COL_BLUE"minishell$ "COL_RESET, 20);
 		flag = pre_pars_branching(&p, &hist);

@@ -37,4 +37,12 @@ void 			ft_free_massive(char **mass);
 
 int 			ft_putchar(int c);
 
+char    **ft_del_index_in2massive(char **old, int index);
+// return new 2d massive char(*) without current index
+//
+// old = char **old {"1", "2", NULL}
+//
+// ft_del...(old, 1) => new = char **new {"1", NULL}
+//
+
 #endif
