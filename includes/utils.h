@@ -29,11 +29,9 @@ int		pass_strlen(char *str);
 char **copy_env_massive(char **env);
 // copy envairement massive
 
-char **copy_env_massive(char **env);
-//del it after debug
 
 void 			ft_free_massive(char **mass);
-//relloc this func from utils to libft
+//realloc this func from utils to libft
 
 int 			ft_putchar(int c);
 
@@ -43,6 +41,7 @@ char    **ft_del_index_in2massive(char **old, int index);
 // old = char **old {"1", "2", NULL}
 //
 // ft_del...(old, 1) => new = char **new {"1", NULL}
+//
 //
 
 #endif

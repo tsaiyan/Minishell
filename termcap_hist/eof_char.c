@@ -2,7 +2,7 @@
 
 static void alloc_exit(char ***out)
 {
-	*out = malloc(sizeof(char *) * 2);
+	*out = malloc(sizeof(char *) * 3);
 	if (*out == NULL)
 	{
 		ft_errors(errno);
@@ -14,7 +14,8 @@ static void alloc_exit(char ***out)
 		ft_errors(errno);
 		exit(errno);
 	}
-	**(out + 1) = NULL;
+	**(out + 1) = ft_strdup("1");
+	**(out + 2) = NULL;
 }
 
 int eof_char(t_hist *hist, char **env, t_bin *b)
@@ -29,6 +30,7 @@ int eof_char(t_hist *hist, char **env, t_bin *b)
 	if (!len_left && !len_right)
 	{
 		alloc_exit(&out);
+		write(1, "exit\n", 5);
 		parser(out, env, b);
 	}
 	else if (len_right)
