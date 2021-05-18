@@ -69,7 +69,7 @@ int check_semicolon_and_syntax(char *line, t_pars *pa)
 		check_quotes_subst(line, pa, &i);
 	while (line[++i] != 0)
 	{
-		if (line[i] == S_QUOT || line[i] == W_QUOT)
+		if ((line[i] == S_QUOT || line[i] == W_QUOT) && line[i - 1] != '\\')
 			check_quotes_subst(line, pa, &i);
 		if (line[i] == ';' && line[i - 1] != '\\' && pa->quot_flag == 0)
 			if (0 > (check_semicolon(line, pa, &i)))

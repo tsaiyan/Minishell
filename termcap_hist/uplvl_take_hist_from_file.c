@@ -51,7 +51,7 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 	int 		tmp_i;
 
 	tmp_i = 0;
-	lvl = take_arg_from_env("SHLVL", pa);
+	lvl = take_arg_from_env("$SHLVL", pa);
 	if (!lvl)
 		hist->SHLVL = 1;
 	else
@@ -61,10 +61,10 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 			hist->SHLVL = 0;
 		else
 			hist->SHLVL++;
-		pa->b->exit_off = 1;
-		parser(alloc_uplvl("SHLVL", hist->SHLVL), &pa->envp, pa->b);
-		pa->b->exit_off = 0;
 	}
+	pa->b->exit_off = 1;
+	parser(alloc_uplvl("export", hist->SHLVL), &pa->envp, pa->b);
+	pa->b->exit_off = 0;
 	return (0);
 }
 
@@ -91,9 +91,9 @@ static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
 int uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 {
 	hist->exec_path = do_absolute_exec_path(apple);
+	pa->b = malloc(sizeof(t_bin) * 1);
 	up_lvl(pa, hist);
 	open_and_take_hist(pa, hist);
-	pa->b = ft_calloc(sizeof(t_bin), 1);
 	if (!pa->b)
 	{
 		ft_errors(errno);

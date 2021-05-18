@@ -22,6 +22,10 @@
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/check_specific_dollars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_specific_dollars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/up_lvl.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/up_lvl.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
     </list>
@@ -106,7 +110,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Makefile" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.C/C++" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -121,12 +125,7 @@
       <recent name="$PROJECT_DIR$/termcap_hist" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Application.fclean">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Makefile Application.all">
     <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <envs>
         <env name="TERM" value="xterm-256color" />
@@ -175,20 +174,15 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
       <item itemvalue="Makefile Application.libs" />
+      <item itemvalue="Makefile Application.minishell" />
+      <item itemvalue="Makefile Application.norm" />
       <item itemvalue="Makefile Application.norme" />
       <item itemvalue="Makefile Application.re" />
       <item itemvalue="Makefile Application.save" />
-      <item itemvalue="Makefile Application.minishell" />
-      <item itemvalue="Makefile Application.norm" />
       <item itemvalue="Makefile Application.wc" />
     </list>
   </component>
@@ -258,7 +252,7 @@
       <workItem from="1620737482785" duration="555000" />
       <workItem from="1621319397444" duration="120000" />
       <workItem from="1621319560826" duration="50000" />
-      <workItem from="1621349078651" duration="1693000" />
+      <workItem from="1621349078651" duration="2842000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
