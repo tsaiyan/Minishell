@@ -192,7 +192,6 @@ void	ft_export(t_bin *bin)
 	t_mylst	*lst;
 
 	i = 1;
-
 	if (!bin->argv[1])
 	{
 		sort_list(bin);
@@ -214,7 +213,8 @@ void	ft_export(t_bin *bin)
 			if(lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
 			i++;
-		write(1, "\n", 1);
+		if (!bin->exit_off)
+			write(1, "\n", 1);
 		}
 		sort_list(bin);
 		list_to_envp(bin);
