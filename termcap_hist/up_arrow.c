@@ -66,6 +66,7 @@ int up_arrow(t_hist *hist)
 	}
 	else
 	{
+
 		if (NULL != hist->left)
 		{
 			free(hist->left);

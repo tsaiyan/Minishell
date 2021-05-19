@@ -22,7 +22,6 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 {
 	char 		*str_lvl;
 	char 		*del;
-	char 		*tmp;
 	char 		*ret;
 	DIR 		*dir;
 

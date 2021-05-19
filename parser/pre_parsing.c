@@ -1,4 +1,3 @@
-#include <tclDecls.h>
 #include "header.h"
 
 static int	pre_pars(char *arg, t_pars *pa)
