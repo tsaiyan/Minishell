@@ -38,7 +38,6 @@ void ft_echo(t_bin *bin)
 
 	argv = bin->argv;
 	move = 1;
-	ft_putchar('\n');
 	if (argv[1] == 0)
 	{
 		ft_putchar('\n');

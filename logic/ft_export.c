@@ -98,7 +98,6 @@ static t_mylst	*my_lst_add_back(t_mylst *start, t_mylst *add)
 
 void	print_list(t_mylst *start, int flag)
 {
-	ft_puts(NULL);
 	while(start)
 	{
 		if (flag == 1)

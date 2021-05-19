@@ -24,6 +24,8 @@ typedef struct	s_bin
 	int			append;
 	int			indx_from;
 	int			indx_to;
+	int			savefd1;
+	int			savefd0;
 }				t_bin;
 
 void		ft_puts(char *str);

@@ -1,0 +1,58 @@
+Makefile
+README.md
+file
+hist_1
+includes
+leaks_minishell.sh
+libft
+logic
+main.c
+minishell
+minishell.dSYM
+parser
+strange_cases
+syntax_error_cases
+termcap_hist
+test_file.txt
+utils
+Makefile
+README.md
+file
+hist_1
+includes
+leaks_minishell.sh
+libft
+logic
+main.c
+minishell
+minishell.dSYM
+parser
+strange_cases
+syntax_error_cases
+termcap_hist
+test_file.txt
+utils
+[34mminishell$ [0mfefejii
+[34mminishell$ [0mexit
+
+Makefile
+README.md
+file
+hist_1
+includes
+leaks_minishell.sh
+libft
+logic
+main.c
+minishell
+minishell.dSYM
+parser
+strange_cases
+syntax_error_cases
+termcap_hist
+test_file.txt
+utils
+[34mminishell$ [0mfsejfeifj
+bash: fsejfeifj: command not found
+[34mminishell$ [0mexit
+

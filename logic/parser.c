@@ -25,14 +25,47 @@ static void free_parcer(t_bin *bin)
 
 // MAIN FUNCTION
 
+void			ft_buildins(t_bin *bin)
+{	
+	if (bin->to)
+		dup2(bin->to, 1);
+	if (bin->from)
+		dup2(bin->from, 0);
+	if (!ft_strcmp(bin->argv[0], "export"))
+		ft_export(bin);
+	else if (!ft_strcmp(bin->argv[0], "exit"))
+		ft_exit(bin->argv);
+	else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
+		ft_cd(bin);
+	else if (!ft_strcmp(bin->argv[0], "unset"))
+		ft_unset(bin);
+	else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
+		ft_echo(bin);
+	else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
+		ft_pwd(bin);
+	else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
+		ft_env(bin);
+	else if (!bin->p_count)
+		ft_execve(bin, bin->argv[0], bin->argv);
+	if (bin->to)
+	{
+		close(bin->to);
+		dup2(bin->savefd1, 1);
+	}
+	if (bin->from)
+	{	
+		close(bin->from);
+		dup2(bin->savefd0, 0);
+	}
+}
+
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
-	write (1, "\n", 1);
-	int newfd = 1;
-	int old_zero = 0;
+	// if (!bin->exit_off)
+	// 	write (1, "\n", 1);
 	bin->indx_from = -1;
 	bin->indx_to = -1;
-	if (!ft_strcmp(argv[0], "exit"))
+	if (!bin || !ft_strcmp(argv[0], "exit"))
 		ft_exit(argv);
 	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
 		// ft_exit(bin); change too ft_exit(argv)
@@ -46,38 +79,14 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
 	if (bin->to)
-	{
-		newfd = dup(1);
-		dup2(bin->to, 1);
-	}
+		bin->savefd1 = dup(1);
 	if (bin->from)
-	{
-		old_zero = dup(0);
-		dup2(bin->from, 0);
-	}
+		bin->savefd0 = dup(0);
 	if (check_pipes(bin))
 		ft_pipes(bin);
-	if (!bin->error)
-	{	
-		if (!ft_strcmp(bin->argv[0], "export"))
-			ft_export(bin);
-		else if (!ft_strcmp(bin->argv[0], "exit"))
-			ft_exit(bin->argv);
-		else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
-			ft_cd(bin);
-		else if (!ft_strcmp(bin->argv[0], "unset"))
-			ft_unset(bin);
-		else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
-			ft_echo(bin);
-		else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
-			ft_pwd(bin);
-		else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
-			ft_env(bin);
-		else if (!bin->p_count)
-			ft_execve(bin, bin->argv[0], bin->argv);
-	}
-	dup2(newfd, 1);
-	dup2(old_zero, 0);	
+	if (!bin->error)	
+		ft_buildins(bin);
+	
 	*envp = bin->envp;
 	free_parcer(bin);
 	return (0);
