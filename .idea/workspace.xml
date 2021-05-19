@@ -21,25 +21,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon2.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/valid.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/valid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leaks_minishell.sh" beforeDir="false" afterPath="$PROJECT_DIR$/leaks_minishell.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/parser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/check_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/check_specific_dollars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/check_specific_dollars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/copy_prepars_str.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/copy_prepars_str.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pre_pars_subs.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_pars_subs.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pre_pars_substitution.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_pars_substitution.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/second_pre_pars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/second_pre_pars.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/valid_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/valid_part.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/eof_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/eof_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/up_arrow.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/up_arrow.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/env_func2.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func2.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +267,7 @@
       <workItem from="1621319397444" duration="120000" />
       <workItem from="1621319560826" duration="50000" />
       <workItem from="1621349078651" duration="2842000" />
-      <workItem from="1621418345902" duration="5635000" />
+      <workItem from="1621418345902" duration="6205000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>

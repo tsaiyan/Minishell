@@ -9,7 +9,7 @@ int check_chars_subst(char **arg, t_pars *pa, int *i);
 void		check_quotes_subst(char *arg, t_pars *pa, int *i);
 char *copy_new_prepars_str(char *arg);
 char *copy_new_prepars_str_without(char *arg);
-char *pars_argument_before_semicolon(char **line, t_pars *pa);
+char *pars_argument_before_semicolon(char **line, t_pars *pa, int i);
 
 char ** second_pre_pars(char *arg, t_pars *pa);
 char *pre_pars_subs(char *arg, t_pars *pa);

@@ -1,6 +1,6 @@
 #include "header.h"
 
-static int	check_redirects_pipes_semicolons(char t, char *line)
+int	check_redirects_pipes_semicolons(char t, char *line)
 {
 	int	i;
 

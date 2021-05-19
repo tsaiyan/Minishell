@@ -1,22 +1,20 @@
 #include "header.h"
 
-t_sig g_sig;
-
-static void ft_fr(char **del)
+static void	ft_fr(char **del)
 {
 	if (*del != NULL)
 		free(*del);
 	*del = NULL;
 }
 
-int					check_exit(int flag)
+int	check_exit(int flag)
 {
 	return (flag);
 }
 
-int 				main(int argc, char **argv, char *envp[], char **apple)
+int	main(int argc, char **argv, char *envp[], char **apple)
 {
-	int 			flag;
+	int				flag;
 	t_pars			p;
 	t_hist			hist;
 	struct termios	term;

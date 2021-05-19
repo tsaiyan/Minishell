@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		check_quotes_subst(char *arg, t_pars *pa, int *i)
+void	check_quotes_subst(char *arg, t_pars *pa, int *i)
 {
 	if (arg[*i] == S_QUOT && pa->quot_flag == 0)
 		pa->quot_flag = 2;
@@ -12,7 +12,7 @@ void		check_quotes_subst(char *arg, t_pars *pa, int *i)
 		pa->quot_flag = 0;
 }
 
-static int		check_slashes(const char *arg, t_pars *pa, int *i)
+static int	check_slashes(const char *arg, t_pars *pa, int *i)
 {
 	if (arg[*i] == '\\' && arg[*i + 1] != '\0')
 	{
@@ -22,7 +22,7 @@ static int		check_slashes(const char *arg, t_pars *pa, int *i)
 	return ((arg[*i + 1] == '\0') * 1);
 }
 
-int check_chars_subst(char **arg, t_pars *pa, int *i)
+int	check_chars_subst(char **arg, t_pars *pa, int *i)
 {
 	if (arg[0][*i] == ' ')
 		check_spaces_prep(*arg + *i, pa);

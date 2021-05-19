@@ -87,7 +87,7 @@ int	take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist, int ret)
 	}
 	while (**line != 0)
 	{
-		arg = pars_argument_before_semicolon(line, pa);
+		arg = pars_argument_before_semicolon(line, pa, 0);
 		if (arg == NULL)
 			return (1);
 		pre_pars(arg, pa);
