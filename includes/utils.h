@@ -8,8 +8,8 @@ int write_error(int code, char *arg);
 char *ft_realloc(char *arg, int count);
 // func like std realloc with copy
 
-char *find_substr_in_str_and_replace(const char *substr, char *str,
-									const char *rep_str, int *i);
+char *find_substr_in_str_and_replace(const char *substr, const char *str,
+									const char *rep_str, const int *i);
 // replaces the first argument that matches the parameters
 // all lines no freed
 // if (int *)i == NULL => find first argument that matches the parameters

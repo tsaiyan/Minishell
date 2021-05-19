@@ -15,7 +15,6 @@ static char *alloc_env_arg(const char *env)
 	while (env[++i] != '\0')
 		j++;
 	ret = ft_calloc(sizeof(char), j + 1);
-	// + 1
 	if (NULL == ret)
 		return (NULL);
 	j = -1;

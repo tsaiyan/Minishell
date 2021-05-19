@@ -33,7 +33,7 @@ int check_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 	else if (!ft_strcmp(buf, "\e[C"))
 		return (right_arrow(buf, len, hist));
 	else if (!ft_strcmp(buf, "\e[A"))
-		return (up_arrow(hist));
+		return (up_arrow(hist, 0));
 	else if (!ft_strcmp(buf, "\e[B"))
 		return (down_arrow(hist));
 	else

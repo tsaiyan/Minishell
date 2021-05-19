@@ -1,9 +1,9 @@
 #include "header.h"
 
-static int semicolon_len(char *s)
+static int	semicolon_len(char *s)
 {
-	int 	len;
-	t_pars		t;
+	int		len;
+	t_pars	t;
 
 	len = 0;
 	t.quot_flag = 0;
@@ -12,7 +12,7 @@ static int semicolon_len(char *s)
 	if (s[len] == '\'' || s[len] == '\"')
 		check_quotes_subst(s, &t, &len);
 	len++;
-	while (0 == ((s[len - 1] != '\\' && s[len] == ';') && t.quot_flag == 0) &&
+	while (0 == ((s[len - 1] != '\\' && s[len] == ';') && t.quot_flag == 0) && \
 	s[len] != 0)
 	{
 		if (s[len - 1] != '\\' && (s[len] == '\'' || s[len] == '\"'))
@@ -22,14 +22,12 @@ static int semicolon_len(char *s)
 	return (len);
 }
 
-char *pars_argument_before_semicolon(char **line, t_pars *pa)
+char	*pars_argument_before_semicolon(char **line, t_pars *pa, int i)
 {
-	int 	len;
-	char 	*arg;
+	int		len;
+	char	*arg;
 	char	*tmp;
-	int		i;
 
-	i = 0;
 	len = semicolon_len(*line) + 1;
 	if (len == 0)
 	{

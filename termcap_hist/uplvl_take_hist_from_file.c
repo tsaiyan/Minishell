@@ -13,14 +13,15 @@ static void 	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 	com[0] = ft_strdup(str1);
 	com[1] = ft_strdup(str2);
 	com[2] = NULL;
+	bin->exit_off = 1;
 	parser(com, envp, bin);
+	bin->exit_off = 0;
 }
 
 static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 {
 	char 		*str_lvl;
 	char 		*del;
-	char 		*tmp;
 	char 		*ret;
 	DIR 		*dir;
 
@@ -29,17 +30,18 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 	str_lvl = ft_strjoin("/hist_", del);
 	free(del);
 	dir = opendir(".history");
-	// if (dir == NULL)
-	// {
-	// 	if (errno == ENOENT)
-	// 		do_history_dir("mkdir", ".history", &pa->envp, pa->b);
-	// 	else
-	// 	{
-	// 		ft_errors(errno);
-	// 		exit(errno);
-	// 	}
-	// 	//add .history to path and execve on mkdir .history
-	// }
+	if (dir == NULL)
+	{
+		if (errno == ENOENT)
+			do_history_dir("mkdir", ".history", &pa->envp, pa->b);
+		else
+		{
+			ft_errors(errno);
+			write(2, "Error occurred while creating the file history\n", 47);
+			exit(errno);
+		}
+	}
+	closedir(dir);
 	ret = ft_strjoin(".history", str_lvl);
 	free(str_lvl);
 	return (ret);
@@ -48,9 +50,7 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 static int 		up_lvl(t_pars *pa, t_hist *hist)
 {
 	char 		*lvl;
-	int 		tmp_i;
 
-	tmp_i = 0;
 	lvl = take_arg_from_env("$SHLVL", pa);
 	if (!lvl)
 		hist->SHLVL = 1;
@@ -65,6 +65,7 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 	pa->b->exit_off = 1;
 	parser(alloc_uplvl("export", hist->SHLVL), &pa->envp, pa->b);
 	pa->b->exit_off = 0;
+	free(lvl);
 	return (0);
 }
 

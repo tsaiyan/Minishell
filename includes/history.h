@@ -16,7 +16,7 @@ int left_arrow(char *buf, int len, t_hist *hist);
 int right_arrow(char *buf, int len, t_hist *hist);
 
 int down_arrow(t_hist *hist);
-int up_arrow(t_hist *hist);
+int up_arrow(t_hist *hist, int len);
 
 int				backspace_key(char *buf, int len, t_hist *hist);
 int del_key(t_hist *hist);

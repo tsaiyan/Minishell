@@ -66,7 +66,7 @@ int	command_error(char *command, int flag)
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
-	 write(1, "\n", 1);
+	write (1, "\n", 1);
 	int newfd = 1;
 	int old_zero = 0;
 	bin->indx_from = -1;
@@ -79,7 +79,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	bin->argv = argv;
 	if (find_redirects(bin))
 		ft_redirects(bin, bin->argv);
-	bin->argc = ft_strlen(bin->argv);
+	bin->argc = ft_strlen(*bin->argv);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)

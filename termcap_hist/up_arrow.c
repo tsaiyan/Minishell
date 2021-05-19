@@ -9,8 +9,6 @@ void 		move_to_cours_toleft(int len)
 	}
 }
 
-
-
 static void check_currline_number(t_hist *hist, int len_left)
 {
 	int 		len;
@@ -40,44 +38,28 @@ static int up_arrow2(t_hist *hist, int len)
 	return (1);
 }
 
-int up_arrow(t_hist *hist)
+int up_arrow(t_hist *hist, int len)
 {
-	int 		len;
 	char		*del;
 
 	if (hist->curr_line == 0)
 		return ((int)write (1, "\7", 1));
 	if (hist->left)
 		len = ft_strlen(hist->left);
-	else
-		len = 0;
 	if (hist->h_len != hist->curr_line)
 	{
 		del = hist->h[hist->curr_line];
 		hist->h[hist->curr_line] = ft_strjoin(hist->left, hist->right);
-		if (del)
-			free(del);
+		def_freestr_null(&del);
 	}
 	if (hist->h_len == hist->curr_line)
 	{
-		if (hist->tmp_line)
-			free(hist->tmp_line);
+		def_freestr_null(&hist->tmp_line);
 		hist->tmp_line = ft_strjoin(hist->left, hist->right);
-		free(hist->left);
-		hist->left = NULL;
+		def_freestr_null(&hist->left);
 	}
 	else
-	{
-		if (NULL != hist->left)
-		{
-			free(hist->left);
-			hist->left = NULL;
-		}
-	}
-	if (hist->right)
-	{
-		free(hist->right);
-		hist->right = NULL;
-	}
+		def_freestr_null(&hist->left);
+	def_freestr_null(&hist->right);
 	return (up_arrow2(hist, len));
 }
