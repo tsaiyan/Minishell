@@ -30,6 +30,8 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	write (1, "\n", 1);
 	int newfd = 1;
 	int old_zero = 0;
+	bin->indx_from = -1;
+	bin->indx_to = -1;
 	if (!ft_strcmp(argv[0], "exit"))
 		ft_exit(argv);
 	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
@@ -38,13 +40,11 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	bin->argv = argv;
 	if (find_redirects(bin))
 		ft_redirects(bin, bin->argv);
-	bin->argc = ft_strlen(*bin->argv);
+	bin->argc = ft_massive_len(bin->argv);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
-	if (check_pipes(bin))
-		ft_pipes(bin);
 	if (bin->to)
 	{
 		newfd = dup(1);
@@ -55,6 +55,8 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		old_zero = dup(0);
 		dup2(bin->from, 0);
 	}
+	if (check_pipes(bin))
+		ft_pipes(bin);
 	if (!bin->error)
 	{	
 		if (!ft_strcmp(bin->argv[0], "export"))

@@ -41,7 +41,7 @@ char	*ft_strdup_chr(char *str, char end)
 	len = 0;
 	while(str[len] != end)
 		len++;
-	res = (char *)malloc(sizeof(char) * ++len);
+	res = (char *)ft_calloc(sizeof(char), ++len);
 	if (res == NULL)
 		exit(errno);
 	return ((char *)ft_memcpy(res, str, len - 1));
