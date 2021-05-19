@@ -93,7 +93,7 @@ static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
 int uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 {
 	hist->exec_path = do_absolute_exec_path(apple);
-	pa->b = malloc(sizeof(t_bin) * 1);
+	pa->b = ft_calloc(sizeof(t_bin), 1);
 	up_lvl(pa, hist);
 	open_and_take_hist(pa, hist);
 	if (!pa->b)
