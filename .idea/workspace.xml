@@ -21,12 +21,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/ft_execve.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/ft_execve.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/up_arrow.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/up_arrow.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logic/logic_utils2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/parser.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,13 +102,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/parser" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/logic" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/logic" />
       <recent name="$PROJECT_DIR$/parser" />
       <recent name="$PROJECT_DIR$/libft/gnl" />
       <recent name="$PROJECT_DIR$/gnl" />
@@ -264,7 +261,7 @@
       <workItem from="1621319560826" duration="50000" />
       <workItem from="1621349078651" duration="2842000" />
       <workItem from="1621418345902" duration="6205000" />
-      <workItem from="1621431235266" duration="1804000" />
+      <workItem from="1621431235266" duration="2221000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>

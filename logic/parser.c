@@ -23,45 +23,6 @@ static void free_parcer(t_bin *bin)
 	bin->argv=NULL;
 }
 
-int	command_error(char *command, int flag)
-{
-	if (flag == 1)
-	{
-		ft_putstr("bash: ");
-		ft_putstr(command);
-		ft_puts(": command not found");
-	}
-	if (flag == 2)
-	{
-		ft_putstr("\nbash: export: '");
-		ft_putstr(command);
-		ft_putstr("': not a valid identifier");
-	}
-	if (flag == 3)
-	{
-		ft_puts("\nexit");
-		ft_putstr("bash: exit ");
-		ft_putstr(command);
-		ft_puts(": numeric argument required");
-	}
-	if (flag == 4)
-		ft_puts("\nexit\nbash: exit: too many arguments");
-	if (flag == 5)
-		{
-			ft_putstr("bash: ");
-			ft_putstr(command);
-			ft_puts(": No such file or directory");
-		}
-	if (flag == 6)
-		{
-			ft_putstr("bash: ");
-			ft_putstr(command);
-			ft_puts(": is a directory");
-			return(126);
-		}
-	return(127);
-}
-
 // MAIN FUNCTION
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
