@@ -61,14 +61,12 @@ void			ft_buildins(t_bin *bin)
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
-	// if (!bin->exit_off)
-	// 	write (1, "\n", 1);
+	if (!bin->exit_off)
+		write (1, "\n", 1);
 	bin->indx_from = -1;
 	bin->indx_to = -1;
 	if (!bin || !ft_strcmp(argv[0], "exit"))
 		ft_exit(argv);
-	// check this shit for normal ctrl + D bin beeing NULL, cos this dont need for EXIT
-		// ft_exit(bin); change too ft_exit(argv)
 	bin->envp = *envp;
 	bin->argv = argv;
 	if (find_redirects(bin))
