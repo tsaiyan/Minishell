@@ -41,6 +41,7 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 			exit(errno);
 		}
 	}
+	closedir(dir);
 	ret = ft_strjoin(".history", str_lvl);
 	free(str_lvl);
 	return (ret);

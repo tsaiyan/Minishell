@@ -71,21 +71,16 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 
 void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 {
-	int		ret = 0;
-	pid_t	pid;
-	//folder = opendir(argv[0]);
-	// for pipes
-
-	// делает пид если нет пайпов
 	if (bin->p_count == 0)
 	{
 		execve_str = get_excve_str(bin, argv[0], argv);
-		bin->pid = fork();
+		if (execve_str)
+			bin->pid = fork();
 	}
 	if (bin->pid == 0)
 	{
-		ret = execve(execve_str, argv, bin->envp);
-		if (argv[0][0] == '.')
+		execve(execve_str, argv, bin->envp);
+		if (argv[0][0] == '.' && argv[0][1] == '/')
 			exit(command_error(argv[0], 5));
 	}
 	else
