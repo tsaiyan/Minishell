@@ -1,7 +1,7 @@
 #ifndef PRE_PARSING_H
 # define PRE_PARSING_H
 
-int pre_pars_branching(t_pars *pa, t_hist *hist);
+int pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check);
 int check_char(char **cur_arg, t_pars *pa, int *i);
 int				check_spaces_prep(char *cur_arg, t_pars *pa);
 

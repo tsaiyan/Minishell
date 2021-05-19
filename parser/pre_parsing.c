@@ -1,12 +1,10 @@
+#include <tclDecls.h>
 #include "header.h"
 
-static int pre_pars(char *arg, t_pars *pa)
+static int	pre_pars(char *arg, t_pars *pa)
 {
-	int 		i;
-//	char 		tmp;
-	char 		**ret;
+	char	**ret;
 
-	i = 0;
 	pa->s = arg;
 	arg = pre_pars_subs(arg, pa);
 	if (NULL == arg)
@@ -16,49 +14,35 @@ static int pre_pars(char *arg, t_pars *pa)
 		return (1);
 	parser(ret, &pa->envp, pa->b);
 	return (0);
-//	while (arg[i] != 0)
-//	{
-//		if (arg[i] == ';')
-//			return (0);
-//		if (check_char(arg + i, pa))
-//			return (1);
-//		i++;
-//	}
-//	i = -1;
-//	while (arg[++i] != 0)
-//	{
-//		if (arg[i] >= 0)
-//			ft_putchar_fd(arg[i], 1);
-//	}
-//	ft_putchar_fd('\n', 1);
 }
 
-static int check_arguments_if(char **arg, char *buf, t_hist *hist, int len)
+static int	check_arguments_if(char **arg, char *buf, t_hist *hist, int len)
 {
-	int len_arg;
+	int	len_arg;
 
 	if (NULL == *arg)
 	{
-		if (!(*arg = malloc(sizeof(char) * (len + 1))))
+		*arg = malloc(sizeof(char) * (len + 1));
+		if (!*arg)
 			return (1);
 		ft_strlcpy(*arg, buf, len + 1);
 	}
 	else
 	{
 		len_arg = ft_strlen(*arg);
-		if (!(*arg = ft_realloc(*arg, len_arg + len + 1)))
+		*arg = ft_realloc(*arg, len_arg + len + 1);
+		if (!*arg)
 			return (1);
 		ft_strlcat(*arg, buf, len_arg + len + 1);
-//		ft_bzero(&buf, len_arg);
 	}
 	return (0);
 }
 
-static int check_arguments_realloc(char **arg, char *buf, t_pars *pa,\
-	t_hist *hist)
+static int	check_arguments_realloc(char **arg, char *buf, t_pars *pa, \
+t_hist *hist)
 {
-	int len;
-	int len_arg;
+	int	len;
+	int	len_arg;
 
 	len = ft_strlen(buf);
 	if (0 != check_arguments_if(arg, buf, hist, len))
@@ -84,15 +68,13 @@ static int check_arguments_realloc(char **arg, char *buf, t_pars *pa,\
 	return (1);
 }
 
-int take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist)
+int	take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist, int ret)
 {
-	char 		*arg;
-	int 		ret;
-	t_pars		s;
-
+	char	*arg;
+	t_pars	s;
 
 	ft_bzero(&s, sizeof(t_pars));
-	ret = check_semicolon_and_syntax(*line, &s);
+	ret = check_semicolon_and_syntax(*line, &s, 0, 0);
 	if (s.quot_flag != 0)
 	{
 		write_error(MULTI_LINE_COMMAND, *line);
@@ -114,12 +96,9 @@ int take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist)
 	return (0);
 }
 
-int pre_pars_branching(t_pars *pa, t_hist *hist)
+int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 {
-	int				ret;
-	char 			buf[2049];
-	int 			check;
-	char 			*del;
+	char	buf[2049];
 
 	ft_bzero(&buf, sizeof(buf));
 	ret = read(0, buf, 2048);
@@ -137,12 +116,13 @@ int pre_pars_branching(t_pars *pa, t_hist *hist)
 				return (1);
 		}
 		ft_bzero(&buf, sizeof(buf));
-		ret = read(0, buf, 4096);
+		ret = read(0, buf, 2048);
 	}
 	if (ret == -1)
 		ft_errors(SYS_ERR_READ);
 	if (add_history_line(hist, buf))
-		if (take_argument_for_pre_pars(&hist->left, pa, hist))
+		if (take_argument_for_pre_pars(&hist->left, pa, hist, 0))
 			return (0);
 	return (0);
 }
+//ft_bzero(&buf, sizeof(buf)); in begin func

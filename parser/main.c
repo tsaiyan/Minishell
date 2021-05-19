@@ -34,8 +34,7 @@ int 				main(int argc, char **argv, char *envp[], char **apple)
 		// signal(SIGINT, signal_quit);
 		history_init(&hist, &term, &p);
 		write(1, COL_BLUE"minishell$ "COL_RESET, 20);
-		flag = pre_pars_branching(&p, &hist);
-		write (1, '\n', 1);
+		flag = pre_pars_branching(&p, &hist, 0, 0);
 		ft_fr(&hist.right);
 		ft_fr(&hist.left);
 	}

@@ -11,7 +11,7 @@ static int	reverse_redirect(char *line, int *i)
 		return (SYNTAX_ERROR);
 	*i += 1;
 	while (line[*i] != ';' && line[*i] != 0 && line[*i] != '|' && \
-	line[*i] !=	'>')
+	line[*i] != '>')
 	{
 		if (ft_isprint(line[*i]) && !ft_isspace(line[*i]))
 			flag = 1;
@@ -20,9 +20,9 @@ static int	reverse_redirect(char *line, int *i)
 	return ((flag == 0) * SYNTAX_ERROR_PREPARS);
 }
 
-static int forward_redirect(char *line, int *i, int *ori)
+static int	forward_redirect(char *line, int *i, int *ori)
 {
-	int 	flag;
+	int	flag;
 
 	flag = 0;
 	*i += 1;
@@ -37,7 +37,7 @@ static int forward_redirect(char *line, int *i, int *ori)
 		if (ft_isdigit(line[*i - 2]))
 			return (SYNTAX_ERROR);
 	while (line[*i] != ';' && line[*i] != 0 && line[*i] != '|' && \
-	line[*i] !=	'>')
+	line[*i] != '>')
 	{
 		if (ft_isprint(line[*i]) && !ft_isspace(line[*i]))
 			flag = 1;
@@ -46,10 +46,10 @@ static int forward_redirect(char *line, int *i, int *ori)
 	return ((flag == 0) * SYNTAX_ERROR_PREPARS);
 }
 
-int 		valid_redirects(char *line, int *i)
+int	valid_redirects(char *line, int *i)
 {
-	int 	tmp;
-	int 	ret;
+	int	tmp;
+	int	ret;
 
 	tmp = *i;
 	if (line[tmp] == '<')

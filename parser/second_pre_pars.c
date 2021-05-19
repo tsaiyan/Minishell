@@ -25,10 +25,10 @@
 //	return (0);
 //}
 
-static void change_empty_spaces(char **arg)
+static void	change_empty_spaces(char **arg)
 {
-	int 		i;
-	int 		j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (arg[++i] != NULL)
@@ -42,11 +42,11 @@ static void change_empty_spaces(char **arg)
 	}
 }
 
-char **second_pre_pars(char *arg, t_pars *pa)
+char	**second_pre_pars(char *arg, t_pars *pa)
 {
-	char		*tmp;
-	char		**ret;
-	int			i;
+	char	*tmp;
+	char	**ret;
+	int		i;
 
 	i = -1;
 	tmp = arg;
@@ -64,14 +64,12 @@ char **second_pre_pars(char *arg, t_pars *pa)
 	if (NULL == tmp)
 		return (NULL);
 	ret = ft_split(tmp, ' ');
-	//export c="$ZSH $ZSH"
 	if (NULL == ret)
 		return (NULL);
 	free(tmp);
 	change_empty_spaces(ret);
 	return (ret);
 }
-
 //				test
 // 'e''c''h''o' $www "$www" '$www'
 

@@ -9,8 +9,6 @@ void 		move_to_cours_toleft(int len)
 	}
 }
 
-
-
 static void check_currline_number(t_hist *hist, int len_left)
 {
 	int 		len;

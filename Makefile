@@ -16,7 +16,7 @@ PATHLIB = ./libft
 NAMELIB = libft.a
 LIBS = $(PATHLIB)/$(NAMELIB)
 
-FLAG = -g -Wall -ltermcap #-Wextra -Werror
+FLAG = -g -Wall #-Wextra -Werror
 HEADER = includes/header.h
 INC = -I./libft -I./includes
 OBJ = $(SRC_FOR_SAVE:.c=.o)
@@ -38,9 +38,9 @@ INC_FOR_SAVE = $(wildcard includes/*.h)
 all: libs $(NAME) $(SRC_FOR_SAVE)
 
 $(NAME): $(OBJ) clean
-	$(CC) $(FLAG) -o $(NAME) $(SRC_FOR_SAVE) $(INC) $(LIBS)
+	$(CC) $(FLAG) -o $(NAME) $(SRC_FOR_SAVE) $(INC) $(LIBS) -ltermcap
 	@echo "$(BOLD)$(GB)Compilation done$(EB)$(SGR0)";
-	./minishell
+
 %.o: %.c $(HEAD) $(LIBS)
 	$(CC) -c $(FLAG) $< $(INC) -o $@
 
