@@ -51,11 +51,13 @@ void			ft_buildins(t_bin *bin)
 	{
 		close(bin->to);
 		dup2(bin->savefd1, 1);
+		bin->to = 0;
 	}
 	if (bin->from)
 	{	
 		close(bin->from);
 		dup2(bin->savefd0, 0);
+		bin->from = 0;
 	}
 }
 
@@ -84,7 +86,6 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		ft_pipes(bin);
 	if (!bin->error)	
 		ft_buildins(bin);
-	
 	*envp = bin->envp;
 	free_parcer(bin);
 	return (0);

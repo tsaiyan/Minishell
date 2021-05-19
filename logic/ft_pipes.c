@@ -106,10 +106,10 @@ int		ft_pipes(t_bin *bin)
 				dup2(bin->indx_to, 1);
 			ft_execve(bin, execve_str, bin->p_argvs[i]);
 		}
-			close(fd_pipes[i][1]);
-			if (i > 0)
-				close(fd_pipes[i - 1][0]);
-			free(execve_str);
+		close(fd_pipes[i][1]);
+		if (i > 0)
+			close(fd_pipes[i - 1][0]);
+		free(execve_str);
 		i++;
 	}
 	close(fd_pipes[i - 1][0]);
