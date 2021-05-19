@@ -79,7 +79,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 	bin->argv = argv;
 	if (find_redirects(bin))
 		ft_redirects(bin, bin->argv);
-	bin->argc = ft_strlen(*bin->argv);
+	bin->argc = ft_massive_len(bin->argv);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
