@@ -22,6 +22,8 @@ typedef struct	s_bin
 	int 		from;
 	int			to;
 	int			append;
+	int			indx_from;
+	int			indx_to;
 }				t_bin;
 
 void		ft_puts(char *str);
@@ -55,5 +57,5 @@ char		*get_excve_str(t_bin *bin, char *command, char **argv);
 void		ft_execve(t_bin *bin, char *execve_str, char **argv);
 void		ft_redirects(t_bin *bin, char **argv);
 int			find_redirects(t_bin * bin);
-
+int			ft_redopen(t_bin *bin, char *way, int flag, int index);
 #endif

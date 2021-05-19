@@ -85,7 +85,7 @@ int		ft_pipes(t_bin *bin)
 	bin->pid= -1;
 	char *execve_str = NULL;
 	int fd_pipes[bin->p_count + 1][2];
-	write(1, "\n", 1);
+	//write(1, "\n", 1);
 	write_pipes(bin);
 
 	i = 0;
@@ -98,8 +98,12 @@ int		ft_pipes(t_bin *bin)
 		{
 			if (i == 0 || i < bin->p_count)
 				dup2(fd_pipes[i][1], 1);
-			if (i != 0)
+			else if (i == (bin->indx_from - ft_massive_len(bin->p_argvs[i])))
+				dup2(bin->from, 0);
+			else if (i != 0)
 				dup2(fd_pipes[i - 1][0], 0);
+			if (i == (bin->indx_to - ft_massive_len(bin->p_argvs[i])))
+				dup2(bin->indx_to, 1);
 			ft_execve(bin, execve_str, bin->p_argvs[i]);
 		}
 			close(fd_pipes[i][1]);

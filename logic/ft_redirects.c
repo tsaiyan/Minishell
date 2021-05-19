@@ -13,7 +13,7 @@ int		find_redirects(t_bin * bin)
 // 1 - >>, 2 - <, 3 - >
 // обработать ошибки
 
-int		ft_redopen(t_bin *bin, char *way, int flag)
+int		ft_redopen(t_bin *bin, char *way, int flag, int index)
 {
 	int ret = 0;
 
@@ -42,9 +42,22 @@ int		ft_redopen(t_bin *bin, char *way, int flag)
 		return(-1);
 	}
 	if (flag == 2)
+	{
 		bin->from = ret;
-	else
+		bin->indx_from = index;
+	}
+	else if ( flag == 1)
+	{
 		bin->to = ret;
+		bin->append = 1;
+		bin->indx_to = index;
+	}
+	else
+	{
+		bin->to = ret;
+		bin->append = 0;
+		bin->indx_to = index;
+	}
 	return (1);
 }
 
@@ -57,11 +70,11 @@ void	ft_redirects(t_bin *bin, char **argv)
 	{
 		flag = 0;
 		if	(!ft_strcmp(argv[i], ">>"))
-			flag = ft_redopen(bin, argv[i + 1], 1);
+			flag = ft_redopen(bin, argv[i + 1], 1, i - 1);
 		if	(!ft_strcmp(argv[i], "<"))
-			flag = ft_redopen(bin, argv[i + 1], 2);
+			flag = ft_redopen(bin, argv[i + 1], 2, i - 1);
 		if	(!ft_strcmp(argv[i], ">"))
-			flag = ft_redopen(bin, argv[i + 1], 3);
+			flag = ft_redopen(bin, argv[i + 1], 3, i - 1);
 		if (flag)
 		{
 			argv = ft_del_index_in2massive(argv, i);

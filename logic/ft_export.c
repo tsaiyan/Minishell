@@ -53,7 +53,7 @@ static t_mylst	*my_lst_new(char *str)
 	t_mylst	*new_lst;
 	char	*split_str;
 
-	new_lst = calloc(sizeof(t_mylst), 1);
+	new_lst = ft_calloc(sizeof(t_mylst), 1);
 	if (!new_lst)
 		exit(errno);
 	split_str = ft_strchr(str, '=');
