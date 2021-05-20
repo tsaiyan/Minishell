@@ -23,7 +23,23 @@ static void free_parcer(t_bin *bin)
 	bin->argv=NULL;
 }
 
-// MAIN FUNCTION
+
+void	ft_close_redifd(t_bin * bin)
+{
+	if (bin->to > 0)
+	{
+		close(bin->to);
+		dup2(bin->savefd1, 1);
+		bin->to = 0;
+	}
+	if (bin->from > 0)
+	{	
+		close(bin->from);
+		dup2(bin->savefd0, 0);
+		bin->from = 0;
+	}
+}
+// run buldins with redirects fd swap
 
 void			ft_buildins(t_bin *bin)
 {	
@@ -47,18 +63,8 @@ void			ft_buildins(t_bin *bin)
 		ft_env(bin);
 	else if (!bin->p_count)
 		ft_execve(bin, bin->argv[0], bin->argv);
-	if (bin->to)
-	{
-		close(bin->to);
-		dup2(bin->savefd1, 1);
-		bin->to = 0;
-	}
-	if (bin->from)
-	{	
-		close(bin->from);
-		dup2(bin->savefd0, 0);
-		bin->from = 0;
-	}
+	ft_close_redifd(bin);
+
 }
 
 int 		parser(char **argv, char ***envp, t_bin *bin)
@@ -84,7 +90,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		bin->savefd0 = dup(0);
 	if (check_pipes(bin))
 		ft_pipes(bin);
-	if (!bin->error)	
+	if (!bin->error && !bin->p_count)	
 		ft_buildins(bin);
 	*envp = bin->envp;
 	free_parcer(bin);

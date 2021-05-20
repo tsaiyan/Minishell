@@ -86,6 +86,7 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 	else
 	{
 		wait(NULL);
+		ft_close_redifd(bin);
 		free(execve_str);
 	}
 }

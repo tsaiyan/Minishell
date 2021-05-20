@@ -65,16 +65,30 @@ void	ft_redirects(t_bin *bin, char **argv)
 {
 	int i = 0;
 	int flag;
+	int pipes;
 
+	bin->del_pipes = 0;
 	while (argv[i])
 	{
 		flag = 0;
+		
+		if	(!ft_strcmp(argv[i], "|"))
+			bin->del_pipes++;
 		if	(!ft_strcmp(argv[i], ">>"))
+		{
 			flag = ft_redopen(bin, argv[i + 1], 1, i - 1);
+			//bin->del_pipes = pipes;
+		}
 		if	(!ft_strcmp(argv[i], "<"))
+		{
 			flag = ft_redopen(bin, argv[i + 1], 2, i - 1);
+			//bin->del_pipes = pipes;
+		}
 		if	(!ft_strcmp(argv[i], ">"))
+		{
 			flag = ft_redopen(bin, argv[i + 1], 3, i - 1);
+			//bin->del_pipes = pipes;
+		}
 		if (flag)
 		{
 			argv = ft_del_index_in2massive(argv, i);

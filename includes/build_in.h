@@ -26,6 +26,7 @@ typedef struct	s_bin
 	int			indx_to;
 	int			savefd1;
 	int			savefd0;
+	int			del_pipes;
 }				t_bin;
 
 void		ft_puts(char *str);
@@ -60,4 +61,5 @@ void		ft_execve(t_bin *bin, char *execve_str, char **argv);
 void		ft_redirects(t_bin *bin, char **argv);
 int			find_redirects(t_bin * bin);
 int			ft_redopen(t_bin *bin, char *way, int flag, int index);
+void		ft_close_redifd(t_bin * bin);
 #endif

@@ -79,6 +79,13 @@ void	free_pipes(t_bin *bin)
 	free(bin->p_argvs);
 }
 
+int		redirect_index(int index, int i, t_bin *bin)
+{
+	if (i == 0)
+		return (0);
+	return(index - ft_massive_len(bin->p_argvs[i]) - bin->del_pipes + 1);
+}
+
 int		ft_pipes(t_bin *bin)
 {
 	int i = -1;
@@ -93,23 +100,32 @@ int		ft_pipes(t_bin *bin)
 	{
 		execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		pipe(fd_pipes[i]);
-		bin->pid = fork();
+		ls | ls | ls | ls | cat < file | ls
 		if (bin->pid == 0)
 		{
-			if (i == 0 || i < bin->p_count)
+			if (i == 0)
 				dup2(fd_pipes[i][1], 1);
-			else if (i == (bin->indx_from - ft_massive_len(bin->p_argvs[i])))
+			else if (i == redirect_index(bin->indx_to, i, bin))
+				dup2(bin->to, 1);
+			else if (i < bin->p_count)
+				dup2(fd_pipes[i][1], 1);
+			if (i == redirect_index(bin->indx_from, i, bin))
 				dup2(bin->from, 0);
 			else if (i != 0)
 				dup2(fd_pipes[i - 1][0], 0);
-			if (i == (bin->indx_to - ft_massive_len(bin->p_argvs[i])))
-				dup2(bin->indx_to, 1);
 			ft_execve(bin, execve_str, bin->p_argvs[i]);
 		}
+		// if (i == redirect_index(bin->indx_from, i, bin))
+		// {
+		// 		close(bin->from);
+		// 		dup2(bin->savefd0, 0);
+		// }
+		// if (i == redirect_index(bin->indx_to, i, bin))
+		// 		close(bin->to);
 		close(fd_pipes[i][1]);
 		if (i > 0)
 			close(fd_pipes[i - 1][0]);
-		free(execve_str);
+		//free(execve_str);
 		i++;
 	}
 	close(fd_pipes[i - 1][0]);
