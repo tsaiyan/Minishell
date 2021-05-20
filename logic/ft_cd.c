@@ -97,5 +97,4 @@ void	ft_cd(t_bin *bin)
 	}
 	else
 		change_oldpwd(bin, temp_old_dir);
-	write(1, "\n", 1);
 }

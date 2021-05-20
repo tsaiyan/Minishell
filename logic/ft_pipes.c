@@ -114,17 +114,10 @@ int		ft_pipes(t_bin *bin)
 				dup2(fd_pipes[i - 1][0], 0);
 			ft_execve(bin, execve_str, bin->p_argvs[i]);
 		}
-		// if (i == redirect_index(bin->indx_from, i, bin))
-		// {
-		// 		close(bin->from);
-		// 		dup2(bin->savefd0, 0);
-		// }
-		// if (i == redirect_index(bin->indx_to, i, bin))
-		// 		close(bin->to);
 		close(fd_pipes[i][1]);
 		if (i > 0)
 			close(fd_pipes[i - 1][0]);
-		//free(execve_str);
+		free(execve_str);
 		i++;
 	}
 	close(fd_pipes[i - 1][0]);

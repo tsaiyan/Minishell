@@ -39,5 +39,4 @@ void	ft_unset(t_bin *bin)
 		i++;
 	}
 	list_to_envp(bin);
-	write(1, "\n", 1);
 }
