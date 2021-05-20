@@ -100,7 +100,6 @@ int		ft_pipes(t_bin *bin)
 	{
 		execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		pipe(fd_pipes[i]);
-		ls | ls | ls | ls | cat < file | ls
 		if (bin->pid == 0)
 		{
 			if (i == 0)
