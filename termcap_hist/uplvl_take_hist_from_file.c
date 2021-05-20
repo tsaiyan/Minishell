@@ -72,6 +72,7 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 
 static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
 {
+
 	char 		*file;
 	char		*hist_folder_name;
 	int 		tmp;

@@ -99,7 +99,6 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 {
 	char	buf[2049];
 
-	ft_bzero(&buf, sizeof(buf));
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{

@@ -42,7 +42,7 @@ static int write_error2(int code, char *arg)
 
 int write_error(int code, char *arg)
 {
-	write(2, "minishell: ", 11);
+	write(2, "\nminishell: ", 12);
 	if (0 > write_error2(code, arg))
 		return (code);
 	prnt(arg);
