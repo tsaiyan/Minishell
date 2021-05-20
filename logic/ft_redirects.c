@@ -2,8 +2,9 @@
 
 int		find_redirects(t_bin * bin)
 {
-	int i = -1;
+	int i;
 
+	i = -1;
 	while (bin->argv[++i])
 		if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
 			return(1);
@@ -64,32 +65,22 @@ int		ft_redopen(t_bin *bin, char *way, int flag, int index)
 
 void	ft_redirects(t_bin *bin, char **argv)
 {
-	int i = 0;
+	int i;
 	int flag;
-	int pipes;
 
+	i = 0;
 	bin->del_pipes = 0;
 	while (argv[i])
 	{
 		flag = 0;
-		
 		if	(!ft_strcmp(argv[i], "|"))
 			bin->del_pipes++;
 		if	(!ft_strcmp(argv[i], ">>"))
-		{
 			flag = ft_redopen(bin, argv[i + 1], 1, i - 1);
-			//bin->del_pipes = pipes;
-		}
 		if	(!ft_strcmp(argv[i], "<"))
-		{
 			flag = ft_redopen(bin, argv[i + 1], 2, i - 1);
-			//bin->del_pipes = pipes;
-		}
 		if	(!ft_strcmp(argv[i], ">"))
-		{
 			flag = ft_redopen(bin, argv[i + 1], 3, i - 1);
-			//bin->del_pipes = pipes;
-		}
 		if (flag)
 		{
 			argv = ft_del_index_in2massive(argv, i);

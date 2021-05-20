@@ -79,7 +79,7 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 	}
 	if (bin->pid == 0)
 	{
-		execve(execve_str, argv, bin->envp);
+		bin->exit_status = execve(execve_str, argv, bin->envp);
 		if (argv[0][0] == '.' && argv[0][1] == '/')
 			exit(command_error(argv[0], 5));
 	}
@@ -90,3 +90,6 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		free(execve_str);
 	}
 }
+
+// void(*f)(int f)(int a)
+	// f(12);

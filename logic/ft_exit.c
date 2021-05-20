@@ -5,12 +5,13 @@ int		ft_it_digit_array(char *argv)
 	int i;
 
 	i = 0;
-	while (argv[i])
-	{
-		if (!ft_isdigit(argv[i]))
-			return(0);
-		i++;
-	}
+	if (argv)
+		while (argv[i])
+		{
+			if (!ft_isdigit(argv[i]))
+				return(0);
+			i++;
+		}
 	return(1);
 }
 

@@ -67,13 +67,21 @@ void			ft_buildins(t_bin *bin)
 
 }
 
-int 		parser(char **argv, char ***envp, t_bin *bin)
+void		ft_prepare_parcer(t_bin *bin)
 {
 	if (!bin->exit_off)
 		write (1, "\n", 1);
+	bin->to = -1;
+	bin->from = -1;
 	bin->indx_from = -1;
 	bin->indx_to = -1;
 	bin->error = 0;
+	bin->pid = -1;
+}
+
+int 		parser(char **argv, char ***envp, t_bin *bin)
+{
+	ft_prepare_parcer(bin);
 	if (!bin || !ft_strcmp(argv[0], "exit"))
 		ft_exit(argv);
 	bin->envp = *envp;
