@@ -39,6 +39,7 @@ int		ft_redopen(t_bin *bin, char *way, int flag, int index)
 	{
 		ft_puts("can't open the file");
 		bin->error = 1;
+		ft_close_redifd(bin);
 		return(-1);
 	}
 	if (flag == 2)

@@ -73,6 +73,7 @@ int 		parser(char **argv, char ***envp, t_bin *bin)
 		write (1, "\n", 1);
 	bin->indx_from = -1;
 	bin->indx_to = -1;
+	bin->error = 0;
 	if (!bin || !ft_strcmp(argv[0], "exit"))
 		ft_exit(argv);
 	bin->envp = *envp;
