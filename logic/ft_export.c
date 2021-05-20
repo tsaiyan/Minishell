@@ -7,9 +7,13 @@ int validate_export(char *str)
 	char b;
 
 	b = str[0];
-	if ((b < 65 || b > 122) && b != '_')
+	if (b < 48 || b > 122)
 		return(0);
-	return(1);
+	if (b < 97 && b > 90 && b != '_')
+		return(0);
+	if (b > 57 && b < 65)
+		return(0);
+	return (1);
 }
 
 // check already exists key and change value
@@ -137,16 +141,14 @@ t_mylst	*arr_to_dlist(char **str)
 
 int check_plus(char *str)
 {
-	char *plus;
-	int i;
+	char	*plus;
+	int		i;
 
 	i = 0;
-	plus=ft_strchr(str, '+');
+	plus = ft_strchr(str, '+');
 	if (plus && ((*(plus + 1)) != '=') && ((*(plus - 1)) != '='))
 	{
-		ft_putstr("\nbash: export: `");
-		ft_putstr(str);
-		ft_puts("': not a valid identifier");
+		command_error(str, 2);
 		return(-1);
 	}
 	if (plus)
@@ -168,19 +170,16 @@ void	list_to_envp(t_bin *bin)
 	if (!new_envp)
 		exit(errno);
 	lst = bin->envp_lst;
-	while(lst)
+	while (lst)
 	{
 		new_envp[i] = ft_strjoin(lst->key, "=");
 		dom = new_envp[i];
 		new_envp[i] = ft_strjoin(new_envp[i], lst->value);
 		free(dom);
-		free(bin->envp[i]);
 		lst = lst->next;
 		i++;
 	}
-	while(bin->envp[i])
-		free(bin->envp[i++]);
-	free(bin->envp);
+	ft_free_massive(bin->envp);
 	bin->envp = new_envp;
 }
 
@@ -204,20 +203,14 @@ void	ft_export(t_bin *bin)
 			if (check_plus(bin->argv[i]) == -1)
 				return;
 			if (!validate_export(bin->argv[i]))
-				{
-				
 				command_error(bin->argv[i], 2);
-				}
 			lst = my_lst_new(bin->argv[i]);
 			my_lst_add_back(bin->export, lst);
 			if(lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
 			i++;
-		if (!bin->exit_off)
-			write(1, "\n", 1);
 		}
 		sort_list(bin);
 		list_to_envp(bin);
-		//print_list(bin->export, 1);
 	}
  }

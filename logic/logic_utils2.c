@@ -28,9 +28,9 @@ int	command_error(char *command, int flag)
 	}
 	else if (flag == 2)
 	{
-		ft_putstr("\nbash: export: '");
+		ft_putstr("bash: export: '");
 		ft_putstr(command);
-		ft_putstr("': not a valid identifier");
+		ft_putstr("': not a valid identifier\n");
 	}
 	else if (flag == 3)
 	{
