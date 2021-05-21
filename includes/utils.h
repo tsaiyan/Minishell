@@ -44,4 +44,6 @@ char    **ft_del_index_in2massive(char **old, int index);
 //
 //
 
+void        trim_space_in_begin(char **str, int i, int j, int len);
+
 #endif

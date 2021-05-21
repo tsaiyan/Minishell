@@ -8,8 +8,8 @@ void signal_exit(int sig)
 	g_sig.sigint = TRUE;
 	if (!pid)
 	{
-		kill(pid, sig);
+		write (1, "\n", 1);
 		if (g_sig.sigint == TRUE)
-		g_sig.exit_status = 130;
+			g_sig.exit_status = 130;
 	}
 }

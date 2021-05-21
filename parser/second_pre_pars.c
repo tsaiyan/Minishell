@@ -51,7 +51,6 @@ char	**second_pre_pars(char *arg, t_pars *pa)
 	i = -1;
 	tmp = arg;
 	// arg = ft_strtrim(tmp, " ");
-	free(tmp);
 	pa->quot_flag = 0;
 	pa->s = arg;
 	while (arg[++i] != 0)

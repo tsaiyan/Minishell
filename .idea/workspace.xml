@@ -22,10 +22,13 @@
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/eof_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/eof_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/build_in.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/build_in.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/for_launch_minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/for_launch_minishell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/second_pre_pars.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/second_pre_pars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/signal_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/signal_exit.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +60,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/parser/main.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="toolchainName" value="System" />
@@ -174,9 +177,9 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -264,6 +267,8 @@
       <workItem from="1621451660251" duration="190000" />
       <workItem from="1621505593268" duration="1319000" />
       <workItem from="1621509388331" duration="537000" />
+      <workItem from="1621601660590" duration="235000" />
+      <workItem from="1621607621695" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
