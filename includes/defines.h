@@ -25,6 +25,9 @@
 # define SHIELD_W_QUOT -20
 # define SHIELD_S_QUOT -21
 
+# define SIGNAL_INT 10
+# define SIGNAL_QUIT 11
+
 // -1 tab, space
 
 # define DEL_DEF -6

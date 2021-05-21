@@ -37,6 +37,7 @@ int	check_specific_dollar2(char **arg, t_pars *pa, int *i, char *str);
 int check_empty_history(t_hist *hist, char *buf);
 
 void signal_quit(int sig);
+void signal_exit(int sig);
 char **alloc_uplvl(char *name_arg, int current_lvl);
 
 #endif

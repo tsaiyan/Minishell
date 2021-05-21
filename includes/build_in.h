@@ -62,4 +62,7 @@ void		ft_redirects(t_bin *bin, char **argv);
 int			find_redirects(t_bin * bin);
 int			ft_redopen(t_bin *bin, char *way, int flag, int index);
 void		ft_close_redifd(t_bin * bin);
+
+
+void		launch_minishell(char ***envp, t_bin *b);
 #endif

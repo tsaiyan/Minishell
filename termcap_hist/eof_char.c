@@ -31,7 +31,9 @@ int eof_char(t_hist *hist, char **env, t_bin *b)
 	{
 		alloc_exit(&out);
 		write(1, "exit\n", 5);
+		b->exit_off = 1;
 		parser(out, &env, b);
+		b->exit_off = 0;
 	}
 	else if (len_right)
 		del_key(hist);

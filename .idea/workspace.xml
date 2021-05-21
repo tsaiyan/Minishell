@@ -22,6 +22,9 @@
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strcmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/eof_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/eof_char.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -257,7 +260,10 @@
       <workItem from="1621349078651" duration="2842000" />
       <workItem from="1621418345902" duration="6205000" />
       <workItem from="1621431235266" duration="3068000" />
-      <workItem from="1621441036384" duration="284000" />
+      <workItem from="1621441036384" duration="1320000" />
+      <workItem from="1621451660251" duration="190000" />
+      <workItem from="1621505593268" duration="1319000" />
+      <workItem from="1621509388331" duration="537000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
