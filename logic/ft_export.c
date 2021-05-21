@@ -185,26 +185,26 @@ void	list_to_envp(t_bin *bin)
 
 // MAIN FUNCTION	
 
-void	ft_export(t_bin *bin)
+void	ft_export(t_bin *bin, char **argv)
 {
 	int		i;
 	t_mylst	*lst;
 
 	i = 1;
-	if (!bin->argv[1])
+	if (!argv[1])
 	{
 		sort_list(bin);
 		print_list(bin->export, 1);
 	}
 	else
 	{
-		while (bin->argv[i])
+		while (argv[i])
 		{
-			if (check_plus(bin->argv[i]) == -1)
+			if (check_plus(argv[i]) == -1)
 				return;
-			if (!validate_export(bin->argv[i]))
-				command_error(bin->argv[i], 2);
-			lst = my_lst_new(bin->argv[i]);
+			if (!validate_export(argv[i]))
+				command_error(argv[i], 2);
+			lst = my_lst_new(argv[i]);
 			my_lst_add_back(bin->export, lst);
 			if(lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));

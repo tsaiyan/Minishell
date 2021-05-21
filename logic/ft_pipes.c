@@ -81,9 +81,41 @@ void	free_pipes(t_bin *bin)
 
 int		redirect_index(int index, int i, t_bin *bin)
 {
-	if (i == 0)
+	if (i == 0 && (bin->to > 0 || bin->from > 0))
 		return (0);
+	else if (i == 0)
+		return (-1);
 	return(index - ft_massive_len(bin->p_argvs[i]) - bin->del_pipes + 1);
+}
+
+int	it_not_builtin(char *command)
+{
+	if (!ft_strcmp(command, "pwd") || !ft_strcmp(command, "echo") || \
+	!ft_strcmp(command, "env") || \
+	!ft_strcmp(command, "exit") || !ft_strcmp(command, "unset") || \
+	!ft_strcmp(command, "export") || !ft_strcmp(command, "cd"))
+		return(0);
+	return(1);
+}
+
+int	builtin_pipes(t_bin *bin, char *command, char **argv)
+{
+	if (!ft_strcmp(command, "pwd"))
+		ft_pwd(bin);
+	if (!ft_strcmp(command, "echo"))
+		ft_echo(bin, argv);
+	if (!ft_strcmp(command, "env"))
+		ft_env(bin);
+	if (!ft_strcmp(command, "exit"))
+		ft_exit(bin->argv);
+	if (!ft_strcmp(command, "unset"))
+		ft_unset(bin, argv);
+	if (!ft_strcmp(command, "export"))
+		ft_export(bin, argv);
+	if (!ft_strcmp(command, "cd"))
+		ft_cd(bin, argv);
+	dup2(bin->savefd1, 1);
+	dup2(bin->savefd0, 0);
 }
 
 int		ft_pipes(t_bin *bin)
@@ -92,16 +124,18 @@ int		ft_pipes(t_bin *bin)
 	bin->pid= -1;
 	char *execve_str = NULL;
 	int fd_pipes[bin->p_count + 1][2];
-	//write(1, "\n", 1);
-	write_pipes(bin);
 
 	i = 0;
+	write_pipes(bin);
 	while(bin->p_commands[i])
 	{
-		execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		pipe(fd_pipes[i]);
-		bin->pid = fork();
-		if (bin->pid == 0)
+		if (it_not_builtin(bin->p_commands[i]))
+		{
+			bin->pid = fork();
+			execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
+		}
+		if (bin->pid == 0 || !it_not_builtin(bin->p_commands[i]))
 		{
 			if (i == 0)
 				dup2(fd_pipes[i][1], 1);
@@ -111,9 +145,12 @@ int		ft_pipes(t_bin *bin)
 				dup2(fd_pipes[i][1], 1);
 			if (i == redirect_index(bin->indx_from, i, bin))
 				dup2(bin->from, 0);
-			else if (i != 0)
+			if (i != 0)
 				dup2(fd_pipes[i - 1][0], 0);
-			ft_execve(bin, execve_str, bin->p_argvs[i]);
+			if (!it_not_builtin(bin->p_commands[i]))
+				builtin_pipes(bin, bin->p_commands[i], bin->p_argvs[i]);
+			else
+				ft_execve(bin, execve_str,  bin->p_argvs[i]);
 		}
 		close(fd_pipes[i][1]);
 		if (i > 0)
@@ -123,6 +160,7 @@ int		ft_pipes(t_bin *bin)
 	}
 	close(fd_pipes[i - 1][0]);
 	while(wait(NULL) > 0);
+	
 	free_pipes(bin);
 	return(0);
 }
