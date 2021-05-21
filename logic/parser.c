@@ -77,6 +77,8 @@ void		ft_prepare_parcer(t_bin *bin)
 	bin->indx_to = -1;
 	bin->error = 0;
 	bin->pid = -1;
+	// if (!ft_strcmp(bin->argv[0], "./minishell"))
+
 }
 
 int 		parser(char **argv, char ***envp, t_bin *bin)

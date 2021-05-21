@@ -59,25 +59,23 @@ void	ft_cd(t_bin *bin, char **argv)
 			change_oldpwd(bin, temp_old_dir);
 		}
 		else
-			ft_putstr("bash: cd: HOME not set");
+			ft_puts("bash: cd: HOME not set");
 		return;	
 	}
 	if (cd_with_minus(bin, argv) == 1)
 	{
 		if (chdir(ft_get_value(bin->export, "OLDPWD")) == -1)
-			ft_putstr("bash: cd: OLDPWD not set");
+			ft_puts("bash: cd: OLDPWD not set");
 		else
 			change_oldpwd(bin, temp_old_dir);
-		ft_puts(NULL);
 		return;
 	}
 	if (cd_with_minus(bin, argv) == 2)
 	{
 		if (chdir(ft_get_value(bin->export, "HOME")) == -1)
-			ft_putstr("bash: cd: HOME not set");
+			ft_puts("bash: cd: HOME not set");
 		else
 			change_oldpwd(bin, temp_old_dir);
-		ft_puts(NULL);
 		return;
 	}
 	if (cd_with_minus(bin, argv) == -1)
@@ -90,9 +88,9 @@ void	ft_cd(t_bin *bin, char **argv)
 	}
 	if (chdir(argv[1]) == -1)
 	{
-		ft_putstr("\nbash: cd:");
+		ft_putstr("bash: cd:");
 		ft_putstr(argv[1]);
-		ft_putstr(": No such file or directory");
+		ft_puts(": No such file or directory");
 	}
 	else
 		change_oldpwd(bin, temp_old_dir);
