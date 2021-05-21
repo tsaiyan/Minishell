@@ -48,15 +48,15 @@ void			ft_buildins(t_bin *bin)
 	if (bin->from)
 		dup2(bin->from, 0);
 	if (!ft_strcmp(bin->argv[0], "export"))
-		ft_export(bin);
+		ft_export(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "exit"))
 		ft_exit(bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
-		ft_cd(bin);
+		ft_cd(bin,  bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "unset"))
-		ft_unset(bin);
+		ft_unset(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
-		ft_echo(bin);
+		ft_echo(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
 		ft_pwd(bin);
 	else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
