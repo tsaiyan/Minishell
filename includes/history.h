@@ -33,7 +33,7 @@ int     check_array_is_ascii(char *buf);
 void 		move_to_cours_toleft(int len);
 int     ctrl_forward_slash(t_hist *hist);
 int	check_specific_dollar(char **arg, t_pars *pa, int *i, char *str);
-int	check_specific_dollar2(char **arg, t_pars *pa, int *i, char *str);
+int check_specific_dollar2(char **arg, int *i);
 int check_empty_history(t_hist *hist, char *buf);
 
 void signal_quit(int sig);

@@ -14,7 +14,7 @@ static void alloc_exit(char ***out)
 		ft_errors(errno);
 		exit(errno);
 	}
-	**(out + 1) = ft_strdup("1");
+	**(out + 1) = ft_strdup("0");
 	**(out + 2) = NULL;
 }
 

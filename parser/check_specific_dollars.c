@@ -25,7 +25,7 @@ int	check_specific_dollar(char **arg, t_pars *pa, int *i, char *str)
 	return (0);
 }
 
-int	check_specific_dollar2(char **arg, t_pars *pa, int *i, char *str)
+int check_specific_dollar2(char **arg, int *i)
 {
 	if (!ft_isalnum(arg[0][*i + 1]) && \
 	arg[0][*i + 1] != '_' && arg[0][*i + 1] != '?')

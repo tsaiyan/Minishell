@@ -22,6 +22,7 @@ int add_history_line(t_hist *hist, char *buf)
 	term_off(hist);
 	del = hist->left;
 	hist->left = ft_strjoin(del, hist->right);
+	trim_space_in_begin(&hist->left, 0, 0, 0);
 	if (!hist->left && *buf != '\n')
 	{
 		ft_errors(errno);

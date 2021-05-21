@@ -62,7 +62,7 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 	if (pa->quot_flag == 0)
 	{
 		num = *i;
-		if (check_specific_dollar2(arg, pa, i, str))
+		if (check_specific_dollar2(arg, i))
 			return (0);
 		str = take_arg(*arg + *i, &num);
 		if (NULL == str)
@@ -83,7 +83,7 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 	if (pa->quot_flag == 1)
 	{
 		num = *i;
-		if (check_specific_dollar2(arg, pa, i, str))
+		if (check_specific_dollar2(arg, i))
 			return (0);
 		str = take_arg(*arg + *i, &num);
 		if (NULL == str)

@@ -78,8 +78,8 @@ static char *find_substr(t_fts *p, int i)
 }
 // + 1
 
-char *find_substr_in_str_and_replace(const char *substr, const char *str,
-									const char *rep_str, const int *i)
+char *find_substr_in_str_and_replace(char *substr, char *str,
+									 char *rep_str, int *i)
 {
 	t_fts			p;
 	int 			lim1;

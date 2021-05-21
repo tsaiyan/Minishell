@@ -99,6 +99,7 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 {
 	char	buf[2049];
 
+	ft_bzero(&buf, sizeof(buf));//in begin func
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{
@@ -123,4 +124,3 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 			return (0);
 	return (0);
 }
-//ft_bzero(&buf, sizeof(buf)); in begin func

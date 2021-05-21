@@ -8,8 +8,8 @@ int write_error(int code, char *arg);
 char *ft_realloc(char *arg, int count);
 // func like std realloc with copy
 
-char *find_substr_in_str_and_replace(const char *substr, const char *str,
-									const char *rep_str, const int *i);
+char *find_substr_in_str_and_replace(char *substr, char *str,
+									 char *rep_str, int *i);
 // replaces the first argument that matches the parameters
 // all lines no freed
 // if (int *)i == NULL => find first argument that matches the parameters
@@ -45,5 +45,6 @@ char    **ft_del_index_in2massive(char **old, int index);
 //
 
 void        trim_space_in_begin(char **str, int i, int j, int len);
+int			ft_strlen_n(const char *s, char flag);
 
 #endif
