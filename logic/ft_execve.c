@@ -71,6 +71,8 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 
 void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 {
+	int status;
+
 	if (bin->p_count == 0)
 	{
 		execve_str = get_excve_str(bin, argv[0], argv);
@@ -82,12 +84,19 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 		bin->exit_status = execve(execve_str, argv, bin->envp);
 		if (argv[0][0] == '.' && argv[0][1] == '/')
 			exit(command_error(argv[0], 5));
+		exit(0);
 	}
 	else
 	{
-		wait(NULL);
+		waitpid(bin->pid, &status, 0);
 		ft_close_redifd(bin);
 		free(execve_str);
+		if (status == 2)
+			bin->exit_status = 130;
+		else if (status == 3)
+			bin->exit_status = 131;
+		else if (status != 0 && status != 256)
+			bin->exit_status = status >> 8;
 	}
 }
 
