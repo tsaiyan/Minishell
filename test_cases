@@ -1,0 +1,31 @@
+ls
+ls ../
+pwd
+pwd sdfsdf
+echo
+echo text text
+echo -n text
+echo -nnnnnnnn text text
+echo -nnnnnn -nnn text
+echo -nnnnn -nnn1 text
+cd /
+unset HOME
+cd
+cd --
+cd -
+unset OLDPWD
+unset fesfsefesf
+cd --
+cd sdfdsfdsf
+export a
+export a=
+export a=b
+export c=$a
+export z y x
+env
+env 23r32r23
+exit gergerrge
+exit 33
+ls | cat -e > file
+pwd | cat -e > file
+pwd | exit | exit | ls

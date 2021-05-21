@@ -84,7 +84,7 @@ void		ft_prepare_parcer(t_bin *bin)
 int 		parser(char **argv, char ***envp, t_bin *bin)
 {
 	ft_prepare_parcer(bin);
-	if (!bin || !ft_strcmp(argv[0], "exit"))
+	if (!bin)
 		ft_exit(argv);
 	bin->envp = *envp;
 	bin->argv = argv;

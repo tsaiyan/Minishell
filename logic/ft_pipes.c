@@ -2,7 +2,7 @@
 
 // check pipes
 
-int	check_pipes(t_bin *bin)
+int		check_pipes(t_bin *bin)
 {
 	int i = 0;
 	int ret = 0;
@@ -16,7 +16,7 @@ int	check_pipes(t_bin *bin)
 	return(ret);
 }
 
-int	write_pipes(t_bin *bin)
+int		write_pipes(t_bin *bin)
 {
     // маллок комманд
 	bin->p_commands = (char **)ft_calloc(sizeof(char *), (bin->p_count + 1 + 1));
@@ -88,7 +88,7 @@ int		redirect_index(int index, int i, t_bin *bin)
 	return(index - ft_massive_len(bin->p_argvs[i]) - bin->del_pipes + 1);
 }
 
-int	it_not_builtin(char *command)
+int		it_not_builtin(char *command)
 {
 	if (!ft_strcmp(command, "pwd") || !ft_strcmp(command, "echo") || \
 	!ft_strcmp(command, "env") || \
@@ -98,8 +98,9 @@ int	it_not_builtin(char *command)
 	return(1);
 }
 
-int	builtin_pipes(t_bin *bin, char *command, char **argv)
+int		builtin_pipes(t_bin *bin, char *command, char **argv)
 {
+	
 	if (!ft_strcmp(command, "pwd"))
 		ft_pwd(bin);
 	if (!ft_strcmp(command, "echo"))
@@ -107,7 +108,7 @@ int	builtin_pipes(t_bin *bin, char *command, char **argv)
 	if (!ft_strcmp(command, "env"))
 		ft_env(bin);
 	if (!ft_strcmp(command, "exit"))
-		ft_exit(bin->argv);
+		ft_exit(argv);
 	if (!ft_strcmp(command, "unset"))
 		ft_unset(bin, argv);
 	if (!ft_strcmp(command, "export"))
@@ -119,7 +120,7 @@ int	builtin_pipes(t_bin *bin, char *command, char **argv)
 
 int		ft_pipes(t_bin *bin)
 {
-	int i = -1;
+	int i;
 	bin->pid= -1;
 	char *execve_str = NULL;
 	int fd_pipes[bin->p_count + 1][2];
@@ -129,7 +130,8 @@ int		ft_pipes(t_bin *bin)
 	while(bin->p_commands[i])
 	{
 		pipe(fd_pipes[i]);
-		execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
+		if (it_not_builtin(bin->p_commands[i]))
+			execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		bin->pid = fork();
 		if (bin->pid == 0)
 		{
