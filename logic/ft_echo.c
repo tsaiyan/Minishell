@@ -1,10 +1,18 @@
 #include "header.h"
 
-static int	 ft_check_n(t_bin *bin, char **argv)
+static int	ft_check_n_ret(t_bin *bin, int ret)
 {
-	int i;
-	int j;
-	int ret;
+	if (bin->n_flag)
+		return (ret);
+	else
+		return (1);
+}
+
+static int	ft_check_n(t_bin *bin, char **argv)
+{
+	int	i;
+	int	j;
+	int	ret;
 
 	i = 1;
 	j = 2;
@@ -24,28 +32,23 @@ static int	 ft_check_n(t_bin *bin, char **argv)
 		i++;
 		j = 2;
 	}
-	if (bin->n_flag)
-		return (ret);
-	else
-		return (1);
+	return (ft_check_n_ret(bin, ret));
 }
 
-
-void ft_echo(t_bin *bin, char **argv)
+void	ft_echo(t_bin *bin, char **argv)
 {
 	int		move;
 
-	//argv = bin->argv;
 	move = 1;
 	if (argv[1] == 0)
 	{
 		ft_putchar('\n');
-		return;
+		return ;
 	}
 	move = ft_check_n(bin, argv);
 	if (!argv[2] && bin->n_flag)
-		return;
-	while(argv[move])
+		return ;
+	while (argv[move])
 	{
 		ft_putstr(argv[move]);
 		move++;
