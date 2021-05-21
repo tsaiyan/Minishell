@@ -6,11 +6,12 @@ void ft_nputs(char *str)
 	write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
 }
-void ft_puts(char *str)
+int ft_puts(char *str)
 {
 	if (str)
 		write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
+	return (0);
 }
 
 void ft_putstr(char *str)

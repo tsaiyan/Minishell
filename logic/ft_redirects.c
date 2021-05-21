@@ -7,8 +7,8 @@ int		find_redirects(t_bin * bin)
 	i = -1;
 	while (bin->argv[++i])
 		if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
-			return(1);
-	return(0);
+			return (1);
+	return (0);
 }
 
 // 1 - >>, 2 - <, 3 - >
@@ -41,7 +41,7 @@ int		ft_redopen(t_bin *bin, char *way, int flag, int index)
 		command_error(way, 5);
 		bin->error = 1;
 		ft_close_redifd(bin);
-		return(-1);
+		return (-1);
 	}
 	if (flag == 2)
 	{

@@ -8,11 +8,11 @@ int validate_export(char *str)
 
 	b = str[0];
 	if (b < 48 || b > 122)
-		return(0);
+		return (0);
 	if (b < 97 && b > 90 && b != '_')
-		return(0);
+		return (0);
 	if (b > 57 && b < 65)
-		return(0);
+		return (0);
 	return (1);
 }
 
@@ -30,7 +30,7 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 				add->value = current->value;
 			}
 		if (ft_strcmp(current->key, add->key) == 0 && !add->equal)
-			return(free_my_lst(add));
+			return (free_my_lst(add));
 		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
 		{
 			cur = current->value;
@@ -78,7 +78,7 @@ static t_mylst	*my_lst_new(char *str)
 	}
 	else
 		new_lst->key = ft_strdup(str);
-	return(new_lst);
+	return (new_lst);
 }
 
 // add list to back
@@ -93,7 +93,7 @@ static t_mylst	*my_lst_add_back(t_mylst *start, t_mylst *add)
 		last->next = add;
 		add->prev = last;
 		add->next = NULL;
-		return(add);
+		return (add);
 	}
 	return (NULL);
 }
@@ -134,7 +134,7 @@ t_mylst	*arr_to_dlist(char **str)
 		my_lst_add_back(start, new_lst);
 		i++;
 	}
-	return(start);
+	return (start);
 }
 
 // check += + and other
@@ -149,7 +149,7 @@ int check_plus(char *str)
 	if (plus && ((*(plus + 1)) != '=') && ((*(plus - 1)) != '='))
 	{
 		command_error(str, 2);
-		return(-1);
+		return (-1);
 	}
 	if (plus)
 		return (1);

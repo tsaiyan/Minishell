@@ -9,10 +9,10 @@ int		ft_it_digit_array(char *argv)
 		while (argv[i])
 		{
 			if (!ft_isdigit(argv[i]))
-				return(0);
+				return (0);
 			i++;
 		}
-	return(1);
+	return (1);
 }
 
 void	ft_exit(char **argv)

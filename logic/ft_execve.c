@@ -21,7 +21,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 			command_error(command, 6);
 		else
 			command_error(command, 5);
-		return(NULL);
+		return (NULL);
 	}
 	// проверка на абсолютный путь
 	if (argv[0][0] == '/' || argv[0][0] == '.')
@@ -33,7 +33,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 		if (!path)
 		{
 			command_error(command, 5);
-			return(NULL);
+			return (NULL);
 		}
 		split_str = ft_split(path, ':');
 		while (split_str[i] && flag)
@@ -58,7 +58,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 		if (!dir)
 		{
 			command_error(command, 1);
-			return(NULL);
+			return (NULL);
 		}
 		execve_str = ft_strjoin(dir_to_open, command);
 	}
@@ -66,7 +66,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 			free(dir_to_open);
 	if (split_str)
 		free_split(split_str);
-	return(execve_str);
+	return (execve_str);
 }
 
 void	ft_execve(t_bin *bin, char *execve_str, char **argv)

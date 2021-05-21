@@ -28,7 +28,7 @@ int	free_my_lst(t_mylst *lst)
 		free(lst);
 		lst = NULL;
 	}
-	return(1);
+	return (1);
 }
 
 // dup without '='
@@ -62,7 +62,7 @@ t_mylst *find_head(t_mylst *lst)
 {
 	while (lst->prev)
 		lst=lst->prev;
-	return(lst);
+	return (lst);
 }
 
 // swap value and key func

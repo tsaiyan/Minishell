@@ -5,10 +5,10 @@ t_mylst	*find_lst(t_mylst *lst, char *key)
 	while(lst)
 	{
 		if (!strcmp(lst->key, key))
-			return(lst);
+			return (lst);
 		lst = lst->next;
 	}
-	return(NULL);
+	return (NULL);
 }
 
 void ft_find_and_delete(t_mylst *envexp, t_bin *bin, char *argv)

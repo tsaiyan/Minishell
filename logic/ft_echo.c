@@ -15,7 +15,7 @@ static int	 ft_check_n(t_bin *bin, char **argv)
 			while (argv[i][j])
 			{
 				if (argv[i][j] != 'n' && argv[i][j] && argv[i][j] != ' ')
-					return(i);
+					return (i);
 				j++;
 			}
 			bin->n_flag = 1;
@@ -25,9 +25,9 @@ static int	 ft_check_n(t_bin *bin, char **argv)
 		j = 2;
 	}
 	if (bin->n_flag)
-		return(ret);
+		return (ret);
 	else
-		return(1);
+		return (1);
 }
 
 

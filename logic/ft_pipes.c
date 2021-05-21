@@ -13,7 +13,7 @@ int		check_pipes(t_bin *bin)
 		i++;
 	}
 	bin->p_count = ret;
-	return(ret);
+	return (ret);
 }
 
 int		write_pipes(t_bin *bin)
@@ -85,7 +85,7 @@ int		redirect_index(int index, int i, t_bin *bin)
 		return (0);
 	else if (i == 0)
 		return (-1);
-	return(index - ft_massive_len(bin->p_argvs[i]) - bin->del_pipes + 1);
+	return (index - ft_massive_len(bin->p_argvs[i]) - bin->del_pipes + 1);
 }
 
 int		it_not_builtin(char *command)
@@ -94,8 +94,8 @@ int		it_not_builtin(char *command)
 	!ft_strcmp(command, "env") || \
 	!ft_strcmp(command, "exit") || !ft_strcmp(command, "unset") || \
 	!ft_strcmp(command, "export") || !ft_strcmp(command, "cd"))
-		return(0);
-	return(1);
+		return (0);
+	return (1);
 }
 
 int		builtin_pipes(t_bin *bin, char *command, char **argv)
@@ -159,5 +159,5 @@ int		ft_pipes(t_bin *bin)
 	close(fd_pipes[i - 1][0]);
 	while(wait(NULL) > 0);
 	free_pipes(bin);
-	return(0);
+	return (0);
 }

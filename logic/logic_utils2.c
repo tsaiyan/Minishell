@@ -13,9 +13,9 @@ int	command_error2(char *command, int flag)
 		ft_putstr("bash: ");
 		ft_putstr(command);
 		ft_puts(": is a directory");
-		return(126);
+		return (126);
 	}
-	return(127);
+	return (127);
 }
 
 int	command_error(char *command, int flag)
@@ -43,5 +43,5 @@ int	command_error(char *command, int flag)
 		ft_puts("\nexit\nbash: exit: too many arguments");
 	else
 		return (command_error2(command, flag));
-	return(127);
+	return (127);
 }
