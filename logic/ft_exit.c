@@ -1,17 +1,19 @@
 #include "header.h"
 
-int		ft_it_digit_array(char *argv)
+int	ft_it_digit_array(char *argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argv)
+	{
 		while (argv[i])
 		{
 			if (!ft_isdigit(argv[i]))
 				return (0);
 			i++;
 		}
+	}
 	return (1);
 }
 
@@ -26,7 +28,7 @@ void	ft_exit(char **argv)
 	if (ft_it_digit_array(argv[1]) && argv[2])
 	{
 		command_error(argv[i], 4);
-		return;
+		return ;
 	}
 	while (argv[i])
 	{

@@ -99,6 +99,3 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 			bin->exit_status = status >> 8;
 	}
 }
-
-// void(*f)(int f)(int a)
-	// f(12);
