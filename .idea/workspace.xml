@@ -22,9 +22,6 @@
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/add_history_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/add_history_line.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/trim_space_in_begin.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/trim_space_in_begin.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,11 +170,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -270,6 +262,7 @@
       <workItem from="1621509388331" duration="537000" />
       <workItem from="1621601660590" duration="235000" />
       <workItem from="1621607621695" duration="1142000" />
+      <workItem from="1621619763144" duration="353000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>

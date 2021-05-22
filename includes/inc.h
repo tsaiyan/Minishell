@@ -15,5 +15,6 @@
 # include <fcntl.h>
 # include <dirent.h>
 # include <signal.h>
+# include <limits.h>
 
 #endif
