@@ -118,6 +118,20 @@ int		builtin_pipes(t_bin *bin, char *command, char **argv)
 	exit(0);
 }
 
+void	ft_pipe_execve(t_bin *bin, char *execve_str, char **argv)
+{
+	int status;
+
+	if (bin->pid == 0)
+	{
+		bin->exit_status = execve(execve_str, argv, bin->envp);
+		if (argv[0][0] == '.' && argv[0][1] == '/')
+			exit(command_error(argv[0], 5));
+		exit(0);
+	}
+}
+
+
 int		ft_pipes(t_bin *bin)
 {
 	int i;
@@ -148,12 +162,13 @@ int		ft_pipes(t_bin *bin)
 			if (!it_not_builtin(bin->p_commands[i]))
 				builtin_pipes(bin, bin->p_commands[i], bin->p_argvs[i]);
 			else
-				ft_execve(bin, execve_str,  bin->p_argvs[i]);
+				ft_pipe_execve(bin, execve_str,  bin->p_argvs[i]);
 		}
 		close(fd_pipes[i][1]);
 		if (i > 0)
 			close(fd_pipes[i - 1][0]);
-		free(execve_str);
+		if (execve_str)
+			free(execve_str);
 		i++;
 	}
 	close(fd_pipes[i - 1][0]);

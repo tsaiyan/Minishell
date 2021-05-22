@@ -27,9 +27,13 @@ typedef struct	s_bin
 	int			savefd1;
 	int			savefd0;
 	int			del_pipes;
+
+	char		*temp_old_dir;
+	char		*home_path;
+	char		dir[PATH_MAX];
 }				t_bin;
 
-void		ft_puts(char *str);
+int			ft_puts(char *str);
 void		ft_putstr(char *str);
 void		ft_nputs(char *str);
 t_mylst		*arr_to_dlist(char **str);
@@ -46,7 +50,7 @@ t_mylst		*my_lst_last(t_mylst *current);
 t_mylst		*find_head(t_mylst *lst);
 void		sort_list(t_bin *bin);
 int			my_lst_size(t_mylst *lst);
-void		ft_cd(t_bin *bin, char **argv);
+int			ft_cd(t_bin *bin, char **argv);
 void		ft_exit(char **argv);
 void		ft_unset(t_bin *bin, char **argv);
 char		*ft_get_value(t_mylst *lst, char *key);
@@ -62,7 +66,8 @@ void		ft_redirects(t_bin *bin, char **argv);
 int			find_redirects(t_bin * bin);
 int			ft_redopen(t_bin *bin, char *way, int flag, int index);
 void		ft_close_redifd(t_bin * bin);
-
-
+int			change_oldpwd(t_bin *bin, char *str);
+int			cd_with_minus(t_bin *bin, char **argv);
+int			cd_outputs(char **argv, int flag);
 void		launch_minishell(void);
 #endif

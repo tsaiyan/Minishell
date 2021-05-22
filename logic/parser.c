@@ -1,16 +1,6 @@
 #include "header.h"
 
-// func for null struct
-// static int ft_putin(t_bin *bin)
-// {
-// 	bin->n_flag = 0;
-// 	bin->argc = 0;
-// 	//bin->ar_export = NULL;
-// }
-
-// очистка ARGV перед выходом из функции
-
-static void free_parcer(t_bin *bin)
+static void	free_parcer(t_bin *bin)
 {
 	int i;
 
@@ -22,7 +12,6 @@ static void free_parcer(t_bin *bin)
 	free(bin->argv);
 	bin->argv=NULL;
 }
-
 
 void	ft_close_redifd(t_bin * bin)
 {
@@ -39,9 +28,10 @@ void	ft_close_redifd(t_bin * bin)
 		bin->from = 0;
 	}
 }
+
 // run buldins with redirects fd swap
 
-void			ft_buildins(t_bin *bin)
+void	ft_buildins(t_bin *bin)
 {	
 	if (bin->to)
 		dup2(bin->to, 1);
@@ -64,10 +54,9 @@ void			ft_buildins(t_bin *bin)
 	else if (!bin->p_count)
 		ft_execve(bin, bin->argv[0], bin->argv);
 	ft_close_redifd(bin);
-
 }
 
-void		ft_prepare_parcer(t_bin *bin)
+void	ft_prepare_parcer(t_bin *bin)
 {
 	if (!bin->exit_off)
 		write (1, "\n", 1);
@@ -81,7 +70,7 @@ void		ft_prepare_parcer(t_bin *bin)
 
 }
 
-int 		parser(char **argv, char ***envp, t_bin *bin)
+int	parser(char **argv, char ***envp, t_bin *bin)
 {
 	ft_prepare_parcer(bin);
 	if (!bin)

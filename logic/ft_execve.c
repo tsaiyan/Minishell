@@ -73,12 +73,9 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 {
 	int status;
 
-	if (bin->p_count == 0)
-	{
-		execve_str = get_excve_str(bin, argv[0], argv);
-		if (execve_str)
-			bin->pid = fork();
-	}
+	execve_str = get_excve_str(bin, argv[0], argv);
+	if (execve_str)
+		bin->pid = fork();
 	if (bin->pid == 0)
 	{
 		bin->exit_status = execve(execve_str, argv, bin->envp);
