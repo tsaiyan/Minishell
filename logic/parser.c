@@ -66,18 +66,26 @@ void	ft_prepare_parcer(t_bin *bin)
 	bin->indx_to = -1;
 	bin->error = 0;
 	bin->pid = -1;
-	// if (!ft_strcmp(bin->argv[0], "./minishell"))
-
+	bin->error_ret = 0;
+	if (bin->argv && !ft_strcmp(bin->argv[0], "./minishell"))
+		launch_minishell();
+	bzero(&bin->fds_red, sizeof(bin->fds_red));
+	bzero(&bin->fd_pipes, sizeof(bin->fd_pipes));
 }
+
+// int make_command_struct()
 
 int	parser(char **argv, char ***envp, t_bin *bin)
 {
-	ft_prepare_parcer(bin);
+	
+	if (ft_massive_len(bin->argv) > MAX_ARGV)
+		return(ft_puts("too much argv. What you try to do?"));
 	if (!bin)
 		ft_exit(argv);
 	bin->envp = *envp;
 	bin->argv = argv;
-	if (find_redirects(bin))
+	ft_prepare_parcer(bin);
+	if (find_redirects(bin) && !check_pipes(bin))
 		ft_redirects(bin, bin->argv);
 	bin->argc = ft_massive_len(bin->argv);
 	if (!bin->export)

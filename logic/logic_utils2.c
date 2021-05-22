@@ -45,3 +45,11 @@ int	command_error(char *command, int flag)
 		return (command_error2(command, flag));
 	return (127);
 }
+
+int	its_redirect(char *str)
+{
+	if (!ft_strcmp(str, ">") || !ft_strcmp(str, ">>") || \
+	!ft_strcmp(str, "<"))
+		return (1);
+	return (0);
+}

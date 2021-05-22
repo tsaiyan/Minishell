@@ -2,6 +2,16 @@
 # define BUILT_IN_H
 
 #include "limits.h"
+
+# define MAX_ARGV 1000
+// typedef struct	s_cmd
+// {
+// 	int		cmd_index;
+// 	int		fd_in;
+// 	int		fd_out;
+// 	int		flag_pipe;
+// }
+
 typedef struct	s_bin
 {
 	char		**argv;
@@ -31,6 +41,11 @@ typedef struct	s_bin
 	char		*temp_old_dir;
 	char		*home_path;
 	char		dir[PATH_MAX];
+
+	int			fds_red[MAX_ARGV][2];
+	int			fd_pipes[MAX_ARGV][2];
+	char 		*test_str;
+	int			error_ret;
 }				t_bin;
 
 int			ft_puts(char *str);
@@ -70,4 +85,6 @@ int			change_oldpwd(t_bin *bin, char *str);
 int			cd_with_minus(t_bin *bin, char **argv);
 int			cd_outputs(char **argv, int flag);
 void		launch_minishell(void);
+int			check_ret(t_bin *bin, int ret, char *way);
+int			its_redirect(char *str);
 #endif

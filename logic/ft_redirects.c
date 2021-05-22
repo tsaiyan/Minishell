@@ -64,7 +64,7 @@ int	ft_redopen2(t_bin *bin, char *way, int flag, int index)
 	{
 		if (bin->to)
 			close(bin->to);
-		ret = open(way, O_CREAT | O_RDWR | O_APPEND, 0666);
+		ret = open(way, O_CREAT | O_RDWR | O_TRUNC, 0666);
 		if (check_ret(bin, ret, way) == -1)
 			return (-1);
 		bin->to = ret;
