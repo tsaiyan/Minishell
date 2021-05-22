@@ -2,6 +2,17 @@
 
 // check pipes
 
+int	add_fd_to_close(t_bin *bin, int fd, int ret)
+{
+	int i;
+
+	i = 0;
+	while(bin->fds_to_close)
+		i++;
+	//bin->fds_to_close[i] = fd;
+	return(ret);
+}
+
 int		check_pipes(t_bin *bin)
 {
 	int i = 0;
@@ -31,7 +42,6 @@ int ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
 			return (-1);
 		bin->fds_red[c][1] = ret;
-		return (1);
 	}
 	if (!ft_strcmp(command, ">>"))
 	{
@@ -39,7 +49,6 @@ int ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
 			return (-1);
 		bin->fds_red[c][1] = ret;
-		return (1);
 	}
 	if (!ft_strcmp(command, "<"))
 	{
@@ -47,9 +56,22 @@ int ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
 			return (-1);
 		bin->fds_red[c][0] = ret;
-		return (1);
 	}
+	if (ret > 0)
+		return (add_fd_to_close(bin, ret, 1));
 	return (0);
+}
+
+int	find_delete_and_write_redirect(t_bin *bin, int i, int c)
+{
+	while(bin->argv[i])
+	{
+		
+	// находит редиректы внутри одного пайпа
+	// открывает файлы
+	// записывает фд в массив
+	// удаляет редикт и файл из строки чтобы записались аргументы в вызов функции без него
+	}
 }
 
 int		write_pipes(t_bin *bin)
@@ -76,10 +98,13 @@ int		write_pipes(t_bin *bin)
 			//bin->argv = ft_del_index_in2massive(bin->argv, i);
 			i++;
 			continue;
+
 		}
 		        // запись комманды
 		if (!its_redirect(bin->argv[i]))
 			bin->p_commands[c] = bin->argv[i];
+		find_delete_and_write_redirect(bin, i, c);
+
 		if (ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c))
 		{
 			bin->argv = ft_del_index_in2massive(bin->argv, i);
@@ -180,8 +205,8 @@ void	ft_pipe_execve(t_bin *bin, char *execve_str, char **argv)
 	if (bin->pid == 0)
 	{
 		bin->exit_status = execve(execve_str, argv, bin->envp);
-		// if (argv[0][0] == '.' && argv[0][1] == '/')
-		// 	exit(command_error(argv[0], 5));
+		if (argv[0][0] == '.' && argv[0][1] == '/')
+			exit(command_error(argv[0], 5));
 		exit(0);
 	}
 }
@@ -239,6 +264,10 @@ int		ft_pipes(t_bin *bin)
 		close(bin->fd_pipes[i][1]);
 		if (i > 0)
 			close(bin->fd_pipes[i - 1][0]);
+		if (bin->fds_red[i][0])
+			close(bin->fds_red[i][0]);
+		if (bin->fds_red[i][1])
+			close(bin->fds_red[i][1]);
 		if (execve_str)
 			free(execve_str);
 		i++;

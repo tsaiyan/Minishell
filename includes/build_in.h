@@ -44,6 +44,7 @@ typedef struct	s_bin
 
 	int			fds_red[MAX_ARGV][2];
 	int			fd_pipes[MAX_ARGV][2];
+	int			fds_to_close[MAX_ARGV];
 	char 		*test_str;
 	int			error_ret;
 }				t_bin;
@@ -87,4 +88,5 @@ int			cd_outputs(char **argv, int flag);
 void		launch_minishell(void);
 int			check_ret(t_bin *bin, int ret, char *way);
 int			its_redirect(char *str);
+int			add_fd_to_close(t_bin *bin, int fd, int ret);
 #endif
