@@ -1,17 +1,29 @@
-2
-Makefile
-README.md
-f1
-f2
-hist_1
-includes
-leaks_minishell.sh
-libft
-logic
-main.c
-minishell
-minishell.dSYM
-parser
-termcap_hist
-test_cases
-utils
+total 320
+drwxr-xr-x   28 artyom  staff     896 23 May 21:43 .
+drwxr-xr-x+  86 artyom  staff    2752 23 May 21:45 ..
+drwxr-xr-x    4 artyom  staff     128 22 May 13:10 .deps
+drwxr-xr-x   15 artyom  staff     480 23 May 14:33 .git
+-rw-r--r--    1 artyom  staff     197 22 May 13:10 .gitignore
+drwxr-xr-x    2 artyom  staff      64 23 May 14:19 .history
+drwxr-xr-x    5 artyom  staff     160 22 May 13:10 .idea
+drwxr-xr-x    3 artyom  staff      96 23 May 21:29 .vscode
+-rw-r--r--    1 artyom  staff      16 23 May 13:57 2
+-rwxr-xr-x    1 artyom  staff    3146 22 May 13:10 Makefile
+-rw-r--r--    1 artyom  staff      55 22 May 13:10 README.md
+-rw-r--r--    1 artyom  staff       0 23 May 21:39 endofile
+-rw-r--r--    1 artyom  staff     158 23 May 21:45 f1
+-rw-r--r--    1 artyom  staff       0 23 May 21:42 f2
+-rw-r--r--    1 artyom  staff      18 23 May 21:45 f3
+-rw-r--r--    1 artyom  staff     158 23 May 21:42 f4
+-rw-r--r--    1 artyom  staff      46 23 May 21:45 hist_1
+drwxr-xr-x   14 artyom  staff     448 23 May 13:57 includes
+-rwxr-xr-x    1 artyom  staff     102 22 May 13:10 leaks_minishell.sh
+drwxr-xr-x  108 artyom  staff    3456 23 May 21:31 libft
+drwxr-xr-x   34 artyom  staff    1088 23 May 21:31 logic
+-rw-r--r--    1 artyom  staff    1039 22 May 13:10 main.c
+-rwxr-xr-x    1 artyom  staff  115824 23 May 21:31 minishell
+drwxr-xr-x    3 artyom  staff      96 23 May 14:17 minishell.dSYM
+drwxr-xr-x   30 artyom  staff     960 23 May 21:31 parser
+drwxr-xr-x   38 artyom  staff    1216 23 May 21:31 termcap_hist
+-rw-r--r--    1 artyom  staff     364 22 May 13:10 test_cases
+drwxr-xr-x   26 artyom  staff     832 23 May 21:31 utils

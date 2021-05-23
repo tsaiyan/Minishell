@@ -79,7 +79,7 @@ int	find_write_and_delete_redirect(t_bin *bin, int i, int c)
 		{
 			ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c);
 			bin->argv = ft_del_index_in2massive(bin->argv, i);
-			if (bin->argv[i] && bin->argv[i] != "|")
+			if (bin->argv[i] && ft_strcmp(bin->argv[i],"|"))
 				bin->argv = ft_del_index_in2massive(bin->argv, i);
 			else
 			{
@@ -120,29 +120,13 @@ int		write_pipes(t_bin *bin)
 			//bin->argv = ft_del_index_in2massive(bin->argv, i);
 			i++;
 			continue;
-
 		}
 		        // запись комманды
 		if (!its_redirect(bin->argv[i]))
 			bin->p_commands[c] = bin->argv[i];
 		find_write_and_delete_redirect(bin, i, c);
-
-		// if (ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c))
-		// {
-		// 	bin->argv = ft_del_index_in2massive(bin->argv, i);
-		// 	if (bin->argv[i] || ft_strcmp(bin->argv[i], "|"))
-		// 		bin->argv = ft_del_index_in2massive(bin->argv, i);
-		// }
-		// if (ft_write_red_fd_in_pipes(bin, bin->argv[i + 1], i + 1, c))
-		// {
-		// 	bin->argv = ft_del_index_in2massive(bin->argv, i + 1);
-		// 	if (bin->argv[i + 1] || ft_strcmp(bin->argv[i], "|"))
-		// 		bin->argv = ft_del_index_in2massive(bin->argv, i + 1);
-		// }
 		if (bin->error_ret)
 			return (-1);
-
-
         // запись аргументов
         // считаем к-во для маллока
         n = i;
@@ -290,8 +274,8 @@ int		ft_pipes(t_bin *bin)
 			close(bin->fds_red[i][0]);
 		if (bin->fds_red[i][1])
 			close(bin->fds_red[i][1]);
-		if (execve_str)
-			free(execve_str);
+		// if (execve_str)
+		// 	free(execve_str);
 		i++;
 	}
 	close(bin->fd_pipes[i - 1][0]);

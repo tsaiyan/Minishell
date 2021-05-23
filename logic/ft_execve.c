@@ -84,7 +84,8 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 	{
 		waitpid(bin->pid, &status, 0);
 		ft_close_redifd(bin);
-		free(execve_str);
+		if (execve_str)
+			free(execve_str);
 		if (status == 2)
 			bin->exit_status = 130;
 		else if (status == 3)
