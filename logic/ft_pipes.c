@@ -1,17 +1,19 @@
 #include "header.h"
 
-// check pipes
+// add fd to close list
 
 int	add_fd_to_close(t_bin *bin, int fd, int ret)
 {
 	int i;
 
 	i = 0;
-	while(bin->fds_to_close)
+	while(bin->fds_to_close[i])
 		i++;
-	//bin->fds_to_close[i] = fd;
+	bin->fds_to_close[i] = fd;
 	return(ret);
 }
+
+// find pipes in argv
 
 int		check_pipes(t_bin *bin)
 {
@@ -27,14 +29,15 @@ int		check_pipes(t_bin *bin)
 	return (ret);
 }
 
+// открывает файл связанный с редиректом
+// записывает фд по номеру команды
+// добавляет фд в массив на закрытие
+
 int ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 {
 	int ret;
 	int j;
 
-	// j = i;
-	// if (flag)
-	// 	j--;
 	ret = 0;
 	if (!ft_strcmp(command, ">"))
 	{
@@ -62,17 +65,36 @@ int ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 	return (0);
 }
 
-int	find_delete_and_write_redirect(t_bin *bin, int i, int c)
-{
-	while(bin->argv[i])
-	{
-		
 	// находит редиректы внутри одного пайпа
 	// открывает файлы
 	// записывает фд в массив
 	// удаляет редикт и файл из строки чтобы записались аргументы в вызов функции без него
+	// нужно добавить обработку >| (return сделат или флаг ошибки)
+
+int	find_write_and_delete_redirect(t_bin *bin, int i, int c)
+{
+	while(bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
+	{
+		if (its_redirect(bin->argv[i]))
+		{
+			ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c);
+			bin->argv = ft_del_index_in2massive(bin->argv, i);
+			if (bin->argv[i] && bin->argv[i] != "|")
+				bin->argv = ft_del_index_in2massive(bin->argv, i);
+			else
+			{
+				bin->error_ret = -1;
+				return(ft_puts(" syntax error near unexpected token"));
+			}
+			i--;
+		}
+		i++;
 	}
+	return (0);
 }
+
+
+// parsing pipes
 
 int		write_pipes(t_bin *bin)
 {
@@ -103,20 +125,20 @@ int		write_pipes(t_bin *bin)
 		        // запись комманды
 		if (!its_redirect(bin->argv[i]))
 			bin->p_commands[c] = bin->argv[i];
-		find_delete_and_write_redirect(bin, i, c);
+		find_write_and_delete_redirect(bin, i, c);
 
-		if (ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c))
-		{
-			bin->argv = ft_del_index_in2massive(bin->argv, i);
-			if (bin->argv[i] || ft_strcmp(bin->argv[i], "|"))
-				bin->argv = ft_del_index_in2massive(bin->argv, i);
-		}
-		if (ft_write_red_fd_in_pipes(bin, bin->argv[i + 1], i + 1, c))
-		{
-			bin->argv = ft_del_index_in2massive(bin->argv, i + 1);
-			if (bin->argv[i + 1] || ft_strcmp(bin->argv[i], "|"))
-				bin->argv = ft_del_index_in2massive(bin->argv, i + 1);
-		}
+		// if (ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c))
+		// {
+		// 	bin->argv = ft_del_index_in2massive(bin->argv, i);
+		// 	if (bin->argv[i] || ft_strcmp(bin->argv[i], "|"))
+		// 		bin->argv = ft_del_index_in2massive(bin->argv, i);
+		// }
+		// if (ft_write_red_fd_in_pipes(bin, bin->argv[i + 1], i + 1, c))
+		// {
+		// 	bin->argv = ft_del_index_in2massive(bin->argv, i + 1);
+		// 	if (bin->argv[i + 1] || ft_strcmp(bin->argv[i], "|"))
+		// 		bin->argv = ft_del_index_in2massive(bin->argv, i + 1);
+		// }
 		if (bin->error_ret)
 			return (-1);
 
