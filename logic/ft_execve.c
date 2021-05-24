@@ -31,10 +31,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 		// достаем папки с коммандами из path
 		path = ft_get_value(bin->export, "PATH");
 		if (!path)
-		{
-			command_error(command, 5);
-			return (NULL);
-		}
+			return ((char*)command_error(command, 5));
 		split_str = ft_split(path, ':');
 		while (split_str[i] && flag)
 		{
@@ -87,7 +84,8 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 	{
 		waitpid(bin->pid, &status, 0);
 		ft_close_redifd(bin);
-		free(execve_str);
+		if (execve_str)
+			free(execve_str);
 		if (status == 2)
 			bin->exit_status = 130;
 		else if (status == 3)

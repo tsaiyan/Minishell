@@ -71,4 +71,5 @@ int	cd_outputs(char **argv, int flag)
 		ft_putstr(argv[1]);
 		ft_puts(": No such file or directory");
 	}
+	return (0);
 }

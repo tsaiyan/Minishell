@@ -1,6 +1,6 @@
 #include "header.h"
 
-static void	free_parcer(t_bin *bin)
+static void	end_of_parcer(t_bin *bin)
 {
 	int i;
 
@@ -11,6 +11,10 @@ static void	free_parcer(t_bin *bin)
 	}
 	free(bin->argv);
 	bin->argv=NULL;
+	i = -1;
+	while (bin->fds_to_close[++i])
+		close(bin->fds_to_close[i]);
+	ft_bzero(bin->fds_to_close, i);
 }
 
 void	ft_close_redifd(t_bin * bin)
@@ -66,33 +70,46 @@ void	ft_prepare_parcer(t_bin *bin)
 	bin->indx_to = -1;
 	bin->error = 0;
 	bin->pid = -1;
-	// if (!ft_strcmp(bin->argv[0], "./minishell"))
-
+	bin->error_ret = 0;
+	if (bin->argv && !ft_strcmp(bin->argv[0], "./minishell"))
+		launch_minishell();
+	ft_bzero(&bin->fds_red, sizeof(bin->fds_red));
+	ft_bzero(&bin->fd_pipes, sizeof(bin->fd_pipes));
 }
+
+// int make_command_struct()
 
 int	parser(char **argv, char ***envp, t_bin *bin)
 {
-	ft_prepare_parcer(bin);
+	// int fd = dup(1);
+	// printf("\nfd1 = %d\n", fd);
+	// close(fd);
+	if (ft_massive_len(bin->argv) > MAX_ARGV)
+		return (ft_puts("too much argv. What you try to do?"));
 	if (!bin)
 		ft_exit(argv);
 	bin->envp = *envp;
 	bin->argv = argv;
-	if (find_redirects(bin))
+	ft_prepare_parcer(bin);
+	if (find_redirects(bin) && !check_pipes(bin))
 		ft_redirects(bin, bin->argv);
 	bin->argc = ft_massive_len(bin->argv);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);
 	if (!bin->envp_lst)
 		bin->envp_lst = arr_to_dlist(bin->envp);
-	if (bin->to)
+	if (bin->to > 0)
 		bin->savefd1 = dup(1);
-	if (bin->from)
+	if (bin->from > 0)
 		bin->savefd0 = dup(0);
 	if (check_pipes(bin))
 		ft_pipes(bin);
 	if (!bin->error && !bin->p_count)	
 		ft_buildins(bin);
 	*envp = bin->envp;
-	free_parcer(bin);
+	end_of_parcer(bin);
+	// fd = dup(1);
+	// printf("\nfd2 = %d\n", fd);
+	// close(fd);
 	return (0);
 }

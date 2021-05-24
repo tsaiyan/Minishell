@@ -3,7 +3,7 @@
 
 #include "limits.h"
 
-
+# define MAX_ARGV 1000
 
 typedef struct	s_bin
 {
@@ -34,6 +34,12 @@ typedef struct	s_bin
 	char		*temp_old_dir;
 	char		*home_path;
 	char		dir[PATH_MAX];
+
+	int			fds_red[MAX_ARGV][2];
+	int			fd_pipes[MAX_ARGV][2];
+	int			fds_to_close[MAX_ARGV];
+	char 		*test_str;
+	int			error_ret;
 }				t_bin;
 
 int			ft_puts(char *str);
@@ -60,7 +66,7 @@ char		*ft_get_value(t_mylst *lst, char *key);
 void		list_to_envp(t_bin *bin);
 t_mylst		*find_lst(t_mylst *lst, char *key);
 int			command_error(char *command, int flag);
-int			ft_pipes(t_bin *bin);
+void		ft_pipes(t_bin *bin);
 int			check_pipes(t_bin *bin);
 void		ft_execve(t_bin *bin, char *command, char **argv);
 char		*get_excve_str(t_bin *bin, char *command, char **argv);
@@ -73,4 +79,15 @@ int			change_oldpwd(t_bin *bin, char *str);
 int			cd_with_minus(t_bin *bin, char **argv);
 int			cd_outputs(char **argv, int flag);
 void		launch_minishell(void);
+int			check_ret(t_bin *bin, int ret, char *way);
+int			its_redirect(char *str);
+int			add_fd_to_close(t_bin *bin, int fd, int ret);
+int			add_fd_to_close(t_bin *bin, int fd, int ret);
+void		pipe_argv_allocation(t_bin *bin, int n, int c);
+void		write_pipes(t_bin *bin);
+void		free_pipes(t_bin *bin);
+int			redirect_index(int index, int i, t_bin *bin);
+int			check_pipes(t_bin *bin);
+int			ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c);
+int			find_write_and_delete_redirect(t_bin *bin, int i, int c);
 #endif

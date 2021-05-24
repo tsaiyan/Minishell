@@ -102,7 +102,7 @@ static t_mylst	*my_lst_add_back(t_mylst *start, t_mylst *add)
 
 void	print_list(t_mylst *start, int flag)
 {
-	while(start)
+	while (start)
 	{
 		if (flag == 1)
 			ft_putstr("declare -x ");

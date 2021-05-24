@@ -27,6 +27,7 @@ int	cd_part_2(t_bin *bin, char **argv)
 		cd_outputs(argv, 2);
 	else
 		change_oldpwd(bin, bin->temp_old_dir);
+	return (0);
 }
 
 int	ft_cd(t_bin *bin, char **argv)

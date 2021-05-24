@@ -7,7 +7,7 @@ int	my_lst_size(t_mylst *lst)
 	int i;
 
 	i = 0;
-	while(lst)
+	while (lst)
 	{
 		lst= lst->next;
 		i++;
@@ -39,7 +39,7 @@ char	*ft_strdup_chr(char *str, char end)
 	char	*res;
 
 	len = 0;
-	while(str[len] != end)
+	while (str[len] != end)
 		len++;
 	res = (char *)ft_calloc(sizeof(char), ++len);
 	if (res == NULL)

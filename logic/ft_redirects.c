@@ -11,8 +11,10 @@ int	find_redirects(t_bin *bin)
 	return (0);
 }
 
-// 1 - >>, 2 - <, 3 - >
-// обработать ошибки
+
+// если ret = -1 печает ошибку и закрывает fd
+// way - файл, связанный с редиректом
+// ft_close_redifd закрывает только to и from фдшники, а значит не работает в пайпах
 
 int check_ret(t_bin *bin, int ret, char *way)
 {
@@ -64,7 +66,7 @@ int	ft_redopen2(t_bin *bin, char *way, int flag, int index)
 	{
 		if (bin->to)
 			close(bin->to);
-		ret = open(way, O_CREAT | O_RDWR | O_APPEND, 0666);
+		ret = open(way, O_CREAT | O_RDWR | O_TRUNC, 0666);
 		if (check_ret(bin, ret, way) == -1)
 			return (-1);
 		bin->to = ret;
