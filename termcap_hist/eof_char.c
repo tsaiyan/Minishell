@@ -1,22 +1,22 @@
 #include "header.h"
 
-static void alloc_exit(char ***out)
-{
-	*out = malloc(sizeof(char *) * 3);
-	if (*out == NULL)
-	{
-		ft_errors(errno);
-		exit(errno);
-	}
-	**out = ft_strdup("exit");
-	if (**out == NULL)
-	{
-		ft_errors(errno);
-		exit(errno);
-	}
-	**(out + 1) = ft_strdup("0");
-	**(out + 2) = NULL;
-}
+// static void alloc_exit(char ***out)
+// {
+// 	*out = malloc(sizeof(char *) * 3);
+// 	if (*out == NULL)
+// 	{
+// 		ft_errors(errno);
+// 		exit(errno);
+// 	}
+// 	**out = ft_strdup("exit");
+// 	if (**out == NULL)
+// 	{
+// 		ft_errors(errno);
+// 		exit(errno);
+// 	}
+// 	**(out + 1) = ft_strdup("0");
+// 	**(out + 2) = NULL;
+// }
 
 int eof_char(t_hist *hist, char **env, t_bin *b)
 {
@@ -29,11 +29,12 @@ int eof_char(t_hist *hist, char **env, t_bin *b)
 	len_left = check_len_left_right(hist->left);
 	if (!len_left && !len_right)
 	{
-		alloc_exit(&out);
+		// alloc_exit(&out);
 		write(1, "exit\n", 5);
-		b->exit_off = 1;
-		parser(out, &env, b);
-		b->exit_off = 0;
+		exit(0);
+		// b->exit_off = 1;
+		// parser(out, &env, b);
+		// b->exit_off = 0;
 	}
 	else if (len_right)
 		del_key(hist);
