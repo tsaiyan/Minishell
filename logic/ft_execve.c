@@ -55,7 +55,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 			i++;
 		}
 		if (!dir)
-			return(command_error(command, 1));
+			return((char *)command_error(command, 1));
 		execve_str = ft_strjoin(dir_to_open, command);
 	}
 	if (dir_to_open)

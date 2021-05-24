@@ -106,5 +106,6 @@ int	parser(char **argv, char ***envp, t_bin *bin)
 		ft_buildins(bin);
 	*envp = bin->envp;
 	end_of_parcer(bin);
+	printf("exit_status in parcer=%d\n", g_sig.exit_status);
 	return (0);
 }
