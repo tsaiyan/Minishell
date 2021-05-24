@@ -5,18 +5,13 @@ int	find_redirects(t_bin *bin)
 	int	i;
 
 	i = -1;
-	while (bin->argv[++i])
-		if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
-			return (1);
+	while (bin->envp && bin->argv[++i])
+			if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
+				return (1);
 	return (0);
 }
 
-
-// если ret = -1 печает ошибку и закрывает fd
-// way - файл, связанный с редиректом
-// ft_close_redifd закрывает только to и from фдшники, а значит не работает в пайпах
-
-int check_ret(t_bin *bin, int ret, char *way)
+int	check_ret(t_bin *bin, int ret, char *way)
 {
 	if (ret == -1)
 	{
@@ -59,7 +54,7 @@ int	ft_redopen(t_bin *bin, char *way, int flag, int index)
 
 int	ft_redopen2(t_bin *bin, char *way, int flag, int index)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	if (flag == 3)

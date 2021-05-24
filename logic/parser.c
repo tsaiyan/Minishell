@@ -2,7 +2,7 @@
 
 static void	end_of_parcer(t_bin *bin)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (bin->argv[++i])
@@ -10,14 +10,14 @@ static void	end_of_parcer(t_bin *bin)
 		free(bin->argv[i]);
 	}
 	free(bin->argv);
-	bin->argv=NULL;
+	bin->argv = NULL;
 	i = -1;
 	while (bin->fds_to_close[++i])
 		close(bin->fds_to_close[i]);
 	ft_bzero(bin->fds_to_close, i);
 }
 
-void	ft_close_redifd(t_bin * bin)
+void	ft_close_redifd(t_bin *bin)
 {
 	if (bin->to > 0)
 	{
@@ -37,19 +37,20 @@ void	ft_close_redifd(t_bin * bin)
 
 void	ft_buildins(t_bin *bin)
 {	
-	if (bin->to)
+	if (bin->to > 0)
 		dup2(bin->to, 1);
-	if (bin->from)
+	if (bin->from > 0)
 		dup2(bin->from, 0);
 	if (!ft_strcmp(bin->argv[0], "export"))
 		ft_export(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "exit"))
 		ft_exit(bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
-		ft_cd(bin,  bin->argv);
+		ft_cd(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "unset"))
 		ft_unset(bin, bin->argv);
-	else if (!ft_strcmp(bin->argv[0], "echo") || !ft_strcmp(bin->argv[0], "ECHO"))
+	else if (!ft_strcmp(bin->argv[0], "echo") \
+	 || !ft_strcmp(bin->argv[0], "ECHO"))
 		ft_echo(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
 		ft_pwd(bin);
@@ -81,9 +82,6 @@ void	ft_prepare_parcer(t_bin *bin)
 
 int	parser(char **argv, char ***envp, t_bin *bin)
 {
-	// int fd = dup(1);
-	// printf("\nfd1 = %d\n", fd);
-	// close(fd);
 	if (ft_massive_len(bin->argv) > MAX_ARGV)
 		return (ft_puts("too much argv. What you try to do?"));
 	if (!bin)
@@ -104,12 +102,9 @@ int	parser(char **argv, char ***envp, t_bin *bin)
 		bin->savefd0 = dup(0);
 	if (check_pipes(bin))
 		ft_pipes(bin);
-	if (!bin->error && !bin->p_count)	
+	if (!bin->error && !bin->p_count)
 		ft_buildins(bin);
 	*envp = bin->envp;
 	end_of_parcer(bin);
-	// fd = dup(1);
-	// printf("\nfd2 = %d\n", fd);
-	// close(fd);
 	return (0);
 }
