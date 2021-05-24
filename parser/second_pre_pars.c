@@ -1,30 +1,5 @@
 #include "header.h"
 
-//static int change_str(char *arg)
-//{
-//	int		 	i;
-//
-//	i = -1;
-//	while (arg[++i])
-//	{
-//		if ()
-//	}
-//}
-//
-//static int change_massive(char **arg, t_pars *pa)
-//{
-//	int 		i;
-//	int 		j;
-//
-//	i = -1;
-//	while (arg[++i] != NULL)
-//	{
-//		if (change_str(arg[i]))
-//			return (1);
-//	}
-//	return (0);
-//}
-
 static void	change_empty_spaces(char **arg)
 {
 	int	i;
@@ -50,7 +25,6 @@ char	**second_pre_pars(char *arg, t_pars *pa)
 
 	i = -1;
 	tmp = arg;
-	// arg = ft_strtrim(tmp, " ");
 	pa->quot_flag = 0;
 	pa->s = arg;
 	while (arg[++i] != 0)

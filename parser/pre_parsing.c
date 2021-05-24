@@ -99,7 +99,7 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 {
 	char	buf[2049];
 
-	ft_bzero(&buf, sizeof(buf));//in begin func
+	ft_bzero(&buf, sizeof(buf));
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{
@@ -117,8 +117,6 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 		ft_bzero(&buf, sizeof(buf));
 		ret = read(0, buf, 2048);
 	}
-	if (ret == -1)
-		ft_errors(SYS_ERR_READ);
 	if (add_history_line(hist, buf))
 		if (take_argument_for_pre_pars(&hist->left, pa, hist, 0))
 			return (0);
