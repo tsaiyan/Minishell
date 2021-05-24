@@ -19,6 +19,7 @@ int	main(int argc, char **argv, char *envp[], char **apple)
 	t_hist			hist;
 	struct termios	term;
 
+	printf("%d\n", g_sig.exit_status);
 	ft_bzero(&g_sig, sizeof(t_sig));
 	ft_bzero(&p, sizeof(t_pars));
 	flag = 0;

@@ -11,7 +11,7 @@ int	check_specific_dollar(char **arg, t_pars *pa, int *i, char *str)
 	}
 	if (!ft_strcmp(str, "$?"))
 	{
-		del = ft_itoa(pa->b->exit_status);
+		del = ft_itoa(g_sig.exit_status);
 		*arg = find_substr_in_str_and_replace(str, *arg, del, i);
 		free(del);
 		pa->tmp = 1;
