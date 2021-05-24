@@ -1,68 +1,79 @@
 #include "header.h"
 
-char *get_excve_str(t_bin *bin, char *command, char **argv)
+int	check_error_in_get_execve_str(t_bin *bin, char *command, char **argv)
 {
-	char			*execve_str;
-	int				ret;
-	char			*dir_to_open = NULL;
-	char			**split_str = NULL;
-	struct dirent	*dir = NULL;
-	int				flag = 1;
-	int 			i = 0;
-	DIR				*folder = NULL;
-	char			*path = NULL;
-
+	bin->dirent = NULL;
+	bin->folder = NULL;
+	bin->execve_str = NULL;
+	bin->dir_to_open = NULL;
+	bin->split_str = NULL;
+	bin->path = NULL;
 	if (!command || !argv)
-		return (NULL);
+		return (0);
 	if (command[ft_strlen(command) - 1] == '/')
 	{
-		folder = opendir(command);
-		if (folder)
-			dir = readdir(folder);
+		bin->folder = opendir(command);
+		if (bin->folder)
+			bin->dirent = readdir(bin->folder);
 		if (command)
 			command_error(command, 6);
 		else
 			command_error(command, 5);
-		return (NULL);
 	}
-	// проверка на абсолютный путь
 	if (argv[0][0] == '/' || argv[0][0] == '.')
-		execve_str = ft_strdup(command);
-	else
 	{
-		// достаем папки с коммандами из path
-		path = ft_get_value(bin->export, "PATH");
-		if (!path)
-			return ((char*)command_error(command, 5));
-		split_str = ft_split(path, ':');
-		while (split_str[i] && flag)
+		bin->execve_str = ft_strdup(command);
+		return (1);
+	}
+	return (0);
+}
+
+int	check_dirent(t_bin *bin, char *command)
+{
+	if (!bin->dirent)
+	{
+		command_error(command, 1);
+		return (-1);
+	}
+	bin->execve_str = ft_strjoin(bin->dir_to_open, command);
+	return (0);
+}
+
+void	body_get_excve_str_cycle(t_bin *bin, int *ret, int *flag, char *command)
+{
+	bin->dirent = readdir(bin->folder);
+	if (!bin->dirent)
+		*ret = 0;
+	if (bin->dirent && !strcmp(bin->dirent->d_name, command))
+		*flag = 0;
+}
+
+char	*get_excve_str(t_bin *bin, char *command, char **argv)
+{
+	int				ret;
+	int				flag;
+	int				i;
+
+	i = 0;
+	flag = 1;
+	if (!check_error_in_get_execve_str(bin, command, argv))
+	{
+		if (make_path_str(bin, command) == -1)
+			return (NULL);
+		while (bin->split_str[i] && flag)
 		{
-			if (dir_to_open)
-				free(dir_to_open);
-			dir_to_open = ft_strjoin(split_str[i], "/");
-			folder = opendir(dir_to_open);
-			while (folder && ret && flag)
-			{
-				dir = readdir(folder);
-				if (!dir)
-					ret = 0;
-				if (dir && !strcmp(dir->d_name, command))
-					flag = 0;
-			}
+			free_and_write_get_execve_str(bin, i);
+			while (bin->folder && ret && flag)
+				body_get_excve_str_cycle(bin, &ret, &flag, command);
 			ret = 1;
-			if (folder)
-				closedir(folder);
+			if (bin->folder)
+				closedir(bin->folder);
 			i++;
 		}
-		if (!dir)
-			return((char *)command_error(command, 1));
-		execve_str = ft_strjoin(dir_to_open, command);
+		if (check_dirent(bin, command) == -1)
+			return (NULL);
 	}
-	if (dir_to_open)
-			free(dir_to_open);
-	if (split_str)
-		free_split(split_str);
-	return (execve_str);
+	return (ret_get_excve_str(bin));
 }
 
 void	ft_execve(t_bin *bin, char *execve_str, char **argv)

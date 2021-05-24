@@ -1,46 +1,53 @@
-#ifndef BUILT_IN_H
-# define BUILT_IN_H
+#ifndef BUILD_IN_H
+# define BUILD_IN_H
 
-#include "limits.h"
-
+# include "limits.h"
+# include "dirent.h"
 # define MAX_ARGV 1000
 
-typedef struct	s_bin
+typedef struct s_bin
 {
-	char		**argv;
-	char		**envp;
-	char		**ar_export;
-	int			n_flag;
-	int			argc;
-	t_mylst		*export;
-	t_mylst		*envp_lst;
-	char		**p_commands;
-	char		***p_argvs;
-	int			p_count;
-	pid_t		pid;
-	short		error;
-	int			exit_status;
-	short		exit_off;
+	char			**argv;
+	char			**envp;
+	char			**ar_export;
+	int				n_flag;
+	int				argc;
+	t_mylst			*export;
+	t_mylst			*envp_lst;
+	char			**p_commands;
+	char			***p_argvs;
+	int				p_count;
+	pid_t			pid;
+	short			error;
+	int				exit_status;
+	short			exit_off;
 
-	int 		from;
-	int			to;
-	int			append;
-	int			indx_from;
-	int			indx_to;
-	int			savefd1;
-	int			savefd0;
-	int			del_pipes;
+	int				from;
+	int				to;
+	int				append;
+	int				indx_from;
+	int				indx_to;
+	int				savefd1;
+	int				savefd0;
+	int				del_pipes;
 
-	char		*temp_old_dir;
-	char		*home_path;
-	char		dir[PATH_MAX];
+	char			*temp_old_dir;
+	char			*home_path;
+	char			dir[PATH_MAX];
 
-	int			fds_red[MAX_ARGV][2];
-	int			fd_pipes[MAX_ARGV][2];
-	int			fds_to_close[MAX_ARGV];
-	char 		*test_str;
-	int			error_ret;
-}				t_bin;
+	int				fds_red[MAX_ARGV][2];
+	int				fd_pipes[MAX_ARGV][2];
+	int				fds_to_close[MAX_ARGV];
+	char			*test_str;
+	int				error_ret;
+
+	DIR				*folder;
+	struct dirent	*dirent;
+	char			*execve_str;
+	char			*dir_to_open;
+	char			**split_str;
+	char			*path;
+}					t_bin;
 
 int			ft_puts(char *str);
 void		ft_putstr(char *str);
@@ -55,7 +62,7 @@ char		*ft_strdup_chr(char *str, char end);
 void		sort_list(t_bin *bin);
 int			my_lst_size(t_mylst *lst);
 int			ft_cd(t_bin *bin, char **argv);
-void		ft_exit(char **argv);
+int			ft_exit(char **argv);
 void		ft_unset(t_bin *bin, char **argv);
 char		*ft_get_value(t_mylst *lst, char *key);
 void		list_to_envp(t_bin *bin);
@@ -66,9 +73,9 @@ void		ft_execve(t_bin *bin, char *command, char **argv);
 char		*get_excve_str(t_bin *bin, char *command, char **argv);
 void		ft_execve(t_bin *bin, char *execve_str, char **argv);
 void		ft_redirects(t_bin *bin, char **argv);
-int			find_redirects(t_bin * bin);
+int			find_redirects(t_bin *bin);
 int			ft_redopen(t_bin *bin, char *way, int flag, int index);
-void		ft_close_redifd(t_bin * bin);
+void		ft_close_redifd(t_bin *bin);
 int			change_oldpwd(t_bin *bin, char *str);
 int			cd_with_minus(t_bin *bin, char **argv);
 int			cd_outputs(char **argv, int flag);
@@ -96,4 +103,8 @@ int			validate_export(char *str);
 void		sort_list(t_bin *bin);
 void		swap_list(t_mylst *start, t_mylst *next);
 int			it_not_builtin(char *command);
+void		free_already_exist_key(t_mylst *add, t_mylst *current, char *cur);
+char		*ret_get_excve_str(t_bin *bin);
+int			make_path_str(t_bin *bin, char *command);
+void		free_and_write_get_execve_str(t_bin *bin, int i);
 #endif

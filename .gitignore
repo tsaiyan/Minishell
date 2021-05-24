@@ -20,4 +20,4 @@ a.out
 hist_1
 .deps
 .idea
-f*
+/f*

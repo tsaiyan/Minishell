@@ -17,7 +17,13 @@ int	ft_it_digit_array(char *argv)
 	return (1);
 }
 
-void	ft_exit(char **argv)
+void	write_global_and_exit(int code)
+{
+	g_sig.exit_status = code;
+	exit(code);
+}
+
+int	ft_exit(char **argv)
 {
 	int		i;
 	int		j;
@@ -25,34 +31,22 @@ void	ft_exit(char **argv)
 	i = 1;
 	ft_puts("exit");
 	if (!argv[1])
-	{
-		g_sig.exit_status = 0;
-		exit(0);
-	}
+		write_global_and_exit(0);
 	if (ft_it_digit_array(argv[1]) && argv[2])
-	{
-		command_error(argv[i], 4);
-		return ;
-	}
+		return (command_error(argv[i], 4));
 	while (argv[i])
 	{
 		j = 0;
 		if (!ft_it_digit_array(argv[i]))
 		{
 			command_error(argv[i], 3);
-			g_sig.exit_status = 255;
-			exit(255);
+			write_global_and_exit(255);
 		}
 		i++;
 	}
 	if (ft_atoi(argv[1]) >= 0 && ft_atoi(argv[1]) <= 255 && !argv[2])
-	{
-		g_sig.exit_status = ft_atoi(argv[1]);
-		exit(ft_atoi(argv[1]));
-	}
+		write_global_and_exit(ft_atoi(argv[1]));
 	if ((ft_atoi(argv[1]) < 0 || ft_atoi(argv[1]) > 255) && !argv[2])
-	{
-		g_sig.exit_status = 255;
-		exit(255);
-	}
+		write_global_and_exit(255);
+	return (0);
 }
