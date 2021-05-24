@@ -6,8 +6,8 @@ int	find_redirects(t_bin *bin)
 
 	i = -1;
 	while (bin->envp && bin->argv[++i])
-			if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
-				return (1);
+		if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
+			return (1);
 	return (0);
 }
 
