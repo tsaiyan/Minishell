@@ -94,39 +94,43 @@ int	find_write_and_delete_redirect(t_bin *bin, int i, int c)
 }
 
 
+//allocations pipes arrays
+
+void	pipe_allocations(t_bin *bin)
+{
+    bin->p_commands = (char **)ft_calloc(sizeof(char *), (bin->p_count + 1 + 1));
+	if (!bin->p_commands)
+		exit(errno);
+	bin->p_argvs = (char ***)ft_calloc(sizeof(char **), (bin->p_count + 1 + 1));
+	if (!bin->p_argvs)
+		exit(errno);
+}
+
+
 // parsing pipes
 
 int		write_pipes(t_bin *bin)
 {
-
 	int i = 0;
 	int c = 0;
 	int k = 0;
     int n = 0;
 	int ret;
+
+	pipe_allocations(bin);
     // маллок комманд
-	bin->p_commands = (char **)ft_calloc(sizeof(char *), (bin->p_count + 1 + 1));
-	if (!bin->p_commands)
-		exit(errno);
-    // маллок аргументов (сначала комманд ***)
-	bin->p_argvs = (char ***)ft_calloc(sizeof(char **), (bin->p_count + 1 + 1));
-	if (!bin->p_argvs)
-		exit(errno);
 	while (bin->argv[i])
 	{
         // пропуск пайпов
 		if (!ft_strcmp(bin->argv[i], "|"))
 		{
-			//bin->argv = ft_del_index_in2massive(bin->argv, i);
 			i++;
 			continue;
 		}
-		        // запись комманды
+		// запись комманды
 		if (!its_redirect(bin->argv[i]))
 			bin->p_commands[c] = bin->argv[i];
 		find_write_and_delete_redirect(bin, i, c);
-		if (bin->error_ret)
-			return (-1);
         // запись аргументов
         // считаем к-во для маллока
         n = i;
@@ -247,11 +251,6 @@ int	daughter_run(t_bin *bin, char *execve_str, int i)
 	return (0);
 }
 
-// int	close_pipes_fd(t_bin *bin, int i)
-// {
-
-// }
-
 int		ft_pipes(t_bin *bin)
 {
 	int i;
@@ -259,11 +258,11 @@ int		ft_pipes(t_bin *bin)
 
 	bin->pid = -1;
 	i = 0;
-	execve_str = NULL;
 	if (write_pipes(bin) == -1)
 		return (-1);
 	while(bin->p_commands[i])
 	{
+		 execve_str = NULL;
 		if (it_not_builtin(bin->p_commands[i]))
 			execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		daughter_run(bin, execve_str, i);
@@ -274,8 +273,8 @@ int		ft_pipes(t_bin *bin)
 			close(bin->fds_red[i][0]);
 		if (bin->fds_red[i][1])
 			close(bin->fds_red[i][1]);
-		// if (execve_str)
-		// 	free(execve_str);
+		if (execve_str)
+			free(execve_str);
 		i++;
 	}
 	close(bin->fd_pipes[i - 1][0]);
