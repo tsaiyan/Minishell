@@ -1,4 +1,4 @@
-#include "header.h"
+w#include "header.h"
 
 int	ft_pwd(t_bin *bin)
 {
