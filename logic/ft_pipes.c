@@ -1,196 +1,7 @@
 #include "header.h"
 
-// add fd to close list
-
-int	add_fd_to_close(t_bin *bin, int fd, int ret)
+int	builtin_pipes(t_bin *bin, char *command, char **argv)
 {
-	int i;
-
-	i = 0;
-	while(bin->fds_to_close[i])
-		i++;
-	bin->fds_to_close[i] = fd;
-	return(ret);
-}
-
-// find pipes in argv
-
-int		check_pipes(t_bin *bin)
-{
-	int i = 0;
-	int ret = 0;
-	while (bin->argv[i])
-	{
-		if (!ft_strcmp(bin->argv[i], "|"))
-			ret++;
-		i++;
-	}
-	bin->p_count = ret;
-	return (ret);
-}
-
-// открывает файл связанный с редиректом
-// записывает фд по номеру команды
-// добавляет фд в массив на закрытие
-
-int ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
-{
-	int ret;
-	int j;
-
-	ret = 0;
-	if (!ft_strcmp(command, ">"))
-	{
-		ret = open(bin->argv[i + 1], O_CREAT | O_RDWR | O_TRUNC, 0666);
-		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
-			return (-1);
-		bin->fds_red[c][1] = ret;
-	}
-	if (!ft_strcmp(command, ">>"))
-	{
-		ret = open(bin->argv[i + 1], O_CREAT | O_RDWR | O_APPEND, 0666);
-		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
-			return (-1);
-		bin->fds_red[c][1] = ret;
-	}
-	if (!ft_strcmp(command, "<"))
-	{
-		ret = open(bin->argv[i + 1], O_RDONLY);
-		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
-			return (-1);
-		bin->fds_red[c][0] = ret;
-	}
-	if (ret > 0)
-		return (add_fd_to_close(bin, ret, 1));
-	return (0);
-}
-
-	// находит редиректы внутри одного пайпа
-	// открывает файлы
-	// записывает фд в массив
-	// удаляет редикт и файл из строки чтобы записались аргументы в вызов функции без него
-	// нужно добавить обработку >| (return сделат или флаг ошибки)
-
-int	find_write_and_delete_redirect(t_bin *bin, int i, int c)
-{
-	while(bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
-	{
-		if (its_redirect(bin->argv[i]))
-		{
-			ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c);
-			bin->argv = ft_del_index_in2massive(bin->argv, i);
-			if (bin->argv[i] && ft_strcmp(bin->argv[i],"|"))
-				bin->argv = ft_del_index_in2massive(bin->argv, i);
-			else
-			{
-				bin->error_ret = -1;
-				return(ft_puts(" syntax error near unexpected token"));
-			}
-			i--;
-		}
-		i++;
-	}
-	return (0);
-}
-
-
-//allocations pipes arrays
-
-void	pipe_allocations(t_bin *bin)
-{
-    bin->p_commands = (char **)ft_calloc(sizeof(char *), (bin->p_count + 1 + 1));
-	if (!bin->p_commands)
-		exit(errno);
-	bin->p_argvs = (char ***)ft_calloc(sizeof(char **), (bin->p_count + 1 + 1));
-	if (!bin->p_argvs)
-		exit(errno);
-}
-
-
-// parsing pipes
-
-int		write_pipes(t_bin *bin)
-{
-	int i = 0;
-	int c = 0;
-	int k = 0;
-    int n = 0;
-	int ret;
-
-	pipe_allocations(bin);
-    // маллок комманд
-	while (bin->argv[i])
-	{
-        // пропуск пайпов
-		if (!ft_strcmp(bin->argv[i], "|"))
-		{
-			i++;
-			continue;
-		}
-		// запись комманды
-		if (!its_redirect(bin->argv[i]))
-			bin->p_commands[c] = bin->argv[i];
-		find_write_and_delete_redirect(bin, i, c);
-        // запись аргументов
-        // считаем к-во для маллока
-        n = i;
-        while (bin->argv[n] && ft_strcmp(bin->argv[n], "|"))
-            n++;
-        // маллок аргументов (**) (1 for null and 1 for command)
-		bin->p_argvs[c] = ft_calloc(sizeof(char *), n + 1 + 1);
-        if (!bin->p_argvs[c])
-		    exit(errno);
-        // в argv сначала команда
-        bin->p_argvs[c][k] = bin->argv[i];
-        k++;
-        i++;
-        // затем остальное
-		while (bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
-		{
-			bin->p_argvs[c][k] = bin->argv[i];
-			k++;
-			i++;
-		}
-		k = 0;
-		c++;
-	}
-    return (0);
-}
-
-void	free_pipes(t_bin *bin)
-{
-	int i = 0;
-	free(bin->p_commands);
-	while (bin->p_argvs[i])
-	{
-		free(bin->p_argvs[i]);
-		i++;
-	}
-	free(bin->p_argvs);
-}
-
-int		redirect_index(int index, int i, t_bin *bin)
-{
-	if (i == 0 && (bin->to > 0 || bin->from > 0))
-		return (0);
-	else if (i == 0)
-		return (-1);
-	return (index - ft_massive_len(bin->p_argvs[i]) - bin->del_pipes + 1);
-}
-
-int		it_not_builtin(char *command)
-{
-	if (!ft_strcmp(command, "pwd") || !ft_strcmp(command, "echo") || \
-	!ft_strcmp(command, "env") || \
-	!ft_strcmp(command, "exit") || !ft_strcmp(command, "unset") || \
-	!ft_strcmp(command, "export") || !ft_strcmp(command, "cd"))
-		return (0);
-	return (1);
-}
-
-int		builtin_pipes(t_bin *bin, char *command, char **argv)
-{
-	
 	if (!ft_strcmp(command, "pwd"))
 		ft_pwd(bin);
 	if (!ft_strcmp(command, "echo"))
@@ -210,8 +21,6 @@ int		builtin_pipes(t_bin *bin, char *command, char **argv)
 
 void	ft_pipe_execve(t_bin *bin, char *execve_str, char **argv)
 {
-	int status;
-
 	if (bin->pid == 0)
 	{
 		bin->exit_status = execve(execve_str, argv, bin->envp);
@@ -220,8 +29,6 @@ void	ft_pipe_execve(t_bin *bin, char *execve_str, char **argv)
 		exit(0);
 	}
 }
-
-
 
 int	daughter_run(t_bin *bin, char *execve_str, int i)
 {
@@ -246,39 +53,43 @@ int	daughter_run(t_bin *bin, char *execve_str, int i)
 		if (!it_not_builtin(bin->p_commands[i]))
 			builtin_pipes(bin, bin->p_commands[i], bin->p_argvs[i]);
 		else
-			ft_pipe_execve(bin, execve_str,  bin->p_argvs[i]);
+			ft_pipe_execve(bin, execve_str, bin->p_argvs[i]);
 	}
 	return (0);
 }
 
-int		ft_pipes(t_bin *bin)
+void	ft_pipes_close_fd(t_bin *bin, int i, char *execve_str)
 {
-	int i;
-	char *execve_str;
+	close(bin->fd_pipes[i][1]);
+	if (i > 0)
+		close(bin->fd_pipes[i - 1][0]);
+	if (bin->fds_red[i][0])
+		close(bin->fds_red[i][0]);
+	if (bin->fds_red[i][1])
+		close(bin->fds_red[i][1]);
+	if (execve_str)
+		free(execve_str);
+}
+
+void	ft_pipes(t_bin *bin)
+{
+	int		i;
+	char	*execve_str;
 
 	bin->pid = -1;
-	i = 0;
-	if (write_pipes(bin) == -1)
-		return (-1);
-	while(bin->p_commands[i])
+	i = -1;
+	write_pipes(bin);
+	while (bin->p_commands[++i])
 	{
 		 execve_str = NULL;
 		if (it_not_builtin(bin->p_commands[i]))
-			execve_str = get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
+			execve_str = \
+			get_excve_str(bin, bin->p_commands[i], bin->p_argvs[i]);
 		daughter_run(bin, execve_str, i);
-		close(bin->fd_pipes[i][1]);
-		if (i > 0)
-			close(bin->fd_pipes[i - 1][0]);
-		if (bin->fds_red[i][0])
-			close(bin->fds_red[i][0]);
-		if (bin->fds_red[i][1])
-			close(bin->fds_red[i][1]);
-		if (execve_str)
-			free(execve_str);
-		i++;
+		ft_pipes_close_fd(bin, i, execve_str);
 	}
 	close(bin->fd_pipes[i - 1][0]);
-	while(wait(NULL) > 0);
+	while (wait(NULL) > 0)
+		continue ;
 	free_pipes(bin);
-	return (0);
 }

@@ -31,7 +31,7 @@ char *get_excve_str(t_bin *bin, char *command, char **argv)
 		// достаем папки с коммандами из path
 		path = ft_get_value(bin->export, "PATH");
 		if (!path)
-			return(command_error(command, 5));
+			return ((char*)command_error(command, 5));
 		split_str = ft_split(path, ':');
 		while (split_str[i] && flag)
 		{

@@ -85,7 +85,7 @@ int	parser(char **argv, char ***envp, t_bin *bin)
 	// printf("\nfd1 = %d\n", fd);
 	// close(fd);
 	if (ft_massive_len(bin->argv) > MAX_ARGV)
-		return(ft_puts("too much argv. What you try to do?"));
+		return (ft_puts("too much argv. What you try to do?"));
 	if (!bin)
 		ft_exit(argv);
 	bin->envp = *envp;
