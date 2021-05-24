@@ -1,34 +1,18 @@
 #include "header.h"
 
-// validator
-
-int validate_export(char *str)
-{
-	char b;
-
-	b = str[0];
-	if (b < 48 || b > 122)
-		return (0);
-	if (b < 97 && b > 90 && b != '_')
-		return (0);
-	if (b > 57 && b < 65)
-		return (0);
-	return (1);
-}
-
 // check already exists key and change value
 
 int	already_exist_key(t_mylst *current, t_mylst *add)
 {
-	char *cur;
+	char	*cur;
 
 	while (current)
 	{
 		if (add->dollar && ft_strcmp(current->key, add->value) == 0)
-			{
-				free(add->value);
-				add->value = current->value;
-			}
+		{
+			free(add->value);
+			add->value = current->value;
+		}
 		if (ft_strcmp(current->key, add->key) == 0 && !add->equal)
 			return (free_my_lst(add));
 		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
@@ -36,12 +20,7 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 			cur = current->value;
 			if (add->plus)
 				current->value = ft_strjoin(current->value, add->value);
-			if (cur)
-				free(cur);
-			if (!add->plus)
-				current->value = add->value;
-			free(add->key);
-			free(add);
+			free_already_exist_key(add, current, cur);
 			current->equal = 1;
 			return (1);
 		}
@@ -52,7 +31,7 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 
 // make new list: check += and $
 
-static t_mylst	*my_lst_new(char *str)
+t_mylst	*my_lst_new(char *str)
 {
 	t_mylst	*new_lst;
 	char	*split_str;
@@ -81,65 +60,9 @@ static t_mylst	*my_lst_new(char *str)
 	return (new_lst);
 }
 
-// add list to back
-
-static t_mylst	*my_lst_add_back(t_mylst *start, t_mylst *add)
-{
-	t_mylst *last;
-
-	if (!already_exist_key(start, add))
-	{	
-		last = my_lst_last(start);
-		last->next = add;
-		add->prev = last;
-		add->next = NULL;
-		return (add);
-	}
-	return (NULL);
-}
-
-// print lists
-
-void	print_list(t_mylst *start, int flag)
-{
-	while (start)
-	{
-		if (flag == 1)
-			ft_putstr("declare -x ");
-		ft_putstr(start->key);
-		if (start->equal)
-		{
-			ft_putstr("=\"");
-			ft_putstr(start->value);
-			ft_putstr("\"");
-		}
-		ft_puts(NULL);
-		start = start->next;
-	}
-}
-
-// copy envp to double lists
-
-t_mylst	*arr_to_dlist(char **str)
-{
-	t_mylst	*start;
-	t_mylst	*new_lst;
-	int		i;
-
-	i = 1;
-	start = my_lst_new(str[0]);
-	while (str[i])
-	{
-		new_lst = my_lst_new(str[i]);
-		my_lst_add_back(start, new_lst);
-		i++;
-	}
-	return (start);
-}
-
 // check += + and other
 
-int check_plus(char *str)
+int	check_plus(char *str)
 {
 	char	*plus;
 	int		i;
@@ -166,7 +89,7 @@ void	list_to_envp(t_bin *bin)
 	char	*dom;
 
 	i = 0;
-	new_envp = ft_calloc(sizeof(char*), (my_lst_size(bin->envp_lst) + 1));
+	new_envp = ft_calloc(sizeof(char *), (my_lst_size(bin->envp_lst) + 1));
 	if (!new_envp)
 		exit(errno);
 	lst = bin->envp_lst;
@@ -190,7 +113,7 @@ void	ft_export(t_bin *bin, char **argv)
 	int		i;
 	t_mylst	*lst;
 
-	i = 1;
+	i = 0;
 	if (!argv[1])
 	{
 		sort_list(bin);
@@ -198,19 +121,18 @@ void	ft_export(t_bin *bin, char **argv)
 	}
 	else
 	{
-		while (argv[i])
+		while (argv[++i])
 		{
 			if (check_plus(argv[i]) == -1)
-				return;
+				return ;
 			if (!validate_export(argv[i]))
 				command_error(argv[i], 2);
 			lst = my_lst_new(argv[i]);
 			my_lst_add_back(bin->export, lst);
-			if(lst->equal)
+			if (lst->equal)
 				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
-			i++;
 		}
 		sort_list(bin);
 		list_to_envp(bin);
 	}
- }
+}

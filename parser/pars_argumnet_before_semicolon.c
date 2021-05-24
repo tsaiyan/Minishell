@@ -28,9 +28,6 @@ char	*pars_argument_before_semicolon(char **line, t_pars *pa, int i)
 	char	*arg;
 	char	*tmp;
 
-	// trim_space_in_begin(line, 0, 0, 0);
-	// if (**line == 0)
-	// 	return (*line);
 	len = semicolon_len(*line) + 1;
 	if (len == 0)
 	{
