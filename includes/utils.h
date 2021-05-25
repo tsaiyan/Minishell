@@ -29,7 +29,7 @@ int			pass_strlen(char *str);
 char		**copy_env_massive(char **env);
 // copy envairement massive
 
-void		t_free_massive(char **mass);
+void		ft_free_massive(char **mass);
 //realloc this func from utils to libft
 
 int			ft_putchar(int c);

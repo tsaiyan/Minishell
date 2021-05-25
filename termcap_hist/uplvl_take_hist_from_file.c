@@ -15,7 +15,9 @@ static void	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 	com[1] = ft_strdup(str2);
 	com[2] = NULL;
 	tmp_exit_status = g_sig.exit_status;
+	bin->exit_off = 1;
 	parser(com, envp, bin);
+	bin->exit_off = 0;
 	g_sig.exit_status = tmp_exit_status;
 }
 
@@ -65,8 +67,10 @@ static int	up_lvl(t_pars *pa, t_hist *hist)
 			hist->SHLVL++;
 	}
 	tmp_exit_status = g_sig.exit_status;
+	pa->b->exit_off = 1;
 	parser(alloc_uplvl("export", hist->SHLVL), &pa->envp, pa->b);
 	g_sig.exit_status = tmp_exit_status;
+	pa->b->exit_off = 0;
 	free(lvl);
 	return (0);
 }
@@ -103,7 +107,7 @@ int	uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 		ft_errors(errno);
 		exit(errno);
 	}
-	if (-1 == read_filehistory(hist))
+	if (-1 == read_filehistory(hist, 0, NULL))
 	{
 		ft_errors(errno);
 		exit(errno);
