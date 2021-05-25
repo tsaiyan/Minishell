@@ -37,3 +37,7 @@ echo 123|cat
 
 
 cat
+echo 123>3
+echo 123<3
+echo 123 <3
+echo 123 >3

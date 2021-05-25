@@ -22,7 +22,7 @@ static int	semicolon_len(char *s)
 	return (len);
 }
 
-char	*pars_argument_before_semicolon(char **line, t_pars *pa, int i)
+char *pars_argument_before_semicolon(char **line, int i)
 {
 	int		len;
 	char	*arg;
