@@ -25,7 +25,7 @@ int	check_specific_dollar(char **arg, t_pars *pa, int *i, char *str)
 	return (0);
 }
 
-int check_specific_dollar2(char **arg, int *i)
+int	check_specific_dollar2(char **arg, int *i)
 {
 	if (!ft_isalnum(arg[0][*i + 1]) && \
 	arg[0][*i + 1] != '_' && arg[0][*i + 1] != '?')
@@ -35,11 +35,3 @@ int check_specific_dollar2(char **arg, int *i)
 	}
 	return (0);
 }
-//if (arg[0][*i + 1] == '\t' || arg[0][*i + 1] == ' '|| arg[0][*i + 1] == '\0'
-// || arg[0][*i + 1] == '$' || arg[0][*i + 1] == '-' || arg[0][*i + 1] == '+'
-// || arg[0][*i + 1] == '/' || arg[0][*i + 1] == '=' || arg[0][*i + 1] == '%'
-// || arg[0][*i + 1] == '~' || arg[0][*i + 1] == ',' || arg[0][*i + 1] == '.'
-// || arg[0][*i + 1] == '%' || arg[0][*i + 1] == ':' || arg[0][*i + 1] == '{'
-// || arg[0][*i + 1] == '}' || arg[0][*i + 1] == '[' || arg[0][*i + 1] == ']'
-// || arg[0][*i + 1] == '%' || arg[0][*i + 1] == '^'
-// || arg[0][*i + 1] == '%' || arg[0][*i + 1] == '&')
