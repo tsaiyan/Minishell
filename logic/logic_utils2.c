@@ -53,3 +53,10 @@ int	its_redirect(char *str)
 		return (1);
 	return (0);
 }
+
+void	free_diropen(t_bin *bin)
+{
+	if (bin->dir_to_open)
+		free(bin->dir_to_open);
+	bin->dir_to_open = NULL;
+}

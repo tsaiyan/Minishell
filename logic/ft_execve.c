@@ -5,7 +5,7 @@ int	check_error_in_get_execve_str(t_bin *bin, char *command, char **argv)
 	bin->dirent = NULL;
 	bin->folder = NULL;
 	bin->execve_str = NULL;
-	bin->dir_to_open = NULL;
+	free_diropen(bin);
 	bin->split_str = NULL;
 	bin->path = NULL;
 	if (!command || !argv)
@@ -32,10 +32,16 @@ int	check_dirent(t_bin *bin, char *command)
 {
 	if (!bin->dirent)
 	{
+		if (bin->split_str)
+		{
+			free_split(bin->split_str);
+			bin->split_str = NULL;
+		}
 		command_error(command, 1);
 		return (-1);
 	}
 	bin->execve_str = ft_strjoin(bin->dir_to_open, command);
+	free_diropen(bin);
 	return (0);
 }
 

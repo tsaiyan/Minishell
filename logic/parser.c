@@ -72,6 +72,9 @@ void	ft_prepare_parcer(t_bin *bin)
 	bin->error = 0;
 	bin->pid = -1;
 	bin->error_ret = 0;
+	if (bin->dir_to_open)
+		free(bin->dir_to_open);
+	bin->dir_to_open = NULL;
 	if (bin->split_str)
 	{
 		write(2, "free_split\n", 10);
