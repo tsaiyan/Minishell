@@ -1,11 +1,11 @@
 #include "header.h"
 
-char    **ft_del_index_in2massive(char **old, int index)
+char	**ft_del_index_in2massive(char **old, int index)
 {
-	int	len;
-	char **new;
-	int i;
-	int j;
+	int		len;
+	char	**new;
+	int		i;
+	int		j;
 
 	len = ft_massive_len(old);
 	if (len == index)

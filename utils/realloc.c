@@ -22,13 +22,14 @@
 
 //void *realloc(void *ptr, size_t newsize)
 
-char *ft_realloc(char *arg, int count)
+char	*ft_realloc(char *arg, int count)
 {
 	char	*new;
-	int 	len;
+	int		len;
 
 	len = ft_strlen(arg);
-	if (!(new = ft_calloc(sizeof(char), count)))
+	new = ft_calloc(sizeof(char), count));
+	if (!new)
 		return (NULL);
 	ft_strlcpy(new, arg, count);
 	free(arg);

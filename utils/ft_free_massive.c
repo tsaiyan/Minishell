@@ -1,8 +1,8 @@
 #include "libft.h"
 
-void 			ft_free_massive(char **mass)
+void	ft_free_massive(char **mass)
 {
-	int			i;
+	int	i;
 
 	i = -1;
 	if (NULL != mass)

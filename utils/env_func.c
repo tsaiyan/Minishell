@@ -1,10 +1,10 @@
 #include "header.h"
 
-static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
+static int	check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 {
-	char *env_arg;
-	char *tmp;
-	char *check;
+	char	*env_arg;
+	char	*tmp;
+	char	*check;
 
 	env_arg = take_arg_from_env(str, pa);
 	if (NULL == env_arg)
@@ -22,11 +22,11 @@ static int 		check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	return (0);
 }
 
-static char *take_arg(char *curr_arg, int *i)
+static char	*take_arg(char *curr_arg, int *i)
 {
-	int 	j;
-	int 	tmp;
-	char 	*ret;
+	int		j;
+	int		tmp;
+	char	*ret;
 
 	j = 1;
 	tmp = -1;
@@ -57,7 +57,7 @@ static char *take_arg(char *curr_arg, int *i)
 static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 {
 	char	*str;
-	int 	num;
+	int		num;
 
 	if (pa->quot_flag == 0)
 	{
@@ -78,7 +78,7 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 {
 	char	*str;
-	int 	num;
+	int		num;
 
 	if (pa->quot_flag == 1)
 	{
@@ -98,7 +98,7 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 	return (0);
 }
 
-int check_envp(char **curr_arg, t_pars *pa, int *i, int stage)
+int	check_envp(char **curr_arg, t_pars *pa, int *i, int stage)
 {
 
 	if (stage == STAGE_FIRST)

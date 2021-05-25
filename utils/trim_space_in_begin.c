@@ -1,6 +1,6 @@
 #include "header.h"
 
-void        trim_space_in_begin(char **str, int i, int j, int len)
+void	trim_space_in_begin(char **str, int i, int j, int len)
 {
 	int		str_len;
 	char	*new;

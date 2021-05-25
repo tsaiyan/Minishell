@@ -1,8 +1,8 @@
 #include "libft.h"
 
-static char **copy_mass(char **dst, char **src, size_t len, int *i)
+static char	**copy_mass(char **dst, char **src, size_t len, int *i)
 {
-	size_t 	line_len;
+	size_t	line_len;
 
 	if (NULL == src)
 	{
@@ -26,10 +26,10 @@ static char **copy_mass(char **dst, char **src, size_t len, int *i)
 	return (dst);
 }
 
-char 		**ft_realloc_2massive(char ***mass, char *arg, int len)
+char	**ft_realloc_2massive(char ***mass, char *arg, int len)
 {
-	int 	i;
-	char 	**ret;
+	int		i;
+	char	**ret;
 	size_t	line_len;
 
 	i = -1;

@@ -1,8 +1,8 @@
 #include "header.h"
 
-int		pass_strlen(char *str)
+int	pass_strlen(char *str)
 {
-	int			len;
+	int	len;
 
 	len = 0;
 	while (*str)

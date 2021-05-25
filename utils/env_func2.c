@@ -1,10 +1,10 @@
 #include "header.h"
 
-static char *alloc_env_arg(const char *env)
+static char	*alloc_env_arg(const char *env)
 {
-	int 	i;
+	int		i;
 	int		j;
-	int 	tmp;
+	int		tmp;
 	char	*ret;
 
 	i = -1;
@@ -25,9 +25,9 @@ static char *alloc_env_arg(const char *env)
 
 static char	*take_arg(char **env, char *str)
 {
-	int 	i;
-	int 	j;
-	int 	flag;
+	int	i;
+	int	j;
+	int	flag;
 
 	j = -1;
 	while (env[++j] != NULL)
@@ -51,9 +51,9 @@ static char	*take_arg(char **env, char *str)
 	return (NULL);
 }
 
-char *take_arg_from_env(char *str, t_pars *pa)
+char	*take_arg_from_env(char *str, t_pars *pa)
 {
-	char 	*exp_arg;
+	char	*exp_arg;
 
 	exp_arg = take_arg(pa->envp, str);
 	return (exp_arg);

@@ -2,9 +2,9 @@
 
 //int del_
 
-static char *paste_all(t_fts *p, char *ret)
+static char	*paste_all(t_fts *p, char *ret)
 {
-	int 	i;
+	int	i;
 
 	i = -1;
 	while (p->rep_str[++i] != 0)
@@ -19,9 +19,9 @@ static char *paste_all(t_fts *p, char *ret)
 	return (ret);
 }
 
-static int cmp_find(const char *curr_str, const char *find)
+static int	cmp_find(const char *curr_str, const char *find)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (find[i] != 0)
@@ -33,9 +33,9 @@ static int cmp_find(const char *curr_str, const char *find)
 	return (1);
 }
 
-static char *replace_in_str(char *ret, t_fts *p, int i, int len)
+static char	*replace_in_str(char *ret, t_fts *p, int i, int len)
 {
-	int		j;
+	int	j;
 
 	j = -1;
 	if (NULL == ret)
@@ -58,9 +58,9 @@ static char *replace_in_str(char *ret, t_fts *p, int i, int len)
 	return (NULL);
 }
 
-static char *find_substr(t_fts *p, int i)
+static char	*find_substr(t_fts *p, int i)
 {
-	int 	len;
+	int		len;
 	char	*ret;
 	char	*check;
 
@@ -78,13 +78,13 @@ static char *find_substr(t_fts *p, int i)
 }
 // + 1
 
-char *find_substr_in_str_and_replace(char *substr, char *str,
+char	*find_substr_in_str_and_replace(char *substr, char *str,
 									 char *rep_str, int *i)
 {
-	t_fts			p;
-	int 			lim1;
-	int 			lim2;
-	char 			*ret;
+	t_fts	p;
+	int		lim1;
+	int		lim2;
+	char	*ret;
 
 	if (!substr || !str)
 		return (NULL);
@@ -92,5 +92,6 @@ char *find_substr_in_str_and_replace(char *substr, char *str,
 	ret = find_substr(&p, *i);
 	return (ret);
 }
+
 // return may be null its okay, error checked
 // not checked "find" can be errors

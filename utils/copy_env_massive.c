@@ -1,10 +1,10 @@
 #include "header.h"
 
-static char **copy(char **ret, char **env)
+static char	**copy(char **ret, char **env)
 {
-	int 	i;
-	int 	len;
-	int 	j;
+	int	i;
+	int	len;
+	int	j;
 
 	i = -1;
 	while (env[++i] != NULL)
@@ -21,11 +21,11 @@ static char **copy(char **ret, char **env)
 	return (ret);
 }
 
-char **copy_env_massive(char **env)
+char	**copy_env_massive(char **env)
 {
-	char 	**ret;
-	int 	i;
-	int 	len;
+	char	**ret;
+	int		i;
+	int		len;
 
 	i = -1;
 	len = 0;

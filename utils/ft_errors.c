@@ -1,8 +1,8 @@
 #include "header.h"
 
-static void prnt(char *arg)
+static void	prnt(char *arg)
 {
-	int 	i;
+	int	i;
 
 	i = -1;
 	if (arg)
@@ -15,7 +15,7 @@ static void prnt(char *arg)
 	}
 }
 
-static int write_error2(int code, char *arg)
+static int	write_error2(int code, char *arg)
 {
 	if (code == ERROR_UNEXPECTED_SEMICOLON)
 	{
@@ -40,7 +40,7 @@ static int write_error2(int code, char *arg)
 	return (1);
 }
 
-int write_error(int code, char *arg)
+int	write_error(int code, char *arg)
 {
 	write(2, "\nminishell: ", 12);
 	if (0 > write_error2(code, arg))
@@ -54,11 +54,6 @@ int write_error(int code, char *arg)
 		write(2, ": syntax error\n", 15);
 	return (code);
 }
-
-//int write_error_val(int code, char *arg)
-//{
-//
-//}
 
 int ft_errors(int code)
 {
