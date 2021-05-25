@@ -11,7 +11,7 @@ t_mylst	*find_lst(t_mylst *lst, char *key)
 	return (NULL);
 }
 
-void	ft_find_and_delete(t_mylst *envexp, t_bin *bin, char *argv)
+void ft_find_and_delete(t_mylst *envexp, char *argv)
 {
 	int		i;
 	t_mylst	*lst_to_unset;
@@ -35,8 +35,8 @@ void	ft_unset(t_bin *bin, char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		ft_find_and_delete(bin->export, bin, argv[i]);
-		ft_find_and_delete(bin->envp_lst, bin, argv[i]);
+		ft_find_and_delete(bin->export, argv[i]);
+		ft_find_and_delete(bin->envp_lst, argv[i]);
 		i++;
 	}
 	list_to_envp(bin);

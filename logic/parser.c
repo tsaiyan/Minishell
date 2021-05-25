@@ -53,7 +53,7 @@ void	ft_buildins(t_bin *bin)
 	 || !ft_strcmp(bin->argv[0], "ECHO"))
 		ft_echo(bin, bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "pwd") || !ft_strcmp(bin->argv[0], "PWD"))
-		ft_pwd(bin);
+		ft_pwd();
 	else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
 		ft_env(bin);
 	else if (!bin->p_count)

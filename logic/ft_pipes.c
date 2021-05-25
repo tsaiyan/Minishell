@@ -3,7 +3,7 @@
 int	builtin_pipes(t_bin *bin, char *command, char **argv)
 {
 	if (!ft_strcmp(command, "pwd"))
-		ft_pwd(bin);
+		ft_pwd();
 	if (!ft_strcmp(command, "echo"))
 		ft_echo(bin, argv);
 	if (!ft_strcmp(command, "env"))

@@ -68,7 +68,7 @@ void		ft_putstr(char *str);
 void		ft_nputs(char *str);
 void		print_list(t_mylst *start, int flag);
 void		ft_echo(t_bin *bin, char **argv);
-int			ft_pwd(t_bin *bin);
+int ft_pwd();
 int			ft_env(t_bin *bin);
 void		ft_export(t_bin *bin, char **argv);
 int			free_my_lst(t_mylst *lst);

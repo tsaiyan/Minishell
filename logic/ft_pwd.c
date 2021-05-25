@@ -1,6 +1,6 @@
 #include "header.h"
 
-int	ft_pwd(t_bin *bin)
+int ft_pwd()
 {
 	char	dir[PATH_MAX];
 
