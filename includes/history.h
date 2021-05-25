@@ -28,7 +28,7 @@ int		ctrlc_char(t_hist *hist);
 
 int		end_key(t_hist *hist);
 int		home_key(t_hist *hist);
-int     check_array_is_ascii(char *buf);
+int		check_array_is_ascii(char *buf);
 
 void	move_to_cours_toleft(int len);
 int		ctrl_forward_slash(t_hist *hist);

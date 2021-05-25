@@ -3,7 +3,21 @@
 
 # include "limits.h"
 # include "dirent.h"
+# include "libft.h"
+# include <unistd.h>
 # define MAX_ARGV 1000
+
+typedef struct s_mylst
+{
+	char			*value;
+	char			*key;
+	int				equal;
+	int				add;
+	int				plus;
+	int				dollar;
+	struct s_mylst	*next;
+	struct s_mylst	*prev;
+}	t_mylst;
 
 typedef struct s_bin
 {

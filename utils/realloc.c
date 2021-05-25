@@ -28,7 +28,7 @@ char	*ft_realloc(char *arg, int count)
 	int		len;
 
 	len = ft_strlen(arg);
-	new = ft_calloc(sizeof(char), count));
+	new = ft_calloc(sizeof(char), count);
 	if (!new)
 		return (NULL);
 	ft_strlcpy(new, arg, count);

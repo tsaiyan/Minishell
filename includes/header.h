@@ -14,6 +14,6 @@
 # include "history.h"
 # include "global_values.h"
 
-t_sig g_sig;
+t_sig	g_sig;
 
 #endif

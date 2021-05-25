@@ -13,27 +13,15 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "../includes/header.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include "../includes/header.h"
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-
-typedef struct s_mylst
-{
-	char			*value;
-	char			*key;
-	int				equal;
-	int				add;
-	int				plus;
-	int				dollar;
-	struct s_mylst	*next;
-	struct s_mylst	*prev;
-}	t_mylst;
 
 typedef struct s_lst_d
 {

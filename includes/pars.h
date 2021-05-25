@@ -2,6 +2,6 @@
 
 # define PARS_H
 
-int 		parser(char **argv, char ***envp, t_bin *bin);
+int	parser(char **argv, char ***envp, t_bin *bin);
 
 #endif
