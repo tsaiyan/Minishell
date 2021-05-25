@@ -121,4 +121,5 @@ void		free_already_exist_key(t_mylst *add, t_mylst *current, char *cur);
 char		*ret_get_excve_str(t_bin *bin);
 int			make_path_str(t_bin *bin, char *command);
 void		free_and_write_get_execve_str(t_bin *bin, int i);
+void		ft_free_massive(char **mass);
 #endif

@@ -6,6 +6,7 @@ char	*ret_get_excve_str(t_bin *bin)
 		free(bin->dir_to_open);
 	if (bin->split_str)
 		free_split(bin->split_str);
+	bin->split_str = NULL;
 	return (bin->execve_str);
 }
 
