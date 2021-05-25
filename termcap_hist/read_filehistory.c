@@ -1,5 +1,10 @@
 #include "header.h"
 
+static int read_filehistory2(t_hist *hist, char **line, char *del, char **h)
+{
+
+}
+
 int	read_filehistory(t_hist *hist)
 {
 	char	*line;
@@ -24,6 +29,7 @@ int	read_filehistory(t_hist *hist)
 		return (-1);
 	if (*line != 0)
 	{
+		read_filehistory2(hist, &line, *del);
 		del = h;
 		h = ft_realloc_2massive(&del, line, hist->h_len++);
 		ft_free_massive(del);

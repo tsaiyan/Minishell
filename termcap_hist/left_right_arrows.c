@@ -7,11 +7,10 @@ int	check_len_left_right(char *line)
 	return (0);
 }
 
-int	left_arrow(char *buf, int len, t_hist *hist)
+int left_arrow(char *buf, int len, t_hist *hist, char *del)
 {
 	int		len_left;
 	int		len_right;
-	char	*del;
 
 	len_left = check_len_left_right(hist->left);
 	len_right = check_len_left_right(hist->right);

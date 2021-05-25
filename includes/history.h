@@ -12,7 +12,7 @@ char	*do_absolute_exec_path(char **apple);
 
 int		read_filehistory(t_hist *hist);
 
-int		left_arrow(char *buf, int len, t_hist *hist);
+int left_arrow(char *buf, int len, t_hist *hist, char *del);
 int		right_arrow(char *buf, int len, t_hist *hist);
 
 int		down_arrow(t_hist *hist);

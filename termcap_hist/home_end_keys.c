@@ -11,7 +11,7 @@ int	home_key(t_hist *hist)
 		tmp = len_left;
 		while (tmp != 0)
 		{
-			left_arrow("\e[D", 3, hist);
+			left_arrow("\e[D", 3, hist, NULL);
 			tmp--;
 		}
 	}

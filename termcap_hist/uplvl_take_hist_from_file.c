@@ -3,6 +3,7 @@
 static void	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 {
 	char	**com;
+	int		tmp_exit_status;
 
 	com = malloc(sizeof(char *) * 3);
 	if (com == NULL)
@@ -13,15 +14,14 @@ static void	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 	com[0] = ft_strdup(str1);
 	com[1] = ft_strdup(str2);
 	com[2] = NULL;
-	bin->exit_off = 1;
+	tmp_exit_status = g_sig.exit_status;
 	parser(com, envp, bin);
-	bin->exit_off = 0;
+	g_sig.exit_status = tmp_exit_status;
 }
 
-static char	*take_history_filename(t_pars *pa, t_hist *hist)
+static char *take_history_filename(t_pars *pa, t_hist *hist, char *del)
 {
 	char	*str_lvl;
-	char	*del;
 	char	*ret;
 	DIR		*dir;
 
@@ -51,6 +51,7 @@ static char	*take_history_filename(t_pars *pa, t_hist *hist)
 static int	up_lvl(t_pars *pa, t_hist *hist)
 {
 	char	*lvl;
+	int		tmp_exit_status;
 
 	lvl = take_arg_from_env("$SHLVL", pa);
 	if (!lvl)
@@ -63,9 +64,9 @@ static int	up_lvl(t_pars *pa, t_hist *hist)
 		else
 			hist->SHLVL++;
 	}
-	pa->b->exit_off = 1;
+	tmp_exit_status = g_sig.exit_status;
 	parser(alloc_uplvl("export", hist->SHLVL), &pa->envp, pa->b);
-	pa->b->exit_off = 0;
+	g_sig.exit_status = tmp_exit_status;
 	free(lvl);
 	return (0);
 }
@@ -73,13 +74,11 @@ static int	up_lvl(t_pars *pa, t_hist *hist)
 static int	open_and_take_hist(t_pars *pa, t_hist *hist)
 {
 	char	*file;
-	char	*hist_folder_name;
 	int		tmp;
 
 	tmp = 0;
-	file = take_history_filename(pa, hist);
-	// hist->fd_for_add = open(file, O_CREAT | O_RDWR, 0644);
-	hist->fd_for_add = open("hist_1", O_CREAT | O_RDWR, 0644);
+	file = take_history_filename(pa, hist, NULL);
+	hist->fd_for_add = open(file, O_CREAT | O_RDWR, 0644);
 	free(file);
 	if (0 > hist->fd_for_add)
 	{
@@ -106,6 +105,8 @@ int	uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 	}
 	if (-1 == read_filehistory(hist))
 	{
+		ft_errors(errno);
+		exit(errno);
 	}
 	return (0);
 }

@@ -29,7 +29,7 @@ static int	check_other_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 int	check_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 {
 	if (!ft_strcmp(buf, "\e[D"))
-		return (left_arrow(buf, len, hist));
+		return (left_arrow(buf, len, hist, NULL));
 	else if (!ft_strcmp(buf, "\e[C"))
 		return (right_arrow(buf, len, hist));
 	else if (!ft_strcmp(buf, "\e[A"))

@@ -68,11 +68,8 @@ wc:
 	wc -l $(SRC_FOR_SAVE)
 
 norm:
-	@norminette $(SRC)
-	@norminette includes/solve_mlx.h includes/inc.h \
-	includes/intersect_and_light.h includes/minirt.h \
-	includes/solve_mlx.h includes/structs.h includes/vectors.h
-
+	@norminette $(SRC_FOR_SAVE)
+	@norminette $(INC_FOR_SAVE)
 # Check fonts and bolds
 
 BOLD:=$(shell tput bold)
