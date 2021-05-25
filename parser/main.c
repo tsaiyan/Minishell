@@ -33,6 +33,7 @@ int	main(int argc, char **argv, char *envp[], char **apple)
 	{
 		signal(SIGINT, signal_exit);
 		signal(SIGQUIT, signal_quit);
+		p.b->exit_off = 0;
 		history_init(&hist, &term);
 		write(2, COL_BLUE"minishell$ "COL_RESET, 20);
 		flag = pre_pars_branching(&p, &hist, 0, 0);

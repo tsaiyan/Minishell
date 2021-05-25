@@ -64,7 +64,10 @@ void	ft_buildins(t_bin *bin)
 void	ft_prepare_parcer(t_bin *bin)
 {
 	if (!bin->exit_off)
+	{
 		write (1, "\n", 1);
+		bin->exit_off = 1;
+	}
 	bin->to = -1;
 	bin->from = -1;
 	bin->indx_from = -1;

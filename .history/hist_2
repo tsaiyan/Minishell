@@ -125,3 +125,30 @@ echo 123<3
 echo 123 <3
 echo 123 >3
 >>>>>>> de6b4bde21ef8974413a96868d3d4d5bfa564518
+ls
+mkdir test
+cd test
+rm -rm ../test
+rm -rf ../test
+pwd
+cd ..
+ls
+ls
+mkdir test
+ls
+cd test
+pwd
+rm -rf ../test/
+pwd
+cd ..
+ls
+pwd;pwd
+pwd;pwd
+pwd;pwd
+pwd;pwd
+pwd;pwd
+pwd;pwd
+ls;ls
+ls
+ls
+pwd
