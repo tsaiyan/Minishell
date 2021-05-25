@@ -109,8 +109,6 @@ int	uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 	}
 	if (-1 == read_filehistory(hist, 0, NULL))
 	{
-		ft_errors(errno);
-		exit(errno);
 	}
 	return (0);
 }

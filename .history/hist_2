@@ -23,6 +23,7 @@ ytuil
 c
 asd
 ./minishell
+<<<<<<< HEAD
 ls
 pwd
 ./minishell
@@ -101,3 +102,19 @@ ewfewf | ls
 ls|cat -e
 ls|cat -e
 exit
+=======
+cat
+cat
+
+
+cat
+cat
+cat
+cat
+ls|ls
+echo 123|cat
+echo 123|cat
+
+
+cat
+>>>>>>> 1cf378129b32c516012715fc7e8303d2e1073fc9

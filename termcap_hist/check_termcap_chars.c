@@ -23,6 +23,8 @@ static int	check_other_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 		return (eof_char(hist, pa->envp, pa->b));
 	else if (!ft_strcmp(buf, "\3"))
 		return (ctrlc_char(hist));
+	else if ((!ft_strcmp(buf, "\28")))
+		return (1);
 	return (check_other_esc_char2(buf, hist, len, pa));
 }
 

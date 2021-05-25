@@ -3,7 +3,6 @@
 char	*pre_pars_subs(char *arg, t_pars *pa)
 {
 	char	*ret;
-	char	*del;
 	int		i;
 
 	i = -1;
