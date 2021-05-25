@@ -1,8 +1,8 @@
 #include "libft.h"
 
-char			**free_split(char **mall)
+char	**free_split(char **mall)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (mall[i])
@@ -16,7 +16,7 @@ char			**free_split(char **mall)
 
 static size_t	atoi_strlen(const char *str, char c)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	if (!str)
@@ -30,7 +30,7 @@ static size_t	atoi_strlen(const char *str, char c)
 
 static size_t	wc(char const *str, char c)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	if (!str)
@@ -49,7 +49,7 @@ static size_t	wc(char const *str, char c)
 	return (count);
 }
 
-char			**ft_split(char const *src, char c)
+char	**ft_split(char const *src, char c)
 {
 	char	**mall;
 	size_t	i;
@@ -57,14 +57,14 @@ char			**ft_split(char const *src, char c)
 	i = 0;
 	if (!src)
 		return (NULL);
-	 mall = (char**)ft_calloc(sizeof(char*), (wc(src, c) + 1));
-		if (!src)
+	mall = (char **)ft_calloc(sizeof(char *), (wc(src, c) + 1));
+	if (!src)
 		exit(errno);
 	while (*src)
 	{
 		if (*src != c)
 		{
-			mall[i] = ft_substr((char*)src, 0, atoi_strlen(src, c));
+			mall[i] = ft_substr((char *)src, 0, atoi_strlen(src, c));
 			if (!mall[i])
 			{
 				free_split(mall);

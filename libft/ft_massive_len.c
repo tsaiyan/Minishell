@@ -3,7 +3,7 @@
 size_t	ft_massive_len(char **mass)
 {
 	int	len;
-	int i;
+	int	i;
 
 	len = 0;
 	i = -1;
