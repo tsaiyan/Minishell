@@ -21,11 +21,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.history/hist_2" beforeDir="false" afterPath="$PROJECT_DIR$/.history/hist_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/read_filehistory.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/read_filehistory.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termcap_hist/signal_quit.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/signal_quit.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -275,7 +272,7 @@
       <workItem from="1621619763144" duration="353000" />
       <workItem from="1621686621192" duration="931000" />
       <workItem from="1621873080043" duration="295000" />
-      <workItem from="1621950972582" duration="1126000" />
+      <workItem from="1621950972582" duration="1347000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>

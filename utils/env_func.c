@@ -32,11 +32,10 @@ static char	*take_arg(char *curr_arg, int *i)
 	tmp = -1;
 	while (ft_isalnum(curr_arg[j]) || curr_arg[j] == '_')
 	{
-		// if (curr_arg[j] == '$' && curr_arg[j + 1] == '$')
-		// 	return (ft_strdup("$$"));
 		if (j == 1 && ft_isdigit(curr_arg[j]))
 			break ;
-		else if (ft_isdigit(curr_arg[j]) || ft_isalpha(curr_arg[j]) || curr_arg[j] == '_')
+		else if (ft_isdigit(curr_arg[j]) || ft_isalpha(curr_arg[j]) || \
+curr_arg[j] == '_')
 			;
 		else
 			break ;
@@ -51,8 +50,6 @@ static char	*take_arg(char *curr_arg, int *i)
 		ret[tmp] = curr_arg[tmp];
 	return (ret);
 }
-
-
 
 static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 {
@@ -100,17 +97,10 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 
 int	check_envp(char **curr_arg, t_pars *pa, int *i, int stage)
 {
-
 	if (stage == STAGE_FIRST)
 	{
 		if (0 > no_quot_subst_env(curr_arg, pa, i))
-		{
-			// if (pa->tmp != 1)
-			// 	*i -= 1;
-			// else if (pa->tmp == 2)
-			// 	*i += 1;
 			return (1);
-		}
 	}
 	if (stage == STAGE_SECOND)
 	{

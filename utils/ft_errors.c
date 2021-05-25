@@ -55,7 +55,7 @@ int	write_error(int code, char *arg)
 	return (code);
 }
 
-int ft_errors(int code)
+int	ft_errors(int code)
 {
 	write(2, "minishell:", 10);
 	printf("%s\n", strerror(errno));

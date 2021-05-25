@@ -21,7 +21,7 @@ static void	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 	g_sig.exit_status = tmp_exit_status;
 }
 
-static char *take_history_filename(t_pars *pa, t_hist *hist, char *del)
+static char	*take_history_filename(t_pars *pa, t_hist *hist, char *del)
 {
 	char	*str_lvl;
 	char	*ret;

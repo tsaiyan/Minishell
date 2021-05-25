@@ -1,6 +1,6 @@
 #include "header.h"
 
-static int read_filehistory2(t_hist *hist, char **line, char ***del, char ***h)
+static int	read_filehistory2(t_hist *hist, char **line, char ***del, char ***h)
 {
 	*del = *h;
 	*h = ft_realloc_2massive(del, *line, hist->h_len++);
@@ -15,7 +15,7 @@ static void	free_hist(t_hist *hist, char ***h)
 	hist->h = *h;
 }
 
-int read_filehistory(t_hist *hist, int flag, char *line)
+int	read_filehistory(t_hist *hist, int flag, char *line)
 {
 	char	**h;
 	char	**del;

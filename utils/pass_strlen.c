@@ -8,7 +8,7 @@ int	pass_strlen(char *str)
 	while (*str)
 	{
 		if (*str != EMPTY_SPACE && *str != EMPTY_BACK_SLASH && \
-		*str !=	EMPTY_S_QUOT && *str != EMPTY_W_QUOT)
+*str != EMPTY_S_QUOT && *str != EMPTY_W_QUOT)
 			len++;
 		str++;
 	}
