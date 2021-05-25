@@ -1,17 +1,17 @@
 #include "header.h"
 
-int 		check_len_left_right(char *line)
+int	check_len_left_right(char *line)
 {
 	if (line)
 		return ((int)ft_strlen(line));
 	return (0);
 }
 
-int left_arrow(char *buf, int len, t_hist *hist)
+int	left_arrow(char *buf, int len, t_hist *hist)
 {
-	int 		len_left;
-	int 		len_right;
-	char 		*del;
+	int		len_left;
+	int		len_right;
+	char	*del;
 
 	len_left = check_len_left_right(hist->left);
 	len_right = check_len_left_right(hist->right);
@@ -39,13 +39,13 @@ int left_arrow(char *buf, int len, t_hist *hist)
 	return (1);
 }
 
-int right_arrow(char *buf, int len, t_hist *hist)
+int	right_arrow(char *buf, int len, t_hist *hist)
 {
-	int 		len_left;
-	int 		len_right;
-	char		tmp[2];
-	char 		*del;
-	int 		i;
+	int		len_left;
+	int		len_right;
+	char	tmp[2];
+	char	*del;
+	int		i;
 
 	len_right = check_len_left_right(hist->right);
 	len_left = check_len_left_right(hist->left);

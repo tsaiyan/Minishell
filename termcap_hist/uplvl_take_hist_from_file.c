@@ -1,10 +1,10 @@
 #include "header.h"
 
-static void 	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
+static void	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 {
-	char 		**com;
+	char	**com;
 
-	com = malloc(sizeof(char*) * 3);
+	com = malloc(sizeof(char *) * 3);
 	if (com == NULL)
 	{
 		ft_errors(MALLOC_ERR);
@@ -18,12 +18,12 @@ static void 	do_history_dir(char *str1, char *str2, char ***envp, t_bin *bin)
 	bin->exit_off = 0;
 }
 
-static char 	*take_history_filename(t_pars *pa, t_hist *hist)
+static char	*take_history_filename(t_pars *pa, t_hist *hist)
 {
-	char 		*str_lvl;
-	char 		*del;
-	char 		*ret;
-	DIR 		*dir;
+	char	*str_lvl;
+	char	*del;
+	char	*ret;
+	DIR		*dir;
 
 	str_lvl = ft_itoa(hist->SHLVL);
 	del = str_lvl;
@@ -48,9 +48,9 @@ static char 	*take_history_filename(t_pars *pa, t_hist *hist)
 	return (ret);
 }
 
-static int 		up_lvl(t_pars *pa, t_hist *hist)
+static int	up_lvl(t_pars *pa, t_hist *hist)
 {
-	char 		*lvl;
+	char	*lvl;
 
 	lvl = take_arg_from_env("$SHLVL", pa);
 	if (!lvl)
@@ -70,15 +70,13 @@ static int 		up_lvl(t_pars *pa, t_hist *hist)
 	return (0);
 }
 
-static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
+static int	open_and_take_hist(t_pars *pa, t_hist *hist)
 {
-
-	char 		*file;
-	char		*hist_folder_name;
-	int 		tmp;
+	char	*file;
+	char	*hist_folder_name;
+	int		tmp;
 
 	tmp = 0;
-	
 	file = take_history_filename(pa, hist);
 	// hist->fd_for_add = open(file, O_CREAT | O_RDWR, 0644);
 	hist->fd_for_add = open("hist_1", O_CREAT | O_RDWR, 0644);
@@ -91,7 +89,7 @@ static int 		open_and_take_hist(t_pars *pa, t_hist *hist)
 	return (0);
 }
 
-int uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
+int	uplvl_take_hist_from_file(t_pars *pa, t_hist *hist, char **apple)
 {
 	hist->exec_path = do_absolute_exec_path(apple);
 	pa->b = malloc(sizeof(t_bin));

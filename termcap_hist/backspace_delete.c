@@ -1,9 +1,9 @@
 #include "header.h"
 
-int 			backspace_key(char *buf, int len, t_hist *hist)
+int	backspace_key(char *buf, int len, t_hist *hist)
 {
-	size_t		len_left;
-	int 		len_arg;
+	size_t	len_left;
+	int		len_arg;
 
 	len_left = 0;
 	if (NULL != hist->left)
@@ -24,10 +24,10 @@ int 			backspace_key(char *buf, int len, t_hist *hist)
 	return (1);
 }
 
-int del_key(t_hist *hist)
+int	del_key(t_hist *hist)
 {
-	int 		len_right;
-	char 		*tmp;
+	int		len_right;
+	char	*tmp;
 
 	len_right = 0;
 	if (NULL != hist->right)

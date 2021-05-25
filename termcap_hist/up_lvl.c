@@ -1,8 +1,8 @@
 #include "header.h"
 
-char **alloc_uplvl(char *name_arg, int current_lvl)
+char	**alloc_uplvl(char *name_arg, int current_lvl)
 {
-	char **ret;
+	char	**ret;
 	char	*tmp;
 	char	*del[2];
 

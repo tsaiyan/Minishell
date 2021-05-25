@@ -1,6 +1,6 @@
 #include "header.h"
 
-static int check_other_esc_char2(char *buf, t_hist *hist, int len, t_pars *pa)
+static int	check_other_esc_char2(char *buf, t_hist *hist, int len, t_pars *pa)
 {
 	if (!ft_strcmp(buf, "\e[H"))
 		return (home_key(hist));
@@ -11,7 +11,7 @@ static int check_other_esc_char2(char *buf, t_hist *hist, int len, t_pars *pa)
 	return (0);
 }
 
-static int check_other_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
+static int	check_other_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 {
 	if (!ft_strcmp(buf, "\t"))
 		return (1);
@@ -26,7 +26,7 @@ static int check_other_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 	return (check_other_esc_char2(buf, hist, len, pa));
 }
 
-int check_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
+int	check_esc_char(char *buf, t_hist *hist, int len, t_pars *pa)
 {
 	if (!ft_strcmp(buf, "\e[D"))
 		return (left_arrow(buf, len, hist));

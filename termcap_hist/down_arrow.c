@@ -1,6 +1,6 @@
 #include "header.h"
 
-static void 	write_history_line(t_hist *hist, int len)
+static void	write_history_line(t_hist *hist, int len)
 {
 	move_to_cours_toleft(len);
 	write(1, DELETE_CURS_BORD, 4);
@@ -8,7 +8,7 @@ static void 	write_history_line(t_hist *hist, int len)
 		write(1, hist->left, ft_strlen(hist->left));
 }
 
-void 			ft_free_left_right(char **left, char **right)
+void	ft_free_left_right(char **left, char **right)
 {
 	if (left)
 	{
@@ -22,10 +22,10 @@ void 			ft_free_left_right(char **left, char **right)
 	}
 }
 
-static int work_with_tmpline(t_hist *hist, int old_curr, int len_write)
+static int	work_with_tmpline(t_hist *hist, int old_curr, int len_write)
 {
-	char 		*tmp;
-	char 		*del_l;
+	char	*tmp;
+	char	*del_l;
 
 	if (old_curr != hist->curr_line)
 	{
@@ -50,26 +50,26 @@ static int work_with_tmpline(t_hist *hist, int old_curr, int len_write)
 	return (1);
 }
 
-static int down_arrow2(t_hist *hist, int old_curr, int len_write)
+static int	down_arrow2(t_hist *hist, int old_curr, int len_write)
 {
-	char 		*tmp;
-	char 		*del_l;
+	char	*tmp;
+	char	*del_l;
 
 	del_l = hist->left;
 	tmp = hist->h[old_curr];
 	hist->h[old_curr] = ft_strjoin(del_l, hist->right);
 	if (NULL != tmp)
-			free(tmp);
+		free(tmp);
 	hist->left = ft_strdup(hist->h[hist->curr_line]);
 	ft_free_left_right(&del_l, &hist->right);
 	write_history_line(hist, len_write);
 	return (1);
 }
 
-int down_arrow(t_hist *hist)
+int	down_arrow(t_hist *hist)
 {
-	int 		old_curr;
-	int 		len;
+	int	old_curr;
+	int	len;
 
 	old_curr = hist->curr_line;
 	len = 0;

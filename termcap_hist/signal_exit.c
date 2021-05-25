@@ -1,8 +1,8 @@
 #include "header.h"
 
-void signal_exit(int sig)
+void	signal_exit(int sig)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	pid = waitpid(0, 0, WNOHANG);
 	g_sig.sigint = TRUE;

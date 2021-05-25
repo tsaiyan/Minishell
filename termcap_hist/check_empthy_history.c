@@ -1,6 +1,6 @@
 #include "header.h"
 
-int check_empty_history(t_hist *hist, char *buf)
+int	check_empty_history(t_hist *hist, char *buf)
 {
 	if (!hist->left)
 		return (1);

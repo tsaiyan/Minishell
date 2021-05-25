@@ -1,6 +1,6 @@
 #include "header.h"
 
-void 		move_to_cours_toleft(int len)
+void	move_to_cours_toleft(int len)
 {
 	while (len)
 	{
@@ -9,9 +9,9 @@ void 		move_to_cours_toleft(int len)
 	}
 }
 
-static void check_currline_number(t_hist *hist, int len_left)
+static void	check_currline_number(t_hist *hist, int len_left)
 {
-	int 		len;
+	int		len;
 
 	len = 0;
 	if (hist->h[hist->curr_line])
@@ -28,7 +28,7 @@ static void check_currline_number(t_hist *hist, int len_left)
 	write(1, hist->left, ft_strlen(hist->left));
 }
 
-static int up_arrow2(t_hist *hist, int len)
+static int	up_arrow2(t_hist *hist, int len)
 {
 	if (hist->curr_line - 1 >= 0)
 	{
@@ -38,9 +38,9 @@ static int up_arrow2(t_hist *hist, int len)
 	return (1);
 }
 
-int up_arrow(t_hist *hist, int len)
+int	up_arrow(t_hist *hist, int len)
 {
-	char		*del;
+	char	*del;
 
 	if (hist->curr_line == 0)
 		return ((int)write (1, "\7", 1));

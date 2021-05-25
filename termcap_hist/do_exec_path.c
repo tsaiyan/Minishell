@@ -1,11 +1,11 @@
 #include "header.h"
 
-char 			*do_absolute_exec_path(char **apple)
+char	*do_absolute_exec_path(char **apple)
 {
-	char 		*r;
-	char 		*del;
-	int 		tmp_i;
-	int 		path_len;
+	char	*r;
+	char	*del;
+	int		tmp_i;
+	int		path_len;
 
 	tmp_i = 0;
 	path_len = (int)ft_strlen(*apple) - 10;

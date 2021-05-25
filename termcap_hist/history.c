@@ -1,15 +1,15 @@
 #include "header.h"
 
-static void			take_terminal_type(char **terminal)
+static void	take_terminal_type(char **terminal)
 {
 	*terminal = getenv("TERM");
 	if (NULL == *terminal)
 		*terminal = getenv("TERM");
 }
 
-void 		history_init(t_hist *hist, struct termios *term, t_pars *pa)
+void	history_init(t_hist *hist, struct termios *term, t_pars *pa)
 {
-	int 	ret;
+	int	ret;
 
 	tcgetattr(0, term);
 	take_terminal_type(&hist->terminal);
@@ -31,9 +31,9 @@ void 		history_init(t_hist *hist, struct termios *term, t_pars *pa)
 	hist->term_lines = tgetnum("li");
 }
 
-void 		term_off(t_hist *hist)
+void	term_off(t_hist *hist)
 {
-	int		ret;
+	int	ret;
 
 	hist->term->c_lflag |= (ECHO);
 	hist->term->c_lflag |= (ICANON);

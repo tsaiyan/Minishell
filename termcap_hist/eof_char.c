@@ -18,11 +18,11 @@
 // 	**(out + 2) = NULL;
 // }
 
-int eof_char(t_hist *hist, char **env, t_bin *b)
+int	eof_char(t_hist *hist, char **env, t_bin *b)
 {
-	char 		**out;
-	int 		len_right;
-	int 		len_left;
+	char	**out;
+	int		len_right;
+	int		len_left;
 
 	out = NULL;
 	len_right = check_len_left_right(hist->right);

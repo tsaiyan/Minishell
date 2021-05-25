@@ -1,9 +1,9 @@
 #include "header.h"
 
-int 		home_key(t_hist *hist)
+int	home_key(t_hist *hist)
 {
-	int 	len_left;
-	int 	tmp;
+	int	len_left;
+	int	tmp;
 
 	len_left = check_len_left_right(hist->left);
 	if (len_left)
@@ -18,10 +18,10 @@ int 		home_key(t_hist *hist)
 	return (1);
 }
 
-int 		end_key(t_hist *hist)
+int	end_key(t_hist *hist)
 {
-	int 	len_right;
-	int 	tmp;
+	int	len_right;
+	int	tmp;
 
 	len_right = check_len_left_right(hist->right);
 	if (len_right)

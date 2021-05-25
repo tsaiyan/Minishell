@@ -1,11 +1,11 @@
 #include "header.h"
 
-int 		read_filehistory(t_hist *hist)
+int	read_filehistory(t_hist *hist)
 {
 	char	*line;
-	char 	**h;
+	char	**h;
 	char	**del;
-	int 	flag;
+	int		flag;
 
 	h = NULL;
 	hist->h_len = 0;
