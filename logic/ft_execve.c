@@ -86,6 +86,7 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv)
 	if (bin->pid == 0)
 	{
 		g_sig.exit_status = execve(execve_str, argv, bin->envp);
+		free(execve_str);
 		if (argv[0][0] == '.' || argv[0][0] == '/')
 			exit(command_error(argv[0], 5));
 		exit(0);

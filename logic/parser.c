@@ -72,6 +72,12 @@ void	ft_prepare_parcer(t_bin *bin)
 	bin->error = 0;
 	bin->pid = -1;
 	bin->error_ret = 0;
+	if (bin->split_str)
+	{
+		write(2, "free_split\n", 10);
+		free_split(bin->split_str);
+	}
+	bin->split_str = NULL;
 	if (bin->argv && !ft_strcmp(bin->argv[0], "./minishell"))
 		launch_minishell();
 	ft_bzero(&bin->fds_red, sizeof(bin->fds_red));
