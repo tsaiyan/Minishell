@@ -34,3 +34,6 @@ cat
 ls|ls
 echo 123|cat
 echo 123|cat
+
+
+cat
