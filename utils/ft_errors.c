@@ -15,7 +15,7 @@ static void	prnt(char *arg)
 	}
 }
 
-static int	write_error2(int code, char *arg)
+static int write_error2(int code)
 {
 	if (code == ERROR_UNEXPECTED_SEMICOLON)
 	{
@@ -43,7 +43,7 @@ static int	write_error2(int code, char *arg)
 int	write_error(int code, char *arg)
 {
 	write(2, "\nminishell: ", 12);
-	if (0 > write_error2(code, arg))
+	if (0 > write_error2(code))
 		return (code);
 	prnt(arg);
 	if (code == MULTI_LINE_COMMAND)

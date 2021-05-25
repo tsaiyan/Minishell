@@ -1,6 +1,6 @@
 #include "header.h"
 
-static int	check_pipe(char *line, t_pars *pa, const int *i, int flag)
+static int check_pipe(char *line, const int *i, int flag)
 {
 	int	tmp;
 
@@ -28,7 +28,7 @@ static int	check_pipe(char *line, t_pars *pa, const int *i, int flag)
 	return (0);
 }
 
-static int	check_semicolon(char *line, t_pars *pa, const int *i)
+static int check_semicolon(char *line, const int *i)
 {
 	int	tmp;
 
@@ -48,11 +48,11 @@ int	check_semicolon_and_syntax2(char *line, t_pars *pa, int *i, int ret)
 	if ((line[*i] == S_QUOT || line[*i] == W_QUOT) && line[*i - 1] != '\\')
 		check_quotes_subst(line, pa, i);
 	if (line[*i] == ';' && line[*i - 1] != '\\' && pa->quot_flag == 0)
-		if (0 > (check_semicolon(line, pa, i)))
+		if (0 > (check_semicolon(line, i)))
 			return (ERROR_UNEXPECTED_SEMICOLON);
 	if (line[*i] == '|' && line[*i - 1] != '\\' && pa->quot_flag == 0)
 	{
-		ret = check_pipe(line, pa, i, 0);
+		ret = check_pipe(line, i, 0);
 		if (0 > ret)
 			return (ret);
 	}

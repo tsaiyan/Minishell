@@ -4,6 +4,7 @@ void	signal_exit(int sig)
 {
 	pid_t	pid;
 
+	(void)sig;
 	pid = waitpid(0, 0, WNOHANG);
 	g_sig.sigint = TRUE;
 	if (!pid)

@@ -22,7 +22,7 @@ static int	check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	return (0);
 }
 
-static char	*take_arg(char *curr_arg, int *i)
+static char *take_arg(char *curr_arg)
 {
 	int		j;
 	int		tmp;
@@ -61,7 +61,7 @@ static int	no_quot_subst_env(char **arg, t_pars *pa, int *i)
 		num = *i;
 		if (check_specific_dollar2(arg, i))
 			return (0);
-		str = take_arg(*arg + *i, &num);
+		str = take_arg(*arg + *i);
 		if (NULL == str)
 			return (ft_errors(CALLOC_ERR));
 		if (check_specific_dollar(arg, pa, i, str))
@@ -82,7 +82,7 @@ static int	quot_subst_env(char **arg, t_pars *pa, int *i)
 		num = *i;
 		if (check_specific_dollar2(arg, i))
 			return (0);
-		str = take_arg(*arg + *i, &num);
+		str = take_arg(*arg + *i);
 		if (NULL == str)
 			return (ft_errors(CALLOC_ERR));
 		if (check_specific_dollar(arg, pa, i, str))

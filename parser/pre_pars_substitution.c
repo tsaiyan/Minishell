@@ -12,7 +12,7 @@ void	check_quotes_subst(char *arg, t_pars *pa, int *i)
 		pa->quot_flag = 0;
 }
 
-static int	check_slashes(const char *arg, t_pars *pa, int *i)
+static int check_slashes(const char *arg, int *i)
 {
 	if (arg[*i] == '\\' && arg[*i + 1] != '\0')
 	{
@@ -28,7 +28,7 @@ int	check_chars_subst(char **arg, t_pars *pa, int *i)
 		check_spaces_prep(*arg + *i, pa);
 	else if (arg[0][*i] == '\\')
 	{
-		if (check_slashes(*arg, pa, i))
+		if (check_slashes(*arg, i))
 		{
 			write_error(MULTI_LINE_COMMAND, pa->s);
 			return (1);

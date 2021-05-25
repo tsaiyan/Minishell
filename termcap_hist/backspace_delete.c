@@ -1,6 +1,6 @@
 #include "header.h"
 
-int	backspace_key(char *buf, int len, t_hist *hist)
+int backspace_key(t_hist *hist)
 {
 	size_t	len_left;
 	int		len_arg;

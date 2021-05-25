@@ -15,7 +15,7 @@ static int	pre_pars(char *arg, t_pars *pa)
 	return (0);
 }
 
-static int	check_arguments_if(char **arg, char *buf, t_hist *hist, int len)
+static int check_arguments_if(char **arg, char *buf, int len)
 {
 	int	len_arg;
 
@@ -37,14 +37,13 @@ static int	check_arguments_if(char **arg, char *buf, t_hist *hist, int len)
 	return (0);
 }
 
-static int	check_arguments_realloc(char **arg, char *buf, t_pars *pa, \
-t_hist *hist)
+static int check_arguments_realloc(char **arg, char *buf, t_hist *hist)
 {
 	int	len;
 	int	len_arg;
 
 	len = ft_strlen(buf);
-	if (0 != check_arguments_if(arg, buf, hist, len))
+	if (0 != check_arguments_if(arg, buf, len))
 		return (ft_errors(MALLOC_ERR));
 	write(1, buf, len);
 	if (NULL != hist->right)
@@ -67,7 +66,7 @@ t_hist *hist)
 	return (1);
 }
 
-int	take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist, int ret)
+int take_argument_for_pre_pars(char **line, t_pars *pa, int ret)
 {
 	char	*arg;
 	t_pars	s;
@@ -86,7 +85,7 @@ int	take_argument_for_pre_pars(char **line, t_pars *pa, t_hist *hist, int ret)
 	}
 	while (**line != 0)
 	{
-		arg = pars_argument_before_semicolon(line, pa, 0);
+		arg = pars_argument_before_semicolon(line, 0);
 		if (arg == NULL)
 			return (1);
 		pre_pars(arg, pa);
@@ -103,12 +102,12 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 	ret = read(0, buf, 2048);
 	while (ft_strcmp(buf, "\n"))
 	{
-		check = check_esc_char(buf, hist, ret, pa);
+		check = check_esc_char(buf, hist, ret);
 		if (check == 2)
 			return (0);
 		if (!check && check_array_is_ascii(buf))
 		{
-			pa->tmp_flag = check_arguments_realloc(&hist->left, buf, pa, hist);
+			pa->tmp_flag = check_arguments_realloc(&hist->left, buf, hist);
 			if (0 == pa->tmp_flag)
 				break ;
 			else if (pa->tmp_flag < 0)
@@ -118,7 +117,7 @@ int	pre_pars_branching(t_pars *pa, t_hist *hist, int ret, int check)
 		ret = read(0, buf, 2048);
 	}
 	if (add_history_line(hist, buf))
-		if (take_argument_for_pre_pars(&hist->left, pa, hist, 0))
+		if (take_argument_for_pre_pars(&hist->left, pa, 0))
 			return (0);
 	return (0);
 }
