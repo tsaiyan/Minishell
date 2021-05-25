@@ -15,7 +15,7 @@ static int	pre_pars(char *arg, t_pars *pa)
 	return (0);
 }
 
-static int check_arguments_if(char **arg, char *buf, int len)
+static int	check_arguments_if(char **arg, char *buf, int len)
 {
 	int	len_arg;
 
@@ -37,7 +37,7 @@ static int check_arguments_if(char **arg, char *buf, int len)
 	return (0);
 }
 
-static int check_arguments_realloc(char **arg, char *buf, t_hist *hist)
+static int	check_arguments_realloc(char **arg, char *buf, t_hist *hist)
 {
 	int	len;
 	int	len_arg;
@@ -66,7 +66,7 @@ static int check_arguments_realloc(char **arg, char *buf, t_hist *hist)
 	return (1);
 }
 
-int take_argument_for_pre_pars(char **line, t_pars *pa, int ret)
+int	take_argument_for_pre_pars(char **line, t_pars *pa, int ret)
 {
 	char	*arg;
 	t_pars	s;

@@ -15,7 +15,7 @@ static void	prnt(char *arg)
 	}
 }
 
-static int write_error2(int code)
+static int	write_error2(int code)
 {
 	if (code == ERROR_UNEXPECTED_SEMICOLON)
 	{

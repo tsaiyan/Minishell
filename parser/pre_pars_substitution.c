@@ -12,7 +12,7 @@ void	check_quotes_subst(char *arg, t_pars *pa, int *i)
 		pa->quot_flag = 0;
 }
 
-static int check_slashes(const char *arg, int *i)
+static int	check_slashes(const char *arg, int *i)
 {
 	if (arg[*i] == '\\' && arg[*i + 1] != '\0')
 	{

@@ -57,7 +57,7 @@ void	ft_buildins(t_bin *bin)
 	else if (!ft_strcmp(bin->argv[0], "env") || !ft_strcmp(bin->argv[0], "ENV"))
 		ft_env(bin);
 	else if (!bin->p_count)
-		ft_execve(bin, bin->argv[0], bin->argv);
+		ft_execve(bin, bin->argv[0], bin->argv, 0);
 	ft_close_redifd(bin);
 }
 

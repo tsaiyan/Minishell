@@ -82,10 +82,8 @@ char	*get_excve_str(t_bin *bin, char *command, char **argv)
 	return (ret_get_excve_str(bin));
 }
 
-void	ft_execve(t_bin *bin, char *execve_str, char **argv)
+void	ft_execve(t_bin *bin, char *execve_str, char **argv, int status)
 {
-	int	status;
-
 	execve_str = get_excve_str(bin, argv[0], argv);
 	if (execve_str)
 		bin->pid = fork();

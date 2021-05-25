@@ -21,23 +21,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.history/hist_2" beforeDir="false" afterPath="$PROJECT_DIR$/.history/hist_2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/history.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/history.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/pre_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/pre_parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_argumnet_before_semicolon.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_pars_substitution.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_pars_substitution.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/pre_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pre_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/take_arg_before_semicolon2.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/take_arg_before_semicolon2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/backspace_delete.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/backspace_delete.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/check_termcap_chars.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/eof_char.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/eof_char.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/history.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/history.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/termcap_hist/signal_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/termcap_hist/signal_exit.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/env_func.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/env_func.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/ft_errors.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ft_errors.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/build_in.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/build_in.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/ft_pipes.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/ft_pipes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/ft_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/ft_pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/ft_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/ft_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/logic/parser.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +276,7 @@
       <workItem from="1621686621192" duration="931000" />
       <workItem from="1621873080043" duration="295000" />
       <workItem from="1621950972582" duration="1563000" />
-      <workItem from="1621959960946" duration="485000" />
+      <workItem from="1621959960946" duration="781000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>

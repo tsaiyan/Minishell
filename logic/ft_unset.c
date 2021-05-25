@@ -11,7 +11,7 @@ t_mylst	*find_lst(t_mylst *lst, char *key)
 	return (NULL);
 }
 
-void ft_find_and_delete(t_mylst *envexp, char *argv)
+void	ft_find_and_delete(t_mylst *envexp, char *argv)
 {
 	int		i;
 	t_mylst	*lst_to_unset;

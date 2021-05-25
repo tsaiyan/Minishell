@@ -23,11 +23,9 @@ int	main(int argc, char **argv, char *envp[], char **apple)
 	(void)argc;
 	ft_bzero(&g_sig, sizeof(t_sig));
 	ft_bzero(&p, sizeof(t_pars));
+	ft_bzero(&hist, sizeof(t_hist));
 	flag = 0;
 	p.envp = copy_env_massive(envp);
-	hist.right = NULL;
-	hist.left = NULL;
-	hist.terminal = NULL;
 	uplvl_take_hist_from_file(&p, &hist, apple);
 	while (!(check_exit(flag)))
 	{

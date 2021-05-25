@@ -1,6 +1,6 @@
 #include "header.h"
 
-int eof_char(t_hist *hist)
+int	eof_char(t_hist *hist)
 {
 	char	**out;
 	int		len_right;

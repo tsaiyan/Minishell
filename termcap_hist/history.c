@@ -7,7 +7,7 @@ static void	take_terminal_type(char **terminal)
 		*terminal = getenv("TERM");
 }
 
-void history_init(t_hist *hist, struct termios *term)
+void	history_init(t_hist *hist, struct termios *term)
 {
 	int	ret;
 

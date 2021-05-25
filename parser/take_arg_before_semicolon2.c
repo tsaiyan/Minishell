@@ -1,6 +1,6 @@
 #include "header.h"
 
-static int check_pipe(char *line, const int *i, int flag)
+static int	check_pipe(char *line, const int *i, int flag)
 {
 	int	tmp;
 
@@ -28,7 +28,7 @@ static int check_pipe(char *line, const int *i, int flag)
 	return (0);
 }
 
-static int check_semicolon(char *line, const int *i)
+static int	check_semicolon(char *line, const int *i)
 {
 	int	tmp;
 

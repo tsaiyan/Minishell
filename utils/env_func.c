@@ -22,7 +22,7 @@ static int	check_dollar_quest(char **arg, t_pars *pa, char *str, int *i)
 	return (0);
 }
 
-static char *take_arg(char *curr_arg)
+static char	*take_arg(char *curr_arg)
 {
 	int		j;
 	int		tmp;
