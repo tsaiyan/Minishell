@@ -20,7 +20,10 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="" />
+    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.history/hist_2" beforeDir="false" afterPath="$PROJECT_DIR$/.history/hist_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -271,7 +274,7 @@
       <workItem from="1621950972582" duration="1563000" />
       <workItem from="1621959960946" duration="781000" />
       <workItem from="1621965206572" duration="868000" />
-      <workItem from="1622023352878" duration="393000" />
+      <workItem from="1622023352878" duration="564000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>
