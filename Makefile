@@ -16,10 +16,10 @@ PATHLIB = ./libft
 NAMELIB = libft.a
 LIBS = $(PATHLIB)/$(NAMELIB)
 
-FLAG = -g -Wall -Wextra -Werror
+FLAG = -Wall -Wextra -Werror
 HEADER = includes/header.h
 INC = -I./libft -I./includes
-OBJ = $(SRC_FOR_SAVE:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 PATHSRC = parser utils termcap_hist gnl logic
 SRCLIST = $(wildcard $(dir)/*.c)
@@ -33,28 +33,27 @@ SRC_FOR_SAVE = $(foreach dir, $(PATHSRC), $(SRCLIST))
 INC_FOR_SAVE = $(wildcard includes/*.h)
 
 .PHONY: all libs clean fclean re norme save
-.PRECIOUS: minishell
 
 all: libs $(NAME) $(SRC_FOR_SAVE)
 
-$(NAME): $(OBJ) clean
-	$(CC) $(FLAG) -o $(NAME) $(SRC_FOR_SAVE) $(INC) $(LIBS) -ltermcap
+$(NAME): $(HEAD) $(OBJ) $(LIBS)
+	@$(CC) $(FLAG) -o $(NAME) $(OBJ) $(INC) $(LIBS) -ltermcap
 	@echo "$(BOLD)$(GB)Compilation done$(EB)$(SGR0)";
 
-%.o: %.c $(HEAD) $(LIBS)
-	$(CC) -c $(FLAG) $< $(INC) -o $@
+%.o: %.c $(LIBS) $(HEAD)
+	@$(CC) -c $(FLAG) $< $(INC) -o $@
 
 libs:
-	$(MAKE) -C$(PATHLIB)
+	@$(MAKE) -C$(PATHLIB) --silent
 
 clean:
-	rm -f $(OBJ)
-	$(MAKE) clean -C$(PATHLIB)
+	@rm -f $(OBJ)
+	@$(MAKE) clean -C$(PATHLIB)
 	@echo "$(BOLD)$(RB)Del done$(EB)$(SGR0)";
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) fclean -C$(PATHLIB)
+	@rm -f $(NAME)
+	@$(MAKE) fclean -C$(PATHLIB)
 
 norme:
 	@if ! norminetteV3 $(SRC) headers/headers.h\

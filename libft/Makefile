@@ -25,8 +25,6 @@ SRC =	ft_memcmp.c ft_memchr.c ft_memcpy.c ft_memccpy.c ft_memmove.c	\
 																		\
 		get_next_line_utils.c ft_massive_len.c get_next_line.c			\
 		just_freestr_null.c def_freestr_null.c
-		#ft_free_massive.c
-#		ft_realloc_2massive.c
 
 
 
@@ -39,11 +37,11 @@ BOBJ = $(BSRC:.c=.o)
 
 all: $(NAME) $(SRC)
 
-$(NAME): $(OBJ) $(BOBJ) libft.h
-	ar rcs $(NAME) $(OBJ) $(BOBJ)
+$(NAME): $(OBJ) $(BOBJ)
+	@ar rcs $(NAME) $?
 
 %.o: %.c libft.h
-	@$(CC) -c $(FLAG) $< $(INC)
+	@$(CC) -c $(FLAG) $< $(INC) -o $@
 
 .PHONY: RULE bonus all clean fclean re
 
