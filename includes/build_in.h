@@ -35,7 +35,7 @@ typedef struct s_bin
 	short			error;
 	int				exit_status;
 	short			exit_off;
-
+	int				ret;
 	int				from;
 	int				to;
 	int				append;
@@ -67,7 +67,7 @@ int			ft_puts(char *str);
 void		ft_putstr(char *str);
 void		ft_nputs(char *str);
 void		print_list(t_mylst *start, int flag);
-void		ft_echo(t_bin *bin, char **argv);
+int			ft_echo(t_bin *bin, char **argv);
 int			ft_pwd(void);
 int			ft_env(t_bin *bin);
 void		ft_export(t_bin *bin, char **argv);

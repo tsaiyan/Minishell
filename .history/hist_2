@@ -1,0 +1,42 @@
+echo wefew few -n
+norm .
+norm .
+exit
+echo -n fwefewf
+exit 343 444
+echo $?
+echo $?
+echo $?
+echo $?
+pwd
+echo $?
+exit
+pwd
+exit 444 444
+echo $?
+echo $?
+exit erferf
+ls
+./includes
+echo $?
+ls
+./includes
+echo $?
+make clean
+exit
+./logic
+ls
+./includes
+./sdfdsfdsf
+./text
+exit
+ludes
+ls
+./logic
+exit
+./logic
+./logicsdfdf]
+echo $?
+./logic
+echo $?
+./minishell
