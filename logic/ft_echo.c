@@ -58,6 +58,6 @@ int	ft_echo(t_bin *bin, char **argv)
 	}
 	if (!bin->n_flag)
 		ft_putchar('\n');
-	//g_sig.exit_status = 0;
+	g_sig.exit_status = 0;
 	return (0);
 }
