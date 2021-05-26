@@ -1,0 +1,11 @@
+pwd
+export
+export
+export
+export
+env
+export aaa
+unset 123
+export
+echo 1 -n
+exit

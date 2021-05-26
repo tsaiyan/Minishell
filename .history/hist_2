@@ -1,154 +1,73 @@
-asd
-dsa
-./minishell
-asd
-asd
-asdgv
-./minishell
-asd
-sadf
-eh
-brsb
-dsvd
-av
-adf
-bs
-rhb
-rtn
-rt
-n
-rtn
-ytuil
-.i,fv
-c
-asd
-./minishell
-<<<<<<< HEAD
-ls
-pwd
+export
+export
+export
+export
+export
+export
+export
+export
+export
+export
+exit 123 213 33
+exit
+exit
+exit 545 44
+exit
+exit 44 44
+exit
+exit 44 44
+exit
+exit 44 44
+echo $?
+exit
+exit 444 444
+echo $?
+echo $?
+exit
+exit fefef
+exit fefef
+unset 123
+export
+unset 123
+export
+unset 123
+export
+unset 123
+export
+unset 123
+unset 123r
+export
+unset SHELL
+export
+export
+export
+unset SHELL
+export
+unset PATH
+export
+unset PATH
+export
+unset PATH
+export
+unset SHVL
+export
 ./minishell
 exit
-ls
-./minishell
+echo 1 -n
+echo -n 1
+echo -n123 1
+echo 1 -n123
+echo 1 -n123
+echo 1 -n123
+echo 1 -n123
 exit
-ls
-pwd
-ls
-ls
-pwd
-ls | ls
-./minishell
+echo -n 123
+echo 123 -n
+echo efe efe feef
+echo -nnnnnnnnn text
+echo -nnnnn -nfefe text
+echo -n 123
+echo -nnnnn -nfefe text
+echo -nnnnn -nfefe text
+echo -nnnnn -nfefe text
 exit
-ls
-ls
-pwd | ls
-./minishell
-exit
-ls
-pwd | ls
-./minishell
-exit
-ls
-./minishell
-exit
-ls | fdsfdsf
-ls " dsfdsf
-ls
-ls
-ls
-ls " dsfdsf
-ls " dsfdsf
-ls
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-exit
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-exit
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-ls | fdsfdsf
-wefwefwe
-fwefwe
-wefewf
-fewweffwe
-fwefwefwe
-wefwefew
-ewfewf | ls
-ewfewf | ls
-ewfewf | ls
-ewfewf | ls
-ewfewf | ls
-ewfewf | ls
-ls|cat -e
-ls|cat -e
-exit
-=======
-cat
-cat
-
-
-cat
-cat
-cat
-cat
-ls|ls
-echo 123|cat
-echo 123|cat
-
-
-cat
-<<<<<<< HEAD
->>>>>>> 1cf378129b32c516012715fc7e8303d2e1073fc9
-=======
-echo 123>3
-echo 123<3
-echo 123 <3
-echo 123 >3
->>>>>>> de6b4bde21ef8974413a96868d3d4d5bfa564518
-ls
-mkdir test
-cd test
-rm -rm ../test
-rm -rf ../test
-pwd
-cd ..
-ls
-ls
-mkdir test
-ls
-cd test
-pwd
-rm -rf ../test/
-pwd
-cd ..
-ls
-pwd;pwd
-pwd;pwd
-pwd;pwd
-pwd;pwd
-pwd;pwd
-pwd;pwd
-ls;ls
-ls
-ls
-pwd

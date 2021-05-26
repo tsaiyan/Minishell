@@ -33,7 +33,10 @@ int	ft_exit(char **argv)
 	if (!argv[1])
 		write_global_and_exit(0);
 	if (ft_it_digit_array(argv[1]) && argv[2])
+	{
+		g_sig.exit_status = 1;
 		return (command_error(argv[i], 4));
+	}
 	while (argv[i])
 	{
 		j = 0;

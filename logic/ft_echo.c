@@ -16,22 +16,25 @@ static int	ft_check_n(t_bin *bin, char **argv)
 
 	i = 1;
 	j = 2;
-	while (argv[i])
-	{
-		if (!ft_strncmp(argv[i], "-n", 2))
+	ret = 0;
+
+	if (!ft_strncmp(argv[i], "-n", 2))
+		while (argv[i])
 		{
-			while (argv[i][j])
+			if (!ft_strncmp(argv[i], "-n", 2))
 			{
-				if (argv[i][j] != 'n' && argv[i][j] && argv[i][j] != ' ')
-					return (i);
-				j++;
+				while (argv[i][j])
+				{
+					if (argv[i][j] != 'n' && argv[i][j] && argv[i][j] != ' ')
+						return (i);
+					j++;
+				}
+				bin->n_flag = 1;
+				ret = i + 1;
 			}
-			bin->n_flag = 1;
-			ret = i + 1;
+			i++;
+			j = 2;
 		}
-		i++;
-		j = 2;
-	}
 	return (ft_check_n_ret(bin, ret));
 }
 
@@ -40,7 +43,7 @@ void	ft_echo(t_bin *bin, char **argv)
 	int		move;
 
 	move = 1;
-	if (argv[1] == 0)
+	if (argv[1] == NULL)
 	{
 		ft_putchar('\n');
 		return ;
@@ -48,6 +51,8 @@ void	ft_echo(t_bin *bin, char **argv)
 	move = ft_check_n(bin, argv);
 	if (!argv[2] && bin->n_flag)
 		return ;
+	if (move == 0)
+		move++;
 	while (argv[move])
 	{
 		ft_putstr(argv[move]);
