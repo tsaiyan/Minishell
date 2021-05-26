@@ -129,4 +129,5 @@ void		make_redirects(t_bin *bin);
 void		make_redirects(t_bin *bin);
 void		ft_check_malloc(char *str);
 int			type_of_redirect(char *str, int i);
+void		plus_func(t_mylst *add, t_mylst *current);
 #endif

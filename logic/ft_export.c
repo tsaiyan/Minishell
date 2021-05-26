@@ -18,8 +18,7 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 		else if (ft_strcmp(current->key, add->key) == 0 && add->equal)
 		{
 			cur = current->value;
-			if (add->plus)
-				current->value = ft_strjoin(current->value, add->value);
+			plus_func(add, current);
 			free_already_exist_key(add, current, cur);
 			current->equal = 1;
 			return (1);

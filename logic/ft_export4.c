@@ -26,3 +26,13 @@ t_mylst	*my_lst_add_back(t_mylst *start, t_mylst *add)
 	}
 	return (NULL);
 }
+
+void	plus_func(t_mylst *add, t_mylst *current)
+{
+	if (add->plus)
+	{
+		current->value = ft_strjoin(current->value, add->value);
+		free(add->value);
+		add->value = NULL;
+	}
+}
