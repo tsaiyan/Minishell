@@ -15,3 +15,11 @@ env
 ./logic
 echo $?
 >>>>>>> 01c09dd49b363efcfb240d5743a82bb468cdcebe
+exit asd
+exit 123 123
+echo $?
+exit 123 qsad
+exit 123 123
+exit ww ww
+exit ww ww33331
+exit ww ww33331

@@ -171,3 +171,62 @@ export 23324
 bash
 exit
 >>>>>>> 01c09dd49b363efcfb240d5743a82bb468cdcebe
+export 123
+export h
+export h
+export h
+export h
+export h==a
+export h======a
+env
+unset
+unset h
+unset h
+unset h
+export
+export
+export
+export df21
+export df21
+unset df21
+unset df21
+unset df21
+export
+export
+export
+ls
+pwd;pwd
+lslsl
+ls;ls
+exit 1dvbxcxvzsfgd
+exit 123 asd asd
+exit asd asd asd
+./minishell
+echo $?
+./minishell
+./minishell
+exit 99999999
+exit asd
+./minishell
+./minishell
+asd
+$?
+%?
+%?
+$?
+$?
+$?
+$?
+export $www
+export www
+echo $www
+unset www
+export
+env
+export
+export a2
+export a2
+export a2
+export a2
+export a2+=a
+export a2+=a
