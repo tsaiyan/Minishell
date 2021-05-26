@@ -121,4 +121,5 @@ int			make_path_str(t_bin *bin, char *command);
 void		free_and_write_get_execve_str(t_bin *bin, int i);
 void		ft_free_massive(char **mass);
 void		free_diropen(t_bin *bin);
+void		excve_exit_errno(char *execve_str);
 #endif

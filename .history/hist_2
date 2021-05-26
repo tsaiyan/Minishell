@@ -40,3 +40,19 @@ echo $?
 ./logic
 echo $?
 ./minishell
+exit
+ls
+pwd
+text
+cd ggfg
+./text
+ls
+./logic
+./grgergergerg
+./sdfdsfdsf
+df
+pwd
+./sdfdsfs
+echo $?
+echo $?
+exit

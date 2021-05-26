@@ -92,6 +92,7 @@ void	ft_execve(t_bin *bin, char *execve_str, char **argv, int status)
 		g_sig.exit_status = execve(execve_str, argv, bin->envp);
 		excve_exit_errno(execve_str);
 		free(execve_str);
+		exit(0);
 	}
 	else
 	{
