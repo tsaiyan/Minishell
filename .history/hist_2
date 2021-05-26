@@ -1,4 +1,59 @@
+ls
+ls -la
+./minishell
+./minishell
+ls
+exit
+exit 123
+asdf
+echo $?
 asd
-sad
-dsa
-as
+echo $?
+export 123
+./minishell ; ./minishell
+export 123=asd
+unset
+unset 123
+unset 123
+unset 123
+export
+export
+export 123
+export 123
+export 123
+export 123+=1
+export 123
+export 123
+export 123
+export 123
+export 123+=1
+export 123+=1
+export 123+=1
+export 123+=1
+export 123+=1
+export 123+=1
+export 123+=2
+export 12
+export 123
+export
+unset 123
+unset 12
+unset 12
+unset 12
+unset 12
+unset 123
+export
+unset 123
+unset 123
+unset 123
+unset 1
+unset 123
+unset 123321
+export 1
+unset 1
+unset 1
+unset 1
+unset 1213
+unset 312
+unset 3121312
+export
