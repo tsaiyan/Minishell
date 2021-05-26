@@ -49,7 +49,7 @@ int	validate_export(char *str)
 	char	b;
 
 	b = str[0];
-	if (b < 48 || b > 122)
+	if (b < 65 || b > 122)
 		return (0);
 	if (b < 97 && b > 90 && b != '_')
 		return (0);

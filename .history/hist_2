@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ls
 ls -la
 ./minishell
@@ -57,3 +58,116 @@ unset 1213
 unset 312
 unset 3121312
 export
+=======
+echo wefew few -n
+norm .
+norm .
+exit
+echo -n fwefewf
+exit 343 444
+echo $?
+echo $?
+echo $?
+echo $?
+pwd
+echo $?
+exit
+pwd
+exit 444 444
+echo $?
+echo $?
+exit erferf
+ls
+./includes
+echo $?
+ls
+./includes
+echo $?
+make clean
+exit
+./logic
+ls
+./includes
+./sdfdsfdsf
+./text
+exit
+ludes
+ls
+./logic
+exit
+./logic
+./logicsdfdf]
+echo $?
+./logic
+echo $?
+./minishell
+exit
+ls
+pwd
+text
+cd ggfg
+./text
+ls
+./logic
+./grgergergerg
+./sdfdsfdsf
+df
+pwd
+./sdfdsfs
+echo $?
+echo $?
+exit
+exit
+exit
+exit
+echo
+exit
+exit 44
+echo sdfdf -n
+echo sdfdf -n
+echo $?
+echo
+echo $?
+sddfdfdsf
+dsfsddfdsf
+dsfdf
+ls
+sdfsddfd
+exit
+echo sefsef
+echo $?
+echo $?
+vsdfdsfds
+vsdfdsfds
+sdcdsc
+exit
+sdcdsdc
+echo text
+echo dsfwef -n
+echo -n dfddf
+fdd
+ls
+exit
+ls
+echo $?
+echo sfdsf
+sdfdd
+sdfsdfdf
+dsfdsddf
+dff
+exit
+sfsefesf
+sefef
+efefef
+fefef
+sdfdsf
+echo -n dsfdsfdsfdsf
+dsfdsf
+exit
+unset 3434
+unset 2333
+unset 23
+export 23324
+bash
+exit
+>>>>>>> 01c09dd49b363efcfb240d5743a82bb468cdcebe

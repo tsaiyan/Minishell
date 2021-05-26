@@ -31,6 +31,7 @@ int	check_chars_subst(char **arg, t_pars *pa, int *i)
 		if (check_slashes(*arg, i))
 		{
 			write_error(MULTI_LINE_COMMAND, pa->s);
+			free(*arg);
 			return (1);
 		}
 	}

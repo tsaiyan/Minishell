@@ -23,7 +23,7 @@ void	ft_pipe_execve(t_bin *bin, char *execve_str, char **argv)
 {
 	if (bin->pid == 0)
 	{
-		bin->exit_status = execve(execve_str, argv, bin->envp);
+		g_sig.exit_status = execve(execve_str, argv, bin->envp);
 		if (argv[0][0] == '.' && argv[0][1] == '/')
 			exit(command_error(argv[0], 5));
 		exit(0);

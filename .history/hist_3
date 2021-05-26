@@ -1,4 +1,5 @@
 ls
+<<<<<<< HEAD
 cat
 cat
 cat
@@ -10,3 +11,7 @@ ls
 exit
 env
 env
+=======
+./logic
+echo $?
+>>>>>>> 01c09dd49b363efcfb240d5743a82bb468cdcebe
