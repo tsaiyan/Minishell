@@ -37,10 +37,10 @@ int	read_filehistory(t_hist *hist, int flag, char *line)
 		return (-1);
 	if (*line != 0)
 		read_filehistory2(hist, &line, &del, &h);
+	free(line);
 	if (!h)
 		return (-1);
 	free_hist(hist, &h);
-	free(line);
 	return (1);
 }
 
