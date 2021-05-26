@@ -79,10 +79,7 @@ void	ft_prepare_parcer(t_bin *bin)
 		free(bin->dir_to_open);
 	bin->dir_to_open = NULL;
 	if (bin->split_str)
-	{
-		write(2, "free_split\n", 10);
 		free_split(bin->split_str);
-	}
 	bin->split_str = NULL;
 	if (bin->argv && !ft_strcmp(bin->argv[0], "./minishell"))
 		launch_minishell();
@@ -90,17 +87,14 @@ void	ft_prepare_parcer(t_bin *bin)
 	ft_bzero(&bin->fd_pipes, sizeof(bin->fd_pipes));
 }
 
-// int make_command_struct()
-
 int	parser(char **argv, char ***envp, t_bin *bin)
 {
-	if (ft_massive_len(bin->argv) > MAX_ARGV)
-		return (ft_puts("too much argv. What you try to do?"));
 	if (!bin)
 		ft_exit(argv);
 	bin->envp = *envp;
 	bin->argv = argv;
 	ft_prepare_parcer(bin);
+	make_redirects(bin);
 	if (find_redirects(bin) && !check_pipes(bin))
 		ft_redirects(bin, bin->argv);
 	bin->argc = ft_massive_len(bin->argv);

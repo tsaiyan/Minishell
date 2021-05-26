@@ -61,6 +61,9 @@ typedef struct s_bin
 	char			*dir_to_open;
 	char			**split_str;
 	char			*path;
+	char			*com_to_ins;
+	char			*red_to_ins;
+	char			*file_to_ins;
 }					t_bin;
 
 int			ft_puts(char *str);
@@ -122,4 +125,8 @@ void		free_and_write_get_execve_str(t_bin *bin, int i);
 void		ft_free_massive(char **mass);
 void		free_diropen(t_bin *bin);
 void		excve_exit_errno(char *execve_str);
+void		make_redirects(t_bin *bin);
+void		make_redirects(t_bin *bin);
+void		ft_check_malloc(char *str);
+int			type_of_redirect(char *str, int i);
 #endif

@@ -20,7 +20,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if (!tmp)
 	{
 		ft_errors(CALLOC_ERR);
-		return (NULL);
+		exit(errno);
 	}
 	ft_bzero(tmp, size * count);
 	return (tmp);

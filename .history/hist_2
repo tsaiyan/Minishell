@@ -1,111 +1,51 @@
-echo wefew few -n
-norm .
-norm .
+cat<file
+cat<file
+ls>file1|ls>file2
+cat file2
+ls>file3|ls>file4
+cat file4
 exit
-echo -n fwefewf
-exit 343 444
-echo $?
-echo $?
-echo $?
-echo $?
-pwd
-echo $?
+car<file
+cat<file
 exit
-pwd
-exit 444 444
-echo $?
-echo $?
-exit erferf
+cat<file
 ls
-./includes
-echo $?
+cat file
+exit
+cat<file
+cat file
 ls
-./includes
-echo $?
-make clean
+echo text > file
+cat file
+cat<file
 exit
-./logic
-ls
-./includes
-./sdfdsfdsf
-./text
+cat<file
+cat<file
 exit
-ludes
-ls
-./logic
+car<file
+cat<file
 exit
-./logic
-./logicsdfdf]
-echo $?
-./logic
-echo $?
-./minishell
+ls>file1>>file1
+cat file1
+ls>>file1
+cat file1
+ls>file>>file
+cat file
 exit
-ls
-pwd
-text
-cd ggfg
-./text
-ls
-./logic
-./grgergergerg
-./sdfdsfdsf
-df
-pwd
-./sdfdsfs
-echo $?
-echo $?
-exit
-exit
-exit
-exit
-echo
-exit
-exit 44
-echo sdfdf -n
-echo sdfdf -n
-echo $?
-echo
-echo $?
-sddfdfdsf
-dsfsddfdsf
-dsfdf
-ls
-sdfsddfd
-exit
-echo sefsef
-echo $?
-echo $?
-vsdfdsfds
-vsdfdsfds
-sdcdsc
-exit
-sdcdsdc
-echo text
-echo dsfwef -n
-echo -n dfddf
-fdd
-ls
-exit
-ls
-echo $?
-echo sfdsf
-sdfdd
-sdfsdfdf
-dsfdsddf
-dff
-exit
-sfsefesf
-sefef
-efefef
-fefef
-sdfdsf
-echo -n dsfdsfdsfdsf
-dsfdsf
-exit
-unset 3434
-unset 2333
-unset 23
-export 23324
-bash
-exit
+ls>file>>file
+cat file
+ls>fi>>fi
+cat fi
+ls>fi>>fi
+cat fi
+ls>>fi
+cat fi
+rm fi
+ls>fi>>fi
+cat fu
+ls>fi>>fi
+cat fu
+cat fi
+ls > fi >> fi
+ls > fi >> fi
+cat fi
