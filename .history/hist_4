@@ -1,0 +1,6 @@
+exit 123 123 123
+bash
+minishell
+./minishell
+ls
+exit

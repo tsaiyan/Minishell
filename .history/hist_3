@@ -1,0 +1,10 @@
+ls
+cat
+cat
+cat
+echo $?
+exit 123 123 123
+env
+./minishell
+ls
+exit
