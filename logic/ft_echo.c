@@ -45,7 +45,7 @@ int	ft_echo(t_bin *bin, char **argv)
 	if (argv[1] == NULL)
 		return (ft_putchar('\n'));
 	move = ft_check_n(bin, argv);
-	if (!argv[2] && bin->n_flag)
+	if (bin->n_flag && !argv[2])
 		return (0);
 	if (move == 0)
 		move++;
@@ -58,6 +58,6 @@ int	ft_echo(t_bin *bin, char **argv)
 	}
 	if (!bin->n_flag)
 		ft_putchar('\n');
-	g_sig.exit_status = 0;
+	//g_sig.exit_status = 0;
 	return (0);
 }

@@ -20,13 +20,13 @@ int	command_error(char *command, int flag)
 {
 	if (flag == 1)
 	{
-		printf("bash: %s: command not found", command);
+		printf("bash: %s: command not found\n", command);
 		g_sig.exit_status = 127;
 	}
 	else if (flag == 2)
 		printf("bash: export: '%s: not a valid identifier\n", command);
 	else if (flag == 3)
-		printf("bash: exit %s: numeric argument required", command);
+		printf("bash: exit %s: numeric argument required\n", command);
 	else if (flag == 4)
 		ft_puts("bash: exit: too many arguments");
 	else
