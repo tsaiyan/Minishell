@@ -10,6 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
+
+.PHONY: all libs clean fclean re norme save
+
+
 CC = gcc
 NAME = minishell
 PATHLIB = ./libft
@@ -32,7 +36,6 @@ DEP_SRC =$(DIR_DEP)/source_list.txt
 SRC_FOR_SAVE = $(foreach dir, $(PATHSRC), $(SRCLIST))
 INC_FOR_SAVE = $(wildcard includes/*.h)
 
-.PHONY: all libs clean fclean re norme save
 
 all: libs $(NAME) $(SRC_FOR_SAVE)
 
