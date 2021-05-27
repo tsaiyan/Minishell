@@ -64,6 +64,9 @@ typedef struct s_bin
 	char			*com_to_ins;
 	char			*red_to_ins;
 	char			*file_to_ins;
+	char			pwd[PATH_MAX];
+	char			*exp_argv[3];
+	char			*new_pwd;
 }					t_bin;
 
 int			ft_puts(char *str);
@@ -71,7 +74,6 @@ void		ft_putstr(char *str);
 void		ft_nputs(char *str);
 void		print_list(t_mylst *start, int flag);
 int			ft_echo(t_bin *bin, char **argv);
-int			ft_pwd(void);
 int			ft_env(t_bin *bin);
 void		ft_export(t_bin *bin, char **argv);
 int			free_my_lst(t_mylst *lst);
@@ -129,4 +131,5 @@ void		make_redirects(t_bin *bin, int i, int j);
 void		ft_check_malloc(char *str);
 int			type_of_redirect(char *str, int i);
 void		plus_func(t_mylst *add, t_mylst *current);
+int			ft_pwd(t_bin *bin);
 #endif

@@ -129,7 +129,7 @@ void	ft_export(t_bin *bin, char **argv)
 			lst = my_lst_new(argv[i]);
 			my_lst_add_back(bin->export, lst);
 			if (lst->equal)
-				my_lst_add_back(bin->envp_lst, my_lst_new(bin->argv[i]));
+				my_lst_add_back(bin->envp_lst, my_lst_new(argv[i]));
 		}
 		sort_list(bin);
 		list_to_envp(bin);

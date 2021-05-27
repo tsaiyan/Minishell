@@ -4,15 +4,18 @@ void	command_error2(char *command, int flag)
 {
 	if (flag == 5)
 	{
-		ft_putstr("bash: ");
-		ft_putstr(command);
-		ft_puts(": No such file or directory");
+		printf("bash: %s : No such file or directory\n", command);
 		g_sig.exit_status = 127;
 	}
 	if (flag == 6)
 	{
 		printf("bash: %s: is a directory\n", command);
 		g_sig.exit_status = 126;
+	}
+		if (flag == 7)
+	{
+		printf("bash: %s : No such file or directory\n", command);
+		g_sig.exit_status = 1;
 	}
 }
 

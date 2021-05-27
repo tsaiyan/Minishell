@@ -15,7 +15,7 @@ int	check_ret(t_bin *bin, int ret, char *way)
 {
 	if (ret == -1)
 	{
-		command_error(way, 5);
+		command_error(way, 7);
 		bin->error = 1;
 		ft_close_redifd(bin);
 		return (-1);

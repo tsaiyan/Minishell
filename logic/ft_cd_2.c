@@ -26,15 +26,32 @@ char	*ft_get_value(t_mylst *lst, char *key)
 int	change_oldpwd(t_bin *bin, char *str)
 {
 	t_mylst	*oldpwd;
-
+	t_mylst	*pwd;
+	getcwd(bin->pwd, PATH_MAX);
 	oldpwd = find_lst(bin->export, "OLDPWD");
-	if (oldpwd->value)
-		free(oldpwd->value);
-	oldpwd->value = ft_strdup(str);
-	oldpwd = find_lst(bin->envp_lst, "OLDPWD");
-	if (oldpwd->value)
-		free(oldpwd->value);
-	oldpwd->value = ft_strdup(str);
+	if (oldpwd)
+	{
+		if (oldpwd->value)
+			free(oldpwd->value);
+			oldpwd->value = ft_strdup(str);
+		oldpwd = find_lst(bin->envp_lst, "OLDPWD");
+		if (oldpwd->value)
+			free(oldpwd->value);
+		oldpwd->value = ft_strdup(str);
+	}
+	pwd =  find_lst(bin->export, "PWD");
+	if (pwd)
+	{
+		if (bin->new_pwd)
+			free(bin->new_pwd);
+		bin->new_pwd = ft_strjoin("PWD=", ft_strdup(bin->pwd));
+		bin->exp_argv[0] = "export";
+		bin->exp_argv[1] = bin->new_pwd;
+		bin->exp_argv[2] = NULL;
+		ft_export(bin, bin->exp_argv);
+		free(bin->new_pwd);
+		bin->new_pwd = NULL;
+	}
 	return (0);
 }
 
