@@ -6,6 +6,11 @@ int	check_back_slash(char *cur_arg, t_pars *pa, int i)
 		return (write_error(MULTI_LINE_COMMAND, pa->s));
 	if (pa->quot_flag == 0)
 		cur_arg[i] = EMPTY_BACK_SLASH;
+	if (pa->quot_flag == 1)
+	{
+		if (cur_arg[i + 1] == '$')
+			cur_arg[i] = EMPTY_BACK_SLASH;
+	}
 	if (cur_arg[i + 1] == ' ')
 		cur_arg[i + 1] = EMPTY_SPACE;
 	return (0);
