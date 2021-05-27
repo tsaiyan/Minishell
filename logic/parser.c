@@ -94,7 +94,7 @@ int	parser(char **argv, char ***envp, t_bin *bin)
 	bin->envp = *envp;
 	bin->argv = argv;
 	ft_prepare_parcer(bin);
-	make_redirects(bin);
+	make_redirects(bin, 0, 0);
 	if (find_redirects(bin) && !check_pipes(bin))
 		ft_redirects(bin, bin->argv);
 	bin->argc = ft_massive_len(bin->argv);

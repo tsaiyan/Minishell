@@ -93,10 +93,8 @@ int	insert_thee_arrays(t_bin *bin, int change)
 	return (1);
 }
 
-void	make_redirects(t_bin *bin)
+void	make_redirects(t_bin *bin, int i, int j)
 {
-	int	i;
-	int	j;
 	int	flag;
 
 	flag = 1;
