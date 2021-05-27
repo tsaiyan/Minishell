@@ -13,7 +13,7 @@ static int	reverse_redirect(char *line, int *i)
 	while (line[*i] != ';' && line[*i] != 0 && line[*i] != '|' && \
 	line[*i] != '>')
 	{
-		if (ft_isascii(line[*i]))
+		if (ft_isascii(line[*i]) && !ft_isspace(line[*i]))
 			flag = 1;
 		*i += 1;
 	}
@@ -39,8 +39,9 @@ static int	forward_redirect(char *line, int *i, int *ori)
 	while (line[*i] != ';' && line[*i] != 0 && line[*i] != '|' && \
 	line[*i] != '>')
 	{
-		if (ft_isascii(line[*i]))
+		if (ft_isascii(line[*i]) && !ft_isspace(line[*i]))
 			flag = 1;
+		*i += 1;
 	}
 	return ((flag == 0) * SYNTAX_ERROR_PREPARS);
 }
