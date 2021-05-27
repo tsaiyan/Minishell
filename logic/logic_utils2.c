@@ -18,6 +18,10 @@ void	command_error2(char *command, int flag)
 
 int	command_error(char *command, int flag)
 {
+	int save_fd;
+
+	save_fd = dup(1);
+	dup2(2, 1);
 	if (flag == 1)
 	{
 		printf("bash: %s: command not found\n", command);
@@ -33,6 +37,7 @@ int	command_error(char *command, int flag)
 		command_error2(command, flag);
 	if (flag != 1 && flag < 5)
 		g_sig.exit_status = 1;
+	dup2(save_fd, 1);
 	return (0);
 }
 
