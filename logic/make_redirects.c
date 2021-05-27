@@ -68,11 +68,11 @@ int	insert_thee_arrays(t_bin *bin, int change)
 
 int	it_not_redirect_str(char *str)
 {
-	if (!ft_strcmp(str, ">"))
+	if (!ft_strcmp(str, "\007"))
 		return (0);
-	if (!ft_strcmp(str, ">>"))
+	if (!ft_strcmp(str, "\007\007"))
 		return (0);
-	if (!ft_strcmp(str, "<"))
+	if (!ft_strcmp(str, "\006"))
 		return (0);
 	return (1);
 }
@@ -95,7 +95,7 @@ void	make_redirects(t_bin *bin)
 			j = -1;
 			while (bin->argv[i][++j] && flag == 0)
 			{
-				if (bin->argv[i][j] == '>' || bin->argv[i][j] == '<')
+				if (bin->argv[i][j] == FRWRD_RDRCT || bin->argv[i][j] == RVRS_RDRCT)
 				{
 					make_new_str(bin, i, j);
 					flag = insert_thee_arrays(bin, i);

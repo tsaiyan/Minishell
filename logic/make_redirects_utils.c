@@ -8,11 +8,11 @@ void	ft_check_malloc(char *str)
 
 int	type_of_redirect(char *str, int i)
 {
-	if (str[i] == '<')
+	if (str[i] == RVRS_RDRCT)
 		return (1);
-	if (str[i] == '>' && str[i + 1] == '>')
+	if (str[i] == FRWRD_RDRCT && str[i + 1] == FRWRD_RDRCT)
 		return (2);
-	if (str[i] == '>')
+	if (str[i] == FRWRD_RDRCT)
 		return (1);
 	return (0);
 }

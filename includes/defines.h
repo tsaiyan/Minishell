@@ -22,6 +22,9 @@
 # define EMPTY_W_QUOT -3
 # define EMPTY_BACK_SLASH -4
 
+# define FRWRD_RDRCT 7
+# define RVRS_RDRCT 6
+
 # define SHIELD_W_QUOT -20
 # define SHIELD_S_QUOT -21
 

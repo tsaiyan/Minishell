@@ -6,7 +6,7 @@ int	find_redirects(t_bin *bin)
 
 	i = -1;
 	while (bin->envp && bin->argv[++i])
-		if (bin->argv[i][0] == '>' || bin->argv[i][0] == '<')
+		if (bin->argv[i][0] == FRWRD_RDRCT || bin->argv[i][0] == RVRS_RDRCT)
 			return (1);
 	return (0);
 }
@@ -83,11 +83,11 @@ void	ft_redirects(t_bin *bin, char **argv)
 		flag = 0;
 		if (!ft_strcmp(argv[i], "|"))
 			bin->del_pipes++;
-		if (!ft_strcmp(argv[i], ">>"))
+		if (!ft_strcmp(argv[i], "\007\007"))
 			flag = ft_redopen(bin, argv[i + 1], 1, i - 1);
-		if (!ft_strcmp(argv[i], "<"))
+		if (!ft_strcmp(argv[i], "\006"))
 			flag = ft_redopen(bin, argv[i + 1], 2, i - 1);
-		if (!ft_strcmp(argv[i], ">"))
+		if (!ft_strcmp(argv[i], "\007"))
 			flag = ft_redopen2(bin, argv[i + 1], 3, i - 1);
 		if (flag)
 		{

@@ -50,6 +50,18 @@ static int	check_pipes_in_pre(char **cur_arg, t_pars *pa, int *i)
 	return (0);
 }
 
+static int	check_redirects(char **cur_arg, t_pars *pa, int *i)
+{
+	if (pa->quot_flag == 0)
+	{
+		if (cur_arg[0][*i] == '<')
+			cur_arg[0][*i] = RVRS_RDRCT;
+		if (cur_arg[0][*i] == '>')
+			cur_arg[0][*i] = FRWRD_RDRCT;
+	}
+	return (0);
+}
+
 int	check_char(char **cur_arg, t_pars *pa, int *i)
 {
 	if (cur_arg[0][*i] == '\\')
@@ -66,5 +78,7 @@ int	check_char(char **cur_arg, t_pars *pa, int *i)
 		cur_arg[0][*i] = EMPTY_SPACE;
 	else if (cur_arg[0][*i] == '|')
 		check_pipes_in_pre(cur_arg, pa, i);
+	else if (cur_arg[0][*i] == '<' || cur_arg[0][*i] == '>')
+		check_redirects(cur_arg, pa, i);
 	return (0);
 }
