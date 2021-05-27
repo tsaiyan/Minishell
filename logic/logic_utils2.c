@@ -38,8 +38,8 @@ int	command_error(char *command, int flag)
 
 int	its_redirect(char *str)
 {
-	if (!ft_strcmp(str, ">") || !ft_strcmp(str, ">>") || \
-	!ft_strcmp(str, "<"))
+	if (!ft_strcmp(str, "\007") || !ft_strcmp(str, "\007\007") || \
+	!ft_strcmp(str, "\006"))
 		return (1);
 	return (0);
 }

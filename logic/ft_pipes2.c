@@ -25,7 +25,7 @@ int	check_pipes(t_bin *bin)
 	ret = 0;
 	while (bin->argv[i])
 	{
-		if (!ft_strcmp(bin->argv[i], "|"))
+		if (!ft_strcmp(bin->argv[i], "\005"))
 			ret++;
 		i++;
 	}
@@ -42,21 +42,21 @@ int	ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 	int	ret;
 
 	ret = 0;
-	if (!ft_strcmp(command, ">"))
+	if (!ft_strcmp(command, "\007"))
 	{
 		ret = open(bin->argv[i + 1], O_CREAT | O_RDWR | O_TRUNC, 0666);
 		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
 			return (-1);
 		bin->fds_red[c][1] = ret;
 	}
-	if (!ft_strcmp(command, ">>"))
+	if (!ft_strcmp(command, "\007\007"))
 	{
 		ret = open(bin->argv[i + 1], O_CREAT | O_RDWR | O_APPEND, 0666);
 		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
 			return (-1);
 		bin->fds_red[c][1] = ret;
 	}
-	if (!ft_strcmp(command, "<"))
+	if (!ft_strcmp(command, "\006"))
 	{
 		ret = open(bin->argv[i + 1], O_RDONLY);
 		if (check_ret(bin, ret, bin->argv[i + 1]) == -1)
@@ -73,13 +73,13 @@ int	ft_write_red_fd_in_pipes(t_bin *bin, char *command, int i, int c)
 
 int	find_write_and_delete_redirect(t_bin *bin, int i, int c)
 {
-	while (bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
+	while (bin->argv[i] && ft_strcmp(bin->argv[i], "\005"))
 	{
 		if (its_redirect(bin->argv[i]))
 		{
 			ft_write_red_fd_in_pipes(bin, bin->argv[i], i, c);
 			bin->argv = ft_del_index_in2massive(bin->argv, i);
-			if (bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
+			if (bin->argv[i] && ft_strcmp(bin->argv[i], "\005"))
 				bin->argv = ft_del_index_in2massive(bin->argv, i);
 			else
 			{

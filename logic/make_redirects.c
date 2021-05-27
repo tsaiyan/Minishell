@@ -111,7 +111,8 @@ void	make_redirects(t_bin *bin)
 			j = -1;
 			while (bin->argv[i][++j] && flag == 0)
 			{
-				if (bin->argv[i][j] == FRWRD_RDRCT || bin->argv[i][j] == RVRS_RDRCT)
+				if (bin->argv[i][j] == FRWRD_RDRCT || \
+bin->argv[i][j] == RVRS_RDRCT)
 				{
 					make_new_str(bin, i, j);
 					flag = insert_thee_arrays(bin, i);

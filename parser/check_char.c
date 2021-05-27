@@ -43,7 +43,7 @@ static int	check_pipes_in_pre(char **cur_arg, t_pars *pa, int *i)
 	if (pa->quot_flag == 0)
 	{
 		del = *cur_arg;
-		*cur_arg = find_substr_in_str_and_replace("|", *cur_arg, " | ", i);
+		*cur_arg = find_substr_in_str_and_replace("|", *cur_arg, " \005 ", i);
 		free(del);
 		*i += 2;
 	}

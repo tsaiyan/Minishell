@@ -14,7 +14,7 @@ void	pipe_allocations(t_bin *bin)
 
 void	pipe_argv_allocation(t_bin *bin, int n, int c)
 {
-	while (bin->argv[n] && ft_strcmp(bin->argv[n], "|"))
+	while (bin->argv[n] && ft_strcmp(bin->argv[n], "\005"))
 		n++;
 	bin->p_argvs[c] = ft_calloc(sizeof(char *), n + 1 + 1);
 	if (!bin->p_argvs[c])
@@ -35,7 +35,7 @@ void	write_pipes(t_bin *bin)
 	while (bin->argv[i])
 	{
 		k = 0;
-		if (!ft_strcmp(bin->argv[i], "|") && i++)
+		if (!ft_strcmp(bin->argv[i], "\005") && i++)
 			continue ;
 		if (!its_redirect(bin->argv[i]))
 			bin->p_commands[c] = bin->argv[i];
@@ -43,7 +43,7 @@ void	write_pipes(t_bin *bin)
 		pipe_argv_allocation(bin, i, c);
 		bin->p_argvs[c][k] = bin->argv[i];
 		i++;
-		while (bin->argv[i] && ft_strcmp(bin->argv[i], "|"))
+		while (bin->argv[i] && ft_strcmp(bin->argv[i], "\005"))
 			bin->p_argvs[c][++k] = bin->argv[i++];
 		c++;
 	}

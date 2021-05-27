@@ -81,7 +81,7 @@ void	ft_redirects(t_bin *bin, char **argv)
 	while (argv[++i])
 	{
 		flag = 0;
-		if (!ft_strcmp(argv[i], "|"))
+		if (!ft_strcmp(argv[i], "\005"))
 			bin->del_pipes++;
 		if (!ft_strcmp(argv[i], "\007\007"))
 			flag = ft_redopen(bin, argv[i + 1], 1, i - 1);
