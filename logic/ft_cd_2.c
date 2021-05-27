@@ -44,7 +44,7 @@ int	change_oldpwd(t_bin *bin, char *str)
 	{
 		if (bin->new_pwd)
 			free(bin->new_pwd);
-		bin->new_pwd = ft_strjoin("PWD=", ft_strdup(bin->pwd));
+		bin->new_pwd = ft_strjoin("PWD=", bin->pwd);
 		bin->exp_argv[0] = "export";
 		bin->exp_argv[1] = bin->new_pwd;
 		bin->exp_argv[2] = NULL;
