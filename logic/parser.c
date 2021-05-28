@@ -5,11 +5,12 @@ static void	end_of_parcer(t_bin *bin)
 	int	i;
 
 	i = -1;
-	while (bin->argv[++i])
+	if (bin->argv && bin->argv[0])
 	{
-		free(bin->argv[i]);
+		while (bin->argv[++i])
+			free(bin->argv[i]);
+		free(bin->argv);
 	}
-	free(bin->argv);
 	bin->argv = NULL;
 	i = -1;
 	while (bin->fds_to_close[++i])

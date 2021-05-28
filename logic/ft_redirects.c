@@ -96,6 +96,8 @@ void	ft_redirects(t_bin *bin, char **argv)
 				argv = ft_del_index_in2massive(argv, i);
 			i--;
 		}
+		if (flag == -1)
+			return ;
 	}
 	bin->argv = argv;
 }

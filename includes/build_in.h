@@ -67,6 +67,7 @@ typedef struct s_bin
 	char			pwd[PATH_MAX];
 	char			*exp_argv[3];
 	char			*new_pwd;
+	int				open_error;
 }					t_bin;
 
 int			ft_puts(char *str);
@@ -112,7 +113,7 @@ t_mylst		*arr_to_dlist(char **str);
 t_mylst		*my_lst_last(t_mylst *current);
 t_mylst		*find_head(t_mylst *lst);
 t_mylst		*find_lst(t_mylst *lst, char *key);
-t_mylst		*my_lst_add_back(t_mylst *start, t_mylst *add);
+t_mylst		*my_lst_add_back(t_bin *bin, t_mylst *start, t_mylst *add);
 t_mylst		*my_lst_new(char *str);
 int			already_exist_key(t_mylst *current, t_mylst *add);
 void		print_list(t_mylst *start, int flag);

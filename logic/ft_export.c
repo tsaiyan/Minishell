@@ -35,6 +35,8 @@ t_mylst	*my_lst_new(char *str)
 	t_mylst	*new_lst;
 	char	*split_str;
 
+	if (!str)
+		return (NULL);
 	new_lst = ft_calloc(sizeof(t_mylst), 1);
 	if (!new_lst)
 		exit(errno);
@@ -127,9 +129,9 @@ void	ft_export(t_bin *bin, char **argv)
 			if (!validate_export(argv[i]))
 				command_error(argv[i], 2);
 			lst = my_lst_new(argv[i]);
-			my_lst_add_back(bin->export, lst);
+			my_lst_add_back(bin, bin->export, lst);
 			if (lst->equal)
-				my_lst_add_back(bin->envp_lst, my_lst_new(argv[i]));
+				my_lst_add_back(bin, bin->envp_lst, my_lst_new(argv[i]));
 		}
 		sort_list(bin);
 		list_to_envp(bin);

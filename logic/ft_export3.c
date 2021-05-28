@@ -6,13 +6,17 @@ void	swap_list(t_mylst *start, t_mylst *next)
 {
 	char	*buf_value;
 	char	*buf_key;
+	int		buf_equal;
 
+	buf_equal = start->equal;
 	buf_value = start->value;
 	buf_key = start->key;
 	start->value = next->value;
 	start->key = next->key;
+	start->equal = next->equal;
 	next->key = buf_key;
 	next->value = buf_value;
+	next->equal = buf_equal;
 }
 
 // sorting A to z by swap key and value in lists
@@ -28,6 +32,8 @@ void	sort_list(t_bin *bin)
 	{
 		flag = 0;
 		start = bin->export;
+		if (!start)
+			return ;
 		next = start->next;
 		while (next)
 		{
@@ -88,10 +94,10 @@ t_mylst	*arr_to_dlist(char **str)
 
 	i = 1;
 	start = my_lst_new(str[0]);
-	while (str[i])
+	while (start && str[i])
 	{
 		new_lst = my_lst_new(str[i]);
-		my_lst_add_back(start, new_lst);
+		my_lst_add_back(NULL, start, new_lst);
 		i++;
 	}
 	return (start);

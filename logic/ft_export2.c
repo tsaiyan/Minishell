@@ -51,6 +51,8 @@ char	*ft_strdup_chr(char *str, char end)
 
 t_mylst	*my_lst_last(t_mylst *current)
 {
+	if (!current)
+		return (NULL);
 	while (current->next)
 		current = current->next;
 	return (current);
