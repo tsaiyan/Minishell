@@ -20,11 +20,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/valid_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/parser/valid_part.c" afterDir="false" />
-    </list>
+    <list default="true" id="06f8810e-e369-492c-b19b-7fffc1544be8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,8 +51,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/parser/main.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/termcap_hist/uplvl_take_hist_from_file.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/parser/main.c" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="toolchainName" value="System" />
@@ -172,11 +168,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
@@ -273,6 +264,7 @@
       <workItem from="1622023352878" duration="564000" />
       <workItem from="1622038127573" duration="517000" />
       <workItem from="1622129731534" duration="322000" />
+      <workItem from="1622198098462" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="do some bug check&#10;do leak check int termcap funcs&#10;in termcap funcs do esc char check, del char check">
       <created>1618921492081</created>

@@ -17,6 +17,7 @@ static void	prnt(char *arg)
 
 static int	write_error2(int code)
 {
+	g_sig.exit_status = 258;
 	if (code == ERROR_UNEXPECTED_SEMICOLON)
 	{
 		write(2, "syntax error near unexpected token `;'\n", 39);
@@ -43,11 +44,15 @@ static int	write_error2(int code)
 int	write_error(int code, char *arg)
 {
 	write(2, "\nminishell: ", 12);
+	g_sig.exit_status = 258;
 	if (0 > write_error2(code))
 		return (code);
 	prnt(arg);
 	if (code == MULTI_LINE_COMMAND)
+	{
 		write(2, ": multi-line command\n", 21);
+		g_sig.exit_status = 258;
+	}
 	if (code == CANT_ACCESS_ENVP)
 		write(2, ": cant access envp\n", 19);
 	if (code == SYNTAX_ERROR)

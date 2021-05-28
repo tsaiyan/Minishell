@@ -99,6 +99,11 @@ int	check_envp(char **curr_arg, t_pars *pa, int *i, int stage)
 {
 	if (stage == STAGE_FIRST)
 	{
+		if (curr_arg[0][*i] == '$' && curr_arg[0][*i + 1] == ' ')
+		{
+			*i += 2;
+			return (0);
+		}
 		if (0 > no_quot_subst_env(curr_arg, pa, i))
 			return (1);
 	}
