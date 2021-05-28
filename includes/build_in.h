@@ -114,7 +114,7 @@ t_mylst		*my_lst_last(t_mylst *current);
 t_mylst		*find_head(t_mylst *lst);
 t_mylst		*find_lst(t_mylst *lst, char *key);
 t_mylst		*my_lst_add_back(t_bin *bin, t_mylst *start, t_mylst *add);
-t_mylst		*my_lst_new(char *str);
+t_mylst		*my_lst_new(char *str, char *split_str, t_mylst	*new_lst);
 int			already_exist_key(t_mylst *current, t_mylst *add);
 void		print_list(t_mylst *start, int flag);
 int			validate_export(char *str);

@@ -53,7 +53,7 @@ int	ft_cd(t_bin *bin, char **argv)
 			change_oldpwd(bin, bin->temp_old_dir);
 		}
 		else
-			return (ft_puts_and_change_global("bash: cd: HOME not set"), 1);
+			return (ft_puts_and_change_global("bash: cd: HOME not set", 1));
 	}
 	if (cd_with_minus(bin, argv) == 1)
 	{
