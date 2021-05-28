@@ -17,6 +17,7 @@ static void	prnt(char *arg)
 
 static int	write_error2(int code)
 {
+	g_sig.exit_status = 258;
 	if (code == ERROR_UNEXPECTED_SEMICOLON)
 	{
 		write(2, "syntax error near unexpected token `;'\n", 39);
