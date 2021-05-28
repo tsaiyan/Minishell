@@ -47,6 +47,8 @@ int	check_dirent(t_bin *bin, char *command)
 
 void	body_get_excve_str_cycle(t_bin *bin, int *ret, int *flag, char *command)
 {
+	if (!command)
+		return ;
 	bin->dirent = readdir(bin->folder);
 	if (!bin->dirent)
 		*ret = 0;
