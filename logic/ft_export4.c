@@ -16,6 +16,7 @@ t_mylst	*my_lst_add_back(t_bin *bin, t_mylst *start, t_mylst *add)
 {
 	t_mylst	*last;
 
+	(void)bin;
 	if (!already_exist_key(start, add))
 	{	
 		last = my_lst_last(start);
