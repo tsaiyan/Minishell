@@ -12,7 +12,7 @@ void	command_error2(char *command, int flag)
 		printf("bash: %s: is a directory\n", command);
 		g_sig.exit_status = 126;
 	}
-		if (flag == 7)
+	if (flag == 7)
 	{
 		printf("bash: %s : No such file or directory\n", command);
 		g_sig.exit_status = 1;
@@ -21,7 +21,7 @@ void	command_error2(char *command, int flag)
 
 int	command_error(char *command, int flag)
 {
-	int save_fd;
+	int	save_fd;
 
 	save_fd = dup(1);
 	dup2(2, 1);

@@ -93,10 +93,12 @@ t_mylst	*arr_to_dlist(char **str)
 	int		i;
 
 	i = 1;
-	start = my_lst_new(str[0]);
+	if (!str)
+		return (NULL);
+	start = my_lst_new(str[0], NULL, NULL);
 	while (start && str[i])
 	{
-		new_lst = my_lst_new(str[i]);
+		new_lst = my_lst_new(str[i], NULL, NULL);
 		my_lst_add_back(NULL, start, new_lst);
 		i++;
 	}

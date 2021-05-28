@@ -23,24 +23,9 @@ char	*ft_get_value(t_mylst *lst, char *key)
 	return (NULL);
 }
 
-int	change_oldpwd(t_bin *bin, char *str)
+int	change_pwd(t_bin *bin, t_mylst *pwd)
 {
-	t_mylst	*oldpwd;
-	t_mylst	*pwd;
-	getcwd(bin->pwd, PATH_MAX);
-	oldpwd = find_lst(bin->export, "OLDPWD");
-	if (oldpwd)
-	{
-		if (oldpwd->value)
-			free(oldpwd->value);
-			oldpwd->value = ft_strdup(str);
-		oldpwd = find_lst(bin->envp_lst, "OLDPWD");
-		if (oldpwd->value)
-			free(oldpwd->value);
-		oldpwd->value = ft_strdup(str);
-	}
-	pwd =  find_lst(bin->export, "PWD");
-	if (pwd)
+	if (bin && pwd)
 	{
 		if (bin->new_pwd)
 			free(bin->new_pwd);
@@ -48,10 +33,33 @@ int	change_oldpwd(t_bin *bin, char *str)
 		bin->exp_argv[0] = "export";
 		bin->exp_argv[1] = bin->new_pwd;
 		bin->exp_argv[2] = NULL;
-		ft_export(bin, bin->exp_argv);
+		ft_export(bin, bin->exp_argv, 0);
 		free(bin->new_pwd);
 		bin->new_pwd = NULL;
 	}
+	return (0);
+}
+
+int	change_oldpwd(t_bin *bin, char *str)
+{
+	t_mylst	*oldpwd;
+	t_mylst	*pwd;
+
+	getcwd(bin->pwd, PATH_MAX);
+	oldpwd = find_lst(bin->export, "OLDPWD");
+	if (oldpwd)
+	{
+		if (oldpwd->value)
+			free(oldpwd->value);
+		oldpwd->value = ft_strdup(str);
+		oldpwd = find_lst(bin->envp_lst, "OLDPWD");
+		if (oldpwd->value)
+			free(oldpwd->value);
+		oldpwd->value = ft_strdup(str);
+	}
+	pwd = find_lst(bin->export, "PWD");
+	if (pwd)
+		change_pwd(bin, pwd);
 	return (0);
 }
 

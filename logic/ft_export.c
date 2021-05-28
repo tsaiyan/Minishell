@@ -30,11 +30,8 @@ int	already_exist_key(t_mylst *current, t_mylst *add)
 
 // make new list: check += and $
 
-t_mylst	*my_lst_new(char *str)
+t_mylst	*my_lst_new(char *str, char *split_str, t_mylst	*new_lst)
 {
-	t_mylst	*new_lst;
-	char	*split_str;
-
 	if (!str)
 		return (NULL);
 	new_lst = ft_calloc(sizeof(t_mylst), 1);
@@ -109,12 +106,10 @@ void	list_to_envp(t_bin *bin)
 
 // MAIN FUNCTION	
 
-void	ft_export(t_bin *bin, char **argv)
+void	ft_export(t_bin *bin, char **argv, int i)
 {
-	int		i;
 	t_mylst	*lst;
 
-	i = 0;
 	if (!argv[1])
 	{
 		sort_list(bin);
@@ -128,10 +123,11 @@ void	ft_export(t_bin *bin, char **argv)
 				return ;
 			if (!validate_export(argv[i]))
 				command_error(argv[i], 2);
-			lst = my_lst_new(argv[i]);
+			lst = my_lst_new(argv[i], NULL, NULL);
 			my_lst_add_back(bin, bin->export, lst);
 			if (lst->equal)
-				my_lst_add_back(bin, bin->envp_lst, my_lst_new(argv[i]));
+				my_lst_add_back(bin, bin->envp_lst, \
+				my_lst_new(argv[i], NULL, NULL));
 		}
 		sort_list(bin);
 		list_to_envp(bin);

@@ -12,15 +12,23 @@
 
 #include "header.h"
 
+static int	ft_puts_and_change_global(char *str, int error)
+{
+	if (str)
+	{
+		ft_putstr(str);
+		write(1, "\n", 1);
+		g_sig.exit_status = error;
+	}
+	return (0);
+}
+
 int	cd_part_2(t_bin *bin, char **argv)
 {
 	if (cd_with_minus(bin, argv) == 2)
 	{
 		if (chdir(ft_get_value(bin->export, "HOME")) == -1)
-		{
-			ft_puts("bash: cd: HOME not set");
-			g_sig.exit_status = 1;
-		}
+			ft_puts_and_change_global("bash: cd: HOME not set", 1);
 		else
 			return (change_oldpwd(bin, bin->temp_old_dir));
 	}
@@ -45,18 +53,12 @@ int	ft_cd(t_bin *bin, char **argv)
 			change_oldpwd(bin, bin->temp_old_dir);
 		}
 		else
-		{
-			g_sig.exit_status = 1;
-			return (ft_puts("bash: cd: HOME not set"));
-		}
+			return (ft_puts_and_change_global("bash: cd: HOME not set"), 1);
 	}
 	if (cd_with_minus(bin, argv) == 1)
 	{
 		if (chdir(ft_get_value(bin->export, "OLDPWD")) == -1)
-		{
-			g_sig.exit_status = 1;
-			ft_puts("bash: cd: OLDPWD not set");
-		}
+			ft_puts_and_change_global("bash: cd: OLDPWD not set", 1);
 		else
 			return (change_oldpwd(bin, bin->temp_old_dir));
 	}

@@ -62,6 +62,8 @@ t_mylst	*my_lst_last(t_mylst *current)
 
 t_mylst	*find_head(t_mylst *lst)
 {
+	if (!lst)
+		return (NULL);
 	while (lst->prev)
 		lst = lst->prev;
 	return (lst);

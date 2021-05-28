@@ -43,7 +43,7 @@ void	ft_buildins(t_bin *bin)
 	if (bin->from > 0)
 		dup2(bin->from, 0);
 	if (!ft_strcmp(bin->argv[0], "export"))
-		ft_export(bin, bin->argv);
+		ft_export(bin, bin->argv, 0);
 	else if (!ft_strcmp(bin->argv[0], "exit"))
 		ft_exit(bin->argv);
 	else if (!ft_strcmp(bin->argv[0], "cd") || !ft_strcmp(bin->argv[0], "CD"))
@@ -97,7 +97,7 @@ int	parser(char **argv, char ***envp, t_bin *bin)
 	ft_prepare_parcer(bin);
 	make_redirects(bin, 0, 0);
 	if (find_redirects(bin) && !check_pipes(bin))
-		ft_redirects(bin, bin->argv);
+		ft_redirects(bin, bin->argv, -1, 0);
 	bin->argc = ft_massive_len(bin->argv);
 	if (!bin->export)
 		bin->export = arr_to_dlist(bin->envp);

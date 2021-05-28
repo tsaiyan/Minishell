@@ -71,12 +71,8 @@ int	ft_redopen2(t_bin *bin, char *way, int flag, int index)
 	return (1);
 }
 
-void	ft_redirects(t_bin *bin, char **argv)
+void	ft_redirects(t_bin *bin, char **argv, int i, int flag)
 {
-	int	i;
-	int	flag;
-
-	i = -1;
 	bin->del_pipes = 0;
 	while (argv[++i])
 	{

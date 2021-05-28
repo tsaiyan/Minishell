@@ -13,7 +13,7 @@ int	builtin_pipes(t_bin *bin, char *command, char **argv)
 	if (!ft_strcmp(command, "unset"))
 		ft_unset(bin, argv);
 	if (!ft_strcmp(command, "export"))
-		ft_export(bin, argv);
+		ft_export(bin, argv), 0;
 	if (!ft_strcmp(command, "cd"))
 		ft_cd(bin, argv);
 	exit(0);
