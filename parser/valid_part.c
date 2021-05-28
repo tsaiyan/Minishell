@@ -29,7 +29,7 @@ static int	forward_redirect(char *line, int *i, int *ori)
 	if (line[*i] == '>')
 	{
 		if (line[*i + 1] == '>')
-			return (MULTI_LINE_COMMAND);
+			return (SYNTAX_ERROR);
 		*i += 1;
 		*ori += 1;
 	}
