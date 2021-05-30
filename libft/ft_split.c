@@ -5,6 +5,8 @@ char	**free_split(char **mall)
 	int	i;
 
 	i = 0;
+	if (!mall)
+		return (0);
 	while (mall[i])
 	{
 		free(mall[i]);

@@ -133,4 +133,5 @@ void		ft_check_malloc(char *str);
 int			type_of_redirect(char *str, int i);
 void		plus_func(t_mylst *add, t_mylst *current);
 int			ft_pwd(t_bin *bin);
+void		null_ceiges(t_bin *bin);
 #endif

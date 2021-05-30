@@ -2,12 +2,7 @@
 
 int	check_error_in_get_execve_str(t_bin *bin, char *command, char **argv)
 {
-	bin->dirent = NULL;
-	bin->folder = NULL;
-	bin->execve_str = NULL;
-	free_diropen(bin);
-	bin->split_str = NULL;
-	bin->path = NULL;
+	null_ceiges(bin);
 	if (!command || !argv)
 		return (0);
 	if (command[ft_strlen(command) - 1] == '/')
@@ -19,6 +14,7 @@ int	check_error_in_get_execve_str(t_bin *bin, char *command, char **argv)
 			command_error(command, 6);
 		else
 			command_error(command, 5);
+		return (-1);
 	}
 	if (argv[0][0] == '/' || argv[0][0] == '.')
 	{
@@ -76,6 +72,7 @@ char	*get_excve_str(t_bin *bin, char *command, char **argv)
 			ret = 1;
 			if (bin->folder)
 				closedir(bin->folder);
+			bin->folder = NULL;
 			i++;
 		}
 		if (check_dirent(bin, command) == -1)

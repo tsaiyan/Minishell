@@ -1,5 +1,17 @@
 #include "header.h"
 
+void	null_ceiges(t_bin *bin)
+{
+	bin->dirent = NULL;
+	if (bin->folder)
+		closedir(bin->folder);
+	bin->folder = NULL;
+	bin->execve_str = NULL;
+	free_diropen(bin);
+	bin->split_str = NULL;
+	bin->path = NULL;
+}
+
 void	ft_nputs(char *str)
 {
 	write(1, "\n", 1);
