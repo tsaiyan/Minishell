@@ -23,17 +23,39 @@ static int	ft_puts_and_change_global(char *str, int error)
 	return (0);
 }
 
+int	cd_check_dir(t_bin *bin)
+{
+	DIR	*check_dir;
+
+	check_dir = opendir(bin->argv[1]);
+	if (check_dir == NULL)
+	{
+		if (errno == EBADF || errno == 20)
+			printf("bash: cd: %s: Not a directory\n", bin->argv[1]);
+		if (errno == ENOENT)
+			printf("bash: cd: %s: No such file or directory\n", bin->argv[1]);
+		errno = 0;
+		g_sig.exit_status = 1;
+		return (-1);
+	}
+	if (check_dir)
+		closedir(check_dir);
+	return (0);
+}
+
 int	cd_part_2(t_bin *bin, char **argv)
 {
 	if (cd_with_minus(bin, argv) == 2)
 	{
 		if (chdir(ft_get_value(bin->export, "HOME")) == -1)
-			ft_puts_and_change_global("bash: cd: HOME not set", 1);
+			return (ft_puts_and_change_global("bash: cd: HOME not set", 1));
 		else
 			return (change_oldpwd(bin, bin->temp_old_dir));
 	}
 	if (cd_with_minus(bin, argv) == -1)
 		return (cd_outputs(argv, 1));
+	if (cd_check_dir(bin) == -1)
+		return (-1);
 	if (g_sig.exit_status != 1 && argv[1] && chdir(argv[1]) == -1)
 		cd_outputs(argv, 2);
 	else
@@ -58,7 +80,7 @@ int	ft_cd(t_bin *bin, char **argv)
 	if (cd_with_minus(bin, argv) == 1)
 	{
 		if (chdir(ft_get_value(bin->export, "OLDPWD")) == -1)
-			ft_puts_and_change_global("bash: cd: OLDPWD not set", 1);
+			return (ft_puts_and_change_global("bash: cd: OLDPWD not set", 1));
 		else
 			return (change_oldpwd(bin, bin->temp_old_dir));
 	}
