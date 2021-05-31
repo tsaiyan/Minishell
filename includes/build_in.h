@@ -76,7 +76,7 @@ void		ft_nputs(char *str);
 void		print_list(t_mylst *start, int flag);
 int			ft_echo(t_bin *bin, char **argv);
 int			ft_env(t_bin *bin);
-void		ft_export(t_bin *bin, char **argv, int i);
+int			ft_export(t_bin *bin, char **argv, int i);
 int			free_my_lst(t_mylst *lst);
 char		*ft_strdup_chr(char *str, char end);
 void		sort_list(t_bin *bin);

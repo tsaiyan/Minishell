@@ -91,10 +91,6 @@ int	cd_outputs(char **argv, int flag)
 		ft_puts("cd: usage: cd [-L|-P] [dir]");
 	}
 	if (flag == 2)
-	{
-		ft_putstr("bash: cd:");
-		ft_putstr(argv[1]);
-		ft_puts(": No such file or directory");
-	}
+		command_error("cd", 7);
 	return (0);
 }
