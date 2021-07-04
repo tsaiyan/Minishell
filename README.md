@@ -13,6 +13,13 @@ opendir, readdir, closedir, strerror, errno.
     Make
     ./minishell
 
+#### Realised options:
+    builds in: cd, pwd, env, export, unset, exit, echo
+    | (pipes)
+    <, >, >> (redirects)
+    signals (ctrl-C, ctrl-D and ctrl-\)
+    others: all in PATH
+
 #### Skills:
 Team work, processes, pipes, redirects, signals.
 
